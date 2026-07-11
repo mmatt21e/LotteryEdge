@@ -171,6 +171,13 @@ offline caching of the last-fetched data, `Add to Home Screen`, HTTPS.
 
 ## 7. Build phases (milestones)
 
+> **Progress:** Phases 1–5 are implemented for **North Carolina** (scraper, EV
+> engine, daily GitHub Actions cron + Pages deploy, and the installable PWA with
+> ranked list + prize-tier detail). Remaining: wire up the **Virginia** source
+> (needs its XHR endpoint or a Playwright render), then enable Pages and merge to
+> activate the daily cron.
+
+
 - **Phase 0 — Recon (do this first).** Manually inspect the target state's
   scratch-off pages. Confirm: is the data in static HTML or loaded by JS? Is
   there a hidden JSON/XHR endpoint (check the browser Network tab — often easier

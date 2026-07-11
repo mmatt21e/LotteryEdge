@@ -6,13 +6,45 @@ against tickets remaining to find the least-bad (occasionally +EV) games.
 
 See [`PLAN.md`](./PLAN.md) for the full architecture and roadmap.
 
-## Status (Phase 1)
+## Status
 
 - ✅ **EV math** — pure, unit-tested (`src/ev.ts`, `src/ev.test.ts`)
 - ✅ **North Carolina scraper** — live, static HTML via Cheerio (`src/sources/nc.ts`)
+- ✅ **Mobile PWA** — installable React app that ranks games by ROI, with a
+  per-game prize-tier detail sheet (`web/`)
+- ✅ **Automation** — daily GitHub Actions cron scrapes, commits data, and
+  deploys the PWA to GitHub Pages (`.github/workflows/update.yml`)
 - 🚧 **Virginia scraper** — scaffolded; needs the JSON XHR endpoint or a
   Playwright render (`src/sources/va.ts`)
-- ⬜ **PWA frontend** — Phase 3
+
+## Repository layout
+
+```
+src/                 scraper + EV engine (Node/TypeScript)
+data/                published JSON the PWA reads (committed by CI)
+web/                 the PWA (Vite + React)
+.github/workflows/   ci.yml (tests) + update.yml (scrape + deploy)
+```
+
+## The PWA (`web/`)
+
+```bash
+cd web
+npm install
+npm run dev       # local dev (copies ../data into public/data first)
+npm run build     # production build -> web/dist
+```
+
+The app fetches `data/scratchers-<state>.json` from its own origin, so a fresh
+scrape + redeploy is all it takes to update. It's installable (Add to Home
+Screen) and caches the last data for offline viewing.
+
+### Deploying (one-time)
+
+1. Repo **Settings → Pages → Source = "GitHub Actions"**.
+2. Merge to the default branch so the daily `schedule` activates (cron only runs
+   from the default branch). Until then, run **Actions → "Update data & deploy"
+   → Run workflow** manually.
 
 ## How it works
 
