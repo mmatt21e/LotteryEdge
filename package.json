@@ -1,0 +1,26 @@
+{
+  "name": "lotteryedge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Scrapes NC & VA lottery scratch-off prize data and ranks games by estimated expected value.",
+  "scripts": {
+    "scrape": "tsx src/index.ts",
+    "scrape:nc": "tsx src/index.ts nc",
+    "scrape:va": "tsx src/index.ts va",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
