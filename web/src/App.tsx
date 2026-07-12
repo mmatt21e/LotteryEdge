@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useScratchers } from "./useScratchers.js";
 import { Sparkline } from "./Sparkline.js";
 import { buildDemoHistory, distinctDates } from "./demo.js";
 import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges, type GameChange } from "./changes.js";
+import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
 import type { Game, History } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
@@ -17,6 +18,7 @@ import {
   effectiveRoi,
   ticketsToTopPrize,
   recommendForBudget,
+  endingSoon,
   type ConfidenceLevel,
 } from "./analytics.js";
 
@@ -35,6 +37,32 @@ export default function App() {
     setFavs((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
   const changes = useChanges(data?.games, data?.generatedAt);
   const ledger = useLedger();
+  const { theme, cycle } = useTheme();
+  const online = useOnline();
+  const { canInstall, install } = useInstallPrompt();
+
+  // Fire local notifications for favorited games that changed since last visit
+  // (only when the user has granted permission). Once per data generation.
+  const notifiedFor = useRef<string>("");
+  useEffect(() => {
+    if (!data || notifiedFor.current === data.generatedAt) return;
+    if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
+    if (changes.size === 0) return;
+    notifiedFor.current = data.generatedAt;
+    for (const id of favs) {
+      const ch = changes.get(id);
+      if (!ch) continue;
+      const name = data.games.find((g) => g.gameId === id)?.name ?? "A favorite game";
+      const bits: string[] = [];
+      if (ch.topClaimed > 0) bits.push(`${ch.topClaimed} top prize claimed`);
+      if (Math.abs(ch.netDelta) >= 0.005) bits.push(ch.netDelta > 0 ? "better value" : "worse value");
+      try {
+        new Notification("LotteryEdge", { body: `${name}: ${bits.join(" · ")}`, icon: "icon.svg" });
+      } catch {
+        /* ignore */
+      }
+    }
+  }, [data, changes, favs]);
 
   // With ≤1 real day of history, trends/velocity have nothing to show, so we
   // fall back to clearly-labeled SAMPLE data generated from today's snapshot.
@@ -51,6 +79,14 @@ export default function App() {
           <span className="mark">◆</span> LotteryEdge
         </div>
         <div className="top-actions">
+          {canInstall && (
+            <button className="refresh install-pill" onClick={install} aria-label="Install app">
+              ⬇︎
+            </button>
+          )}
+          <button className="refresh" onClick={cycle} aria-label={`Theme: ${theme}`}>
+            {theme === "auto" ? "🌗" : theme === "light" ? "☀️" : "🌙"}
+          </button>
           <button className="refresh" onClick={() => setShowInfo(true)} aria-label="How it works">
             ?
           </button>
@@ -59,6 +95,8 @@ export default function App() {
           </button>
         </div>
       </header>
+
+      {!online && <div className="offline-banner">Offline — showing the last saved data.</div>}
 
       <div className="meta">
         <span className="state-pill">NC</span>
@@ -167,6 +205,7 @@ function ValueTab({
   const [query, setQuery] = useState("");
   const [topOnly, setTopOnly] = useState(false);
   const [favOnly, setFavOnly] = useState(false);
+  const [endingOnly, setEndingOnly] = useState(false);
   const [showBudget, setShowBudget] = useState(false);
 
   const prices = useMemo(() => {
@@ -181,6 +220,7 @@ function ValueTab({
       if (price !== "all" && g.price !== price) return false;
       if (topOnly && g.computed.topPrizesRemaining <= 0) return false;
       if (favOnly && !favSet.has(g.gameId)) return false;
+      if (endingOnly && !endingSoon(g)) return false;
       if (q && !g.name.toLowerCase().includes(q)) return false;
       return true;
     });
@@ -192,7 +232,7 @@ function ValueTab({
       return effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
     });
     return l;
-  }, [games, price, sort, query, topOnly, favOnly, favSet, afterTax]);
+  }, [games, price, sort, query, topOnly, favOnly, endingOnly, favSet, afterTax]);
 
   return (
     <>
@@ -233,6 +273,12 @@ function ValueTab({
             </button>
             <button className={`chip ${topOnly ? "chip-on" : ""}`} onClick={() => setTopOnly((v) => !v)}>
               Top prize left
+            </button>
+            <button
+              className={`chip ${endingOnly ? "chip-on" : ""}`}
+              onClick={() => setEndingOnly((v) => !v)}
+            >
+              ⏳ Ending soon
             </button>
             <button
               className={`chip ${afterTax ? "chip-on" : ""}`}
@@ -309,6 +355,7 @@ function GameCard({
   const width = Math.min(100, Math.max(4, roi * 100));
   const conf = confidence(c.fractionRemaining);
   const odds = profitOdds(game);
+  const ending = endingSoon(game);
   const nets = (history?.series[game.gameId]?.points ?? []).map(pointNet);
 
   return (
@@ -355,6 +402,11 @@ function GameCard({
         <span className="conf-dot" title={conf.reason}>
           <i style={{ background: CONF_COLOR[conf.level] }} /> {conf.level}
         </span>
+        {ending && (
+          <span className={`badge ${ending === "ending" ? "badge-warn" : "badge-down"}`}>
+            ⏳ {ending === "ending" ? "ending" : "ending soon"}
+          </span>
+        )}
         <span>{odds ? `1 in ${int(odds)} to profit` : `${pct(roi, 0)} return`}</span>
         <span>Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left</span>
         {nets.length >= 2 && (
@@ -521,6 +573,14 @@ function Detail({
           </div>
           <div className="sheet-actions">
             <button
+              className="close"
+              onClick={() => shareGame(game, roi)}
+              aria-label="Share"
+              title="Share"
+            >
+              ⤴
+            </button>
+            <button
               className={`star ${isFav ? "star-on" : ""}`}
               onClick={onToggleFav}
               aria-label={isFav ? "Unfavorite" : "Favorite"}
@@ -660,7 +720,26 @@ function Kpi({ label, value, accent }: { label: string; value: string; accent?: 
 const dirColor = (d: -1 | 0 | 1) => (d > 0 ? "#3ddc97" : d < 0 ? "#e08a5b" : "#9aa4c2");
 const dirLabel = (d: -1 | 0 | 1) => (d > 0 ? "improving ↗" : d < 0 ? "declining ↘" : "flat →");
 
+function shareGame(game: Game, roi: number) {
+  const text = `${game.name} ($${game.price}) — ${centsPerDollar(netPerDollar(roi))} net per $1 on LotteryEdge`;
+  const url = location.href;
+  if (typeof navigator !== "undefined" && navigator.share) {
+    void navigator.share({ title: "LotteryEdge", text, url }).catch(() => {});
+  } else if (typeof navigator !== "undefined" && navigator.clipboard) {
+    void navigator.clipboard.writeText(`${text} ${url}`).catch(() => {});
+  }
+}
+
 function InfoSheet({ onClose }: { onClose: () => void }) {
+  const [perm, setPerm] = useState(
+    typeof Notification !== "undefined" ? Notification.permission : "unsupported",
+  );
+  const enableAlerts = async () => {
+    if (typeof Notification === "undefined") return;
+    const p = await Notification.requestPermission();
+    setPerm(p);
+  };
+
   return (
     <div className="sheet-backdrop" onClick={onClose}>
       <div className="sheet" onClick={(e) => e.stopPropagation()}>
@@ -670,6 +749,24 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
           <button className="close" onClick={onClose} aria-label="Close">
             ✕
           </button>
+        </div>
+
+        <div className="alerts-box">
+          <div>
+            <strong>Change alerts</strong>
+            <div className="alerts-sub">
+              {perm === "granted"
+                ? "On — you’ll get a notification when a favorite changes (when you open the app)."
+                : perm === "unsupported"
+                  ? "Notifications aren’t supported on this browser."
+                  : "Get notified when a ★ favorite’s top prize is claimed or its value shifts."}
+            </div>
+          </div>
+          {perm !== "granted" && perm !== "unsupported" && (
+            <button className="add-btn" onClick={enableAlerts}>
+              Enable
+            </button>
+          )}
         </div>
 
         <div className="info">
@@ -704,6 +801,13 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
           <p>
             Built from a daily snapshot. Until 2+ days are collected they show clearly-labeled{" "}
             <strong>sample</strong> data.
+          </p>
+
+          <h4>“Ending soon”</h4>
+          <p>
+            NC doesn’t publish claim deadlines for active games, so this is a{" "}
+            <em>sell-through</em> signal: a game with almost none of its print run left is winding
+            down and will likely be pulled soon. It’s a heads-up, not an official date.
           </p>
 
           <h4>The estimate isn’t a promise</h4>

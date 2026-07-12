@@ -1,0 +1,1458 @@
+
+
+<!DOCTYPE html>
+<html  lang="en">
+	<head id="ctl00_Head1"><title>
+	Scratch-Off - $1,000,000 Triple Play | NC Lottery
+</title><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta http-equiv="Content-Language" content="en" />
+		<!--[if lte IE 11]>
+			<meta http-equiv="refresh" content="0; URL=http://www.mozilla.org/" />
+		<![endif]-->
+		<meta charset="ISO-8859-1" /><meta http-equiv="Cache-control" content="no-cache" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="msapplication-config" content="/Site/GFX/Favicon/browserconfig.xml" /><meta name="theme-color" content="#ffffff" /><meta name="google-site-verification" content="GUhwD7GMcVtGy_87qsf5hPbgrfsSLswNqXTgObNS8BA" /><link rel="apple-touch-icon" sizes="180x180" href="/Site/GFX/Favicon/apple-touch-icon.png" /><link rel="icon" type="image/png" href="/Site/GFX/Favicon/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/Site/GFX/Favicon/favicon-16x16.png" sizes="16x16" /><link rel="manifest" href="/Site/GFX/Favicon/manifest.json" /><link rel="mask-icon" href="/Site/GFX/Favicon/safari-pinned-tab.svg" color="#00a8e1" /><link rel="shortcut icon" href="/Site/GFX/Favicon/favicon.ico" />
+		<link rel="stylesheet" href="/Site/CSS/fngrprnt-639144494450000000/default.css" />
+		<link rel="stylesheet" href="/Site/CSS/fngrprnt-639137567650000000/web.css" />
+		<link rel="stylesheet" href="/Site/CSS/fngrprnt-639046675350000000/structure.css" />
+		<link rel="stylesheet" href="/Site/CSS/fngrprnt-639082329290000000/themes.css" />
+		<link rel="stylesheet" href="/Site/CSS/fngrprnt-639144447510000000/elements.css" />
+		<style type="text/css">
+			/* override style modal dbg headers & logos */
+			mwc-dbg-game-header-logo,
+			.mwc-qp-brand-logo,
+			.mwc-modal-header.mwc-pick3 > img,
+			.mwc-modal-header.mwc-pick4 > img,
+			.mwc-modal-header.mwc-cash > img,
+			.mwc-modal-header.mwc-power > img,
+			.mwc-modal-header.mwc-mega > img,
+			.mwc-modal-header.mwc-lucky > img,
+			.mwc-modal-header.mwc-millionaire > img { display:none !important; }
+			.mwc-modal-header.mwc-dbg-game-bg,
+			.mwc-dbg-game-bg.mwc-dbg-brand-logo	{ height:4rem; max-height:4rem; margin:0; padding:0; background-repeat:no-repeat; background-position:center; }
+			.mwc-power .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-power {	background-color:var(--PowerRed) !important; background-image:url(/Site/GFX/Powerball_container.svg); background-size:auto 3rem; } 
+			.mwc-mega .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-mega {	background-color:#ffffff !important; background-image:url(/Site/GFX/MegaMillions.svg); background-size:auto 3.5rem; }
+			.mwc-lucky .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-lucky {	background-color:#ffffff !important; background-image:url(/Site/GFX/LuckyForLife.svg); background-size:auto 3.5rem; }
+			.mwc-millionaire .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-millionaire {	background-color:#008B4E !important; background-image:url(/Site/GFX/MillionaireForLife.svg); background-size:auto 3.5rem; }
+			.mwc-cash .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-cash {	background-color:#ffffff !important; background-image:url(/Site/GFX/Cash5.svg); background-size:auto 3.5rem; }
+			.mwc-pick3 .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-pick3 {	background-color:#ffffff !important; background-image:url(/Site/GFX/Pick3.svg); background-size:auto 3.5rem; }
+			.mwc-pick4 .mwc-dbg-game-bg.mwc-dbg-brand-logo,
+			.mwc-modal-header.mwc-dbg-game-bg.mwc-pick4 {	background-color:#ffffff !important; background-image:url(/Site/GFX/Pick4.svg); background-size:auto 3.5rem; }
+
+			.mwc-power button.mwc-close,
+			.mwc-millionaire button.mwc-close { color: #FFFFFF !important; }
+			.mwc-power button.mwc-close:hover,
+			.mwc-power button.mwc-close:focus,
+			.mwc-power button.mwc-close:focus-visible,
+			.mwc-power button.mwc-close:active,
+			.mwc-millionaire button.mwc-close:hover,
+			.mwc-millionaire button.mwc-close:focus,
+			.mwc-millionaire button.mwc-close:focus-visible,
+			.mwc-millionaire button.mwc-close:active { color: #FFD200 !important; }
+			.mwc-mega mwc-btn-close-widget > button,
+			.mwc-lucky mwc-btn-close-widget > button,
+			.mwc-cash mwc-btn-close-widget > button,
+			.mwc-pick3 mwc-btn-close-widget > button,
+			.mwc-pick4 mwc-btn-close-widget > button { color:#51748b !important; }
+			.mwc-power mwc-btn-close-widget > button > span:hover,
+			.mwc-power mwc-btn-close-widget > button > span:active,
+			.mwc-mega mwc-btn-close-widget > button > span:hover,
+			.mwc-mega mwc-btn-close-widget > button > span:active,
+			.mwc-lucky mwc-btn-close-widget > button > span:hover,
+			.mwc-lucky mwc-btn-close-widget > button > span:active,
+			.mwc-cash mwc-btn-close-widget > button > span:hover,
+			.mwc-cash mwc-btn-close-widget > button > span:active,
+			.mwc-pick3 mwc-btn-close-widget > button > span:hover,
+			.mwc-pick3 mwc-btn-close-widget > button > span:active,
+			.mwc-pick4 mwc-btn-close-widget > button > span:hover,
+			.mwc-pick4 mwc-btn-close-widget > button > span:active { color:#0073c3 !important; }
+		</style>
+		<script src="/Site/JS/dayjs.min.js"></script>
+		
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l] = w[l] || []; w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NLSSPHH');</script>
+	<!-- End Google Tag Manager -->
+
+
+
+	<style>.xnpe_async_hide{opacity:0 !important}</style>
+	<script>
+		!function(e,n,t,i,r,o){function s(e){if("number"!=typeof e)return e;var n=new Date;return new Date(n.getTime()+1e3*e)}var a=4e3,c="xnpe_async_hide";function p(e){return e.reduce((function(e,n){return e[n]=function(){e._.push([n.toString(),arguments])},e}),{_:[]})}function m(e,n,t){var i=t.createElement(n);i.src=e;var r=t.getElementsByTagName(n)[0];return r.parentNode.insertBefore(i,r),i}function u(e){return"[object Date]"===Object.prototype.toString.call(e)}o.target=o.target||"https://api.exponea.com",o.file_path=o.file_path||o.target+"/js/exponea.min.js",r[n]=p(["anonymize","initialize","identify","getSegments","update","track","trackLink","trackEnhancedEcommerce","getHtml","showHtml","showBanner","showWebLayer","ping","getAbTest","loadDependency","getRecommendation","reloadWebLayers","_preInitialize","_initializeConfig"]),r[n].notifications=p(["isAvailable","isSubscribed","subscribe","unsubscribe"]),r[n].segments=p(["subscribe"]),r[n]["snippetVersion"]="v2.7.0",function(e,n,t){e[n]["_"+t]={},e[n]["_"+t].nowFn=Date.now,e[n]["_"+t].snippetStartTime=e[n]["_"+t].nowFn()}(r,n,"performance"),function(e,n,t,i,r,o){e[r]={sdk:e[i],sdkObjectName:i,skipExperiments:!!t.new_experiments,sign:t.token+"/"+(o.exec(n.cookie)||["","new"])[1],path:t.target}}(r,e,o,n,i,RegExp("__exponea_etc__"+"=([\\w-]+)")),function(e,n,t){m(e.file_path,n,t)}(o,t,e),function(e,n,t,i,r,o,p){if(e.new_experiments){!0===e.new_experiments&&(e.new_experiments={});var l,f=e.new_experiments.hide_class||c,_=e.new_experiments.timeout||a,g=encodeURIComponent(o.location.href.split("#")[0]);e.cookies&&e.cookies.expires&&("number"==typeof e.cookies.expires||u(e.cookies.expires)?l=s(e.cookies.expires):e.cookies.expires.tracking&&("number"==typeof e.cookies.expires.tracking||u(e.cookies.expires.tracking))&&(l=s(e.cookies.expires.tracking))),l&&l<new Date&&(l=void 0);var d=e.target+"/webxp/"+n+"/"+o[t].sign+"/modifications.min.js?http-referer="+g+"&timeout="+_+"ms"+(l?"&cookie-expires="+Math.floor(l.getTime()/1e3):"");"sync"===e.new_experiments.mode&&o.localStorage.getItem("__exponea__sync_modifications__")?function(e,n,t,i,r){t[r][n]="<"+n+' src="'+e+'"></'+n+">",i.writeln(t[r][n]),i.writeln("<"+n+">!"+r+".init && document.writeln("+r+"."+n+'.replace("/'+n+'/", "/'+n+'-async/").replace("><", " async><"))</'+n+">")}(d,n,o,p,t):function(e,n,t,i,r,o,s,a){o.documentElement.classList.add(e);var c=m(t,i,o);function p(){r[a].init||m(t.replace("/"+i+"/","/"+i+"-async/"),i,o)}function u(){o.documentElement.classList.remove(e)}c.onload=p,c.onerror=p,r.setTimeout(u,n),r[s]._revealPage=u}(f,_,d,n,o,p,r,t)}}(o,t,i,0,n,r,e),function(e,n,t){var i;e[n]._initializeConfig(t),(null===(i=t.experimental)||void 0===i?void 0:i.non_personalized_weblayers)&&e[n]._preInitialize(t),e[n].start=function(i){i&&Object.keys(i).forEach((function(e){return t[e]=i[e]})),e[n].initialize(t)}}(r,n,o)}(document,"exponea","script","webxpClient",window,{
+			target: "https://neoengage-va-api.exponea.com",
+			token: "1b292780-60b3-11ef-8ff7-4a460cc88879",
+			experimental: {
+				non_personalized_weblayers: true
+			},
+			new_experiments: { mode: "sync" },
+			// replace with current customer ID or leave commented out for an anonymous customer
+			// customer: window.currentUserId,
+			track: {
+				visits: true,
+			},
+		});
+		exponea.start();
+	</script>
+
+
+
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script>
+			// env vars
+			var NcelServicesUrl = "https://services.nclottery.com/";
+			var PblFrontendUrl = "https://widget-loyalty.pbl.nclottery.com";
+			var NpiGameSrv1Url = "https://gamesrv1.npi.nclottery.com";
+			var NpiInfoUrl = "https://info.npi.nclottery.com";
+			var NpiWebApiUrl = "https://northcarolinawebapi.npi.nclottery.com";
+		</script>
+		<script src="/Site/JS/fngrprnt-639056322550000000/navigation.js"></script>
+		<script src="/Site/JS/fngrprnt-638694964960000000/ncel_cash-pop.js"></script>
+		<script src="/Site/JS/fngrprnt-639071927270000000/fw_mgr_po.js"></script>
+		<script src="/Site/JS/fngrprnt-639064082420000000/fw_mgr_ng.js"></script>
+		
+
+	<meta name="description" content="$1,000,000 Triple Play is an instant game" />
+	<style type="text/css">
+
+		a.img-popup::after {
+			content: "\2750";
+		}
+
+		/* image pop-up */
+		.overlay-dark {
+			display: none;
+		}
+
+		.img-overlay {
+			display: none;
+		}
+
+		.img-overlay {
+			position: fixed;
+			top: 90px;
+			max-height: 100%;
+			left: 50%;
+			transform: translate(-50%, 0) scale(0, 0);
+			z-index: 10;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+			transition: all .3s ease;
+		}
+
+		.overlay-dark {
+			top: 0;
+			position: fixed;
+			background-color: #000;
+			opacity: .9;
+			width: 100%;
+			height: 100%;
+			z-index: 5;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+
+		$(function () {
+			$(".img-popup").on('click', function () {
+				$src = $(this).attr('data-');
+				$(".overlay-dark").css('display', 'block');
+				$(".img-overlay").css('display', 'block');
+				$('.img-overlay').css('opacity', 1);
+				$('.img-overlay').attr('src', $src);
+				$('.img-overlay').css('transform', 'translate(-50%, 0) scale(1, 1)');
+			});
+
+			$(".overlay-dark").on('click', function () {
+				$(".overlay-dark").css('display', 'none');
+				$(".img-overlay").css('display', 'none')
+				$('.img-overlay').css('opacity', 0);
+				setTimeout(function () {
+					$('.img-overlay').css('transform', 'translate(-50%, 0) scale(0, 0)');
+				}, 600);
+			});
+		});
+
+	</script>
+
+</head>
+	<body id="ctl00_BodyId" class="Games ScratchOff ScratchOffDetail">
+		<form name="aspnetForm" method="post" action="/scratch-off/996/1000000-triple-play" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="O/Ghw07tB5hiXLq9sbB0StB3gLC8kQOQ4ou/596ATAhImNdg3qhgfOF3BQuRJA1VdY88cOI6YE6MswCWqxZ/32lhYmtP22kOol4nmOD+Q2pBnCEImd/vifSP73IuReKaGd1V0HyBI+C0YSJgLYF8L87WP2i0B97C71kbqkHiRjEm8yIBG+JDWGes7YMpPkyJON+1IdLgPF5XLh6OgqBqoU1qX+b+ml1tROuq+UeHg4jO2Czeszv7GVmiG+N91bV+CWSvKvpADxnh70yx1IdRP4n5tZ482eeXLJTIdgcE8cQ=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="345325AC" />
+</div>
+
+			<nav>
+				<ul>
+					<li class="navHome" aria-label="Home Page">
+						<a href="/" title="Home Page" aria-label="Home Page"></a>
+					</li>
+					<li class="navMenu" aria-label="Menu Navigation">
+						<button type="button" class="hamburgerMenu" id="hamburger-toggle" aria-expanded="false" aria-controls="hamburger-menu" aria-label="Hamburger Menu">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img" aria-label="Hamburger Menu Icon">
+								<polyline points="4,6 20,6" />
+								<polyline points="4,12 20,12" />
+								<polyline points="4,18 20,18" />
+							</svg>
+						</button>
+						<ul id="main-menu" class="hamburger-hidden">
+							<li>
+								<a href="/play-online" title="Play Online">Play&nbsp;Online</a>
+							</li>
+
+							<li class="js-has-submenu" data-expanded="false">
+								<a href="/games" title="Games">Games</a>
+								<button type="button" class="js-button" aria-expanded="false" aria-controls="games-submenu" aria-label="Submenu of Games">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img" aria-label="Expand Games Menu Arrow">
+										<polyline points="6,9 12,15 18,9" />
+									</svg>
+								</button>
+								<ul aria-hidden="true">
+									<li><a href="/digital-instants">Digital Instants</a></li>
+									<li><a href="/draw-games">Draw Games</a></li>
+									<li><a href="/fast-play">Fast Play Games</a></li>
+									<li><a href="/scratch-off">Scratch-Offs</a></li>
+								</ul>
+							</li>
+
+							<li class="js-has-submenu" data-expanded="false">
+								<a href="/lucke-rewards" title="Rewards">Rewards</a>
+								<button type="button" class="js-button" aria-expanded="false" aria-controls="rewards-submenu" aria-label="Submenu of Rewards">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img" aria-label="Expand Rewards Menu Arrow">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<polyline points="6 9 12 15 18 9" />
+									</svg>
+								</button>
+								<ul aria-hidden="true">
+									<li><a href="/rewards/ticket-entry">Ticket&nbsp;Entry</a></li>
+									<li><a href="/rewards/earn-activity">Earn&nbsp;Points</a></li>
+									<li><a href="/rewards/rewards-drawing">Rewards&nbsp;Drawings</a></li>
+									<li><a href="/rewards/second-chance">Second&nbsp;Chance</a></li>
+									<li><a href="/promotions">Promotions</a></li>
+								</ul>
+							</li>
+
+							<li class="js-has-submenu" data-expanded="false">
+								<a href="/winning" title="Winning">Winning</a>
+								<button type="button" aria-expanded="false" aria-controls="winning-submenu" class="dd-button" aria-label="Submenu of Winning">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img" aria-label="Expand Winning Menu Arrow">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<polyline points="6 9 12 15 18 9" />
+									</svg>
+								</button>
+								<ul aria-hidden="true">
+									<li><a href="/winners">Winners</a></li>
+									<li><a href="/didyouwin">Did You Win?</a></li>
+									<li><a href="/claimprizes">Claim Prizes</a></li>
+								</ul>
+							</li>
+
+							<li class="js-has-submenu" data-expanded="false">
+								<a href="/impact" title="Impact">Impact</a>
+								<button type="button" aria-expanded="false" aria-controls="impact-submenu" class="dd-button" aria-label="Submenu of Impact">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img" aria-label="Expand Impact Menu Arrow">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<polyline points="6 9 12 15 18 9" />
+									</svg>
+								</button>
+								<ul aria-hidden="true">
+									<li><a href="/education">Education</a></li>
+									<li><a href="/economic">Economic</a></li>
+									<li><a href="/sponsorship">Sponsorship</a></li>
+									<li><a href="/events">Events</a></li>
+								</ul>
+							</li>
+
+							<li class="js-has-submenu" data-expanded="false">
+								<a href="/about" title="About">About</a>
+								<button type="button" aria-expanded="false" aria-controls="about-submenu" class="dd-button" aria-label="Submenu of About">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img" aria-label="Expand About Menu Arrow">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<polyline points="6 9 12 15 18 9" />
+									</svg>
+								</button>
+								<ul aria-hidden="true">
+									<li><a href="/corporatesocialresponsibility">Corporate Social Responsibility</a></li>
+									<li><a href="/commission">Commission</a></li>
+									<li><a href="/media">Media</a></li>
+									<li><a href="/careers">Careers</a></li>
+									<li><a href="/retailers">For Retailers</a></li>
+									<li><a href="/business">Business Opportunities</a></li>
+									<li><a href="/newsblog">News Blog</a></li>
+									<li><a href="https://ncgaming.gov">Regulated Gaming</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="https://ncplaysmart.com" class="navPlaySmart" title="Play Smart">&nbsp;</a>
+							</li>
+						</ul>
+
+					</li>
+
+					<li id="navUser" class="navUser loading" aria-label="Sign In / User Menu">
+
+						<button id="tabSignIn" class="tabSignIn hide" title="Sign In" type="button" onclick="location.href='/signin'" aria-label="Sign In">
+							<span>Sign&nbsp;In</span>
+						</button>
+
+						<button id="tabUser" class="tabUser hide" title="User Menu" type="button" data-expanded="false" aria-label="User Menu Button" aria-controls="navUserMenu">
+							<span class="tabfirstname" id="fwFirstName"></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="miter" role="img"  aria-label="Expand User Menu Arrow">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+								<polyline points="6 9 12 15 18 9" />
+							</svg>
+							<span id="fwNotifications" class="notification-items-count loading"></span>
+						</button>
+
+						<div id="navUserMenu" class="navUserMenu hide">
+
+							<a href="javascript:ng_fw.showTransactionsHistory();" class="chiclet wallet" title="Transaction History">
+								<div class="chiclet-box wallet">
+									<span class="wallet"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="WalletBalance"><use xlink:href="/Site/GFX/icons.svg#svgWallet" /></svg><span id="fwWallet" class="value loading"></span></span>
+									<span class="label" id="WalletBalance">Wallet Balance</span>
+								</div>
+							</a>
+
+							<a href="javascript:ng_fw.showDeposit();" class="chiclet deposit" title="Deposit">
+								<div class="chiclet-box deposit">
+									<span class="label">Deposit</span>
+								</div>
+							</a>
+
+							<a href="javascript:ng_fw.showWithdraw();" class="chiclet withdraw" title="Widthdraw">
+								<div class="chiclet-box withdraw">
+									<span class="label">Withdraw</span>
+								</div>
+							</a>
+
+							<a href="/rewards/history" class="chiclet points" title="Rewards History">
+								<div class="chiclet-box points">
+									<span class="points"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="PointsBalance"><use xlink:href="/Site/GFX/icons.svg#svgPoints" /></svg><span id="fwPoints" class="value loading"></span></span>
+									<span class="label" id="PointsBalance">Points Balance</span>
+								</div>
+								<div class="chiclet-box pointspending">
+									<span class="pointspending"><span id="fwPointsPending" class="value"></span></span>
+									<span class="label">Pending</span>
+								</div>
+								<div class="chiclet-box pointsexpiring">
+									<span class="pointsexpiring"><span id="fwPointsExpiring" class="value"></span></span>
+									<span class="label">Expiring</span>
+								</div>
+							</a>
+
+							<a href="/rewards/history?id=REWARD" class="chiclet luckedraws" title="Points History">
+								<div class="chiclet-box luckedraws">
+									<span class="luckedraws"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="RewardsDrawings"><use xlink:href="/Site/GFX/icons.svg#svgLuckeDraws" /></svg><span id="fwLuckeEntries" class="value loading"></span></span>
+									<span class="label" id="RewardsDrawings">Rewards Drawings</span>
+								</div>
+							</a>
+
+							<a href="/rewards/history?id=SECOND_CHANCE" class="chiclet secondchancedraws" title="2nd Chance History">
+								<div class="chiclet-box secondchancedraws">
+									<span class="secondchancedraws"><svg class="svgIcon" preserveAspectRatio="xMidYMid"><use xlink:href="/Site/GFX/icons.svg#svgSecondChanceDraws" /></svg><span id="fw2ndEntries" class="value loading"></span></span>
+									<span class="label">2nd Chance</span>
+								</div>
+							</a>
+
+							<a href="javascript:ng_fw.showMyAccount();" class="chiclet myaccount" title="My Account">
+								<div class="chiclet-box myaccount">
+									<span class="myaccount"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="MyAccount"><use xlink:href="/Site/GFX/icons.svg#svgPersona" /></svg></span>
+									<span class="label" id="MyAccount">My Account</span>
+								</div>
+							</a>
+
+							<a href="/Coupons" class="chiclet coupons" title="Coupons">
+								<div class="chiclet-box coupons">
+									<span class="coupons"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="Coupons"><use xlink:href="/Site/GFX/icons.svg#svgCoupon" /></svg></span>
+									<span class="label" id="Coupons">Coupons</span>
+								</div>
+							</a>
+
+							<a href="javascript:ng_fw.showCorrespondenceHistory();" class="chiclet messagecenter" title="Message Center">
+								<div class="chiclet-box messagecenter">
+									<span class="messagecenter"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="MessageCenter"><use xlink:href="/Site/GFX/icons.svg#svgMessages" /></svg><span id="fwMessages" class="chiclet-item-count"></span></span>
+									<span class="label" id="MessageCenter">Message Center</span>
+								</div>
+							</a>
+
+							<a href="javascript:ng_fw.showBonusOffers();" class="chiclet bonusoffers" title="Bonus Offers">
+								<div class="chiclet-box bonusoffers">
+									<span class="bonusoffers"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="BonusOffers"><use xlink:href="/Site/GFX/icons.svg#svgBonusOffers" /></svg><span id="fwBonusOffers" class="chiclet-item-count"></span></span>
+									<span class="label" id="BonusOffers">Bonus Offers</span>
+								</div>
+							</a>
+
+							<a href="/LoginSecurity" class="chiclet security" title="Login &amp; Security">
+								<div class="chiclet-box security">
+									<span class="security"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="LoginAndSecurity"><use xlink:href="/Site/GFX/icons.svg#svgSecurity" /></svg></span>
+									<span class="label" id="LoginAndSecurity">Login &amp Security</span>
+								</div>
+							</a>
+	
+							<a href="javascript:signOutRequest();" class="chiclet signout" title="Sign Out">
+								<div class="chiclet-box signout">
+									<span class="signout"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-labelledby="SignOut"><use xlink:href="/Site/GFX/icons.svg#svgSignOut" /></svg></span>
+									<span class="label" id="SignOut">Sign Out</span>
+								</div>
+							</a>
+
+							<div class="lastlogin" style="display:none;">
+								<span class="lastlogin value loading" id="fwLastLogin"></span>
+								<span class="label">Last Sign-In</span>
+							</div>
+
+						</div>
+
+					</li>
+
+					<li class="navCart" aria-label="Cart">
+
+						<button id="tabCart" title="Cart" href="#Cart" role="button" type="button">
+							<svg class="svgIcon svgCart" preserveAspectRatio="xMidYMid" id="svgCart" role="img" aria-label="SHopping Cart Icon">
+								<use xlink:href="/Site/GFX/icons.svg#svgCart" />
+							</svg>
+							<span id="fwCartItems" class="cart-items-count loading"></span>
+						</button>
+
+					</li>
+
+				</ul>
+			</nav>
+
+			<header>
+				
+			</header>
+
+			<main>
+				
+	<span id="ctl00_MainContent_BodyAttribute"></span>
+	<div class="overlay-dark"></div>
+	<img class="img-overlay" />
+		<script src="/Site/JS/jquery.cycle2.min.js" type="text/javascript"></script>
+	<style type="text/css">
+		.cycle-slideshow img { width:100%; }
+		.banner-half { opacity:0; } /* hide FOUC-like issues */
+		.banner-half.loaded { opacity:1; }
+	</style>
+	<script type="text/javascript">
+		$(function () {
+			$('.banner-half').addClass('loaded');
+		});
+	</script>
+
+	<div class="band blue grad stars-light band-header">
+		<div>
+
+			<div class="box-group halves">
+
+				<div class="box" style="background-image:url(/Site/GFX/mft2.png); background-repeat:no-repeat; background-position:left; border:0; background-size:21%; min-height:200px;">
+					<h1 style="text-align:left; padding-left:20%;padding-right:0;"><span class="icon-svg-star"></span> Scratch-Offs</h1>
+					<h3 style="text-align:left; padding-left:20%;padding-right:0;">New scratch-offs come out every First Tuesday</h3>
+
+				</div>
+
+				<div class="box" style="background-color:transparent; border:none; justify-content:space-around; margin:0; padding:0; max-height:200px; overflow:hidden;">
+
+					<div class="banner-half" style=" margin:0; padding:0;">
+						<div class="cycle-slideshow"
+							data-cycle-fx="fade"
+							data-cycle-pause-on-hover="true"
+							data-cycle-speed="2000"
+							data-cycle-slides="> a"
+						>
+
+							<a href="/scratch-off/39/20-years"
+  ><img class="slideimg" src="/Content/Images/Banner/2026-06-01_Rotator_20-Years-Awareness_Default_OnSiteWinnerAwareness_v1.jpg" alt="20 Years Scratch Off Winner Awareness"
+/></a>
+
+<a href="/rewards/second-chance?id=457"
+  ><img class="slideimg" src="/Content/Images/Banner/2026-02-01_Rotator_Multiply-the-Cash-Second-Chance_Default_OnSiteLoyalty_v1.jpg" alt="Multiply the Cash Second Chance"
+/></a>
+<a href="/rewards/second-chance?id=376"
+  ><img class="slideimg" src="/Content/Images/Banner/2024-12-01_Rotator_Second-Chance-8-Million-Money-Maker_Default_OnSiteLoyalty_v1.jpg" alt="8 Million Dollar Money Maker"
+/></a>
+<!-- <a href="/rewards/second-chance?id=423"
+  ><img class="slideimg" src="/Content/Images/Banner/2025-08-01_Rotator_Jurassic-Park-Second-Chance_Default_OnSiteLoyalty_v1.jpg" alt="Jurassic Park Second Chance"
+/></a> -->
+
+<!-- <a href="/rewards/second-chance?id=384"><img class="slideimg" src="/Content/Images/Banner/Hero_SecondChance_MultiplyTheCash_Feb2024.jpg" alt="Multiply the Cash Second Chance"></a> -->
+<!-- <a href="/rewards/second-chance?id=285"><img class="slideimg" src="/Content/Images/Banner/Hero_SecondChance_$10MillionSpectacular_Dec2023.jpg" alt="$10 Million Spectacular Second Chance"></a> -->
+<!-- <a href="/rewards/second-chance?id=376"><img class="slideimg" src="/Content/Images/Banner/2024-12-01_Rotator_Second-Chance-8-Million-Money-Maker_Default_OnSiteLoyalty_v1.jpg" alt="8 Million Dollar Money Maker"></a> -->
+<!-- <a href="/RewardsDraw?dn=75"><img class="slideimg" src="/Content/Images/Banner/ROT_MillionaireMakerSecondChance.jpg" alt="Millionaire Maker"></a> -->
+
+<!-- <a href="/RewardsDraw"><img class="slideimg" src="/Content/Images/Banner/ROT_SecondChance_CarolinaPanthers_2023.jpg" alt="Carolina Panthers"></a> -->
+
+<!-- <a href="/RewardsDraws"><img class="slideimg" src="/Content/Images/Banner/ROT_HolidayLuck_SecondChance.jpg" alt="Holiday Luck Second Chance"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_SupremeRiches_SecondChance.jpg" alt="Supreme Riches Second Chance"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_MultiplierSecondChance_2019.jpg" alt="2019 Multiply The Cash"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_WheelOfFortune_2019.jpg" alt="Wheel of Fortune"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_10XPoints_BigMoney.jpg" alt="10X Points On Big Money Super Ticket"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_CarolinaCash.jpg" alt="Carolina Cash"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_Holiday-SecondChance2018.jpg" alt="Holiday Second Chance"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT_CarolinaPanthers2018.jpg" alt="Carolina Panthers"></a> -->
+<!-- <a href="/Promotions"><img class="slideimg" src="/Content/Images/Banner/ROT-DreamMakeover_2018.jpg" alt="Dream Makeover"></a> -->
+
+
+	
+						</div>
+					</div>
+
+				</div>
+	
+			</div>
+
+		</div>
+	</div>
+
+	<div class="band band-tabs">
+		<div>
+			<div class="tabs">
+				<a href="/scratch-off">Scratch-Off Games</a>
+				<a href="/scratch-off-prizes-remaining">Prizes Remaining</a>
+				<a href="/scratch-off-games-ending">Games Ending</a>
+			</div>
+		</div>
+	</div>
+	<div class="band">
+		<div>
+
+			
+
+			<div class="box-group thirds ds">
+
+				<div class="box box-stack">
+
+					<div class="box parts details ScratchOff cloudfx">
+						<div class="part">
+							<div class="tslot">
+								
+								<div class="thmb">
+									<img src="/Content/Images/Instant/nc996_sqr.png" alt="Game logo: $1,000,000 Triple Play" />
+								</div>
+							</div>
+							<p>
+								<a href="javascript:void(0);" class="img-popup" data-="/Content/Images/Instant/nc996.png">sample ticket </a><br />
+								<a href="javascript:void(0);" class="img-popup" data-="/Content/Images/Instant/nc996_uncv.png">uncovered ticket </a>
+							</p>
+						</div>
+						<div class="part">
+							<div>
+								<span class="title">$1,000,000 Triple Play <span>#996</span></span>
+							</div>
+							<div>
+								<span class="topprize label">Top Prize</span>
+								<span class="topprize value">$1,000,000</span>
+								<span id="ctl00_MainContent_lblTopPrizeSub" class="topprize value-aux"></span>
+							</div>
+							<div>
+								<span class="price label">Ticket Price</span>
+								<span class="price value">$10</span>
+							</div>
+							<div>
+								<span class="odds label">Overall Odds</span>
+								<span class="odds value">1 in 3.84</span>
+							</div>
+							<div>
+								<span class="status label">Status</span>
+								<span id="ctl00_MainContent_lblMessage" class="status value">Released Jun 3, 2025</span>
+							</div>
+							
+							<div>
+								<span class="howtowin label">How to Play</span>
+								<p class="howtowin value" style="white-space: pre-line;font-size:0.75rem;">1. Match any of YOUR NUMBERS to any of the WINNING NUMBERS, win PRIZE shown for that number.
+2. Match three like PRIZE AMOUNTS, win that PRIZE!
+3. Reveal a "moneybag" symbol, win $100!</p>
+								<p></p>
+							</div>
+							<div>
+								<a id="ctl00_MainContent_hlWhereToPlay" class="button grand" href="/WhereToPlay">Where to Play</a>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="box TicketData">
+						<table class="datatable prizes">
+							<caption><span class="icon-svg-star"></span> Prizes</caption>
+							<thead>
+								<tr>
+									<th>Value</th>
+									<th>Odds 1&nbsp;in*</th>
+									<th>Total</th>
+									<th>Remaining</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<td colspan="4">
+										<span>*Approximate odds of winning and the number of prizes including breakeven prizes is established at the time of printing. Chances of winning will change as prizes are won.<br />
+											Remaining prizes are updated daily and shows prizes not yet claimed through <b>Jul 10, 2026</b>.<br />
+											</span>
+									</td>
+								</tr>
+							</tfoot>
+							<tbody>
+								
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl00_lblPrizeValue" class="PrizeValue">$1,000,000</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl00_lblOriginalOdds" class="OriginalOdds">1,469,394</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl00_lblPrizeCount" class="PrizeCount">5</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl00_lblPrizeCountRemaining" class="PrizeCountRemaining">4</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl01_lblPrizeValue" class="PrizeValue">$50,000</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl01_lblOriginalOdds" class="OriginalOdds">1,469,394</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl01_lblPrizeCount" class="PrizeCount">5</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl01_lblPrizeCountRemaining" class="PrizeCountRemaining">2</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl02_lblPrizeValue" class="PrizeValue">$5,000</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl02_lblOriginalOdds" class="OriginalOdds">367,348.5</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl02_lblPrizeCount" class="PrizeCount">20</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl02_lblPrizeCountRemaining" class="PrizeCountRemaining">9</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl03_lblPrizeValue" class="PrizeValue">$1,000</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl03_lblOriginalOdds" class="OriginalOdds">39,079.63</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl03_lblPrizeCount" class="PrizeCount">188</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl03_lblPrizeCountRemaining" class="PrizeCountRemaining">81</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl04_lblPrizeValue" class="PrizeValue">$500</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl04_lblOriginalOdds" class="OriginalOdds">3,001.21</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl04_lblPrizeCount" class="PrizeCount">2,448</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl04_lblPrizeCountRemaining" class="PrizeCountRemaining">997</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl05_lblPrizeValue" class="PrizeValue">$200</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl05_lblOriginalOdds" class="OriginalOdds">2,001.9</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl05_lblPrizeCount" class="PrizeCount">3,670</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl05_lblPrizeCountRemaining" class="PrizeCountRemaining">1,474</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl06_lblPrizeValue" class="PrizeValue">$100</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl06_lblOriginalOdds" class="OriginalOdds">60.01</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl06_lblPrizeCount" class="PrizeCount">122,422</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl06_lblPrizeCountRemaining" class="PrizeCountRemaining">48,929</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl07_lblPrizeValue" class="PrizeValue">$50</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl07_lblOriginalOdds" class="OriginalOdds">41.89</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl07_lblPrizeCount" class="PrizeCount">175,383</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl07_lblPrizeCountRemaining" class="PrizeCountRemaining">72,643</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl08_lblPrizeValue" class="PrizeValue">$40</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl08_lblOriginalOdds" class="OriginalOdds">80.02</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl08_lblPrizeCount" class="PrizeCount">91,813</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl08_lblPrizeCountRemaining" class="PrizeCountRemaining">38,051</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl09_lblPrizeValue" class="PrizeValue">$20</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl09_lblOriginalOdds" class="OriginalOdds">9.37</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl09_lblPrizeCount" class="PrizeCount">783,697</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl09_lblPrizeCountRemaining" class="PrizeCountRemaining">335,406</span>
+											</td>
+											
+										</tr>
+									
+										<tr>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl10_lblPrizeValue" class="PrizeValue">$10</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl10_lblOriginalOdds" class="OriginalOdds">10</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl10_lblPrizeCount" class="PrizeCount">734,620</span>
+											</td>
+											<td>
+												<span id="ctl00_MainContent_InstantPrizesRepeater_ctl10_lblPrizeCountRemaining" class="PrizeCountRemaining">323,081</span>
+											</td>
+											
+										</tr>
+									
+							</tbody>
+						</table>
+					</div>
+					<div class="box">
+						
+					</div>
+				</div>
+				<div class="box box-stack Sidebar">
+					<div class="box midnight bg_stars">
+	<svg class="svg-in-box" preserveAspectRatio="xMidYMid">
+		<use xlink:href="/Site/GFX/logos.svg#svgLucke-Rewards" />
+	</svg>
+	<h5>Don't forget to enter your tickets for cash and prizes!</h5>
+	<div class="box-foot"><a href="/Lucke-Rewards" class="button">Learn More</a><a href="/RewardsTicketEntry" class="button">Enter Tickets</a></div>
+</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+			</main>
+
+			<footer class="midnight">
+				<div>
+
+					<div class="bot-row">
+						<div class="bot-block bot-logo">
+							<a href="/Home" title="Home"><img src="/Site/GFX/NCEL_Horz_Hold.svg" alt="NCEL Logo" role="img" aria-label="NCEL Logo" /></a>
+						</div>
+						<div class="bot-block bot-social">
+							<span>
+								<a href="https://www.linkedin.com/company/north-carolina-education-lottery" title="Find Us on Linked In"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="LinkedIn Icon"><use xlink:href="/Site/GFX/icons.svg#svgLinkedin" /></svg></a>
+							</span>
+							<span>
+								<a href="http://facebook.com/nclottery" title="Find Us on Facebook">
+									<svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="Facebook Icon">
+										<use xlink:href="/Site/GFX/icons.svg#svgFacebook" />
+									</svg>
+								</a>
+							</span>
+							<span>
+								<a href="http://x.com/nclottery" title="Follow Us on X">
+									<svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="X Icon">
+										<use xlink:href="/Site/GFX/icons.svg#svgX" />
+									</svg>
+								</a>
+							</span>
+							<span>
+								<a href="http://instagram.com/nclottery" title="Follow Us on Instagram">
+									<svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="Instagram Icon">
+										<use xlink:href="/Site/GFX/icons.svg#svgInstagram" />
+									</svg>
+								</a>
+							</span>
+							<span>
+								<a href="http://www.youtube.com/ncedulottery" title="Watch Us on YouTube">
+									<svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="YouTube Icon">
+										<use xlink:href="/Site/GFX/icons.svg#svgYouTube" />
+									</svg>
+								</a>
+							</span>
+						</div>
+					</div>
+					<div class="bot-row">
+
+						<div class="bot-block links">
+							<div class="links">
+								<p>
+									<a href="/wheretoplay">Where to Play</a><br />
+									<a href="/contact">Contact Us</a><br />
+									<a href="/videos">Videos</a><br /> 
+									<a href="/business">Business Opportunities</a><br /> 
+									<a href="/retailers">For Retailers</a><br />
+									<a href="/help">Help</a><br />
+									<a href="/accessibility">Accessibility</a><br />
+									<a href="/rules">Rules &amp Terms</a><br />
+									<a href="/privacy">Privacy</a><br />
+									<a href="/disclaimer">Disclaimer</a><br />
+									<a href="https://ncgaming.gov">Regulated&nbsp;Gaming</a>
+								</p>
+							</div>
+						</div>
+
+						<div class="bot-block bot-3">
+							<p style="font-size:larger;">Get the Mobile App</p>
+							<p style="padding-bottom:1rem;">
+								<a href="https://apps.apple.com/us/app/nc-lottery-official-mobile-app/id1288107282">
+									<img src="/Site/GFX/AppleAppStore.svg" style="height:auto;width:9rem;" alt="Apple App Store" />
+								</a>
+								&nbsp;
+								<a href="https://play.google.com/store/apps/details?id=com.nclottery.app" class="mobile-badge google">
+									<img src="/Site/GFX/GooglePlayStore.svg" style="height:auto;width:9rem;" alt="Google Play Store" />
+								</a>
+							</p>
+							<p style="font-size:larger;">No Longer Just a Game? There's Help</p>
+							<span><svg class="svgIcon call" preserveAspectRatio="xMidYMid" role="img" aria-label="Phone Icon"><use xlink:href="/Site/GFX/icons.svg#svgPhone" /></svg> Call&nbsp;<a href="tel:877-718-5543">877-718-5543</a></span>
+							<span><svg class="svgIcon txt" preserveAspectRatio="xMidYMid" role="img" aria-label="Text To Icon"><use xlink:href="/Site/GFX/icons.svg#svgMobile" /></svg> Text "morethanagamenc" to 53342</span>
+							<span><svg class="svgIcon chat" preserveAspectRatio="xMidYMid" role="img" aria-label="Chat Icon"><use xlink:href="/Site/GFX/icons.svg#svgChat" /></svg> Chat&nbsp;<a href="http://morethanagamenc.com">morethanagamenc.com</a></span>
+						</div>
+
+					</div>
+					<div class="bot-row">
+
+						<div class="bot-block">
+							<br />
+							<p class="legal">MUST BE 18 TO PLAY. Odds to win a prize and the top prize vary based on the game or promotion. Jackpot values are estimated. See game or promotion pages for more detail.</p>
+							<p class="legal">Every effort has been made to ensure that the winning numbers posted on this website are accurate; however, no valid claim may be based on information contained herein. In the event of a discrepancy between the numbers posted on this website and the official winning numbers, the official winning numbers as certified by the Multi-State Lottery Association and/or the NCEL shall control. All materials on this Website are owned by or licensed to the NCEL. Materials on this Website may not be modified in any way or reproduced or publicly displayed, performed or distributed or otherwise used for any public or commercial purpose without the express written consent of the NCEL. Copyright &copy; 2006-2026. The North Carolina Education Lottery. All rights reserved. Play Smart&trade; term is a service mark of the Illinois Lottery licensed to the NCEL.</p>
+						</div>
+
+					</div>
+
+				</div>
+			</footer>
+
+			
+
+
+<style type="text/css">
+
+	/* wnViewToggleButton */
+	#wnViewToggleButton { display:block; position:fixed; z-index:100; top:4.5rem; left:-4px; width:1.75rem; height:10rem; padding:0; border-radius:0 0.5rem 0.5rem 0; box-shadow:rgba(0, 0, 0, 0.5) 1px 2px 2px 1px; opacity:1; cursor:pointer; }
+
+	#wnViewToggleButton[data-expanded="false"]	{ color:white; background-color:var(--BlueSea); }	
+	#wnViewToggleButton[data-expanded="true"]	{ color:black; background-color:var(--GoldenSky); } 
+
+	#wnViewToggleButton > div { position: absolute;
+					top: 50%;
+					left: 50%;
+					-moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+					-webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg) translate3d( 0, 0, 0);
+					transform: translateX(-50%) translateY(-50%) rotate(-90deg);}
+
+	#wnViewToggleButton > div > span { color:white; text-align:center; white-space:nowrap; font-family:'odudo'; line-height:2rem; font-size:0.875rem; font-weight:600; text-transform:unset; letter-spacing:1px; }
+	#wnViewToggleButton > div > span::before { content: 'Winning Numbers'; } /* ▼ */
+	#wnViewToggleButton[data-expanded="true"] > div > span::before { content:'╳ Close '; color:black; font-weight:800; font-size:1.0rem; }
+
+	/* wnView */
+	.wnView {
+		position:absolute;
+		z-index:10;
+		top: 1rem;
+		left: 0;
+		background-color: rgba(81,116,139, 0.75); /* Gray Slate translucent */
+		width: 100%;
+		padding: 1rem;
+		height: auto;
+		transition-duration: 0.5s;
+	}
+
+	.wnView.hide {
+		width: 960px;
+		left: -1600px;
+		transition-duration: 0.5s;
+	}
+	
+	/* override */
+	#wnView div.box.results-box { background-color:#fff !important; border-color:var(--GraySlate); }
+
+</style>
+
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+
+	// SCRIPTS FOR USERMENU => wnView
+	const wnViewToggleButton = document.getElementById('wnViewToggleButton');
+	const wnView = document.getElementById('wnView');
+
+	wnViewToggleButton.addEventListener('click', function() {
+		const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+		console.log("get attribute: aria-expanded");
+  
+		// Toggle the aria-expanded attribute
+		this.setAttribute('aria-expanded', !isExpanded);
+		this.dataset.expanded = !isExpanded;
+  
+		// Toggle the menu visibility class
+		wnView.classList.toggle('hide', isExpanded);
+
+		// Update aria-label based on state
+		if (isExpanded) {
+			this.setAttribute('aria-label', 'Open the Winning Number View');
+			console.log("Is expanded");
+		 } else {
+			this.setAttribute('aria-label', 'Close the Winning Number View');
+			console.log("Not expanded");
+			// Optional: focus on the first menu item when opened (advanced keyboard management)
+			// mainMenu.querySelector('a').focus(); 
+		}
+	});
+
+	// Best practice: Allow closing with the Escape key
+	document.addEventListener('keydown', function(event) {
+		if (event.key === 'Escape' && wnViewToggleButton.getAttribute('aria-expanded') === 'true') {
+			wnViewToggleButton.click(); // Uses the existing click handler to close the menu
+			wnViewToggleButton.focus(); // Return focus to the button after closing
+		}
+	});
+});
+
+</script>
+
+
+
+
+<button type="button" id="wnViewToggleButton" class="" data-expanded="false" aria-label="Winning Numbers Show/Hide" aria-controls="wnView">
+	<div>
+		<span></span>
+	</div>
+</button>
+
+<div id="wnView" class="wnView hide">
+
+	<div class="band WinningNumbers">
+		<div>
+
+			<div class="box-group quarters">
+				
+				<div class="box Powerball results-box cloudfx">
+
+					<a href="/powerball" aria-label="Powerball"><img class="fitGFX" src="/Site/GFX/Powerball.svg" alt="Powerball Logo" /></a>
+
+					
+
+	<style type="text/css">
+		@keyframes powerball-pulse {
+			from { color:black; }
+			to { color:var(--PowerRed); }
+		}
+		.powerball-pulse { animation: powerball-pulse 1s ease-in-out infinite alternate; }
+	</style>
+
+	<span class="label-prize">Jackpot Estimate</span>
+
+	<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBJackpot" class="prize">$478 Million</span>
+
+	<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBCash" class="cash">Cash Value $212.2 Million</span>
+
+	<span class="label-drawdatenext">Next Drawing</span>
+
+	<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDrawDateNext" class="drawdatenext">Mon, Jul 13</span>
+
+	<span class="label-drawdate">Latest Drawing</span>
+
+	<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDrawDate" class="drawdate">Sat, Jul 11</span>
+
+	<div class="ball-row">
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBBall1" class="ball">8</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBBall2" class="ball">10</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBBall3" class="ball">14</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBBall4" class="ball">45</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBBall5" class="ball">59</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBPowerball" class="ball powerball">5</span>
+	</div>
+
+	<span id="ctl00_WinningNumbers_ResultsPowerball_lblPowerPlay" class="powerplay">POWER PLAY <span>2x</span></span>
+
+	<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPDrawDateLabel" class="label-drawdate">Double Play</span>
+
+	
+
+	<div id="ctl00_WinningNumbers_ResultsPowerball_divPBDP" class="ball-row">
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPBall1" class="ball">5</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPBall2" class="ball">7</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPBall3" class="ball">17</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPBall4" class="ball">26</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPBall5" class="ball">28</span>
+		<span id="ctl00_WinningNumbers_ResultsPowerball_lblPBDPPowerball" class="ball powerball">5</span>
+	</div>
+
+
+
+					<div class="box-foot">
+						<a href="/powerball" class="button alt" aria-label="Powerball Info Page">Game Info</a>
+						<a id="ctl00_WinningNumbers_hlPowerballBuy" class="button" href="javascript:ng_fw.loadGame(500)">Buy Now</a>
+					</div>
+
+				</div>
+
+				<div class="box results-box MegaMillions cloudfx">
+
+					<a href="/mega-millions" aria-label="Mega Millions"><img class="fitGFX" src="/Site/GFX/MegaMillions.svg" alt="Mega Millions Logo" /></a>
+
+					
+
+	<style type="text/css">
+		@keyframes megamillions-pulse {
+			from { color:black; }
+			to { color:var(--MegaBlue); }
+		}
+		.megamillions-pulse { animation: megamillions-pulse 1s ease-in-out infinite alternate; }
+	</style>
+
+	<span class="label-prize">Jackpot Estimate</span>
+	<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMPrize" class="prize megamillions-pulse">$637 Million</span>
+	<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMCash" class="cash megamillions-pulse">Cash Value $278 Million</span>
+
+	<span class="label-drawdatenext">Next Drawing</span>
+	<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMDrawDateNext" class="drawdatenext">Tue, Jul 14</span>
+
+	<span class="label-drawdate">Latest Drawing</span>
+	<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMDrawDate" class="drawdate">Fri, Jul 10</span>
+	 
+	<div class="ball-row">
+		<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMBall1" class="ball">2</span>
+		<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMBall2" class="ball">39</span>
+		<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMBall3" class="ball">44</span>
+		<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMBall4" class="ball">46</span>
+		<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMBall5" class="ball">56</span>
+		<span id="ctl00_WinningNumbers_ResultsMegaMillions_lblMMBall6" class="ball megaball">23</span>
+	</div>
+
+	
+
+					<div class="box-foot">
+						<a href="/mega-millions" class="button alt" aria-label="Mega Millions Info Page">Game Info</a>
+						<a id="ctl00_WinningNumbers_hlMegaMillionsBuy" class="button" href="javascript:ng_fw.loadGame(502)">Buy Now</a>
+					</div>
+
+				</div>
+
+				<div class="box results-box Cash5 cloudfx">
+
+					<a href="/cash5" aria-label="Cash 5"><img class="fitGFX" src="/Site/GFX/Cash5.svg" alt="Cash 5 Logo" /></a>
+
+					
+
+<style type="text/css">
+	@keyframes cash5-pulse {
+		from { color:black; }
+		to { color:var(--Cash5Plum); }
+	}
+	.cash5-pulse { animation: cash5-pulse 1s ease-in-out infinite alternate; }
+</style>
+
+
+
+
+
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblTopPrizeNextLabel" class="label-prize">Jackpot Estimate</span>
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblTopPrizeNext" class="prize">$100,000</span>
+
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblDrawDateNextLabel" class="label-drawdatenext">Next Daily Drawing</span>
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblDrawDateNext" class="drawdatenext">Sun, Jul 12</span>
+
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblDrawDateLabel" class="label-drawdate">Latest Drawing</span>
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblDrawDate" class="drawdate">Sat, Jul 11</span>
+
+		<div class="ball-row">
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblBall1" class="ball">13</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblBall2" class="ball">17</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblBall3" class="ball">19</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblBall4" class="ball">21</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl00_lblBall5" class="ball">29</span>
+		</div>
+
+	
+
+		
+		
+
+		
+		
+
+		<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl01_lblDrawDateLabel" class="label-drawdate">DoublePlay</span>
+		
+
+		<div class="ball-row">
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl01_lblBall1" class="ball">6</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl01_lblBall2" class="ball">15</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl01_lblBall3" class="ball">16</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl01_lblBall4" class="ball">20</span>
+			<span id="ctl00_WinningNumbers_ResultsCash5_rptCash5_ctl01_lblBall5" class="ball">42</span>
+		</div>
+
+	
+
+					<div s class="box-foot">
+						<a href="/cash5" class="button alt" aria-label="Cash 5 Info Page">Game Info</a>
+						<a id="ctl00_WinningNumbers_hlCash5Buy" class="button" href="javascript:ng_fw.loadGame(519)">Buy Now</a>
+					</div>
+
+				</div>
+
+				<div class="box results-box MillionaireForLife cloudfx">
+
+					<a href="/millionaire-for-life" aria-label="Millionaire for Life"><img class="fitGFX" src="/Site/GFX/MillionaireForLife.svg" alt="Millionaire for Life Logo" /></a>
+
+					
+
+	<span class="label-prize">Top Prizes</span>
+	<span class="prize" style="font-size:1.125rem;">$1 Million a year for life or</span>
+	<span class="prize" style="font-size:1.125rem;">$100,000 a year for life.</span>
+
+	<span class="label-drawdatenext">Next Daily Drawing</span>
+	<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LDrawDateNext" class="drawdatenext">Sun, Jul 12</span>
+
+	<span class="label-drawdate">Latest Drawing</span>
+	<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LDrawdate" class="drawdate">Sat, Jul 11</span>
+
+	<div class="ball-row">
+		<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LBall1" class="ball">4</span>
+		<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LBall2" class="ball">13</span>
+		<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LBall3" class="ball">14</span>
+		<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LBall4" class="ball">30</span>
+		<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LBall5" class="ball">39</span>
+		<span id="ctl00_WinningNumbers_ResultsMillionaireForLife_lblM4LBall6" class="ball millionaireball">4</span>
+	</div>
+
+
+					<div class="box-foot">
+						<a href="/millionaire-for-life" class="button alt" aria-label="Millionaire For Life Info Page">Game Info</a>
+						<a id="ctl00_WinningNumbers_HyperLink1" class="button" href="javascript:ng_fw.loadGame(3529)">Buy Now</a>
+					</div>
+
+				</div>
+
+				<div class="box results-box LuckyForLife cloudfx">
+
+					<a href="/lucky-for-life" aria-label="Lucky for Life"><img class="fitGFX" src="/Site/GFX/LuckyForLife.svg" alt="Lucky for Life Logo" /></a>
+
+					
+
+	<span class="label-prize">Top Prizes</span>
+	<span class="prize" style="font-size:1.25rem;">$1,000<span style="font-weight:normal;">/day for life or</span></span>
+	<span class="prize" style="font-size:1.25rem;">$25,000<span style="font-weight:normal;">/year for life.</span></span>
+
+	<span class="label-drawdatenext">Next Daily Drawing</span>
+	<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LDrawDateNext" class="drawdatenext">Ended</span>
+
+	<span class="label-drawdate">Latest Drawing</span>
+	<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LDrawdate" class="drawdate">Sat, Feb 21</span>
+
+	<div class="ball-row">
+		<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LBall1" class="ball">7</span>
+		<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LBall2" class="ball">11</span>
+		<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LBall3" class="ball">13</span>
+		<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LBall4" class="ball">45</span>
+		<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LBall5" class="ball">47</span>
+		<span id="ctl00_WinningNumbers_ResultsLuckyForLife_lblL4LBall6" class="ball luckyball">9</span>
+	</div>
+	<span class="megaplier">&nbsp;</span>
+
+					<div class="box-foot">
+						<a href="/lucky-for-life" class="button alt" aria-label="Lucky For Life Info Page">Game Info</a>
+						<button type="button" disabled>Game Ended</button>
+					</div>
+
+				</div>
+
+				<div class="box results-box Pick4 cloudfx">
+
+					<a href="/pick4" aria-label="Pick 4"><img class="fitGFX" src="/Site/GFX/Pick4.svg" alt="Pick 4 Logo" /></a>
+
+					
+
+		<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblDrawDateLabel" class="label-drawdate">Latest Daytime Drawing</span>
+
+		<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblDrawDate" class="drawdate"><svg class="svgIcon svgSlot" preserveAspectRatio="xMidYMid" role="img" aria-label="Daytime Draw"><use xlink:href="/Site/GFX/icons.svg#svgSun" /></svg> Sat, Jul 11</span>
+
+		
+
+		<div class="ball-row">
+			<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblBall1" class="ball">3</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblBall2" class="ball">8</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblBall3" class="ball">2</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblBall4" class="ball">4</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Day_Pick4DayRepeater_ctl00_lblFireball" class="ball fireball">7</span>
+			
+		</div>
+
+		<div style="text-align:center;">
+			
+		</div>
+
+	
+					
+
+		<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblDrawDateLabel" class="label-drawdate">Latest Evening Drawing</span>
+
+		<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblDrawDate" class="drawdate"><svg class="svgIcon svgSlot" preserveAspectRatio="xMidYMid" role="img" aria-label="Evening Draw"><use xlink:href="/Site/GFX/icons.svg#svgMoon" /></svg> Sat, Jul 11</span>
+
+		
+
+		<div class="ball-row">
+			<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblBall1" class="ball">6</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblBall2" class="ball">0</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblBall3" class="ball">1</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblBall4" class="ball">4</span>
+			<span id="ctl00_WinningNumbers_ResultsPick4Eve_Pick4EveRepeater_ctl00_lblFireball" class="ball fireball">4</span>
+			
+		</div>
+
+		<div style="text-align:center;">
+			
+		</div>
+
+	
+
+
+					<div class="box-foot">
+						<a href="/pick4" class="button alt" aria-label="Pick 4 Info Page">Game Info</a>
+						<a id="ctl00_WinningNumbers_hlPick4Buy" class="button" href="javascript:ng_fw.loadGame(3502)">Buy Now</a>
+					</div>
+
+				</div>
+
+				<div class="box results-box Pick3 cloudfx">
+
+					<a href="/pick3" aria-label="Pick 3"><img class="fitGFX" src="/Site/GFX/Pick3.svg" alt="Pick 3 Logo" /></a>
+
+					
+
+		<span id="ctl00_WinningNumbers_ResultsPick3Day_Pick3DayRepeater_ctl00_lblDrawDateLabel" class="label-drawdate">Latest Daytime Drawing</span>
+
+		<span id="ctl00_WinningNumbers_ResultsPick3Day_Pick3DayRepeater_ctl00_lblDrawDate" class="drawdate"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="Daytime Draw"><use xlink:href="/Site/GFX/icons.svg#svgSun" /></svg> Sat, Jul 11</span>
+
+		
+
+		
+
+		<div class="ball-row">
+			<span id="ctl00_WinningNumbers_ResultsPick3Day_Pick3DayRepeater_ctl00_lblBall1" class="ball">0</span>
+			<span id="ctl00_WinningNumbers_ResultsPick3Day_Pick3DayRepeater_ctl00_lblBall2" class="ball">6</span>
+			<span id="ctl00_WinningNumbers_ResultsPick3Day_Pick3DayRepeater_ctl00_lblBall3" class="ball">9</span>
+			<span id="ctl00_WinningNumbers_ResultsPick3Day_Pick3DayRepeater_ctl00_lblFireball" class="ball fireball">4</span>
+			
+			
+			
+		</div>
+
+		<div style="text-align:center;">
+			
+		</div>
+
+	
+					
+
+		<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblDrawDateLabel" class="label-drawdate">Latest Evening Drawing</span>
+
+		<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblDrawDate" class="drawdate"><svg class="svgIcon" preserveAspectRatio="xMidYMid" role="img" aria-label="Evening Draw"><use xlink:href="/Site/GFX/icons.svg#svgMoon" /></svg> Sat, Jul 11</span>
+
+		
+
+		
+
+		<div class="ball-row">
+			<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblBall1" class="ball">3</span>
+			<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblBall2" class="ball">4</span>
+			<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblBall3" class="ball">9</span>
+			<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblFireball" class="ball fireball">0</span>
+			
+			
+			<span id="ctl00_WinningNumbers_ResultsPick3Eve_Pick3EveRepeater_ctl00_lblDoubleDraw" class="ball">W</span>
+		</div>
+
+		<div style="text-align:center;">
+			
+		</div>
+
+	
+
+					<div class="box-foot">
+						<a href="/pick3" class="button alt" aria-label="Pick 3 Info Page">Game Info</a>
+						<a id="ctl00_WinningNumbers_hlPick3Buy" class="button" href="javascript:ng_fw.loadGame(3501)">Buy Now</a>
+					</div>
+
+				</div>
+
+				<div class="box results-box CashPop cloudfx">
+
+					<a href="/cash-pop" aria-label="Cash POP"><img class="fitGFX" src="/Site/GFX/CashPop.svg" alt="Cash POP Logo" /></a>
+
+					<div class="CashPopResultsHTML"></div>
+
+					<div class="box-foot">
+						<a href="/cash-pop" class="button alt" aria-label="Cash Pop Info Page">Game Info</a>
+						<a href="/WhereToPlay" id="ctl00_WinningNumbers_A3" class="button" aria-label="Find Store">Find Store</a>
+					</div>
+				</div>
+				
+				<div class="box results-box Keno cloudfx">
+
+					<a href="/keno" aria-label="Keno"><img class="fitGFX" src="/Site/GFX/Keno.svg" alt="Keno Logo" /></a>
+
+					<h3>Win up to $1,000,000 every 4 minutes</h3>
+					<h5>Big Thrills Served Fast.</h5>
+
+					<div class="box-foot">
+						<a href="/keno" class="button alt" aria-label="Watch Keno Draw">Watch Draw</a>
+						<a href="/WhereToPlay" id="ctl00_WinningNumbers_A1" class="button" aria-label="Find Store">Find Store</a>
+					</div>
+
+				</div>
+					
+				<div class="box results-box FastPlay cloudfx">
+
+					<a href="/fast-play" aria-label="FastPlay"><img class="fitGFX" src="/Site/GFX/FastPlay.svg" alt="FastPlay Logo" /></a>
+
+					
+
+	<style type="text/css">
+		@keyframes fastplay-glow {
+			from { color:var(--FastPlayBlue); }
+			to { color:var(--FastPlayGreen); }
+		}
+		.fastplay-glow { animation: fastplay-glow 1s ease-in-out infinite alternate; }
+	</style>
+
+	<h6 class="prize-label">Progressive Jackpot Estimate</h6>
+	<span id="ctl00_WinningNumbers_JackpotFastPlay_lblJackpot" class="prize fastplay-glow">$618,803</span>
+	<span id="ctl00_WinningNumbers_JackpotFastPlay_lblJackpotTime" class="prize-label time">Updated: Sunday, 12:14:15 AM</span>
+
+					<div class="box-foot">
+						<a href="/fast-play" class="button alt" aria-label="Fast-Play Games">View Games</a>
+						<a href="/WhereToPlay" id="ctl00_WinningNumbers_A2" class="button" aria-label="Find Store">Find Store</a>
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+</div> 
+
+			
+
+	<!-- DigitalInstantContainer -->
+	<div id="modal-onlinegame" class="modal-onlinegame hide">
+		<div class="modal-onlinegame-top">
+			<div class="left"><img src="/Site/GFX/NCEL_Alt.svg" /></div>
+			<div class="middle"><a id="switch-onlinegame" class="button" style="display:none;">Money Mode</a><a id="deposit-onlinegame" class="button" style="display:none;">Deposit</a></div>
+			<div class="right"><a id="close-onlinegame" class="button close-onlinegame">Close&nbsp;</a></div>
+			<!-- 3.4. Upon closing the Game Screen, CMS will call ‘ng_fw.closeGame’ and wait for ‘ng_hs.gameClosed’ confirmation that the game was closed -->
+		</div>
+		<div class="modal-onlinegame-main">
+			<div id="ng-game-container" class="ng-onlinegame-container"></div>
+		</div>
+	</div>
+
+<script>
+	//call to set platform styling in fw_mgr_ng.js
+	//$(onPlatformDefined(window.getFrameworkPreferences().Platform));
+</script>
+
+<style type="text/css">
+
+	.modal-onlinegame { position:fixed; top:0; left:0; width:100%; height:100%; z-index:500; background-color: red;}
+
+	.modal-onlinegame-top { position:relative; z-index:1; display:flex; justify-content:space-between; background-color:#fff; box-shadow:0 -3px 3px 3px #000000; width:100%; height:3rem; max-height:3rem; } 
+	.modal-onlinegame-top > .left { flex:0 1 33%; text-align:left; }
+	.modal-onlinegame-top > .left > img { display:block; position:relative; float:left; height:3rem; margin:0 0 0 0.5rem; }
+	.modal-onlinegame-top > .middle { flex:0 1 33%; height:2.5rem; max-height:2.5rem; margin:0.25rem auto; display:flex; flex-direction:row; justify-content:center; }
+	.modal-onlinegame-top > .right { flex:0 1 33%; height:2.5rem; max-height:2.5rem; margin:0.25rem auto; display:flex; flex-direction:row; justify-content:right; }
+	.modal-onlinegame-top > .right > a#close-onlinegame {  }
+	.modal-onlinegame-top > .right > a#close-onlinegame::after { content: "\00D7"; font-size:2em; line-height:1.5rem; vertical-align:bottom; }
+
+	.modal-onlinegame-top a.button { height:2.5rem; line-height:1.5rem; }
+
+	.modal-onlinegame-main { display:flex; background-color:#c8cbd4; width:100%; height:calc(100% - 3rem); background-repeat: no-repeat; background-size:cover; }
+	.modal-onlinegame-main > .ng-onlinegame-container { flex:1 1 auto; position:relative; height:auto; width:calc(100% - 2rem); margin:0 auto 0 auto; }
+
+	.platform_mobile .modal-onlinegame-top { display:none; }
+	.platform_mobile .modal-onlinegame-main { height:100%; }
+
+</style>
+
+		</form>
+	</body>
+</html>

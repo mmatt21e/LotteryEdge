@@ -10,6 +10,32 @@
   color-scheme: dark;
 }
 
+/* Light theme: manual (data-theme=light) or auto (OS light, no override) */
+:root[data-theme="light"] {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #eef1f8;
+  --text: #1a2038;
+  --muted: #5a6683;
+  --line: #dce1ee;
+  --accent: #b07d00;
+  --green: #1f9d6b;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --surface-2: #eef1f8;
+    --text: #1a2038;
+    --muted: #5a6683;
+    --line: #dce1ee;
+    --accent: #b07d00;
+    --green: #1f9d6b;
+    color-scheme: light;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -787,4 +813,41 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* Offline banner */
+.offline-banner {
+  background: rgba(224, 138, 91, 0.16);
+  border: 1px solid rgba(224, 138, 91, 0.4);
+  color: #e08a5b;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.install-pill {
+  color: var(--accent);
+}
+
+/* Alerts box in info sheet */
+.alerts-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 4px;
+}
+.alerts-sub {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.alerts-box .add-btn {
+  flex: 0 0 auto;
 }

@@ -112,6 +112,19 @@ function taxRate(amount: number): number {
   return 0.24 + 0.045;
 }
 
+/**
+ * Sell-through "ending soon" signal. NC doesn't publish forward claim
+ * deadlines for active games, so we approximate from how little of the print
+ * run is left: a game with almost no tickets remaining is winding down and
+ * likely to be pulled (with a claim deadline announced) soon.
+ */
+export function endingSoon(game: Game): "ending" | "soon" | null {
+  const fr = game.computed.fractionRemaining;
+  if (fr < 0.05) return "ending";
+  if (fr < 0.1) return "soon";
+  return null;
+}
+
 /** Expected number of tickets you'd buy, on average, to hit one top prize. */
 export function ticketsToTopPrize(game: Game): number | null {
   const { ticketsRemaining, topPrizesRemaining } = game.computed;
