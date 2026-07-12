@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import { useScratchers } from "./useScratchers.js";
 import { Sparkline } from "./Sparkline.js";
 import { buildDemoHistory, distinctDates } from "./demo.js";
+import { useLocalStorage, useLedger } from "./storage.js";
+import { useChanges, type GameChange } from "./changes.js";
 import type { Game, History } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
@@ -13,11 +15,13 @@ import {
   trendDirection,
   pointNet,
   effectiveRoi,
+  ticketsToTopPrize,
+  recommendForBudget,
   type ConfidenceLevel,
 } from "./analytics.js";
 
 type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
-type Tab = "value" | "sellers";
+type Tab = "value" | "sellers" | "me";
 
 export default function App() {
   const { data, history, loading, error, refresh } = useScratchers("nc");
@@ -25,6 +29,12 @@ export default function App() {
   const [selected, setSelected] = useState<Game | null>(null);
   const [afterTax, setAfterTax] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [favs, setFavs] = useLocalStorage<string[]>("favs-nc", []);
+  const favSet = useMemo(() => new Set(favs), [favs]);
+  const toggleFav = (id: string) =>
+    setFavs((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+  const changes = useChanges(data?.games, data?.generatedAt);
+  const ledger = useLedger();
 
   // With ≤1 real day of history, trends/velocity have nothing to show, so we
   // fall back to clearly-labeled SAMPLE data generated from today's snapshot.
@@ -69,9 +79,12 @@ export default function App() {
         >
           Hot sellers
         </button>
+        <button className={`tab ${tab === "me" ? "tab-on" : ""}`} onClick={() => setTab("me")}>
+          My tickets
+        </button>
       </div>
 
-      {isDemo && data && (
+      {isDemo && data && tab !== "me" && (
         <div className="demo-banner">
           <strong>Sample data</strong> — trend lines and “Hot sellers” below use{" "}
           <em>illustrative</em> history until 2+ daily updates are collected. Prices, odds, EV and
@@ -86,19 +99,23 @@ export default function App() {
         </div>
       )}
 
-      {data &&
-        (tab === "value" ? (
-          <ValueTab
-            games={data.games}
-            history={effHistory}
-            demo={isDemo}
-            afterTax={afterTax}
-            onAfterTax={setAfterTax}
-            onSelect={setSelected}
-          />
-        ) : (
-          <SellersTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
-        ))}
+      {data && tab === "value" && (
+        <ValueTab
+          games={data.games}
+          history={effHistory}
+          demo={isDemo}
+          afterTax={afterTax}
+          onAfterTax={setAfterTax}
+          favSet={favSet}
+          onToggleFav={toggleFav}
+          changes={changes}
+          onSelect={setSelected}
+        />
+      )}
+      {data && tab === "sellers" && (
+        <SellersTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
+      )}
+      {data && tab === "me" && <MeTab games={data.games} ledger={ledger} afterTax={afterTax} />}
 
       <p className="disclaimer">
         ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
@@ -111,6 +128,8 @@ export default function App() {
           history={effHistory}
           demo={isDemo}
           afterTax={afterTax}
+          isFav={favSet.has(selected.gameId)}
+          onToggleFav={() => toggleFav(selected.gameId)}
           onClose={() => setSelected(null)}
         />
       )}
@@ -128,6 +147,9 @@ function ValueTab({
   demo,
   afterTax,
   onAfterTax,
+  favSet,
+  onToggleFav,
+  changes,
   onSelect,
 }: {
   games: Game[];
@@ -135,12 +157,17 @@ function ValueTab({
   demo: boolean;
   afterTax: boolean;
   onAfterTax: (v: boolean) => void;
+  favSet: Set<string>;
+  onToggleFav: (id: string) => void;
+  changes: Map<string, GameChange>;
   onSelect: (g: Game) => void;
 }) {
   const [price, setPrice] = useState<number | "all">("all");
   const [sort, setSort] = useState<SortKey>("roi");
   const [query, setQuery] = useState("");
   const [topOnly, setTopOnly] = useState(false);
+  const [favOnly, setFavOnly] = useState(false);
+  const [showBudget, setShowBudget] = useState(false);
 
   const prices = useMemo(() => {
     const set = new Set<number>();
@@ -153,6 +180,7 @@ function ValueTab({
     let l = games.filter((g) => {
       if (price !== "all" && g.price !== price) return false;
       if (topOnly && g.computed.topPrizesRemaining <= 0) return false;
+      if (favOnly && !favSet.has(g.gameId)) return false;
       if (q && !g.name.toLowerCase().includes(q)) return false;
       return true;
     });
@@ -164,7 +192,7 @@ function ValueTab({
       return effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
     });
     return l;
-  }, [games, price, sort, query, topOnly, afterTax]);
+  }, [games, price, sort, query, topOnly, favOnly, favSet, afterTax]);
 
   return (
     <>
@@ -200,6 +228,9 @@ function ValueTab({
             </label>
           </div>
           <div className="toggles">
+            <button className={`chip ${favOnly ? "chip-on" : ""}`} onClick={() => setFavOnly((v) => !v)}>
+              ★ Favorites
+            </button>
             <button className={`chip ${topOnly ? "chip-on" : ""}`} onClick={() => setTopOnly((v) => !v)}>
               Top prize left
             </button>
@@ -209,6 +240,9 @@ function ValueTab({
               title="Estimate net after federal + NC withholding"
             >
               After tax
+            </button>
+            <button className="chip budget-btn" onClick={() => setShowBudget(true)}>
+              💡 Budget
             </button>
           </div>
         </div>
@@ -223,10 +257,17 @@ function ValueTab({
             history={history}
             demo={demo}
             afterTax={afterTax}
+            isFav={favSet.has(g.gameId)}
+            onToggleFav={() => onToggleFav(g.gameId)}
+            change={changes.get(g.gameId)}
             onClick={() => onSelect(g)}
           />
         ))}
       </ul>
+
+      {showBudget && (
+        <BudgetSheet games={games} afterTax={afterTax} onClose={() => setShowBudget(false)} />
+      )}
     </>
   );
 }
@@ -249,12 +290,18 @@ function GameCard({
   history,
   demo,
   afterTax,
+  isFav,
+  onToggleFav,
+  change,
   onClick,
 }: {
   game: Game;
   history: History | null;
   demo: boolean;
   afterTax: boolean;
+  isFav: boolean;
+  onToggleFav: () => void;
+  change?: GameChange;
   onClick: () => void;
 }) {
   const c = game.computed;
@@ -269,7 +316,32 @@ function GameCard({
       <div className="card-head">
         <span className="price-tag">${game.price}</span>
         <span className="game-name">{game.name}</span>
+        <button
+          className={`star ${isFav ? "star-on" : ""}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleFav();
+          }}
+          aria-label={isFav ? "Unfavorite" : "Favorite"}
+        >
+          {isFav ? "★" : "☆"}
+        </button>
       </div>
+      {change && (
+        <div className="change-row">
+          {change.topClaimed > 0 && (
+            <span className="badge badge-warn">
+              {change.topClaimed} top prize{change.topClaimed > 1 ? "s" : ""} claimed
+            </span>
+          )}
+          {Math.abs(change.netDelta) >= 0.005 && (
+            <span className={`badge ${change.netDelta > 0 ? "badge-up" : "badge-down"}`}>
+              {change.netDelta > 0 ? "▲ better value" : "▼ worse value"}
+            </span>
+          )}
+          <span className="since">since last visit</span>
+        </div>
+      )}
       <div className="roi-row">
         <div className="roi-bar">
           <div className="roi-fill" style={{ width: `${width}%`, background: roiColor(roi) }} />
@@ -412,12 +484,16 @@ function Detail({
   history,
   demo,
   afterTax,
+  isFav,
+  onToggleFav,
   onClose,
 }: {
   game: Game;
   history: History | null;
   demo: boolean;
   afterTax: boolean;
+  isFav: boolean;
+  onToggleFav: () => void;
   onClose: () => void;
 }) {
   const c = game.computed;
@@ -428,6 +504,8 @@ function Detail({
   const points = history?.series[game.gameId]?.points ?? [];
   const nets = points.map(pointNet);
   const dir = trendDirection(nets);
+  const toTop = ticketsToTopPrize(game);
+  const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
   return (
@@ -441,9 +519,18 @@ function Detail({
               ${game.price} · game #{game.gameId}
             </div>
           </div>
-          <button className="close" onClick={onClose} aria-label="Close">
-            ✕
-          </button>
+          <div className="sheet-actions">
+            <button
+              className={`star ${isFav ? "star-on" : ""}`}
+              onClick={onToggleFav}
+              aria-label={isFav ? "Unfavorite" : "Favorite"}
+            >
+              {isFav ? "★" : "☆"}
+            </button>
+            <button className="close" onClick={onClose} aria-label="Close">
+              ✕
+            </button>
+          </div>
         </div>
 
         {afterTax && <div className="tax-note">Showing net after estimated federal + NC tax.</div>}
@@ -494,6 +581,21 @@ function Detail({
             </>
           )}
         </p>
+
+        <div className="projection">
+          <div className="proj-item">
+            <span className="proj-val">{toTop ? `~${int(toTop)}` : "—"}</span>
+            <span className="proj-label">tickets to a top prize (avg)</span>
+          </div>
+          <div className="proj-item">
+            <span className="proj-val" style={{ color: roiColor(roi) }}>
+              {run100 >= 0 ? "+" : "−"}${Math.abs(run100).toFixed(0)}
+            </span>
+            <span className="proj-label">
+              expected net on a $100 run{afterTax ? " (after tax)" : ""}
+            </span>
+          </div>
+        </div>
 
         <table className="tiers">
           <thead>
@@ -618,5 +720,181 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function BudgetSheet({
+  games,
+  afterTax,
+  onClose,
+}: {
+  games: Game[];
+  afterTax: boolean;
+  onClose: () => void;
+}) {
+  const [budget, setBudget] = useState(40);
+  const picks = useMemo(
+    () => recommendForBudget(games, budget, afterTax),
+    [games, budget, afterTax],
+  );
+  return (
+    <div className="sheet-backdrop" onClick={onClose}>
+      <div className="sheet" onClick={(e) => e.stopPropagation()}>
+        <div className="sheet-grab" />
+        <div className="sheet-head">
+          <div className="sheet-title">Budget helper</div>
+          <button className="close" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </div>
+        <label className="budget-input">
+          I want to spend
+          <span>
+            $
+            <input
+              type="number"
+              min={1}
+              step={1}
+              value={budget}
+              onChange={(e) => setBudget(Math.max(1, Number(e.target.value) || 0))}
+            />
+          </span>
+        </label>
+        <p className="budget-hint">
+          Best current value{afterTax ? " (after tax)" : ""} for your budget:
+        </p>
+        <ul className="list">
+          {picks.map(({ game, count, spend, expectedNet, roi }) => (
+            <li key={game.gameId} className="card budget-pick">
+              <div className="card-head">
+                <span className="price-tag">${game.price}</span>
+                <span className="game-name">{game.name}</span>
+              </div>
+              <div className="card-stats">
+                <span className="sold">
+                  {count} ticket{count > 1 ? "s" : ""} (${spend})
+                </span>
+                <span style={{ color: roiColor(roi) }}>
+                  expected {expectedNet >= 0 ? "+" : "−"}${Math.abs(expectedNet).toFixed(2)}
+                </span>
+                <span>{pct(roi, 0)} return</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p className="disclaimer">
+          “Expected” is an average over the game’s remaining tickets — any single purchase varies
+          wildly. Almost every option loses money on average.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MeTab({
+  games,
+  ledger,
+  afterTax,
+}: {
+  games: Game[];
+  ledger: ReturnType<typeof useLedger>;
+  afterTax: boolean;
+}) {
+  const [name, setName] = useState("");
+  const [spent, setSpent] = useState("");
+  const [won, setWon] = useState("");
+  const totals = useMemo(() => {
+    const s = ledger.entries.reduce((a, e) => a + e.spent, 0);
+    const w = ledger.entries.reduce((a, e) => a + e.won, 0);
+    return { spent: s, won: w, net: w - s };
+  }, [ledger.entries]);
+
+  const canAdd = name.trim() && Number(spent) > 0;
+  const submit = () => {
+    if (!canAdd) return;
+    ledger.add({
+      date: todayIso(),
+      gameName: name.trim(),
+      spent: Number(spent) || 0,
+      won: Number(won) || 0,
+    });
+    setName("");
+    setSpent("");
+    setWon("");
+  };
+
+  return (
+    <>
+      <div className="totals">
+        <Kpi label="Spent" value={usd2(totals.spent)} />
+        <Kpi label="Won" value={usd2(totals.won)} />
+        <Kpi
+          label="Net"
+          value={`${totals.net >= 0 ? "+" : "−"}${usd2(Math.abs(totals.net)).replace("$", "$")}`}
+          accent={totals.net >= 0 ? "#3ddc97" : "#e08a5b"}
+        />
+      </div>
+
+      <div className="ledger-form">
+        <input
+          list="game-names"
+          placeholder="Game name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <datalist id="game-names">
+          {games.map((g) => (
+            <option key={g.gameId} value={g.name} />
+          ))}
+        </datalist>
+        <div className="ledger-amounts">
+          <label>
+            Spent $
+            <input type="number" min={0} value={spent} onChange={(e) => setSpent(e.target.value)} />
+          </label>
+          <label>
+            Won $
+            <input type="number" min={0} value={won} onChange={(e) => setWon(e.target.value)} />
+          </label>
+          <button className="add-btn" onClick={submit} disabled={!canAdd}>
+            Add
+          </button>
+        </div>
+      </div>
+
+      {ledger.entries.length === 0 ? (
+        <div className="status">
+          Log tickets you buy to track your <em>real</em> win/loss against the app’s estimates.
+        </div>
+      ) : (
+        <ul className="list">
+          {ledger.entries.map((e) => (
+            <li key={e.id} className="card ledger-row">
+              <div className="seller-main">
+                <div className="card-head">
+                  <span className="game-name">{e.gameName}</span>
+                </div>
+                <div className="card-stats">
+                  <span>{e.date}</span>
+                  <span>spent ${e.spent}</span>
+                  <span>won ${e.won}</span>
+                  <span
+                    style={{ color: e.won - e.spent >= 0 ? "#3ddc97" : "#e08a5b", fontWeight: 700 }}
+                  >
+                    {e.won - e.spent >= 0 ? "+" : "−"}${Math.abs(e.won - e.spent)}
+                  </span>
+                </div>
+              </div>
+              <button className="close" onClick={() => ledger.remove(e.id)} aria-label="Delete">
+                ✕
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      {afterTax && (
+        <p className="disclaimer">Tip: “After tax” affects estimates, not your logged actuals.</p>
+      )}
+    </>
   );
 }

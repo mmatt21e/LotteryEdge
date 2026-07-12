@@ -112,6 +112,38 @@ function taxRate(amount: number): number {
   return 0.24 + 0.045;
 }
 
+/** Expected number of tickets you'd buy, on average, to hit one top prize. */
+export function ticketsToTopPrize(game: Game): number | null {
+  const { ticketsRemaining, topPrizesRemaining } = game.computed;
+  if (topPrizesRemaining <= 0 || ticketsRemaining <= 0) return null;
+  return Math.round(ticketsRemaining / topPrizesRemaining);
+}
+
+export interface BudgetPick {
+  game: Game;
+  count: number;
+  spend: number;
+  expectedNet: number; // negative = expected loss
+  roi: number;
+}
+
+/**
+ * For a budget, rank affordable games by value/$1 and show how many tickets fit
+ * and the expected net. Greedy per single game (simple, transparent).
+ */
+export function recommendForBudget(games: Game[], budget: number, afterTax: boolean): BudgetPick[] {
+  return games
+    .filter((g) => g.price > 0 && g.price <= budget)
+    .map((g) => {
+      const roi = effectiveRoi(g, afterTax);
+      const count = Math.floor(budget / g.price);
+      const spend = count * g.price;
+      return { game: g, count, spend, expectedNet: spend * (roi - 1), roi };
+    })
+    .sort((a, b) => b.roi - a.roi)
+    .slice(0, 5);
+}
+
 /** ROI to display, optionally after estimated taxes. Recomputed from tiers. */
 export function effectiveRoi(game: Game, afterTax: boolean): number {
   if (!afterTax) return game.computed.roi;
