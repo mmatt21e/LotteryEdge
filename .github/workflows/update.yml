@@ -65,7 +65,13 @@ jobs:
             echo "No data changes."
           else
             git commit -m "chore: refresh scratch-off data"
-            git push
+            # Rebase onto anything pushed while we were scraping (manual
+            # re-triggers or an overlapping run) so the push can't be rejected.
+            for i in 1 2 3; do
+              git pull --rebase origin "$GITHUB_REF_NAME" && git push && break
+              echo "push attempt $i failed; retrying in 5s"
+              sleep 5
+            done
           fi
 
       # --- Build PWA ---
