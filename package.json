@@ -5,9 +5,9 @@
   "type": "module",
   "description": "Scrapes NC & VA lottery scratch-off prize data and ranks games by estimated expected value.",
   "scripts": {
-    "scrape": "tsx src/index.ts",
+    "scrape": "tsx src/index.ts all",
     "scrape:nc": "tsx src/index.ts nc",
-    "scrape:va": "tsx src/index.ts va",
+    "scrape:va": "node scripts/va-scrape.mjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },

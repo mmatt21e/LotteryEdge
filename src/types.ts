@@ -12,13 +12,38 @@ export interface PrizeTier {
 
 /** Raw game data as scraped, before EV computation. */
 export interface RawGame {
-  state: "nc" | "va";
+  state: string;
   gameId: string;
   name: string;
   /** Ticket price in dollars. */
   price: number;
   url?: string;
   tiers: PrizeTier[];
+  /** Whole-game anchor for sources without per-tier odds (see ev.ts). */
+  overallOdds?: number;
+  totalTickets?: number;
+}
+
+/** A "lite" game for states that publish only top-prize / list data. */
+export interface LiteGame {
+  gameId: string;
+  name: string;
+  price: number;
+  topPrize: string;
+  topPrizeValue: number | null;
+  closingSoon: boolean;
+}
+
+/** One state's scraper adapter. */
+export interface Source {
+  key: string; // "nc"
+  name: string; // "North Carolina"
+  tier: "A" | "B" | "C";
+  kind: "full" | "lite";
+  /** True if the adapter needs a headless browser (Playwright). */
+  needsBrowser?: boolean;
+  scrapeFull?: () => Promise<{ source: string; games: RawGame[] }>;
+  scrapeLite?: () => Promise<{ source: string; games: LiteGame[] }>;
 }
 
 /** Derived expected-value statistics for a game. */
@@ -47,8 +72,17 @@ export interface Game extends RawGame {
 
 export interface ScrapeResult {
   generatedAt: string;
-  state: "nc" | "va";
+  state: string;
   source: string;
   gameCount: number;
   games: Game[];
+}
+
+export interface LiteResult {
+  generatedAt: string;
+  state: string;
+  limited: true;
+  source: string;
+  gameCount: number;
+  games: LiteGame[];
 }
