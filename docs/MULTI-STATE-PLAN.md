@@ -85,7 +85,73 @@ src/sources/
 
 ## Per-state classification (from research — filled next)
 
-_Populated from the parallel site-by-site research pass. Columns: State · Tier ·
-Format · Prizes-remaining URL · Notes._
+From a parallel site-by-site research pass over all 46 US lottery jurisdictions.
+**Tier A = full per-tier remaining (full EV). Tier B = top-prize/list only
+(lite). Tier C = no usable public data.**
 
-<!-- RESEARCH_TABLE -->
+### Tier A — full EV (26 states)
+
+Sub-grouped by scrape difficulty.
+
+**A1 · Easy (clean static table or open JSON) — do first**
+
+| State | Format | Source |
+|---|---|---|
+| North Carolina | static HTML (single table) | nclottery.com/scratch-off-prizes-remaining ✅ built |
+| Iowa | static HTML (single table) | ialottery.com/Pages/Games/RemainingPrizes.aspx |
+| Kentucky | static HTML | kylottery.com/apps/scratch_offs/prizes_remaining.html |
+| South Carolina | static HTML (per-game) | sceducationlottery.com/Games/PrizesRemaining |
+| Idaho | static HTML | idaholottery.com/games/scratch |
+| Massachusetts | **open JSON API** | masslottery.com/api/v1/instant-game-prizes |
+| Maryland | static HTML (per-game) | mdlottery.com/games/scratch-offs/ |
+| Texas | static HTML (per-game) | texaslottery.com/.../Scratch_Offs/all.html |
+| Vermont | static HTML | vtlottery.com/games/instant-tickets/outstanding-prizes |
+| Washington | static HTML (per-game) | walottery.com/Scratch/TopPrizesRemaining.aspx |
+| Arkansas | static HTML (per-game) | myarkansaslottery.com/games/instant |
+| Connecticut | static HTML (per-game) | ctlottery.org/scratchgames |
+| Louisiana | static HTML (per-game) | louisianalottery.com/scratch-offs/ |
+| Indiana | static HTML (per-game) | hoosierlottery.com/games/scratch-off/ |
+| Mississippi | static HTML (per-game) | mslottery.com/gamestatus/active/ |
+| Missouri | static HTML (per-game) | molottery.com/scratchers-list.do |
+| California | JSON list + per-game detail | calottery.com/api/Sitecore/ScratchersFilteredList |
+
+**A2 · Harder (JS-rendered / gated / PDF — need Playwright or API discovery)**
+
+| State | Format | Source |
+|---|---|---|
+| Florida | JS + bot-protected feed | files.floridalottery.com/site/remainingPrizes |
+| Ohio | JS/AJAX feed | ohiolottery.com/games/scratch-offs/prizes-remaining |
+| Oklahoma | JS (Vue) | lottery.ok.gov/scratchers/remaining-prizes |
+| Rhode Island | JS (per-game) | rilot.com/en-us/instantgames.html |
+| West Virginia | JS (Drupal) | wvlottery.com/games/scratch-offs |
+| Michigan | GraphQL API | michiganlottery.com/api |
+| Kansas | JS (site migration) | kslottery.gov game pages |
+| New Hampshire | JS | nhlottery.com/prizes/prizes-remaining |
+| New York | per-game PDF report | nylottery.ny.gov/scratch-off-games |
+
+### Tier B — lite / top-prize only (16 states, VA-style)
+
+DE, GA*, IL†, NJ, NM, NE, OR, PA, CO, SD, TN‡, WI, DC, ME, MN, **VA** ✅ built.
+(*GA locks odds in images. †IL actually publishes full tiers but is 403/JS-gated
+— treat as B unless we invest in headless. ‡TN is 403 bot-protected.)
+
+### Tier C — unsupported (4 jurisdictions)
+
+- **North Dakota** — draw games only, no scratch-offs.
+- **Wyoming** — draw games only, no scratch-offs.
+- **Montana** — publishes odds but no remaining counts.
+- **Arizona** — top-prize only + 403 bot-protected.
+
+### Non-lottery states (no lottery at all)
+
+Alabama, Alaska, Hawaii, Nevada, Utah — nothing to add.
+
+## Implementation waves (from this table)
+
+- **Wave 1 (A1 easy):** the 17 clean static/JSON states. Each ≈ NC-effort
+  (fetch + cheerio parser, or a JSON map) + a small test. Biggest coverage jump.
+- **Wave 2 (A2 hard):** the 9 JS/gated/PDF states via Playwright or API
+  reverse-engineering (some may fall back to lite, VA-style, if too gated).
+- **Wave 3 (Tier B lite):** 16 top-prize-only states → LiteView.
+- **Wave 4:** Tier C shown as "not available (reason)"; searchable state picker
+  UX for 40+ entries.
