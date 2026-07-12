@@ -6,11 +6,13 @@ export function Sparkline({
   color,
   width = 96,
   height = 28,
+  dashed = false,
 }: {
   values: number[];
   color: string;
   width?: number;
   height?: number;
+  dashed?: boolean;
 }) {
   if (values.length < 2) {
     return <span className="spark-empty">collecting…</span>;
@@ -19,8 +21,16 @@ export function Sparkline({
   const last = pts.split(" ").pop()!.split(",");
   return (
     <svg className="spark" width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-      <polyline points={pts} fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round" />
-      <circle cx={last[0]} cy={last[1]} r="2.4" fill={color} />
+      <polyline
+        points={pts}
+        fill="none"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinejoin="round"
+        strokeDasharray={dashed ? "3 3" : undefined}
+        opacity={dashed ? 0.75 : 1}
+      />
+      <circle cx={last[0]} cy={last[1]} r="2.4" fill={color} opacity={dashed ? 0.75 : 1} />
     </svg>
   );
 }

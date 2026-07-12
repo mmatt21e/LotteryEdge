@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useScratchers } from "./useScratchers.js";
 import { Sparkline } from "./Sparkline.js";
+import { buildDemoHistory, distinctDates } from "./demo.js";
 import type { Game, History } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
@@ -21,6 +22,14 @@ export default function App() {
   const { data, history, loading, error, refresh } = useScratchers("nc");
   const [tab, setTab] = useState<Tab>("value");
   const [selected, setSelected] = useState<Game | null>(null);
+
+  // With ≤1 real day of history, trends/velocity have nothing to show, so we
+  // fall back to clearly-labeled SAMPLE data generated from today's snapshot.
+  const isDemo = distinctDates(history) <= 1;
+  const effHistory = useMemo(
+    () => (isDemo ? buildDemoHistory(data?.games ?? []) : history),
+    [isDemo, data, history],
+  );
 
   return (
     <div className="app">
@@ -54,6 +63,14 @@ export default function App() {
         </button>
       </div>
 
+      {isDemo && data && (
+        <div className="demo-banner">
+          <strong>Sample data</strong> — trend lines and “Hot sellers” below use{" "}
+          <em>illustrative</em> history until 2+ daily updates are collected. Prices, odds, EV and
+          net/$1 are real.
+        </div>
+      )}
+
       {loading && !data && <div className="status">Loading…</div>}
       {error && !data && (
         <div className="status error">
@@ -63,9 +80,9 @@ export default function App() {
 
       {data &&
         (tab === "value" ? (
-          <ValueTab games={data.games} history={history} onSelect={setSelected} />
+          <ValueTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
         ) : (
-          <SellersTab games={data.games} history={history} onSelect={setSelected} />
+          <SellersTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
         ))}
 
       <p className="disclaimer">
@@ -74,7 +91,12 @@ export default function App() {
       </p>
 
       {selected && (
-        <Detail game={selected} history={history} onClose={() => setSelected(null)} />
+        <Detail
+          game={selected}
+          history={effHistory}
+          demo={isDemo}
+          onClose={() => setSelected(null)}
+        />
       )}
     </div>
   );
@@ -85,10 +107,12 @@ export default function App() {
 function ValueTab({
   games,
   history,
+  demo,
   onSelect,
 }: {
   games: Game[];
   history: History | null;
+  demo: boolean;
   onSelect: (g: Game) => void;
 }) {
   const [price, setPrice] = useState<number | "all">("all");
@@ -137,7 +161,13 @@ function ValueTab({
 
       <ul className="list">
         {list.map((g) => (
-          <GameCard key={g.gameId} game={g} history={history} onClick={() => onSelect(g)} />
+          <GameCard
+            key={g.gameId}
+            game={g}
+            history={history}
+            demo={demo}
+            onClick={() => onSelect(g)}
+          />
         ))}
       </ul>
     </>
@@ -160,10 +190,12 @@ const CONF_COLOR: Record<ConfidenceLevel, string> = {
 function GameCard({
   game,
   history,
+  demo,
   onClick,
 }: {
   game: Game;
   history: History | null;
+  demo: boolean;
   onClick: () => void;
 }) {
   const c = game.computed;
@@ -194,8 +226,8 @@ function GameCard({
         <span>{odds ? `1 in ${int(odds)} to profit` : `${pct(c.roi, 0)} return`}</span>
         <span>Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left</span>
         {nets.length >= 2 && (
-          <span className="card-spark">
-            <Sparkline values={nets} color={roiColor(c.roi)} width={64} height={18} />
+          <span className="card-spark" title={demo ? "Sample trend" : "Net/$1 trend"}>
+            <Sparkline values={nets} color={roiColor(c.roi)} width={64} height={18} dashed={demo} />
           </span>
         )}
       </div>
@@ -210,10 +242,12 @@ type Range = 7 | 14 | 30 | "all" | "custom";
 function SellersTab({
   games,
   history,
+  demo,
   onSelect,
 }: {
   games: Game[];
   history: History | null;
+  demo: boolean;
   onSelect: (g: Game) => void;
 }) {
   const [range, setRange] = useState<Range>(7);
@@ -277,6 +311,7 @@ function SellersTab({
       ) : (
         <>
           <div className="sellers-caption">
+            {demo && <span className="sample-pill">Sample</span>}
             Estimated tickets sold, {window.from} → {window.to}
           </div>
           <ul className="list">
@@ -315,10 +350,12 @@ function SellersTab({
 function Detail({
   game,
   history,
+  demo,
   onClose,
 }: {
   game: Game;
   history: History | null;
+  demo: boolean;
   onClose: () => void;
 }) {
   const c = game.computed;
@@ -360,13 +397,13 @@ function Detail({
 
         <div className="trend">
           <div className="trend-head">
-            <span>Net / $1 trend</span>
+            <span>Net / $1 trend {demo && <span className="sample-pill">Sample</span>}</span>
             <span className="trend-dir" style={{ color: dirColor(dir) }}>
               {dirLabel(dir)}
             </span>
           </div>
           {nets.length >= 2 ? (
-            <Sparkline values={nets} color={roiColor(c.roi)} width={320} height={54} />
+            <Sparkline values={nets} color={roiColor(c.roi)} width={320} height={54} dashed={demo} />
           ) : (
             <div className="trend-empty">
               Trend builds as daily snapshots accumulate — check back soon.

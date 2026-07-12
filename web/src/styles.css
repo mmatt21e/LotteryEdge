@@ -124,6 +124,34 @@ body {
   color: var(--text);
 }
 
+/* Demo / sample labeling */
+.demo-banner {
+  background: rgba(245, 196, 81, 0.12);
+  border: 1px solid rgba(245, 196, 81, 0.4);
+  color: #f3d38a;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+.demo-banner strong {
+  color: var(--accent);
+}
+.sample-pill {
+  display: inline-block;
+  background: var(--accent);
+  color: #1a1300;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 5px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 /* Controls */
 .controls {
   display: flex;
