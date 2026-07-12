@@ -98,6 +98,32 @@ body {
   font-size: 13px;
 }
 
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 14px;
+}
+.tab {
+  flex: 1;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tab-on {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
 /* Controls */
 .controls {
   display: flex;
@@ -241,9 +267,126 @@ body {
 .card-stats {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 4px 14px;
   color: var(--muted);
   font-size: 13px;
+}
+.conf-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+}
+.conf-dot i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.card-spark {
+  margin-left: auto;
+}
+.spark {
+  display: block;
+}
+.spark-empty {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* Hot sellers */
+.sellers-caption {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 2px 10px;
+}
+.date-range {
+  display: flex;
+  gap: 10px;
+}
+.date-range label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.date-range input {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+}
+.card.seller {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rank {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--muted);
+  min-width: 22px;
+  text-align: center;
+}
+.seller-main {
+  flex: 1;
+  min-width: 0;
+}
+.seller-main .card-head {
+  margin-bottom: 8px;
+}
+.sold {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Detail: trend + confidence */
+.trend {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.trend-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.trend-dir {
+  font-weight: 700;
+}
+.trend-empty {
+  color: var(--muted);
+  font-size: 13px;
+  font-style: italic;
+  padding: 6px 0;
+}
+.conf-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.conf-line i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+.conf-line strong {
+  color: var(--text);
+  text-transform: capitalize;
 }
 
 .status {

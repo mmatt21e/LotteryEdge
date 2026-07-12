@@ -35,3 +35,24 @@ export interface ScrapeResult {
   gameCount: number;
   games: Game[];
 }
+
+export interface HistoryPoint {
+  date: string;
+  ticketsRemaining: number;
+  roi: number;
+  topPrizesRemaining: number;
+  fractionRemaining: number;
+  remainingPrizeValue: number;
+}
+
+export interface GameSeries {
+  name: string;
+  price: number;
+  points: HistoryPoint[];
+}
+
+export interface History {
+  state: string;
+  updatedAt: string;
+  series: Record<string, GameSeries>;
+}

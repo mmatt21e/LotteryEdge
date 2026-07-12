@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { computeStats } from "./ev.js";
 import { scrapeNc } from "./sources/nc.js";
 import { scrapeVa } from "./sources/va.js";
+import { loadHistory, saveHistory, upsertHistory } from "./history.js";
 import type { Game, ScrapeResult } from "./types.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -52,6 +53,14 @@ async function main() {
       const result = await run(state);
       const out = resolve(DATA_DIR, `scratchers-${state}.json`);
       await writeFile(out, JSON.stringify(result, null, 2) + "\n");
+
+      // Append today's snapshot to the running time-series (powers trends,
+      // ticket-velocity, and confidence in the app).
+      const histPath = resolve(DATA_DIR, `history-${state}.json`);
+      const date = result.generatedAt.slice(0, 10);
+      const prev = await loadHistory(histPath);
+      const history = upsertHistory(prev, state, result.games, date, result.generatedAt);
+      await saveHistory(histPath, history);
 
       const top = result.games.slice(0, 5);
       console.log(`\n[${state.toUpperCase()}] ${result.gameCount} games -> ${out}`);
