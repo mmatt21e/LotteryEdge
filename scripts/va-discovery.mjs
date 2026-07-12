@@ -1,8 +1,8 @@
-// VA discovery (iteration 3): the physical scratcher API
-// (www.valottery.com/api/v1/scratchers) needs the site session, so we fetch it
-// from INSIDE the loaded page (which carries the cookies). Pull every list page
-// and probe candidate per-game detail routes to find prize-tier / remaining
-// data. Runs in CI.
+// VA discovery (iteration 4): nail down the prize-tier / remaining schema.
+// valottery.com sits behind a bot cookie that isn't set on first paint, so we
+// load -> wait -> reload to warm the session, then (1) intercept native API
+// calls, (2) do warmed in-page fetches of the list + a detail endpoint, and
+// (3) navigate to a physical scratcher detail page and dump its HTML + API.
 import { chromium } from "playwright";
 import { mkdir, writeFile, rm } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
@@ -10,84 +10,120 @@ import { fileURLToPath } from "node:url";
 
 const OUT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "data", "va-discovery");
 const PAGE = "https://www.valottery.com/scratcher-search";
+const UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36";
 
 await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 
 const browser = await chromium.launch();
-const ctx = await browser.newContext({
-  userAgent:
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36",
-});
+const ctx = await browser.newContext({ userAgent: UA });
 const page = await ctx.newPage();
-await page.goto(PAGE, { waitUntil: "networkidle", timeout: 90000 }).catch((e) => console.log("goto:", e.message));
-await page.waitForTimeout(4000);
 
-// Everything below runs in the page's origin/session (cookies included).
-const result = await page.evaluate(async () => {
-  const get = async (url) => {
+const api = [];
+page.on("response", async (res) => {
+  if (!/\/api\/v1\/scratchers/i.test(res.url())) return;
+  let b = "";
+  try {
+    b = await res.text();
+  } catch {}
+  api.push({ url: res.url(), status: res.status(), ct: res.headers().get?.("content-type") || "", len: b.length, body: b });
+});
+
+console.log("load 1");
+await page.goto(PAGE, { waitUntil: "networkidle", timeout: 90000 }).catch((e) => console.log("goto1:", e.message));
+await page.waitForTimeout(9000); // let the bot sensor set its cookie
+console.log("reload to warm session");
+await page.reload({ waitUntil: "networkidle", timeout: 90000 }).catch((e) => console.log("reload:", e.message));
+await page.waitForTimeout(6000);
+
+// Warmed in-page fetches (carry cookies)
+const probe = await page.evaluate(async () => {
+  const get = async (u) => {
     try {
-      const r = await fetch(url, {
+      const r = await fetch(u, {
         headers: { Accept: "application/json", "X-Requested-With": "XMLHttpRequest" },
         credentials: "include",
       });
-      const text = await r.text();
-      return { url, status: r.status, ct: r.headers.get("content-type") || "", text };
+      return { url: u, status: r.status, ct: r.headers.get("content-type") || "", text: (await r.text()).slice(0, 150000) };
     } catch (e) {
-      return { url, error: String(e) };
+      return { url: u, error: String(e) };
     }
   };
-
-  // 1) All list pages
-  const first = await get("/api/v1/scratchers?page=1");
-  let totalPages = 1;
+  const out = { list: await get("/api/v1/scratchers") };
+  let id = null,
+    title = null,
+    totalPages = null;
   try {
-    totalPages = JSON.parse(first.text).totalPages || 1;
+    const d = JSON.parse(out.list.text);
+    totalPages = d.totalPages;
+    const g = (d.data || [])[0] || {};
+    id = g.GameID;
+    title = g.Title;
   } catch {}
-  const pages = [first];
-  for (let p = 2; p <= totalPages; p++) pages.push(await get(`/api/v1/scratchers?page=${p}`));
-
-  // 2) Collect game IDs from the list
-  const ids = [];
-  for (const pg of pages) {
-    try {
-      for (const g of JSON.parse(pg.text).data || []) if (g.GameID) ids.push(g.GameID);
-    } catch {}
+  out.totalPages = totalPages;
+  out.firstId = id;
+  out.firstTitle = title;
+  if (id) {
+    out.detail = await get(`/api/v1/scratchers/${id}`);
+    out.detail_prizes = await get(`/api/v1/scratchers/${id}/prizes`);
   }
-
-  // 3) Probe candidate detail routes for the first game
-  const gid = ids[0];
-  const candidates = gid
-    ? [
-        `/api/v1/scratchers/${gid}`,
-        `/api/v1/scratchers/game/${gid}`,
-        `/api/v1/scratchers/${gid}/prizes`,
-        `/api/v1/scratchers/${gid}/prizetiers`,
-        `/api/v1/scratchers/details/${gid}`,
-        `/api/v1/scratcher/${gid}`,
-      ]
-    : [];
-  const details = [];
-  for (const c of candidates) details.push(await get(c));
-
-  return { totalPages, idCount: ids.length, sampleIds: ids.slice(0, 5), pages, details };
+  return out;
 });
 
-// Write everything out
-await writeFile(resolve(OUT, "list-page1.json"), result.pages[0]?.text || "");
-for (let i = 0; i < result.details.length; i++) {
-  const d = result.details[i];
+await writeFile(resolve(OUT, "probe.json"), JSON.stringify(probe, null, 2).slice(0, 400000));
+
+// Navigate to a physical scratcher detail page (HTML) and dump it + any API hit.
+const id = probe.firstId;
+const slug = (probe.firstTitle || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const detailUrls = id
+  ? [
+      `https://www.valottery.com/scratchers/${id}`,
+      `https://www.valottery.com/scratchers/${id}/${slug}`,
+      `https://www.valottery.com/scratcher/${id}`,
+    ]
+  : [];
+for (let i = 0; i < detailUrls.length; i++) {
+  try {
+    const resp = await page.goto(detailUrls[i], { waitUntil: "networkidle", timeout: 60000 });
+    await page.waitForTimeout(3000);
+    const html = await page.content();
+    await writeFile(
+      resolve(OUT, `detailpage-${i + 1}.html`),
+      `<!-- ${detailUrls[i]} status ${resp && resp.status()} -->\n` + html.slice(0, 400000),
+    );
+  } catch (e) {
+    await writeFile(resolve(OUT, `detailpage-${i + 1}.html`), `error ${detailUrls[i]}: ${e.message}`);
+  }
+}
+
+// Save intercepted API bodies
+for (let i = 0; i < api.length; i++) {
   await writeFile(
-    resolve(OUT, `detail-${i + 1}.txt`),
-    `# ${d.url}\n# status ${d.status} ct ${d.ct} len ${(d.text || "").length}\n\n${(d.text || d.error || "").slice(0, 100000)}`,
+    resolve(OUT, `api-${String(i + 1).padStart(2, "0")}.txt`),
+    `# ${api[i].url}\n# status ${api[i].status} len ${api[i].len}\n\n${api[i].body.slice(0, 150000)}`,
   );
 }
-const summary = {
-  totalPages: result.totalPages,
-  idCount: result.idCount,
-  sampleIds: result.sampleIds,
-  detailProbes: result.details.map((d) => ({ url: d.url, status: d.status, ct: d.ct, len: (d.text || "").length })),
-};
-await writeFile(resolve(OUT, "summary.json"), JSON.stringify(summary, null, 2) + "\n");
-console.log(JSON.stringify(summary, null, 2));
+
+await writeFile(
+  resolve(OUT, "summary.json"),
+  JSON.stringify(
+    {
+      firstId: probe.firstId,
+      firstTitle: probe.firstTitle,
+      totalPages: probe.totalPages,
+      listStatus: probe.list?.status,
+      listCt: probe.list?.ct,
+      listLen: (probe.list?.text || "").length,
+      detailStatus: probe.detail?.status,
+      detailLen: (probe.detail?.text || "").length,
+      detailPrizesStatus: probe.detail_prizes?.status,
+      interceptedApi: api.map((a) => ({ url: a.url.slice(0, 120), status: a.status, len: a.len })),
+    },
+    null,
+    2,
+  ) + "\n",
+);
+console.log("firstId", probe.firstId, "listStatus", probe.list?.status, "detailStatus", probe.detail?.status);
+console.log("intercepted", api.length, "api responses");
 await browser.close();
