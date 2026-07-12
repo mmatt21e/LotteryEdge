@@ -26,37 +26,46 @@ import {
 type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
 type Tab = "value" | "sellers" | "me";
 
-/** States the app can show, alphabetical. Full = EV; lite = list only. */
+/** States the app can show, alphabetical. Full = EV; lite = top-prize list only. */
 const STATES: { key: string; name: string; lite?: boolean }[] = [
   { key: "ar", name: "Arkansas" },
   { key: "ca", name: "California" },
   { key: "co", name: "Colorado", lite: true },
   { key: "ct", name: "Connecticut" },
+  { key: "de", name: "Delaware", lite: true },
   { key: "fl", name: "Florida" },
+  { key: "ga", name: "Georgia", lite: true },
   { key: "id", name: "Idaho" },
   { key: "ia", name: "Iowa" },
   { key: "ks", name: "Kansas", lite: true },
   { key: "ky", name: "Kentucky" },
   { key: "la", name: "Louisiana" },
-  { key: "ma", name: "Massachusetts" },
+  { key: "me", name: "Maine", lite: true },
   { key: "md", name: "Maryland" },
+  { key: "ma", name: "Massachusetts" },
   { key: "mi", name: "Michigan" },
+  { key: "mn", name: "Minnesota", lite: true },
   { key: "ms", name: "Mississippi" },
   { key: "mo", name: "Missouri" },
   { key: "ne", name: "Nebraska", lite: true },
   { key: "nh", name: "New Hampshire" },
+  { key: "nj", name: "New Jersey", lite: true },
+  { key: "nm", name: "New Mexico", lite: true },
   { key: "nc", name: "North Carolina" },
   { key: "oh", name: "Ohio" },
   { key: "ok", name: "Oklahoma" },
+  { key: "or", name: "Oregon", lite: true },
   { key: "pa", name: "Pennsylvania", lite: true },
   { key: "ri", name: "Rhode Island" },
   { key: "sc", name: "South Carolina" },
+  { key: "sd", name: "South Dakota", lite: true },
   { key: "tx", name: "Texas" },
   { key: "vt", name: "Vermont", lite: true },
   { key: "va", name: "Virginia", lite: true },
   { key: "wa", name: "Washington" },
   { key: "dc", name: "Washington DC", lite: true },
   { key: "wv", name: "West Virginia" },
+  { key: "wi", name: "Wisconsin", lite: true },
 ];
 
 export default function App() {

@@ -27,6 +27,15 @@ import { scrapeDc } from "./dc.js";
 import { scrapeKs } from "./ks.js";
 import { scrapeNe } from "./ne.js";
 import { scrapePa } from "./pa.js";
+import { scrapeDe } from "./de.js";
+import { scrapeGa } from "./ga.js";
+import { scrapeNj } from "./nj.js";
+import { scrapeOr } from "./or.js";
+import { scrapeNm } from "./nm.js";
+import { scrapeMn } from "./mn.js";
+import { scrapeSd } from "./sd.js";
+import { scrapeWi } from "./wi.js";
+import { scrapeMe } from "./me.js";
 
 /**
  * Registry of FETCH-BASED adapters the CLI can run directly (no browser).
@@ -84,6 +93,15 @@ export const SOURCES: CliSource[] = [
   { key: "ks", name: "Kansas", kind: "lite", scrape: scrapeKs },
   { key: "ne", name: "Nebraska", kind: "lite", scrape: scrapeNe },
   { key: "pa", name: "Pennsylvania", kind: "lite", scrape: scrapePa },
+  { key: "de", name: "Delaware", kind: "lite", scrape: scrapeDe },
+  { key: "ga", name: "Georgia", kind: "lite", scrape: scrapeGa },
+  { key: "nj", name: "New Jersey", kind: "lite", scrape: scrapeNj },
+  { key: "or", name: "Oregon", kind: "lite", scrape: scrapeOr },
+  { key: "nm", name: "New Mexico", kind: "lite", scrape: scrapeNm },
+  { key: "mn", name: "Minnesota", kind: "lite", scrape: scrapeMn },
+  { key: "sd", name: "South Dakota", kind: "lite", scrape: scrapeSd },
+  { key: "wi", name: "Wisconsin", kind: "lite", scrape: scrapeWi },
+  { key: "me", name: "Maine", kind: "lite", scrape: scrapeMe },
 ];
 
 export const sourceKeys = (): string[] => SOURCES.map((s) => s.key);
