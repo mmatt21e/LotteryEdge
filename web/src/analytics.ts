@@ -99,3 +99,27 @@ export function sparklinePath(values: number[], w: number, h: number, pad = 1): 
 
 /** Net expected return per $1 for a history point (roi - 1). */
 export const pointNet = (p: HistoryPoint): number => p.roi - 1;
+
+/**
+ * Estimated withholding on a single prize (rough, for the "after tax" view):
+ *  - under $600: not reported → 0
+ *  - $600–$4,999: NC state income tax (~4.5%)
+ *  - $5,000+: federal withholding 24% + NC 4.5%
+ */
+function taxRate(amount: number): number {
+  if (amount < 600) return 0;
+  if (amount < 5000) return 0.045;
+  return 0.24 + 0.045;
+}
+
+/** ROI to display, optionally after estimated taxes. Recomputed from tiers. */
+export function effectiveRoi(game: Game, afterTax: boolean): number {
+  if (!afterTax) return game.computed.roi;
+  const tr = game.computed.ticketsRemaining;
+  if (tr <= 0 || game.price <= 0) return 0;
+  const afterTaxValue = game.tiers.reduce(
+    (s, t) => s + t.amount * t.remaining * (1 - taxRate(t.amount)),
+    0,
+  );
+  return afterTaxValue / tr / game.price;
+}

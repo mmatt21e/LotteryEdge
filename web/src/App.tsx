@@ -12,16 +12,19 @@ import {
   todayIso,
   trendDirection,
   pointNet,
+  effectiveRoi,
   type ConfidenceLevel,
 } from "./analytics.js";
 
-type SortKey = "roi" | "topPrize" | "price";
+type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
 type Tab = "value" | "sellers";
 
 export default function App() {
   const { data, history, loading, error, refresh } = useScratchers("nc");
   const [tab, setTab] = useState<Tab>("value");
   const [selected, setSelected] = useState<Game | null>(null);
+  const [afterTax, setAfterTax] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   // With ≤1 real day of history, trends/velocity have nothing to show, so we
   // fall back to clearly-labeled SAMPLE data generated from today's snapshot.
@@ -37,9 +40,14 @@ export default function App() {
         <div className="brand">
           <span className="mark">◆</span> LotteryEdge
         </div>
-        <button className="refresh" onClick={refresh} disabled={loading} aria-label="Refresh">
-          <span className={loading ? "spin" : ""}>↻</span>
-        </button>
+        <div className="top-actions">
+          <button className="refresh" onClick={() => setShowInfo(true)} aria-label="How it works">
+            ?
+          </button>
+          <button className="refresh" onClick={refresh} disabled={loading} aria-label="Refresh">
+            <span className={loading ? "spin" : ""}>↻</span>
+          </button>
+        </div>
       </header>
 
       <div className="meta">
@@ -80,7 +88,14 @@ export default function App() {
 
       {data &&
         (tab === "value" ? (
-          <ValueTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
+          <ValueTab
+            games={data.games}
+            history={effHistory}
+            demo={isDemo}
+            afterTax={afterTax}
+            onAfterTax={setAfterTax}
+            onSelect={setSelected}
+          />
         ) : (
           <SellersTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
         ))}
@@ -95,9 +110,12 @@ export default function App() {
           game={selected}
           history={effHistory}
           demo={isDemo}
+          afterTax={afterTax}
           onClose={() => setSelected(null)}
         />
       )}
+
+      {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
     </div>
   );
 }
@@ -108,15 +126,21 @@ function ValueTab({
   games,
   history,
   demo,
+  afterTax,
+  onAfterTax,
   onSelect,
 }: {
   games: Game[];
   history: History | null;
   demo: boolean;
+  afterTax: boolean;
+  onAfterTax: (v: boolean) => void;
   onSelect: (g: Game) => void;
 }) {
   const [price, setPrice] = useState<number | "all">("all");
   const [sort, setSort] = useState<SortKey>("roi");
+  const [query, setQuery] = useState("");
+  const [topOnly, setTopOnly] = useState(false);
 
   const prices = useMemo(() => {
     const set = new Set<number>();
@@ -125,18 +149,33 @@ function ValueTab({
   }, [games]);
 
   const list = useMemo(() => {
-    let l = price === "all" ? games : games.filter((g) => g.price === price);
+    const q = query.trim().toLowerCase();
+    let l = games.filter((g) => {
+      if (price !== "all" && g.price !== price) return false;
+      if (topOnly && g.computed.topPrizesRemaining <= 0) return false;
+      if (q && !g.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
     l = [...l].sort((a, b) => {
       if (sort === "price") return a.price - b.price;
       if (sort === "topPrize") return b.computed.topPrizeAmount - a.computed.topPrizeAmount;
-      return b.computed.roi - a.computed.roi;
+      if (sort === "topLeft") return b.computed.topPrizesRemaining - a.computed.topPrizesRemaining;
+      if (sort === "unsold") return b.computed.fractionRemaining - a.computed.fractionRemaining;
+      return effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
     });
     return l;
-  }, [games, price, sort]);
+  }, [games, price, sort, query, topOnly, afterTax]);
 
   return (
     <>
       <div className="controls">
+        <input
+          className="search"
+          type="search"
+          placeholder="Search games…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <div className="chips" role="group" aria-label="Filter by price">
           <Chip active={price === "all"} onClick={() => setPrice("all")}>
             All
@@ -147,18 +186,35 @@ function ValueTab({
             </Chip>
           ))}
         </div>
-        <div className="sort">
-          <label>
-            Sort
-            <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)}>
-              <option value="roi">Best value / $1</option>
-              <option value="topPrize">Top prize</option>
-              <option value="price">Price</option>
-            </select>
-          </label>
+        <div className="control-row">
+          <div className="sort">
+            <label>
+              Sort
+              <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)}>
+                <option value="roi">Best value / $1</option>
+                <option value="topPrize">Top prize size</option>
+                <option value="topLeft">Top prizes left</option>
+                <option value="unsold">% unsold</option>
+                <option value="price">Price</option>
+              </select>
+            </label>
+          </div>
+          <div className="toggles">
+            <button className={`chip ${topOnly ? "chip-on" : ""}`} onClick={() => setTopOnly((v) => !v)}>
+              Top prize left
+            </button>
+            <button
+              className={`chip ${afterTax ? "chip-on" : ""}`}
+              onClick={() => onAfterTax(!afterTax)}
+              title="Estimate net after federal + NC withholding"
+            >
+              After tax
+            </button>
+          </div>
         </div>
       </div>
 
+      {list.length === 0 && <div className="status">No games match.</div>}
       <ul className="list">
         {list.map((g) => (
           <GameCard
@@ -166,6 +222,7 @@ function ValueTab({
             game={g}
             history={history}
             demo={demo}
+            afterTax={afterTax}
             onClick={() => onSelect(g)}
           />
         ))}
@@ -191,15 +248,18 @@ function GameCard({
   game,
   history,
   demo,
+  afterTax,
   onClick,
 }: {
   game: Game;
   history: History | null;
   demo: boolean;
+  afterTax: boolean;
   onClick: () => void;
 }) {
   const c = game.computed;
-  const width = Math.min(100, Math.max(4, c.roi * 100));
+  const roi = effectiveRoi(game, afterTax);
+  const width = Math.min(100, Math.max(4, roi * 100));
   const conf = confidence(c.fractionRemaining);
   const odds = profitOdds(game);
   const nets = (history?.series[game.gameId]?.points ?? []).map(pointNet);
@@ -212,22 +272,22 @@ function GameCard({
       </div>
       <div className="roi-row">
         <div className="roi-bar">
-          <div className="roi-fill" style={{ width: `${width}%`, background: roiColor(c.roi) }} />
+          <div className="roi-fill" style={{ width: `${width}%`, background: roiColor(roi) }} />
         </div>
-        <span className="per-dollar" style={{ color: roiColor(c.roi) }}>
-          {centsPerDollar(netPerDollar(c.roi))}
-          <span className="per-dollar-unit"> / $1</span>
+        <span className="per-dollar" style={{ color: roiColor(roi) }}>
+          {centsPerDollar(netPerDollar(roi))}
+          <span className="per-dollar-unit"> / $1{afterTax ? " (net of tax)" : ""}</span>
         </span>
       </div>
       <div className="card-stats">
         <span className="conf-dot" title={conf.reason}>
           <i style={{ background: CONF_COLOR[conf.level] }} /> {conf.level}
         </span>
-        <span>{odds ? `1 in ${int(odds)} to profit` : `${pct(c.roi, 0)} return`}</span>
+        <span>{odds ? `1 in ${int(odds)} to profit` : `${pct(roi, 0)} return`}</span>
         <span>Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left</span>
         {nets.length >= 2 && (
           <span className="card-spark" title={demo ? "Sample trend" : "Net/$1 trend"}>
-            <Sparkline values={nets} color={roiColor(c.roi)} width={64} height={18} dashed={demo} />
+            <Sparkline values={nets} color={roiColor(roi)} width={64} height={18} dashed={demo} />
           </span>
         )}
       </div>
@@ -351,15 +411,18 @@ function Detail({
   game,
   history,
   demo,
+  afterTax,
   onClose,
 }: {
   game: Game;
   history: History | null;
   demo: boolean;
+  afterTax: boolean;
   onClose: () => void;
 }) {
   const c = game.computed;
-  const net = netPerDollar(c.roi);
+  const roi = effectiveRoi(game, afterTax);
+  const net = netPerDollar(roi);
   const conf = confidence(c.fractionRemaining);
   const odds = profitOdds(game);
   const points = history?.series[game.gameId]?.points ?? [];
@@ -383,9 +446,10 @@ function Detail({
           </button>
         </div>
 
+        {afterTax && <div className="tax-note">Showing net after estimated federal + NC tax.</div>}
         <div className="kpis">
-          <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={roiColor(c.roi)} />
-          <Kpi label="Return / $1" value={usd2(c.roi)} />
+          <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={roiColor(roi)} />
+          <Kpi label="Return / $1" value={usd2(roi)} />
           <Kpi
             label="Odds to profit"
             value={odds ? `1 in ${int(odds)}` : "—"}
@@ -403,7 +467,7 @@ function Detail({
             </span>
           </div>
           {nets.length >= 2 ? (
-            <Sparkline values={nets} color={roiColor(c.roi)} width={320} height={54} dashed={demo} />
+            <Sparkline values={nets} color={roiColor(roi)} width={320} height={54} dashed={demo} />
           ) : (
             <div className="trend-empty">
               Trend builds as daily snapshots accumulate — check back soon.
@@ -419,8 +483,9 @@ function Detail({
         </div>
 
         <p className="plain">
-          For every <strong>$1</strong> spent, expect about <strong>{usd2(c.roi)}</strong> back — a
-          net of <strong style={{ color: roiColor(c.roi) }}>{centsPerDollar(net)}</strong> per dollar.
+          For every <strong>$1</strong> spent, expect about <strong>{usd2(roi)}</strong> back — a
+          net of <strong style={{ color: roiColor(roi) }}>{centsPerDollar(net)}</strong> per dollar
+          {afterTax ? " (after tax)" : ""}.
           {odds && (
             <>
               {" "}
@@ -492,3 +557,66 @@ function Kpi({ label, value, accent }: { label: string; value: string; accent?: 
 
 const dirColor = (d: -1 | 0 | 1) => (d > 0 ? "#3ddc97" : d < 0 ? "#e08a5b" : "#9aa4c2");
 const dirLabel = (d: -1 | 0 | 1) => (d > 0 ? "improving ↗" : d < 0 ? "declining ↘" : "flat →");
+
+function InfoSheet({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="sheet-backdrop" onClick={onClose}>
+      <div className="sheet" onClick={(e) => e.stopPropagation()}>
+        <div className="sheet-grab" />
+        <div className="sheet-head">
+          <div className="sheet-title">How LotteryEdge works</div>
+          <button className="close" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </div>
+
+        <div className="info">
+          <h4>What it measures</h4>
+          <p>
+            For each scratch-off, it compares the <strong>prizes still unclaimed</strong> against an
+            estimate of the <strong>tickets still unsold</strong> to gauge what a ticket is worth
+            right now.
+          </p>
+
+          <h4>Net / $1 spent</h4>
+          <p>
+            The headline number. <strong>−6.7¢ / $1</strong> means that, on average, you lose about
+            7 cents per dollar. The least-negative game is the best available — but nearly all
+            scratch-offs sit below break-even.
+          </p>
+
+          <h4>Odds “1 in X to profit”</h4>
+          <p>
+            Your chance of winning <em>more</em> than the ticket price — the honest odds, not the
+            “win anything” figure (which counts break-even prizes).
+          </p>
+
+          <h4>Confidence</h4>
+          <p>
+            The EV assumes prizes are won in proportion to tickets sold. That’s noisy for brand-new
+            games (little sold) or nearly-finished ones (few left), which get a{" "}
+            <strong>low</strong> tag.
+          </p>
+
+          <h4>Trends &amp; Hot sellers</h4>
+          <p>
+            Built from a daily snapshot. Until 2+ days are collected they show clearly-labeled{" "}
+            <strong>sample</strong> data.
+          </p>
+
+          <h4>The estimate isn’t a promise</h4>
+          <p>
+            States don’t publish “tickets remaining,” so it’s derived. Great for ranking — never a
+            guarantee of winning.
+          </p>
+
+          <div className="rg">
+            <strong>Play responsibly.</strong> This tool finds the least-bad odds; it can’t make
+            the lottery profitable. If gambling stops being fun, call{" "}
+            <a href="tel:18004262537">1-800-GAMBLER</a> (free, confidential, 24/7).
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
