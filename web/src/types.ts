@@ -19,7 +19,7 @@ export interface ComputedStats {
 }
 
 export interface Game {
-  state: "nc" | "va";
+  state: string;
   gameId: string;
   name: string;
   price: number;
@@ -30,7 +30,7 @@ export interface Game {
 
 export interface ScrapeResult {
   generatedAt: string;
-  state: "nc" | "va";
+  state: string;
   source: string;
   gameCount: number;
   games: Game[];
@@ -57,7 +57,7 @@ export interface History {
   series: Record<string, GameSeries>;
 }
 
-/** VA "lite" game — no per-tier prize data is public, so no EV. */
+/** "Lite" game — no per-tier prize data is public, so no EV. */
 export interface LiteGame {
   gameId: string;
   name: string;
@@ -65,6 +65,7 @@ export interface LiteGame {
   topPrize: string;
   topPrizeValue: number | null;
   closingSoon: boolean;
+  url?: string;
 }
 
 export interface LiteResult {

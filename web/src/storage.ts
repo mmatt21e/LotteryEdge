@@ -30,8 +30,14 @@ export interface LedgerEntry {
   won: number;
 }
 
-export function useLedger() {
-  const [entries, setEntries] = useLocalStorage<LedgerEntry[]>("ledger-nc", []);
+export function useLedger(stateKey: string) {
+  const [byState, setByState] = useLocalStorage<Record<string, LedgerEntry[]>>("ledger", {});
+  const entries = byState[stateKey] ?? [];
+  const setEntries = useCallback(
+    (updater: (prev: LedgerEntry[]) => LedgerEntry[]) =>
+      setByState((prev) => ({ ...prev, [stateKey]: updater(prev[stateKey] ?? []) })),
+    [setByState, stateKey],
+  );
   const add = useCallback(
     (e: Omit<LedgerEntry, "id">) =>
       setEntries((prev) => [{ ...e, id: `${e.date}-${prev.length}-${e.gameName}` }, ...prev]),

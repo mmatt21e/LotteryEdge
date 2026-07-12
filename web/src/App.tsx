@@ -5,6 +5,8 @@ import { buildDemoHistory, distinctDates } from "./demo.js";
 import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges, type GameChange } from "./changes.js";
 import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
+import { StatePicker } from "./StatePicker.js";
+import { stateName } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
@@ -26,48 +28,6 @@ import {
 type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
 type Tab = "value" | "sellers" | "me";
 
-/** States the app can show, alphabetical. Full = EV; lite = top-prize list only. */
-const STATES: { key: string; name: string; lite?: boolean }[] = [
-  { key: "ar", name: "Arkansas" },
-  { key: "ca", name: "California" },
-  { key: "co", name: "Colorado", lite: true },
-  { key: "ct", name: "Connecticut" },
-  { key: "de", name: "Delaware", lite: true },
-  { key: "fl", name: "Florida" },
-  { key: "ga", name: "Georgia", lite: true },
-  { key: "id", name: "Idaho" },
-  { key: "ia", name: "Iowa" },
-  { key: "ks", name: "Kansas", lite: true },
-  { key: "ky", name: "Kentucky" },
-  { key: "la", name: "Louisiana" },
-  { key: "me", name: "Maine", lite: true },
-  { key: "md", name: "Maryland" },
-  { key: "ma", name: "Massachusetts" },
-  { key: "mi", name: "Michigan" },
-  { key: "mn", name: "Minnesota", lite: true },
-  { key: "ms", name: "Mississippi" },
-  { key: "mo", name: "Missouri" },
-  { key: "ne", name: "Nebraska", lite: true },
-  { key: "nh", name: "New Hampshire" },
-  { key: "nj", name: "New Jersey", lite: true },
-  { key: "nm", name: "New Mexico", lite: true },
-  { key: "nc", name: "North Carolina" },
-  { key: "oh", name: "Ohio" },
-  { key: "ok", name: "Oklahoma" },
-  { key: "or", name: "Oregon", lite: true },
-  { key: "pa", name: "Pennsylvania", lite: true },
-  { key: "ri", name: "Rhode Island" },
-  { key: "sc", name: "South Carolina" },
-  { key: "sd", name: "South Dakota", lite: true },
-  { key: "tx", name: "Texas" },
-  { key: "vt", name: "Vermont", lite: true },
-  { key: "va", name: "Virginia", lite: true },
-  { key: "wa", name: "Washington" },
-  { key: "dc", name: "Washington DC", lite: true },
-  { key: "wv", name: "West Virginia" },
-  { key: "wi", name: "Wisconsin", lite: true },
-];
-
 export default function App() {
   const [stateKey, setStateKey] = useLocalStorage<string>("state", "nc");
   const { data, history, loading, error, refresh } = useScratchers(stateKey);
@@ -75,10 +35,17 @@ export default function App() {
   const [selected, setSelected] = useState<Game | null>(null);
   const [afterTax, setAfterTax] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
-  const [favs, setFavs] = useLocalStorage<string[]>("favs-nc", []);
+  // Favorites are namespaced per state so switching states shows that state's
+  // own ★ list rather than bleeding NC's game ids into, say, Texas.
+  const [favsByState, setFavsByState] = useLocalStorage<Record<string, string[]>>("favs", {});
+  const favs = useMemo(() => favsByState[stateKey] ?? [], [favsByState, stateKey]);
   const favSet = useMemo(() => new Set(favs), [favs]);
   const toggleFav = (id: string) =>
-    setFavs((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+    setFavsByState((prev) => {
+      const cur = prev[stateKey] ?? [];
+      const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
+      return { ...prev, [stateKey]: next };
+    });
 
   const limited = isLimited(data);
   const ncGames = useMemo<Game[]>(
@@ -86,7 +53,7 @@ export default function App() {
     [limited, data],
   );
   const changes = useChanges(limited ? undefined : ncGames, data?.generatedAt);
-  const ledger = useLedger();
+  const ledger = useLedger(stateKey);
   const { theme, cycle } = useTheme();
   const online = useOnline();
   const { canInstall, install } = useInstallPrompt();
@@ -149,16 +116,7 @@ export default function App() {
       {!online && <div className="offline-banner">Offline — showing the last saved data.</div>}
 
       <div className="meta">
-        <label className="state-select">
-          <select value={stateKey} onChange={(e) => setStateKey(e.target.value)} aria-label="State">
-            {STATES.map((s) => (
-              <option key={s.key} value={s.key}>
-                {s.name}
-                {s.lite ? " (lite)" : ""}
-              </option>
-            ))}
-          </select>
-        </label>
+        <StatePicker value={stateKey} onChange={setStateKey} />
         {data && (
           <span className="freshness">
             {data.gameCount} games · updated {relativeTime(data.generatedAt)}
@@ -621,9 +579,9 @@ function LiteView({ data }: { data: LiteResult }) {
   return (
     <>
       <div className="demo-banner">
-        <strong>Virginia — limited data.</strong> VA doesn’t publish per-prize “remaining” counts,
-        so there’s no EV / net-per-$1 here — only each game’s <em>top prize</em> and a{" "}
-        <strong>closing-soon</strong> flag.
+        <strong>{stateName(data.state)} — limited data.</strong> This state doesn’t publish
+        per-prize “remaining” counts, so there’s no EV / net-per-$1 here — only each game’s{" "}
+        <em>top prize</em> and a <strong>closing-soon</strong> flag.
       </div>
 
       <div className="controls">
@@ -676,22 +634,19 @@ function LiteView({ data }: { data: LiteResult }) {
             <div className="card-stats">
               <span className="lite-top">Top prize {g.topPrize || "—"}</span>
               {g.closingSoon && <span className="badge badge-warn">⏳ closing soon</span>}
-              <a
-                className="official lite-link"
-                href={`https://www.valottery.com/scratchers/${g.gameId}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                details ↗
-              </a>
+              {g.url && (
+                <a className="official lite-link" href={g.url} target="_blank" rel="noreferrer">
+                  details ↗
+                </a>
+              )}
             </div>
           </li>
         ))}
       </ul>
 
       <p className="disclaimer">
-        Source: valottery.com. A full EV ranking (like NC) needs per-prize remaining counts, which
-        Virginia doesn’t publish.
+        Source: {data.source}. A full EV ranking (like NC) needs per-prize remaining counts, which
+        this state doesn’t publish.
       </p>
     </>
   );
