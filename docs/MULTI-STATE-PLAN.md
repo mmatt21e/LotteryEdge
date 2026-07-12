@@ -7,8 +7,16 @@ as a selectable "state" in the app, reusing the NC/VA multi-state foundation.
 
 The EV / net-per-$1 engine needs, per game, **per-prize-level remaining
 counts** (how many of each prize tier are still unclaimed) + prize amounts +
-odds/total-printed. Whether a state can be **full** or only **lite** depends
-entirely on whether it publishes that data publicly.
+**an odds/total-tickets anchor** (to estimate tickets remaining). Whether a
+state can be **full** or only **lite** depends on whether it publishes that data
+publicly.
+
+> **Anchor nuance (found while validating MA):** two flavors of Tier A exist —
+> (a) pages that publish per-tier **odds** alongside remaining (NC, IA, KY, …)
+> plug straight into the current engine; (b) pages that publish per-tier
+> **counts + remaining** but no odds (e.g. MA's JSON) need the game's overall
+> odds / total-tickets from one extra field or detail fetch. The engine will be
+> generalized to accept either an odds anchor or a total-tickets anchor.
 
 - **NC** publishes it as a clean static HTML table → **full EV**.
 - **VA** does not publish per-tier remaining publicly → **lite** (list + top
