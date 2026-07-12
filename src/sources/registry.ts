@@ -19,6 +19,9 @@ import { scrapeKy } from "./ky.js";
 import { scrapeMi } from "./mi.js";
 import { scrapeFl } from "./fl.js";
 import { scrapeVt } from "./vt.js";
+import { scrapeNh } from "./nh.js";
+import { scrapeWv } from "./wv.js";
+import { scrapeRi } from "./ri.js";
 
 /**
  * Registry of FETCH-BASED adapters the CLI can run directly (no browser).
@@ -66,6 +69,9 @@ export const SOURCES: CliSource[] = [
   { key: "ky", name: "Kentucky", kind: "full", scrape: scrapeKy },
   { key: "mi", name: "Michigan", kind: "full", scrape: scrapeMi },
   { key: "fl", name: "Florida", kind: "full", scrape: scrapeFl },
+  { key: "nh", name: "New Hampshire", kind: "full", scrape: scrapeNh },
+  { key: "wv", name: "West Virginia", kind: "full", scrape: scrapeWv },
+  { key: "ri", name: "Rhode Island", kind: "full", scrape: scrapeRi },
   { key: "vt", name: "Vermont", kind: "lite", scrape: scrapeVt },
 ];
 

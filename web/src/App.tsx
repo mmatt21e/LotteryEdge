@@ -41,14 +41,17 @@ const STATES: { key: string; name: string; lite?: boolean }[] = [
   { key: "mi", name: "Michigan" },
   { key: "ms", name: "Mississippi" },
   { key: "mo", name: "Missouri" },
+  { key: "nh", name: "New Hampshire" },
   { key: "nc", name: "North Carolina" },
   { key: "oh", name: "Ohio" },
   { key: "ok", name: "Oklahoma" },
+  { key: "ri", name: "Rhode Island" },
   { key: "sc", name: "South Carolina" },
   { key: "tx", name: "Texas" },
   { key: "vt", name: "Vermont", lite: true },
   { key: "va", name: "Virginia", lite: true },
   { key: "wa", name: "Washington" },
+  { key: "wv", name: "West Virginia" },
 ];
 
 export default function App() {
