@@ -6,6 +6,17 @@ const REMAIN_URL = "https://www.kylottery.com/apps/scratch_offs/prizes_remaining
 const LIST_URL = "https://www.kylottery.com/apps/scratch_offs/available_games.html";
 const ORIGIN = "https://www.kylottery.com";
 
+/**
+ * Smallest estimated remaining ticket pool (Σ prizes remaining × overall odds)
+ * for a game to be trusted. Kentucky publishes no original counts, so the EV
+ * engine treats the remaining prizes as the whole pool (fractionRemaining ≡ 1)
+ * and estimates tickets left as Σremaining × overallOdds — a sound current-pool
+ * EV. But once a game is nearly sold out (only a few thousand winners left) a
+ * single unclaimed jackpot dominates and blows the per-ticket EV up. Below this
+ * floor the game is effectively gone; we drop it rather than publish an artifact.
+ */
+const MIN_REMAINING_POOL = 20_000;
+
 /** Parse "$862,000" -> 862000, " 1" -> 1, "N/A" -> NaN. */
 function num(s: string | undefined): number {
   if (!s) return NaN;
@@ -169,6 +180,14 @@ export async function scrapeKy(): Promise<{ source: string; games: RawGame[] }> 
       originalCount: t.remaining, // KY publishes no original counts
       remaining: t.remaining,
     }));
+
+    // Drop effectively sold-out games: with no original counts the EV engine
+    // estimates tickets remaining as Σremaining × overallOdds; below the floor
+    // the game is nearly gone and a lone unclaimed jackpot detonates its EV.
+    const remTotal = tiers.reduce((s, t) => s + t.remaining, 0);
+    if (detail.overallOdds && remTotal * detail.overallOdds < MIN_REMAINING_POOL) {
+      continue;
+    }
 
     games.push({
       state: "ky",

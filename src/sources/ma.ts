@@ -3,23 +3,55 @@ import type { RawGame, PrizeTier } from "../types.js";
 /**
  * Massachusetts State Lottery — instant (scratch) game prizes.
  *
- * Open JSON API (no auth, no odds):
- *   https://www.masslottery.com/api/v1/instant-game-prizes
- * returns an ARRAY of games, each:
- *   { massGameID, gameName, gameIdentifier, startDate, ticketCost,
- *     prizeTiers: [ { tierNumber, prizeAmount, totalPrizes, paidPrizes,
- *                     prizesRemaining, prizeDescription, type } ] }
+ * Two open JSON APIs (no auth), joined by game id:
  *
- * EV ANCHOR: NONE. The endpoint publishes no per-tier odds, no overall
- * odds, and no total-tickets figure. The masslottery.com site is a SPA whose
- * only instant-game API is this prizes endpoint (verified against its JS
- * bundle — the sole instant-game path is `instant-game-prizes`; there is no
- * per-game odds/detail API). MA does not publish odds in machine-readable
- * form, so we emit games with full tiers but leave the anchor unset. EV will
- * therefore be zero for MA until an odds source is found. We do NOT fabricate
- * odds.
+ *   https://www.masslottery.com/api/v1/instant-game-prizes
+ *     ARRAY of games, each:
+ *       { massGameID, gameName, gameIdentifier, startDate, ticketCost,
+ *         prizeTiers: [ { tierNumber, prizeAmount, totalPrizes, paidPrizes,
+ *                         prizesRemaining, prizeDescription, type } ] }
+ *     -> full per-tier structure (original totalPrizes + prizesRemaining) but
+ *        NO odds.
+ *
+ *   https://www.masslottery.com/api/v1/games?type=instant
+ *     ARRAY of game metadata, each: { id, identifier, gameType, price,
+ *       odds: "1 in X", ... } for Scratch games. `id` == prizes `massGameID`
+ *       (and `identifier` == prizes `gameIdentifier`) — verified: all 133
+ *       scratch games join cleanly on both keys.
+ *
+ * EV ANCHOR: the `odds` field ("Overall Odds: 1 in X" printed on the ticket)
+ * from the games endpoint becomes each game's `overallOdds`. Combined with the
+ * per-tier original counts from the prizes endpoint, the EV engine estimates
+ * the print run as Σ(originalCount) × overallOdds. We do NOT fabricate odds —
+ * only games whose overall odds MA actually publishes get an anchor.
+ *
+ * SOLD-OUT GUARD: MA's prizes feed keeps games long after they are effectively
+ * gone (>95% of prizes claimed). For those the "prizes unclaimed ≈ tickets
+ * unsold" assumption breaks down — a lone unclaimed jackpot in a near-dead game
+ * detonates the per-ticket EV. We drop games with under 5% of prizes remaining;
+ * they cannot be meaningfully bought and their EV is an artifact.
  */
 const PRIZES_URL = "https://www.masslottery.com/api/v1/instant-game-prizes";
+const GAMES_URL = "https://www.masslottery.com/api/v1/games?type=instant";
+
+/** Minimum fraction of a game's prizes still unclaimed to trust its EV. */
+const MIN_FRACTION_REMAINING = 0.05;
+
+interface MaGameMeta {
+  id: number;
+  identifier?: string;
+  gameType?: string;
+  odds?: string | null;
+}
+
+/** Parse MA's overall-odds string "1 in 4.13" -> 4.13 (undefined if absent). */
+export function parseOdds(s: string | null | undefined): number | undefined {
+  if (!s) return undefined;
+  const m = /1\s*in\s*([\d.]+)/i.exec(s);
+  if (!m) return undefined;
+  const v = Number(m[1]);
+  return Number.isFinite(v) && v > 0 ? v : undefined;
+}
 
 interface MaTier {
   tierNumber: number;
@@ -59,7 +91,12 @@ async function fetchJson<T>(url: string, timeoutMs = 30_000): Promise<T> {
   }
 }
 
-export function parseMa(raw: MaGame[]): RawGame[] {
+/**
+ * Join the prizes feed with the odds map keyed by massGameID.
+ * @param raw       instant-game-prizes payload (per-tier structure)
+ * @param oddsById  massGameID -> overall odds "1 in X" value (X)
+ */
+export function parseMa(raw: MaGame[], oddsById: Map<number, number> = new Map()): RawGame[] {
   const games: RawGame[] = [];
   for (const g of raw) {
     const gameId = String(g.massGameID);
@@ -68,20 +105,31 @@ export function parseMa(raw: MaGame[]): RawGame[] {
     if (!gameId || !name || !Number.isFinite(price)) continue;
 
     const tiers: PrizeTier[] = [];
+    let origTotal = 0;
+    let remTotal = 0;
     for (const t of g.prizeTiers ?? []) {
       const amount = Number(t.prizeAmount);
       const originalCount = Number(t.totalPrizes);
       const remaining = Number(t.prizesRemaining);
       if (!Number.isFinite(amount) || !Number.isFinite(originalCount)) continue;
+      const rem = Number.isFinite(remaining) ? remaining : 0;
       tiers.push({
         amount,
-        // No odds published by MA — leave undefined (do not fabricate).
+        // MA publishes no PER-TIER odds; the anchor is whole-game overallOdds.
         odds: undefined,
         originalCount,
-        remaining: Number.isFinite(remaining) ? remaining : 0,
+        remaining: rem,
       });
+      origTotal += originalCount;
+      remTotal += rem;
     }
     if (tiers.length === 0) continue;
+
+    // Skip effectively sold-out games: at <5% of prizes remaining the
+    // unclaimed≈unsold proxy is unreliable and EV becomes a lone-jackpot
+    // artifact (see SOLD-OUT GUARD above).
+    const frac = origTotal > 0 ? remTotal / origTotal : 0;
+    if (frac < MIN_FRACTION_REMAINING) continue;
 
     games.push({
       state: "ma",
@@ -92,16 +140,33 @@ export function parseMa(raw: MaGame[]): RawGame[] {
         ? `https://www.masslottery.com/games/scratch-tickets/${g.gameIdentifier}`
         : undefined,
       tiers,
-      // EV ANCHOR unset: MA publishes no odds/overallOdds/totalTickets.
+      // EV ANCHOR: overall odds from the games endpoint (undefined -> EV 0).
+      overallOdds: oddsById.get(g.massGameID),
     });
   }
   return games;
 }
 
-/** Fetch and parse live MA instant-game data. */
+/** Build a massGameID -> overall-odds ("1 in X" -> X) map from the games feed. */
+export function buildOddsMap(meta: MaGameMeta[]): Map<number, number> {
+  const map = new Map<number, number>();
+  for (const m of meta) {
+    if (!Number.isFinite(m.id)) continue;
+    const odds = parseOdds(m.odds);
+    if (odds !== undefined) map.set(m.id, odds);
+  }
+  return map;
+}
+
+/** Fetch and parse live MA instant-game data (prizes joined with odds). */
 export async function scrapeMa(): Promise<{ source: string; games: RawGame[] }> {
-  const raw = await fetchJson<MaGame[]>(PRIZES_URL);
-  const games = parseMa(raw);
+  const [raw, meta] = await Promise.all([
+    fetchJson<MaGame[]>(PRIZES_URL),
+    // Odds are best-effort: if the games feed fails, games simply get no anchor
+    // (EV 0) rather than the whole state failing.
+    fetchJson<MaGameMeta[]>(GAMES_URL).catch(() => [] as MaGameMeta[]),
+  ]);
+  const games = parseMa(raw, buildOddsMap(meta));
   if (games.length === 0) {
     throw new Error(
       "MA parser found 0 games — the instant-game-prizes API shape may have changed.",

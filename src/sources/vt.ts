@@ -1,8 +1,29 @@
 import * as cheerio from "cheerio";
 import { fetchText } from "./http.js";
-import type { RawGame, PrizeTier } from "../types.js";
+import type { LiteGame } from "../types.js";
 
 const PRIZES_URL = "https://vtlottery.com/games/instant-tickets/outstanding-prizes";
+
+/**
+ * Vermont Lottery — instant tickets, LITE adapter (top prize only, NO EV).
+ *
+ * The only machine-readable VT source is the "Outstanding Prizes" table, whose
+ * columns are:
+ *   Price | Game # | Game Name (link) | Top Prizes (<br> list) |
+ *   Unclaimed Top Prizes (<br> list) | Total Unclaimed | % Sold | # Of Tickets
+ *
+ * WHY LITE (no EV): the table publishes only the game's TOP prize tier(s) and
+ * their unclaimed counts — NOT the full prize ladder. A $1 game lists a single
+ * $50 tier, so the low/mid prizes that make up the bulk of a scratch game's
+ * expected value are absent. Any EV built from top-prize-only data is
+ * systematically understated (observed median ROI ≈ 6%, vs ~70% for states that
+ * publish the full ladder) and, near sell-out, the lone-jackpot artifact makes
+ * it wildly overstated instead. Vermont also publishes no per-tier original
+ * counts. "# Of Tickets" (print run) and "% Sold" exist, but with only the top
+ * tier's dollar amounts there is nothing to spread that pool across. We
+ * therefore expose VT as top-prize + closing-soon data only, and do NOT
+ * fabricate an EV.
+ */
 
 /** Parse "$50,000" / "294,000" / "17" -> number, blanks -> NaN. */
 function num(s: string | undefined): number {
@@ -15,7 +36,6 @@ function num(s: string | undefined): number {
 
 /** Split a `<br>`-delimited cell (given its inner HTML) into trimmed lines. */
 function lines(html: string | null): string[] {
-  // Replace <br> with newlines so multi-value cells split cleanly.
   return (html ?? "")
     .replace(/<br\s*\/?>/gi, "\n")
     .replace(/<[^>]+>/g, "")
@@ -24,22 +44,17 @@ function lines(html: string | null): string[] {
     .filter((x) => x.length > 0);
 }
 
-/**
- * Parse the Vermont "Outstanding Prizes" table.
- *
- * One row per active instant game (columns):
- *   Price | Game # | Game Name (link) | Top Prizes (<br> list) |
- *   Unclaimed Top Prizes (<br> list) | Total Unclaimed | % Sold | # Of Tickets
- *
- * Prize tiers pair the "Top Prizes" amounts with the parallel "Unclaimed"
- * counts. VT does not publish per-tier original counts, so we estimate each
- * tier's originalCount from the game's stated "% Sold": at s% sold the pool is
- * (1 - s) unsold, so original ≈ remaining / (1 - s). "# Of Tickets" (tickets
- * printed) becomes the game's totalTickets anchor.
- */
-export function parseVt(html: string): RawGame[] {
+/** Format a dollar amount as "$1,000,000". */
+function fmtDollars(n: number): string {
+  return "$" + n.toLocaleString("en-US");
+}
+
+/** A game is "closing soon" when it is ≥85% sold or its top prizes are all gone. */
+const CLOSING_SOON_SOLD_PCT = 85;
+
+export function parseVt(html: string): LiteGame[] {
   const $ = cheerio.load(html);
-  const games: RawGame[] = [];
+  const games: LiteGame[] = [];
 
   $("table tbody tr").each((_, tr) => {
     const tds = $(tr).find("td").toArray();
@@ -49,47 +64,30 @@ export function parseVt(html: string): RawGame[] {
     const gameId = $(tds[1]).text().trim();
     const $a = $(tds[2]).find("a").first();
     const name = ($a.text() || $(tds[2]).text()).trim();
-    const href = $a.attr("href") ?? "";
-
-    const amounts = lines($(tds[3]).html()).map(num);
-    const remaining = lines($(tds[4]).html()).map(num);
-    const soldPct = num($(tds[6]).text());
-    const totalTickets = num($(tds[7]).text());
 
     if (!Number.isFinite(price) || !gameId || !name) return;
 
-    // At s% sold, the fraction still unsold is (1 - s/100); use it to lift the
-    // unclaimed counts back to an estimated original count per tier.
-    const soldFrac = Number.isFinite(soldPct) ? soldPct / 100 : 0;
-    const unsold = 1 - soldFrac;
+    // Only the TOP prize tier(s) are published; take the largest as the headline.
+    const amounts = lines($(tds[3]).html()).map(num).filter((n) => Number.isFinite(n));
+    const unclaimedTop = lines($(tds[4]).html()).map(num);
+    const soldPct = num($(tds[6]).text());
 
-    const tiers: PrizeTier[] = [];
-    const n = Math.min(amounts.length, remaining.length);
-    for (let i = 0; i < n; i++) {
-      const amount = amounts[i]!;
-      const rem = Number.isFinite(remaining[i]) ? remaining[i]! : 0;
-      if (!Number.isFinite(amount)) continue;
-      const originalCount = unsold > 0.01 ? Math.max(rem, Math.round(rem / unsold)) : rem;
-      tiers.push({ amount, originalCount, remaining: rem });
-    }
-    if (tiers.length === 0) return;
+    const topPrizeValue = amounts.length > 0 ? Math.max(...amounts) : null;
+    const topPrize = topPrizeValue !== null ? fmtDollars(topPrizeValue) : "";
 
-    games.push({
-      state: "vt",
-      gameId,
-      name,
-      price,
-      url: href ? new URL(href, PRIZES_URL).toString() : undefined,
-      tiers,
-      totalTickets: Number.isFinite(totalTickets) ? totalTickets : undefined,
-    });
+    const topPrizesGone =
+      unclaimedTop.length > 0 && unclaimedTop.every((c) => Number.isFinite(c) && c === 0);
+    const closingSoon =
+      (Number.isFinite(soldPct) && soldPct >= CLOSING_SOON_SOLD_PCT) || topPrizesGone;
+
+    games.push({ gameId, name, price, topPrize, topPrizeValue, closingSoon });
   });
 
   return games;
 }
 
-/** Fetch and parse live VT scratch-off data. */
-export async function scrapeVt(): Promise<{ source: string; games: RawGame[] }> {
+/** Fetch and parse live VT instant-ticket data (LITE: top prize + closing-soon). */
+export async function scrapeVt(): Promise<{ source: string; games: LiteGame[] }> {
   const html = await fetchText(PRIZES_URL);
   const games = parseVt(html);
   if (games.length === 0) {
