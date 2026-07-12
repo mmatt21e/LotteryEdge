@@ -22,6 +22,11 @@ import { scrapeVt } from "./vt.js";
 import { scrapeNh } from "./nh.js";
 import { scrapeWv } from "./wv.js";
 import { scrapeRi } from "./ri.js";
+import { scrapeCo } from "./co.js";
+import { scrapeDc } from "./dc.js";
+import { scrapeKs } from "./ks.js";
+import { scrapeNe } from "./ne.js";
+import { scrapePa } from "./pa.js";
 
 /**
  * Registry of FETCH-BASED adapters the CLI can run directly (no browser).
@@ -73,6 +78,12 @@ export const SOURCES: CliSource[] = [
   { key: "wv", name: "West Virginia", kind: "full", scrape: scrapeWv },
   { key: "ri", name: "Rhode Island", kind: "full", scrape: scrapeRi },
   { key: "vt", name: "Vermont", kind: "lite", scrape: scrapeVt },
+  // --- Wave 3 (Tier-B lite) ---
+  { key: "co", name: "Colorado", kind: "lite", scrape: scrapeCo },
+  { key: "dc", name: "Washington DC", kind: "lite", scrape: scrapeDc },
+  { key: "ks", name: "Kansas", kind: "lite", scrape: scrapeKs },
+  { key: "ne", name: "Nebraska", kind: "lite", scrape: scrapeNe },
+  { key: "pa", name: "Pennsylvania", kind: "lite", scrape: scrapePa },
 ];
 
 export const sourceKeys = (): string[] => SOURCES.map((s) => s.key);
