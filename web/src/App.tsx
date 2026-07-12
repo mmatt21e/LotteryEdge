@@ -1,7 +1,16 @@
 import { useMemo, useState } from "react";
 import { useScratchers } from "./useScratchers.js";
 import type { Game } from "./types.js";
-import { usd, usd2, usdCompact, pct, int, relativeTime } from "./format.js";
+import {
+  usd,
+  usd2,
+  usdCompact,
+  pct,
+  int,
+  relativeTime,
+  netPerDollar,
+  centsPerDollar,
+} from "./format.js";
 
 type SortKey = "roi" | "topPrize" | "price";
 
@@ -135,12 +144,13 @@ function GameCard({ game, onClick }: { game: Game; onClick: () => void }) {
             style={{ width: `${width}%`, background: roiColor(c.roi) }}
           />
         </div>
-        <span className="roi-val" style={{ color: roiColor(c.roi) }}>
-          {pct(c.roi, 0)}
+        <span className="per-dollar" style={{ color: roiColor(c.roi) }}>
+          {centsPerDollar(netPerDollar(c.roi))}
+          <span className="per-dollar-unit"> / $1</span>
         </span>
       </div>
       <div className="card-stats">
-        <span>EV {usd2(c.evPerTicket)}</span>
+        <span>{pct(c.roi, 0)} return</span>
         <span>
           Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left
         </span>
@@ -152,6 +162,7 @@ function GameCard({ game, onClick }: { game: Game; onClick: () => void }) {
 
 function Detail({ game, onClose }: { game: Game; onClose: () => void }) {
   const c = game.computed;
+  const net = netPerDollar(c.roi);
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
   return (
     <div className="sheet-backdrop" onClick={onClose}>
@@ -170,11 +181,19 @@ function Detail({ game, onClose }: { game: Game; onClose: () => void }) {
         </div>
 
         <div className="kpis">
+          <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={roiColor(c.roi)} />
+          <Kpi label="Return / $1" value={usd2(c.roi)} />
           <Kpi label="ROI" value={pct(c.roi, 1)} accent={roiColor(c.roi)} />
           <Kpi label="EV / ticket" value={usd2(c.evPerTicket)} />
           <Kpi label="Tickets left" value={int(c.ticketsRemaining)} />
           <Kpi label="Prize $ left" value={usdCompact(c.remainingPrizeValue)} />
         </div>
+
+        <p className="plain">
+          For every <strong>$1</strong> spent on this game, expect about{" "}
+          <strong>{usd2(c.roi)}</strong> back — a net of{" "}
+          <strong style={{ color: roiColor(c.roi) }}>{centsPerDollar(net)}</strong> per dollar.
+        </p>
 
         <table className="tiers">
           <thead>

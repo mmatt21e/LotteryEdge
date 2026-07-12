@@ -212,6 +212,31 @@ body {
   min-width: 44px;
   text-align: right;
 }
+.per-dollar {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: right;
+  min-width: 92px;
+  white-space: nowrap;
+}
+.per-dollar-unit {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 12px;
+}
+.plain {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 0 0 4px;
+}
+.plain strong {
+  font-weight: 700;
+}
 
 .card-stats {
   display: flex;

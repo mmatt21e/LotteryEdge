@@ -17,6 +17,16 @@ export const pct = (frac: number, dp = 0): string => `${(frac * 100).toFixed(dp)
 
 export const int = (n: number): string => Math.round(n).toLocaleString("en-US");
 
+/** Net expected win/loss per $1 wagered. roi 0.933 -> -0.067 (a 6.7¢ loss). */
+export const netPerDollar = (roi: number): number => roi - 1;
+
+/** Format a per-dollar net as signed cents: -0.067 -> "−6.7¢", 0.03 -> "+3.0¢". */
+export function centsPerDollar(net: number): string {
+  const cents = net * 100;
+  const sign = cents > 0 ? "+" : cents < 0 ? "−" : "";
+  return `${sign}${Math.abs(cents).toFixed(1)}¢`;
+}
+
 /** "3 hours ago", "2 days ago" from an ISO timestamp. */
 export function relativeTime(iso: string): string {
   const then = new Date(iso).getTime();
