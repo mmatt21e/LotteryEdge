@@ -9,11 +9,32 @@ import type { Game, ScrapeResult, LiteResult } from "./types.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, "..", "data");
 
+/**
+ * Sanity gate: legitimate scratch-off ROI tops out near break-even (~1.0–1.3).
+ * A cluster of wildly-high ROIs means the adapter captured incomplete tiers
+ * (missing low tiers or bad remaining counts), which detonates the EV estimate.
+ * Refuse to publish such data rather than mislead.
+ */
+function assertSaneRois(state: string, games: Game[]): void {
+  if (games.length === 0) return;
+  const rois = games.map((g) => g.computed.roi);
+  const maxRoi = Math.max(...rois);
+  const absurdShare = rois.filter((r) => r > 3).length / rois.length;
+  if (maxRoi > 5 || absurdShare > 0.1) {
+    throw new Error(
+      `sanity check failed — maxROI=${(maxRoi * 100).toFixed(0)}%, ` +
+        `${(absurdShare * 100).toFixed(0)}% of games >300% ROI. Likely incomplete tier data; holding ${state}.`,
+    );
+  }
+}
+
 async function runFull(src: CliSource & { kind: "full" }): Promise<void> {
   const { source, games: raw } = await src.scrape();
   const games: Game[] = raw
     .map((g) => ({ ...g, computed: computeStats(g) }))
     .sort((a, b) => b.computed.roi - a.computed.roi);
+
+  assertSaneRois(src.key, games);
 
   const result: ScrapeResult = {
     generatedAt: new Date().toISOString(),

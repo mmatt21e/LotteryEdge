@@ -31,8 +31,6 @@ const STATES: { key: string; name: string; lite?: boolean }[] = [
   { key: "ar", name: "Arkansas" },
   { key: "ca", name: "California" },
   { key: "ct", name: "Connecticut" },
-  { key: "id", name: "Idaho" },
-  { key: "in", name: "Indiana" },
   { key: "ia", name: "Iowa" },
   { key: "la", name: "Louisiana" },
   { key: "md", name: "Maryland" },
@@ -40,7 +38,6 @@ const STATES: { key: string; name: string; lite?: boolean }[] = [
   { key: "mo", name: "Missouri" },
   { key: "nc", name: "North Carolina" },
   { key: "sc", name: "South Carolina" },
-  { key: "tx", name: "Texas" },
   { key: "va", name: "Virginia", lite: true },
   { key: "wa", name: "Washington" },
 ];
