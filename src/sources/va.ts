@@ -1,37 +1,39 @@
 import type { RawGame } from "../types.js";
 
 /**
- * Virginia scraper — SCAFFOLD.
+ * Virginia scraper — BLOCKED on data availability (see findings below).
  *
- * valottery.com/scratcher-search is an Angular app (`ng_fw.loadGame(...)`);
- * the prize data is loaded by a background XHR, not present in the initial
- * HTML. Two ways to finish this, in order of preference:
+ * Unlike NC (which publishes a clean public "prizes remaining" table for every
+ * prize level), valottery.com does NOT expose per-tier prizes-remaining data
+ * publicly. Seven discovery passes (scripts/va-discovery.mjs history) found:
  *
- *   1. Reverse-engineer the JSON endpoint (BEST — stable, fast, no browser):
- *      - Open valottery.com/scratcher-search in a desktop browser.
- *      - Open DevTools > Network > filter XHR/Fetch.
- *      - Trigger a game load; find the request returning game + prize JSON.
- *      - Implement fetchVaJson() below to call it directly.
+ *   ✅ Game list:  POST https://www.valottery.com/api/v1/scratchers
+ *        body: `page=0&totalPages=0&pageSize=18&filters[categories][]=all`
+ *        (form-encoded; needs the site session cookie — GET/plain fetch 302s;
+ *         must run via Playwright with the page's own jQuery/session)
+ *        → per game: { Title, GameID, TicketPrice, TopPrize, IsClosingSoon }
+ *        i.e. TOP-PRIZE level + a real "closing soon" flag only.
  *
- *   2. Headless render with Playwright (fallback — heavier, more brittle):
- *      - `npm i playwright` (Chromium is already at /opt/pw-browsers here).
- *      - Launch, goto the page, wait for the game list, read the DOM / or
- *        intercept the same XHR response and return its body.
+ *   ❌ Per-tier prizes remaining + odds + totals (needed for EV / net-per-$1):
+ *        - NOT in the list response
+ *        - NOT server-rendered on the /scratchers/{GameID} page (that page is
+ *          the online-gaming shell)
+ *        - /api/v1/prizesandodds is for DRAW games (needs drawingDate), not
+ *          scratchers
+ *        - /api/v1/scratchers/{GameID} and /api/v1/scratchers/prizesremaining
+ *          exist (return 500 to anonymous) but are gated; their data/params
+ *          were not obtainable in discovery
+ *        - myvirginialottery.com does not resolve
  *
- * Until one is implemented, this returns [] so the NC pipeline runs unaffected.
+ * Consequence: the EV engine (which estimates tickets remaining from per-tier
+ * remaining × odds) cannot run for VA with public data. Options tracked with
+ * the user: ship a "VA lite" (list + top prize + closing-soon, no EV), keep
+ * probing the gated routes, or use a third-party aggregator (dependency/ToS).
  */
 export async function scrapeVa(): Promise<{ source: string; games: RawGame[] }> {
   throw new Error(
-    "VA scraper not implemented yet. Grab the XHR endpoint from valottery.com/scratcher-search " +
-      "(DevTools > Network) and implement fetchVaJson(), or add a Playwright render. " +
-      "See src/sources/va.ts for the two options.",
+    "VA blocked: valottery.com does not publicly expose per-tier prizes-remaining data " +
+      "required for EV. Game list is available (POST /api/v1/scratchers) but only carries " +
+      "top-prize + closing-soon. See src/sources/va.ts for full findings.",
   );
 }
-
-/**
- * TODO(phase-1b): implement once the endpoint is known.
- * Map the VA JSON response into RawGame[] with the same shape NC produces:
- *   { state:"va", gameId, name, price, url, tiers:[{amount,odds?,originalCount,remaining}] }
- * so computeStats() works identically for both states.
- */
-// async function fetchVaJson(): Promise<RawGame[]> { ... }
