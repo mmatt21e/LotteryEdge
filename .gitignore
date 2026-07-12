@@ -3,3 +3,16 @@ dist/
 *.log
 scratch-*.html
 .DS_Store
+
+# Local assistant tooling / scratch files (never commit)
+.claude/
+.codex/
+CLAUDE.md
+CLAUDE.local.md
+CODEX.md
+AGENTS.md
+*claude*
+*Claude*
+*codex*
+*Codex*
+_shot*.mjs
