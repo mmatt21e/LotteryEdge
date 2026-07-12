@@ -45,6 +45,17 @@ jobs:
       - name: Scrape North Carolina
         run: npm run scrape:nc
 
+      # VA is "lite" (list + closing-soon only; no public per-tier data) and
+      # needs a headless browser. Non-blocking: a VA failure must not stop the
+      # NC deploy.
+      - name: Install Chromium (for VA)
+        run: npx playwright install --with-deps chromium
+        continue-on-error: true
+
+      - name: Scrape Virginia (lite)
+        run: node scripts/va-scrape.mjs
+        continue-on-error: true
+
       - name: Commit refreshed data
         run: |
           git config user.name "github-actions[bot]"

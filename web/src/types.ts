@@ -56,3 +56,25 @@ export interface History {
   updatedAt: string;
   series: Record<string, GameSeries>;
 }
+
+/** VA "lite" game — no per-tier prize data is public, so no EV. */
+export interface LiteGame {
+  gameId: string;
+  name: string;
+  price: number;
+  topPrize: string;
+  topPrizeValue: number | null;
+  closingSoon: boolean;
+}
+
+export interface LiteResult {
+  generatedAt: string;
+  state: string;
+  limited: true;
+  source: string;
+  gameCount: number;
+  games: LiteGame[];
+}
+
+export type AnyResult = ScrapeResult | LiteResult;
+export const isLimited = (r: AnyResult | null): r is LiteResult => !!r && (r as LiteResult).limited === true;

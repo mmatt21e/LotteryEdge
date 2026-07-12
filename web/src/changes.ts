@@ -28,6 +28,7 @@ export function useChanges(
     const result = new Map<string, GameChange>();
     if (!games || !generatedAt || !initial.at || initial.at === generatedAt) return result;
     for (const g of games) {
+      if (!g.computed) continue; // limited (VA) games carry no EV
       const prev = initial.map[g.gameId];
       if (!prev) continue;
       const topClaimed = Math.max(0, prev.top - g.computed.topPrizesRemaining);
@@ -40,7 +41,8 @@ export function useChanges(
   useEffect(() => {
     if (!games || !generatedAt || seen.at === generatedAt) return;
     const map: Record<string, { roi: number; top: number }> = {};
-    for (const g of games) map[g.gameId] = { roi: g.computed.roi, top: g.computed.topPrizesRemaining };
+    for (const g of games)
+      if (g.computed) map[g.gameId] = { roi: g.computed.roi, top: g.computed.topPrizesRemaining };
     setSeen({ at: generatedAt, map });
   }, [games, generatedAt, seen.at, setSeen]);
 

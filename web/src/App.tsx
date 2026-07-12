@@ -5,7 +5,8 @@ import { buildDemoHistory, distinctDates } from "./demo.js";
 import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges, type GameChange } from "./changes.js";
 import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
-import type { Game, History } from "./types.js";
+import type { Game, History, LiteResult, LiteGame } from "./types.js";
+import { isLimited } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
   profitOdds,
@@ -25,8 +26,15 @@ import {
 type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
 type Tab = "value" | "sellers" | "me";
 
+/** States the app can show. NC has full EV; VA is "lite" (list only). */
+const STATES = [
+  { key: "nc", name: "North Carolina" },
+  { key: "va", name: "Virginia" },
+] as const;
+
 export default function App() {
-  const { data, history, loading, error, refresh } = useScratchers("nc");
+  const [stateKey, setStateKey] = useLocalStorage<string>("state", "nc");
+  const { data, history, loading, error, refresh } = useScratchers(stateKey);
   const [tab, setTab] = useState<Tab>("value");
   const [selected, setSelected] = useState<Game | null>(null);
   const [afterTax, setAfterTax] = useState(false);
@@ -35,7 +43,13 @@ export default function App() {
   const favSet = useMemo(() => new Set(favs), [favs]);
   const toggleFav = (id: string) =>
     setFavs((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
-  const changes = useChanges(data?.games, data?.generatedAt);
+
+  const limited = isLimited(data);
+  const ncGames = useMemo<Game[]>(
+    () => (!limited && data ? (data as { games: Game[] }).games : []),
+    [limited, data],
+  );
+  const changes = useChanges(limited ? undefined : ncGames, data?.generatedAt);
   const ledger = useLedger();
   const { theme, cycle } = useTheme();
   const online = useOnline();
@@ -45,14 +59,14 @@ export default function App() {
   // (only when the user has granted permission). Once per data generation.
   const notifiedFor = useRef<string>("");
   useEffect(() => {
-    if (!data || notifiedFor.current === data.generatedAt) return;
+    if (!data || limited || notifiedFor.current === data.generatedAt) return;
     if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
     if (changes.size === 0) return;
     notifiedFor.current = data.generatedAt;
     for (const id of favs) {
       const ch = changes.get(id);
       if (!ch) continue;
-      const name = data.games.find((g) => g.gameId === id)?.name ?? "A favorite game";
+      const name = ncGames.find((g) => g.gameId === id)?.name ?? "A favorite game";
       const bits: string[] = [];
       if (ch.topClaimed > 0) bits.push(`${ch.topClaimed} top prize claimed`);
       if (Math.abs(ch.netDelta) >= 0.005) bits.push(ch.netDelta > 0 ? "better value" : "worse value");
@@ -62,14 +76,14 @@ export default function App() {
         /* ignore */
       }
     }
-  }, [data, changes, favs]);
+  }, [data, limited, changes, favs, ncGames]);
 
   // With ≤1 real day of history, trends/velocity have nothing to show, so we
   // fall back to clearly-labeled SAMPLE data generated from today's snapshot.
-  const isDemo = distinctDates(history) <= 1;
+  const isDemo = !limited && distinctDates(history) <= 1;
   const effHistory = useMemo(
-    () => (isDemo ? buildDemoHistory(data?.games ?? []) : history),
-    [isDemo, data, history],
+    () => (!limited && isDemo ? buildDemoHistory(ncGames) : history),
+    [limited, isDemo, ncGames, history],
   );
 
   return (
@@ -99,7 +113,17 @@ export default function App() {
       {!online && <div className="offline-banner">Offline — showing the last saved data.</div>}
 
       <div className="meta">
-        <span className="state-pill">NC</span>
+        <div className="state-switch" role="group" aria-label="State">
+          {STATES.map((s) => (
+            <button
+              key={s.key}
+              className={`state-btn ${stateKey === s.key ? "state-on" : ""}`}
+              onClick={() => setStateKey(s.key)}
+            >
+              {s.key.toUpperCase()}
+            </button>
+          ))}
+        </div>
         {data && (
           <span className="freshness">
             {data.gameCount} games · updated {relativeTime(data.generatedAt)}
@@ -107,58 +131,62 @@ export default function App() {
         )}
       </div>
 
-      <div className="tabs" role="tablist">
-        <button className={`tab ${tab === "value" ? "tab-on" : ""}`} onClick={() => setTab("value")}>
-          Best value
-        </button>
-        <button
-          className={`tab ${tab === "sellers" ? "tab-on" : ""}`}
-          onClick={() => setTab("sellers")}
-        >
-          Hot sellers
-        </button>
-        <button className={`tab ${tab === "me" ? "tab-on" : ""}`} onClick={() => setTab("me")}>
-          My tickets
-        </button>
-      </div>
-
-      {isDemo && data && tab !== "me" && (
-        <div className="demo-banner">
-          <strong>Sample data</strong> — trend lines and “Hot sellers” below use{" "}
-          <em>illustrative</em> history until 2+ daily updates are collected. Prices, odds, EV and
-          net/$1 are real.
-        </div>
-      )}
-
       {loading && !data && <div className="status">Loading…</div>}
       {error && !data && (
         <div className="status error">
-          Couldn’t load data ({error}). Pull to refresh once the scraper has published data.
+          No data yet for {stateKey.toUpperCase()} ({error}). It appears once the scraper has
+          published it.
         </div>
       )}
 
-      {data && tab === "value" && (
-        <ValueTab
-          games={data.games}
-          history={effHistory}
-          demo={isDemo}
-          afterTax={afterTax}
-          onAfterTax={setAfterTax}
-          favSet={favSet}
-          onToggleFav={toggleFav}
-          changes={changes}
-          onSelect={setSelected}
-        />
-      )}
-      {data && tab === "sellers" && (
-        <SellersTab games={data.games} history={effHistory} demo={isDemo} onSelect={setSelected} />
-      )}
-      {data && tab === "me" && <MeTab games={data.games} ledger={ledger} afterTax={afterTax} />}
+      {data && limited && <LiteView data={data as LiteResult} />}
 
-      <p className="disclaimer">
-        ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
-        Most games sit below break-even.
-      </p>
+      {data && !limited && (
+        <>
+          <div className="tabs" role="tablist">
+            <button className={`tab ${tab === "value" ? "tab-on" : ""}`} onClick={() => setTab("value")}>
+              Best value
+            </button>
+            <button className={`tab ${tab === "sellers" ? "tab-on" : ""}`} onClick={() => setTab("sellers")}>
+              Hot sellers
+            </button>
+            <button className={`tab ${tab === "me" ? "tab-on" : ""}`} onClick={() => setTab("me")}>
+              My tickets
+            </button>
+          </div>
+
+          {isDemo && tab !== "me" && (
+            <div className="demo-banner">
+              <strong>Sample data</strong> — trend lines and “Hot sellers” below use{" "}
+              <em>illustrative</em> history until 2+ daily updates are collected. Prices, odds, EV and
+              net/$1 are real.
+            </div>
+          )}
+
+          {tab === "value" && (
+            <ValueTab
+              games={ncGames}
+              history={effHistory}
+              demo={isDemo}
+              afterTax={afterTax}
+              onAfterTax={setAfterTax}
+              favSet={favSet}
+              onToggleFav={toggleFav}
+              changes={changes}
+              onSelect={setSelected}
+            />
+          )}
+          {tab === "sellers" && (
+            <SellersTab games={ncGames} history={effHistory} demo={isDemo} onSelect={setSelected} />
+          )}
+          {tab === "me" && <MeTab games={ncGames} ledger={ledger} afterTax={afterTax} />}
+
+          <p className="disclaimer">
+            ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
+            Most games sit below break-even.
+          </p>
+        </>
+      )}
 
       {selected && (
         <Detail
@@ -525,6 +553,111 @@ function SellersTab({
           </ul>
         </>
       )}
+    </>
+  );
+}
+
+/* ------------------------------- Lite (VA) -------------------------------- */
+
+function LiteView({ data }: { data: LiteResult }) {
+  const [price, setPrice] = useState<number | "all">("all");
+  const [query, setQuery] = useState("");
+  const [closingOnly, setClosingOnly] = useState(false);
+  const [sort, setSort] = useState<"top" | "price">("top");
+
+  const prices = useMemo(
+    () => [...new Set(data.games.map((g) => g.price))].sort((a, b) => a - b),
+    [data],
+  );
+  const list = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const l = data.games.filter((g) => {
+      if (price !== "all" && g.price !== price) return false;
+      if (closingOnly && !g.closingSoon) return false;
+      if (q && !g.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    l.sort((a, b) =>
+      sort === "price" ? a.price - b.price : (b.topPrizeValue ?? 0) - (a.topPrizeValue ?? 0),
+    );
+    return l;
+  }, [data, price, query, closingOnly, sort]);
+
+  return (
+    <>
+      <div className="demo-banner">
+        <strong>Virginia — limited data.</strong> VA doesn’t publish per-prize “remaining” counts,
+        so there’s no EV / net-per-$1 here — only each game’s <em>top prize</em> and a{" "}
+        <strong>closing-soon</strong> flag.
+      </div>
+
+      <div className="controls">
+        <input
+          className="search"
+          type="search"
+          placeholder="Search games…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <div className="chips" role="group" aria-label="Filter by price">
+          <Chip active={price === "all"} onClick={() => setPrice("all")}>
+            All
+          </Chip>
+          {prices.map((p) => (
+            <Chip key={p} active={price === p} onClick={() => setPrice(p)}>
+              ${p}
+            </Chip>
+          ))}
+        </div>
+        <div className="control-row">
+          <div className="sort">
+            <label>
+              Sort
+              <select value={sort} onChange={(e) => setSort(e.target.value as "top" | "price")}>
+                <option value="top">Top prize</option>
+                <option value="price">Price</option>
+              </select>
+            </label>
+          </div>
+          <div className="toggles">
+            <button
+              className={`chip ${closingOnly ? "chip-on" : ""}`}
+              onClick={() => setClosingOnly((v) => !v)}
+            >
+              ⏳ Closing soon
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {list.length === 0 && <div className="status">No games match.</div>}
+      <ul className="list">
+        {list.map((g: LiteGame) => (
+          <li key={g.gameId} className="card lite-card">
+            <div className="card-head">
+              <span className="price-tag">${g.price}</span>
+              <span className="game-name">{g.name}</span>
+            </div>
+            <div className="card-stats">
+              <span className="lite-top">Top prize {g.topPrize || "—"}</span>
+              {g.closingSoon && <span className="badge badge-warn">⏳ closing soon</span>}
+              <a
+                className="official lite-link"
+                href={`https://www.valottery.com/scratchers/${g.gameId}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                details ↗
+              </a>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <p className="disclaimer">
+        Source: valottery.com. A full EV ranking (like NC) needs per-prize remaining counts, which
+        Virginia doesn’t publish.
+      </p>
     </>
   );
 }

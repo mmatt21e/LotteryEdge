@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import type { ScrapeResult, History } from "./types.js";
+import type { AnyResult, History } from "./types.js";
 
 const BASE = import.meta.env.BASE_URL; // "/" locally, "/LotteryEdge/" on Pages
 
@@ -10,7 +10,7 @@ function fileUrl(kind: "scratchers" | "history", state: string, bust: number): s
 }
 
 interface State {
-  data: ScrapeResult | null;
+  data: AnyResult | null;
   history: History | null;
   loading: boolean;
   error: string | null;
@@ -35,7 +35,7 @@ export function useScratchers(state: string) {
           fetch(fileUrl("history", state, bust), opts).catch(() => null),
         ]);
         if (!dataRes.ok) throw new Error(`HTTP ${dataRes.status}`);
-        const data = (await dataRes.json()) as ScrapeResult;
+        const data = (await dataRes.json()) as AnyResult;
         const history =
           histRes && histRes.ok ? ((await histRes.json()) as History) : null;
         setS({ data, history, loading: false, error: null });

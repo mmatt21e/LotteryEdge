@@ -119,6 +119,38 @@ body {
   padding: 2px 8px;
   border-radius: 6px;
 }
+.state-switch {
+  display: flex;
+  gap: 3px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 3px;
+}
+.state-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  padding: 4px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.state-on {
+  background: var(--accent);
+  color: #1a1300;
+}
+.lite-top {
+  color: var(--text);
+  font-weight: 600;
+}
+.lite-link {
+  margin-top: 0;
+  margin-left: auto;
+  font-size: 13px;
+}
 .freshness {
   color: var(--muted);
   font-size: 13px;
