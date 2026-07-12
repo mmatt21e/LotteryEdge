@@ -17,6 +17,16 @@ function num(s: string | undefined): number {
 /** Polite pause between the per-game detail fetches. */
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/** Fetch with one retry, so a transient blip does not silently drop a game. */
+async function fetchRetry(url: string): Promise<string> {
+  try {
+    return await fetchText(url);
+  } catch {
+    await sleep(500);
+    return await fetchText(url);
+  }
+}
+
 /** Normalized name key (alphanumerics only, trailing game number dropped). */
 function nameKey(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]/g, "").replace(/\d+$/, "");
@@ -145,7 +155,7 @@ export async function scrapeKy(): Promise<{ source: string; games: RawGame[] }> 
       price: NaN,
     };
     try {
-      detail = parseKyDetail(await fetchText(url));
+      detail = parseKyDetail(await fetchRetry(url));
       await sleep(120);
     } catch {
       continue; // detail unavailable -> skip (no anchor)

@@ -17,6 +17,16 @@ function num(s: string | undefined): number {
 /** Polite pause between the per-game detail fetches. */
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/** Fetch with one retry, so a transient blip does not drop a game's anchor. */
+async function fetchRetry(url: string): Promise<string> {
+  try {
+    return await fetchText(url);
+  } catch {
+    await sleep(500);
+    return await fetchText(url);
+  }
+}
+
 interface RemainTier {
   amount: number;
   originalCount: number;
@@ -126,7 +136,7 @@ export async function scrapeIa(): Promise<{ source: string; games: RawGame[] }> 
       byAmount: new Map(),
     };
     try {
-      odds = parseIaDetailOdds(await fetchText(url));
+      odds = parseIaDetailOdds(await fetchRetry(url));
       await sleep(120);
     } catch {
       // Detail page unavailable — keep the game; it just lacks an anchor.

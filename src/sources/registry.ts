@@ -7,12 +7,12 @@ import { scrapeMs } from "./ms.js";
 import { scrapeMo } from "./mo.js";
 import { scrapeMd } from "./md.js";
 import { scrapeTx } from "./tx.js";
-import { scrapeVt } from "./vt.js";
 import { scrapeWa } from "./wa.js";
 import { scrapeLa } from "./la.js";
 import { scrapeIn } from "./in.js";
 import { scrapeAr } from "./ar.js";
 import { scrapeCt } from "./ct.js";
+import { scrapeIa } from "./ia.js";
 
 /**
  * Registry of FETCH-BASED adapters the CLI can run directly (no browser).
@@ -48,12 +48,12 @@ export const SOURCES: CliSource[] = [
   { key: "mo", name: "Missouri", kind: "full", scrape: scrapeMo },
   { key: "md", name: "Maryland", kind: "full", scrape: scrapeMd },
   { key: "tx", name: "Texas", kind: "full", scrape: scrapeTx },
-  { key: "vt", name: "Vermont", kind: "full", scrape: scrapeVt },
   { key: "wa", name: "Washington", kind: "full", scrape: scrapeWa },
   { key: "la", name: "Louisiana", kind: "full", scrape: scrapeLa },
   { key: "in", name: "Indiana", kind: "full", scrape: scrapeIn },
   { key: "ar", name: "Arkansas", kind: "full", scrape: scrapeAr },
   { key: "ct", name: "Connecticut", kind: "full", scrape: scrapeCt },
+  { key: "ia", name: "Iowa", kind: "full", scrape: scrapeIa },
 ];
 
 export const sourceKeys = (): string[] => SOURCES.map((s) => s.key);
