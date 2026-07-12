@@ -47,10 +47,24 @@ export function parseIdList(html: string): ListEntry[] {
  * Parse a game detail page's "Rules & Odds" table:
  *   Number of Prizes | Prize Amount | Remaining Prizes | Odds ("1:238400")
  * Per-tier odds serve as the EV anchor.
+ *
+ * Idaho only publishes a "Remaining Prizes" count for the higher tiers; the low
+ * tiers render the literal " *not available ". Treating those as remaining=0 (the
+ * old behaviour) collapses the fraction-remaining estimate and detonates the EV.
+ * Instead, estimate each unavailable tier's remaining from the depletion rate of
+ * the tiers that DO publish a count (Σremaining / Σoriginal over known tiers),
+ * which matches ev.ts's proportional-depletion model.
  */
 export function parseIdDetail(html: string): PrizeTier[] {
   const $ = cheerio.load(html);
-  const tiers: PrizeTier[] = [];
+
+  interface Row {
+    amount: number;
+    odds: number | undefined;
+    originalCount: number;
+    remaining: number | undefined; // undefined = "not available"
+  }
+  const rows: Row[] = [];
 
   $("table.full-rules-and-odds tbody tr").each((_, tr) => {
     const $tr = $(tr);
@@ -62,15 +76,38 @@ export function parseIdDetail(html: string): PrizeTier[] {
     const odds = oddsMatch ? num(oddsMatch[1]) : NaN;
 
     if (!Number.isFinite(amount) || !Number.isFinite(originalCount)) return;
-    tiers.push({
+    rows.push({
       amount,
       odds: Number.isFinite(odds) ? odds : undefined,
       originalCount,
-      remaining: Number.isFinite(remaining) ? remaining : 0,
+      // A finite value (including a real 0) is a published count; NaN means the
+      // page said "not available" and we must estimate it below.
+      remaining: Number.isFinite(remaining) ? remaining : undefined,
     });
   });
 
-  return tiers;
+  // Depletion rate from tiers that publish a remaining count.
+  let knownOriginal = 0;
+  let knownRemaining = 0;
+  for (const r of rows) {
+    if (r.remaining !== undefined) {
+      knownOriginal += r.originalCount;
+      knownRemaining += r.remaining;
+    }
+  }
+  // Fraction still unclaimed among known tiers; default to fully-remaining (1)
+  // when nothing is published, which keeps EV conservative rather than inflated.
+  const fracRemaining = knownOriginal > 0 ? knownRemaining / knownOriginal : 1;
+
+  return rows.map((r) => ({
+    amount: r.amount,
+    odds: r.odds,
+    originalCount: r.originalCount,
+    remaining:
+      r.remaining !== undefined
+        ? r.remaining
+        : Math.round(r.originalCount * fracRemaining),
+  }));
 }
 
 /** Run tasks with a small concurrency cap to stay polite. */

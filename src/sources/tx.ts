@@ -19,22 +19,21 @@ interface ListGame {
   detailUrl: string;
   name: string;
   price: number;
-  tiers: PrizeTier[];
 }
 
 /**
- * Parse the Texas "all scratch-offs" list table.
+ * Parse the Texas "all scratch-offs" list table for game metadata only.
  *
  * Columns (8 <td> per row):
  *   Game# (link) | Start date | Price | (spacer) | Game Name | Amount | Printed | Claimed
- * A row that opens a new game carries the game-number link and name/price in the
- * leading cells; continuation rows (additional prize tiers) leave those blank.
- * remaining = Printed - Claimed.
+ * The list table only surfaces the top few prize tiers per game, so we use it
+ * purely to enumerate games (id, name, price, detail URL) and pull the FULL
+ * prize table from each game's detail page instead.
  */
 export function parseTxList(html: string): ListGame[] {
   const $ = cheerio.load(html);
   const games: ListGame[] = [];
-  let current: ListGame | undefined;
+  const seen = new Set<string>();
 
   $("table tbody tr").each((_, tr) => {
     const $tds = $(tr).find("td");
@@ -42,33 +41,48 @@ export function parseTxList(html: string): ListGame[] {
 
     const $link = $tds.eq(0).find("a[href*='details.html_']").first();
     const href = $link.attr("href");
-    if (href) {
-      // New game row.
-      const gameId = $link.text().trim();
-      const name = $tds.eq(4).text().trim();
-      const price = num($tds.eq(2).text());
-      const detailUrl = href.startsWith("http") ? href : `${ORIGIN}${href}`;
-      if (gameId && name && Number.isFinite(price)) {
-        current = { gameId, detailUrl, name, price, tiers: [] };
-        games.push(current);
-      } else {
-        current = undefined;
-      }
-    }
-    if (!current) return;
+    if (!href) return; // continuation row for extra prize tiers — skip.
 
-    // Trailing three cells: Amount | Printed | Claimed.
-    const amount = num($tds.eq(5).text());
-    const printed = num($tds.eq(6).text());
-    const claimed = num($tds.eq(7).text());
+    const gameId = $link.text().trim();
+    const name = $tds.eq(4).text().trim();
+    const price = num($tds.eq(2).text());
+    const detailUrl = href.startsWith("http") ? href : `${ORIGIN}${href}`;
+    if (!gameId || !name || !Number.isFinite(price)) return;
+    if (seen.has(gameId)) return;
+    seen.add(gameId);
+    games.push({ gameId, detailUrl, name, price });
+  });
+
+  return games;
+}
+
+/**
+ * Parse the FULL prize table from a Texas game detail page.
+ *
+ * The detail page carries the complete "Prizes Printed" table with one row per
+ * prize tier (down to the low $1–$5 prizes) with three columns:
+ *   Amount | No. in Game* (original count) | No. Prizes Claimed
+ * remaining = No. in Game − No. Prizes Claimed.  The claimed cell may wrap its
+ * number in a "where sold" link, so we read the cell's text.
+ */
+export function parseTxDetail(html: string): PrizeTier[] {
+  const $ = cheerio.load(html);
+  const tiers: PrizeTier[] = [];
+
+  $("table.large-only tbody tr").each((_, tr) => {
+    const $tds = $(tr).find("td");
+    if ($tds.length < 3) return;
+    const amount = num($tds.eq(0).text());
+    const printed = num($tds.eq(1).text());
+    const claimed = num($tds.eq(2).text());
     if (!Number.isFinite(amount) || !Number.isFinite(printed)) return;
     const remaining = Number.isFinite(claimed)
       ? Math.max(printed - claimed, 0)
       : printed;
-    current.tiers.push({ amount, originalCount: printed, remaining });
+    tiers.push({ amount, originalCount: printed, remaining });
   });
 
-  return games;
+  return tiers;
 }
 
 /** Pull "Overall odds ... are 1 in X" from a game detail page. */
@@ -82,16 +96,17 @@ export function parseTxOverallOdds(html: string): number {
 /** Fetch and parse live Texas scratch-off data. */
 export async function scrapeTx(): Promise<{ source: string; games: RawGame[] }> {
   const listHtml = await fetchText(LIST_URL);
-  const listGames = parseTxList(listHtml).filter((g) => g.tiers.length > 0);
+  const listGames = parseTxList(listHtml);
   if (listGames.length === 0) {
     throw new Error(
       "TX parser found 0 games — the list table layout may have changed. Inspect the markup.",
     );
   }
 
-  // Overall odds (the EV anchor) live only on each game's detail page.
-  // Fetch in small polite batches.
-  const oddsById = new Map<string, number>();
+  // The list table only shows the top few tiers; the FULL prize table and the
+  // overall-odds EV anchor both live on each game's detail page. Fetch each
+  // detail page once, in small polite batches, and pull both from it.
+  const detailById = new Map<string, { tiers: PrizeTier[]; overallOdds: number }>();
   const BATCH = 6;
   for (let i = 0; i < listGames.length; i += BATCH) {
     const slice = listGames.slice(i, i + BATCH);
@@ -99,24 +114,37 @@ export async function scrapeTx(): Promise<{ source: string; games: RawGame[] }> 
       slice.map(async (g) => {
         try {
           const html = await fetchText(g.detailUrl);
-          const odds = parseTxOverallOdds(html);
-          if (Number.isFinite(odds)) oddsById.set(g.gameId, odds);
+          const tiers = parseTxDetail(html);
+          const overallOdds = parseTxOverallOdds(html);
+          if (tiers.length > 0) detailById.set(g.gameId, { tiers, overallOdds });
         } catch {
-          // Leave anchor unset for this game if the detail page fails.
+          // Drop this game if its detail page fails — no reliable tiers.
         }
       }),
     );
   }
 
-  const games: RawGame[] = listGames.map((g) => ({
-    state: "tx",
-    gameId: g.gameId,
-    name: g.name,
-    price: g.price,
-    url: g.detailUrl,
-    tiers: g.tiers,
-    overallOdds: oddsById.get(g.gameId),
-  }));
+  const games: RawGame[] = listGames
+    .map((g): RawGame | null => {
+      const detail = detailById.get(g.gameId);
+      if (!detail) return null;
+      return {
+        state: "tx",
+        gameId: g.gameId,
+        name: g.name,
+        price: g.price,
+        url: g.detailUrl,
+        tiers: detail.tiers,
+        overallOdds: Number.isFinite(detail.overallOdds) ? detail.overallOdds : undefined,
+      };
+    })
+    .filter((g): g is RawGame => g !== null);
+
+  if (games.length === 0) {
+    throw new Error(
+      "TX parser found 0 games with prize tiers — the detail page layout may have changed.",
+    );
+  }
 
   return { source: LIST_URL, games };
 }
