@@ -201,6 +201,30 @@ body {
   color: var(--muted);
   opacity: 0.85;
 }
+.picker-row-all .picker-row-name {
+  color: var(--accent);
+  font-weight: 700;
+}
+.state-badge {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+.scroll-chips {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 4px;
+}
+.scroll-chips .chip {
+  flex: 0 0 auto;
+}
 .state-switch {
   display: flex;
   gap: 3px;

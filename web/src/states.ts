@@ -75,8 +75,15 @@ export const UNAVAILABLE: UnavailableState[] = [
   { name: "Wyoming", reason: "No state scratch-off games (draw games only)." },
 ];
 
+/** Sentinel key for the merged cross-state view. */
+export const ALL_KEY = "all";
+
 export const stateName = (key: string): string =>
-  STATES.find((s) => s.key === key)?.name ?? key.toUpperCase();
+  key === ALL_KEY ? "All states" : (STATES.find((s) => s.key === key)?.name ?? key.toUpperCase());
+
+/** Full-EV state keys, in picker order — the states the combined view merges. */
+export const fullStateKeys = (): string[] =>
+  STATES.filter((s) => s.tier === "full").map((s) => s.key);
 
 export const isLiteState = (key: string): boolean =>
   STATES.find((s) => s.key === key)?.tier === "lite";

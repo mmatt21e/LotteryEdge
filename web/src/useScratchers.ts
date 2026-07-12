@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import type { AnyResult, History } from "./types.js";
+import type { AnyResult, History, Game, ScrapeResult } from "./types.js";
+import { STATES } from "./states.js";
 
 const BASE = import.meta.env.BASE_URL; // "/" locally, "/LotteryEdge/" on Pages
 
@@ -26,6 +27,11 @@ export function useScratchers(state: string) {
 
   const load = useCallback(
     async (bust = 0) => {
+      // The combined view fetches its own data; there is no "all" file.
+      if (state === "all") {
+        setS({ data: null, history: null, loading: false, error: null });
+        return;
+      }
       setS((prev) => ({ ...prev, loading: true, error: null }));
       try {
         const opts: RequestInit = { cache: bust ? "reload" : "default" };
@@ -45,6 +51,73 @@ export function useScratchers(state: string) {
     },
     [state],
   );
+
+  useEffect(() => {
+    void load(0);
+  }, [load]);
+
+  const refresh = useCallback(() => load(Date.now()), [load]);
+
+  return { ...s, refresh };
+}
+
+export interface AllState {
+  games: Game[]; // every full-EV game across states, each tagged with its state
+  loaded: string[]; // state keys that returned data
+  failed: string[]; // full states with no published data yet
+  generatedAt: string | null; // most recent snapshot across loaded states
+  loading: boolean;
+}
+
+/**
+ * Fetches every full-EV state in parallel and merges their games into one
+ * list for the cross-state view. Lite states are skipped (no comparable EV).
+ * A state with no data file yet is silently dropped into `failed`, never fatal.
+ */
+export function useAllScratchers() {
+  const [s, setS] = useState<AllState>({
+    games: [],
+    loaded: [],
+    failed: [],
+    generatedAt: null,
+    loading: true,
+  });
+
+  const load = useCallback(async (bust = 0) => {
+    setS((prev) => ({ ...prev, loading: true }));
+    const fullKeys = STATES.filter((st) => st.tier === "full").map((st) => st.key);
+    const opts: RequestInit = { cache: bust ? "reload" : "default" };
+
+    const results = await Promise.all(
+      fullKeys.map(async (key) => {
+        try {
+          const res = await fetch(fileUrl("scratchers", key, bust), opts);
+          if (!res.ok) return { key, data: null };
+          const data = (await res.json()) as ScrapeResult;
+          if ((data as unknown as { limited?: boolean }).limited) return { key, data: null };
+          return { key, data };
+        } catch {
+          return { key, data: null };
+        }
+      }),
+    );
+
+    const games: Game[] = [];
+    const loaded: string[] = [];
+    const failed: string[] = [];
+    let generatedAt: string | null = null;
+    for (const { key, data } of results) {
+      if (!data || !Array.isArray(data.games)) {
+        failed.push(key);
+        continue;
+      }
+      loaded.push(key);
+      if (!generatedAt || data.generatedAt > generatedAt) generatedAt = data.generatedAt;
+      // Stamp the state from the file so a card always knows its origin.
+      for (const g of data.games) games.push({ ...g, state: key });
+    }
+    setS({ games, loaded, failed, generatedAt, loading: false });
+  }, []);
 
   useEffect(() => {
     void load(0);

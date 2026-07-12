@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { STATES, UNAVAILABLE, stateName, type StateInfo } from "./states.js";
+import { STATES, UNAVAILABLE, ALL_KEY, stateName, type StateInfo } from "./states.js";
 
 /**
  * Searchable state picker. Opens a sheet with a filter box and two groups —
@@ -67,6 +67,21 @@ export function StatePicker({
             />
 
             <div className="picker-list">
+              {match("All states") && (
+                <div className="picker-group">
+                  <button
+                    className={`picker-row picker-row-all ${value === ALL_KEY ? "picker-row-on" : ""}`}
+                    onClick={() => pick(ALL_KEY)}
+                  >
+                    <span className="picker-row-name">◎ All states combined</span>
+                    {value === ALL_KEY ? (
+                      <span className="picker-row-check">✓</span>
+                    ) : (
+                      <span className="picker-group-hint">every full-EV state, ranked together</span>
+                    )}
+                  </button>
+                </div>
+              )}
               {full.length > 0 && (
                 <Group title="Full ranking" hint="EV & net-per-$1">
                   {full.map((s) => (

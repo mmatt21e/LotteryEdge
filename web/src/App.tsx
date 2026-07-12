@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useScratchers } from "./useScratchers.js";
+import { useScratchers, useAllScratchers } from "./useScratchers.js";
 import { Sparkline } from "./Sparkline.js";
 import { buildDemoHistory, distinctDates } from "./demo.js";
 import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges, type GameChange } from "./changes.js";
 import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
 import { StatePicker } from "./StatePicker.js";
-import { stateName } from "./states.js";
+import { stateName, ALL_KEY } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
@@ -30,7 +30,9 @@ type Tab = "value" | "sellers" | "me";
 
 export default function App() {
   const [stateKey, setStateKey] = useLocalStorage<string>("state", "nc");
+  const isAll = stateKey === ALL_KEY;
   const { data, history, loading, error, refresh } = useScratchers(stateKey);
+  const all = useAllScratchers();
   const [tab, setTab] = useState<Tab>("value");
   const [selected, setSelected] = useState<Game | null>(null);
   const [afterTax, setAfterTax] = useState(false);
@@ -40,12 +42,16 @@ export default function App() {
   const [favsByState, setFavsByState] = useLocalStorage<Record<string, string[]>>("favs", {});
   const favs = useMemo(() => favsByState[stateKey] ?? [], [favsByState, stateKey]);
   const favSet = useMemo(() => new Set(favs), [favs]);
-  const toggleFav = (id: string) =>
+  const toggleFav = (id: string) => toggleFavIn(stateKey, id);
+  // Game-based helpers so the combined view can favorite across states, each
+  // game landing in its own state's list.
+  const toggleFavIn = (st: string, id: string) =>
     setFavsByState((prev) => {
-      const cur = prev[stateKey] ?? [];
+      const cur = prev[st] ?? [];
       const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
-      return { ...prev, [stateKey]: next };
+      return { ...prev, [st]: next };
     });
+  const isFavGame = (g: Game) => (favsByState[g.state] ?? []).includes(g.gameId);
 
   const limited = isLimited(data);
   const ncGames = useMemo<Game[]>(
@@ -107,8 +113,13 @@ export default function App() {
           <button className="refresh" onClick={() => setShowInfo(true)} aria-label="How it works">
             ?
           </button>
-          <button className="refresh" onClick={refresh} disabled={loading} aria-label="Refresh">
-            <span className={loading ? "spin" : ""}>↻</span>
+          <button
+            className="refresh"
+            onClick={isAll ? all.refresh : refresh}
+            disabled={isAll ? all.loading : loading}
+            aria-label="Refresh"
+          >
+            <span className={(isAll ? all.loading : loading) ? "spin" : ""}>↻</span>
           </button>
         </div>
       </header>
@@ -117,24 +128,41 @@ export default function App() {
 
       <div className="meta">
         <StatePicker value={stateKey} onChange={setStateKey} />
-        {data && (
+        {isAll && all.generatedAt && (
+          <span className="freshness">
+            {all.games.length} games · {all.loaded.length} states · updated{" "}
+            {relativeTime(all.generatedAt)}
+          </span>
+        )}
+        {!isAll && data && (
           <span className="freshness">
             {data.gameCount} games · updated {relativeTime(data.generatedAt)}
           </span>
         )}
       </div>
 
-      {loading && !data && <div className="status">Loading…</div>}
-      {error && !data && (
+      {isAll && (
+        <AllStatesView
+          all={all}
+          afterTax={afterTax}
+          onAfterTax={setAfterTax}
+          isFav={isFavGame}
+          onToggleFav={(g) => toggleFavIn(g.state, g.gameId)}
+          onSelect={setSelected}
+        />
+      )}
+
+      {!isAll && loading && !data && <div className="status">Loading…</div>}
+      {!isAll && error && !data && (
         <div className="status error">
           No data yet for {stateKey.toUpperCase()} ({error}). It appears once the scraper has
           published it.
         </div>
       )}
 
-      {data && limited && <LiteView data={data as LiteResult} />}
+      {!isAll && data && limited && <LiteView data={data as LiteResult} />}
 
-      {data && !limited && (
+      {!isAll && data && !limited && (
         <>
           <div className="tabs" role="tablist">
             <button className={`tab ${tab === "value" ? "tab-on" : ""}`} onClick={() => setTab("value")}>
@@ -184,11 +212,12 @@ export default function App() {
       {selected && (
         <Detail
           game={selected}
-          history={effHistory}
-          demo={isDemo}
+          history={isAll ? null : effHistory}
+          demo={isAll ? false : isDemo}
           afterTax={afterTax}
-          isFav={favSet.has(selected.gameId)}
-          onToggleFav={() => toggleFav(selected.gameId)}
+          showState={isAll}
+          isFav={isFavGame(selected)}
+          onToggleFav={() => toggleFavIn(selected.state, selected.gameId)}
           onClose={() => setSelected(null)}
         />
       )}
@@ -361,6 +390,7 @@ function GameCard({
   onToggleFav,
   change,
   onClick,
+  badge,
 }: {
   game: Game;
   history: History | null;
@@ -370,6 +400,7 @@ function GameCard({
   onToggleFav: () => void;
   change?: GameChange;
   onClick: () => void;
+  badge?: string;
 }) {
   const c = game.computed;
   const roi = effectiveRoi(game, afterTax);
@@ -383,6 +414,7 @@ function GameCard({
     <li className="card" onClick={onClick}>
       <div className="card-head">
         <span className="price-tag">${game.price}</span>
+        {badge && <span className="state-badge">{badge}</span>}
         <span className="game-name">{game.name}</span>
         <button
           className={`star ${isFav ? "star-on" : ""}`}
@@ -437,6 +469,185 @@ function GameCard({
         )}
       </div>
     </li>
+  );
+}
+
+/* ----------------------------- All states view ---------------------------- */
+
+const ALL_RENDER_CAP = 400;
+
+function AllStatesView({
+  all,
+  afterTax,
+  onAfterTax,
+  isFav,
+  onToggleFav,
+  onSelect,
+}: {
+  all: ReturnType<typeof useAllScratchers>;
+  afterTax: boolean;
+  onAfterTax: (v: boolean) => void;
+  isFav: (g: Game) => boolean;
+  onToggleFav: (g: Game) => void;
+  onSelect: (g: Game) => void;
+}) {
+  const [price, setPrice] = useState<number | "all">("all");
+  const [sort, setSort] = useState<SortKey>("roi");
+  const [query, setQuery] = useState("");
+  const [states, setStates] = useState<Set<string>>(new Set()); // empty = all
+  const [topOnly, setTopOnly] = useState(false);
+  const [favOnly, setFavOnly] = useState(false);
+  const [endingOnly, setEndingOnly] = useState(false);
+
+  const prices = useMemo(() => {
+    const set = new Set<number>();
+    all.games.forEach((g) => set.add(g.price));
+    return [...set].sort((a, b) => a - b);
+  }, [all.games]);
+
+  const loadedStates = useMemo(
+    () => [...all.loaded].sort((a, b) => stateName(a).localeCompare(stateName(b))),
+    [all.loaded],
+  );
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const l = all.games.filter((g) => {
+      if (states.size > 0 && !states.has(g.state)) return false;
+      if (price !== "all" && g.price !== price) return false;
+      if (topOnly && g.computed.topPrizesRemaining <= 0) return false;
+      if (favOnly && !isFav(g)) return false;
+      if (endingOnly && !endingSoon(g)) return false;
+      if (q && !g.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    l.sort((a, b) => {
+      if (sort === "price") return a.price - b.price;
+      if (sort === "topPrize") return b.computed.topPrizeAmount - a.computed.topPrizeAmount;
+      if (sort === "topLeft") return b.computed.topPrizesRemaining - a.computed.topPrizesRemaining;
+      if (sort === "unsold") return b.computed.fractionRemaining - a.computed.fractionRemaining;
+      return effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
+    });
+    return l;
+  }, [all.games, states, price, sort, query, topOnly, favOnly, endingOnly, isFav, afterTax]);
+
+  const shown = filtered.slice(0, ALL_RENDER_CAP);
+  const toggleState = (key: string) =>
+    setStates((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  if (all.loading && all.games.length === 0)
+    return <div className="status">Loading all states…</div>;
+  if (all.games.length === 0)
+    return <div className="status">No state data published yet.</div>;
+
+  return (
+    <>
+      <div className="demo-banner">
+        <strong>All states combined.</strong> Every full-EV game from{" "}
+        {all.loaded.length} states, ranked head-to-head by value. Lite states (top-prize only) and
+        states not yet available are excluded.
+      </div>
+
+      <div className="controls">
+        <input
+          className="search"
+          type="search"
+          placeholder="Search games across all states…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+
+        <div className="chips scroll-chips" role="group" aria-label="Filter by state">
+          <Chip active={states.size === 0} onClick={() => setStates(new Set())}>
+            All states
+          </Chip>
+          {loadedStates.map((key) => (
+            <Chip key={key} active={states.has(key)} onClick={() => toggleState(key)}>
+              {key.toUpperCase()}
+            </Chip>
+          ))}
+        </div>
+
+        <div className="chips" role="group" aria-label="Filter by price">
+          <Chip active={price === "all"} onClick={() => setPrice("all")}>
+            All
+          </Chip>
+          {prices.map((p) => (
+            <Chip key={p} active={price === p} onClick={() => setPrice(p)}>
+              ${p}
+            </Chip>
+          ))}
+        </div>
+
+        <div className="control-row">
+          <div className="sort">
+            <label>
+              Sort
+              <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)}>
+                <option value="roi">Best value / $1</option>
+                <option value="topPrize">Top prize size</option>
+                <option value="topLeft">Top prizes left</option>
+                <option value="unsold">% unsold</option>
+                <option value="price">Price</option>
+              </select>
+            </label>
+          </div>
+          <div className="toggles">
+            <button className={`chip ${favOnly ? "chip-on" : ""}`} onClick={() => setFavOnly((v) => !v)}>
+              ★ Favorites
+            </button>
+            <button className={`chip ${topOnly ? "chip-on" : ""}`} onClick={() => setTopOnly((v) => !v)}>
+              Top prize left
+            </button>
+            <button
+              className={`chip ${endingOnly ? "chip-on" : ""}`}
+              onClick={() => setEndingOnly((v) => !v)}
+            >
+              ⏳ Ending soon
+            </button>
+            <button
+              className={`chip ${afterTax ? "chip-on" : ""}`}
+              onClick={() => onAfterTax(!afterTax)}
+              title="Estimate net after federal + state withholding"
+            >
+              After tax
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="sellers-caption">
+        {filtered.length} game{filtered.length === 1 ? "" : "s"}
+        {filtered.length > ALL_RENDER_CAP && ` · showing top ${ALL_RENDER_CAP} — filter to narrow`}
+      </div>
+
+      {shown.length === 0 && <div className="status">No games match.</div>}
+      <ul className="list">
+        {shown.map((g) => (
+          <GameCard
+            key={`${g.state}:${g.gameId}`}
+            game={g}
+            history={null}
+            demo={false}
+            afterTax={afterTax}
+            isFav={isFav(g)}
+            onToggleFav={() => onToggleFav(g)}
+            onClick={() => onSelect(g)}
+            badge={g.state.toUpperCase()}
+          />
+        ))}
+      </ul>
+
+      <p className="disclaimer">
+        ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
+        Most games sit below break-even. Tax toggle uses a flat federal + state estimate.
+      </p>
+    </>
   );
 }
 
@@ -659,6 +870,7 @@ function Detail({
   history,
   demo,
   afterTax,
+  showState,
   isFav,
   onToggleFav,
   onClose,
@@ -667,6 +879,7 @@ function Detail({
   history: History | null;
   demo: boolean;
   afterTax: boolean;
+  showState?: boolean;
   isFav: boolean;
   onToggleFav: () => void;
   onClose: () => void;
@@ -691,7 +904,8 @@ function Detail({
           <div>
             <div className="sheet-title">{game.name}</div>
             <div className="sheet-sub">
-              ${game.price} · game #{game.gameId}
+              {showState && <strong>{stateName(game.state)} · </strong>}${game.price} · game #
+              {game.gameId}
             </div>
           </div>
           <div className="sheet-actions">
