@@ -1,5 +1,18 @@
 import type { RawGame, LiteGame } from "../types.js";
 import { scrapeNc } from "./nc.js";
+import { scrapeSc } from "./sc.js";
+import { scrapeId } from "./id.js";
+import { scrapeCa } from "./ca.js";
+import { scrapeMs } from "./ms.js";
+import { scrapeMo } from "./mo.js";
+import { scrapeMd } from "./md.js";
+import { scrapeTx } from "./tx.js";
+import { scrapeVt } from "./vt.js";
+import { scrapeWa } from "./wa.js";
+import { scrapeLa } from "./la.js";
+import { scrapeIn } from "./in.js";
+import { scrapeAr } from "./ar.js";
+import { scrapeCt } from "./ct.js";
 
 /**
  * Registry of FETCH-BASED adapters the CLI can run directly (no browser).
@@ -27,7 +40,20 @@ export type CliSource = FullSource | LiteSource;
 
 export const SOURCES: CliSource[] = [
   { key: "nc", name: "North Carolina", kind: "full", scrape: scrapeNc },
-  // --- Wave 1 (easy Tier-A) states appended here ---
+  // --- Wave 1 (easy Tier-A) ---
+  { key: "sc", name: "South Carolina", kind: "full", scrape: scrapeSc },
+  { key: "id", name: "Idaho", kind: "full", scrape: scrapeId },
+  { key: "ca", name: "California", kind: "full", scrape: scrapeCa },
+  { key: "ms", name: "Mississippi", kind: "full", scrape: scrapeMs },
+  { key: "mo", name: "Missouri", kind: "full", scrape: scrapeMo },
+  { key: "md", name: "Maryland", kind: "full", scrape: scrapeMd },
+  { key: "tx", name: "Texas", kind: "full", scrape: scrapeTx },
+  { key: "vt", name: "Vermont", kind: "full", scrape: scrapeVt },
+  { key: "wa", name: "Washington", kind: "full", scrape: scrapeWa },
+  { key: "la", name: "Louisiana", kind: "full", scrape: scrapeLa },
+  { key: "in", name: "Indiana", kind: "full", scrape: scrapeIn },
+  { key: "ar", name: "Arkansas", kind: "full", scrape: scrapeAr },
+  { key: "ct", name: "Connecticut", kind: "full", scrape: scrapeCt },
 ];
 
 export const sourceKeys = (): string[] => SOURCES.map((s) => s.key);

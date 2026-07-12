@@ -119,6 +119,16 @@ body {
   padding: 2px 8px;
   border-radius: 6px;
 }
+.state-select select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  max-width: 220px;
+}
 .state-switch {
   display: flex;
   gap: 3px;

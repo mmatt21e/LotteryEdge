@@ -42,8 +42,8 @@ jobs:
       - name: Install scraper deps
         run: npm ci
 
-      - name: Scrape North Carolina
-        run: npm run scrape:nc
+      - name: Scrape all fetch-based states
+        run: npm run scrape
 
       # VA is "lite" (list + closing-soon only; no public per-tier data) and
       # needs a headless browser. Non-blocking: a VA failure must not stop the

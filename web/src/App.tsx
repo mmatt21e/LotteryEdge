@@ -26,11 +26,24 @@ import {
 type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
 type Tab = "value" | "sellers" | "me";
 
-/** States the app can show. NC has full EV; VA is "lite" (list only). */
-const STATES = [
+/** States the app can show, alphabetical. Full = EV; lite = list only. */
+const STATES: { key: string; name: string; lite?: boolean }[] = [
+  { key: "ar", name: "Arkansas" },
+  { key: "ca", name: "California" },
+  { key: "ct", name: "Connecticut" },
+  { key: "id", name: "Idaho" },
+  { key: "in", name: "Indiana" },
+  { key: "la", name: "Louisiana" },
+  { key: "md", name: "Maryland" },
+  { key: "ms", name: "Mississippi" },
+  { key: "mo", name: "Missouri" },
   { key: "nc", name: "North Carolina" },
-  { key: "va", name: "Virginia" },
-] as const;
+  { key: "sc", name: "South Carolina" },
+  { key: "tx", name: "Texas" },
+  { key: "vt", name: "Vermont" },
+  { key: "va", name: "Virginia", lite: true },
+  { key: "wa", name: "Washington" },
+];
 
 export default function App() {
   const [stateKey, setStateKey] = useLocalStorage<string>("state", "nc");
@@ -113,17 +126,16 @@ export default function App() {
       {!online && <div className="offline-banner">Offline — showing the last saved data.</div>}
 
       <div className="meta">
-        <div className="state-switch" role="group" aria-label="State">
-          {STATES.map((s) => (
-            <button
-              key={s.key}
-              className={`state-btn ${stateKey === s.key ? "state-on" : ""}`}
-              onClick={() => setStateKey(s.key)}
-            >
-              {s.key.toUpperCase()}
-            </button>
-          ))}
-        </div>
+        <label className="state-select">
+          <select value={stateKey} onChange={(e) => setStateKey(e.target.value)} aria-label="State">
+            {STATES.map((s) => (
+              <option key={s.key} value={s.key}>
+                {s.name}
+                {s.lite ? " (lite)" : ""}
+              </option>
+            ))}
+          </select>
+        </label>
         {data && (
           <span className="freshness">
             {data.gameCount} games · updated {relativeTime(data.generatedAt)}
