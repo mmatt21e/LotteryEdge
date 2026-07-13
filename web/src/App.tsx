@@ -9,7 +9,7 @@ import { StatePicker } from "./StatePicker.js";
 import { stateName, ALL_KEY } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
-import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
+import { usd2, usdCompact, pct, int, compact, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
   profitOdds,
   liveTierOdds,
@@ -999,17 +999,26 @@ function Detail({
         <div className="tiers-head">
           <span>Prize odds</span>
           <span className="tiers-sub">
-            “Now” = est. tickets left ÷ prizes left — updates as the game sells down.
+            Odds are “1 in N”. <strong>Now</strong> = est. tickets left ÷ prizes left · Prizes =
+            printed ⁄ still&nbsp;unclaimed.
           </span>
         </div>
         <table className="tiers">
           <thead>
             <tr>
               <th>Prize</th>
-              <th>1 in (printed)</th>
-              <th>1 in (now)</th>
-              <th>Total</th>
-              <th>Left</th>
+              <th>
+                1 in
+                <span className="th-sub">printed</span>
+              </th>
+              <th>
+                1 in
+                <span className="th-sub">now</span>
+              </th>
+              <th>
+                Prizes
+                <span className="th-sub">left ⁄ made</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -1017,13 +1026,15 @@ function Detail({
               const now = liveTierOdds(c.ticketsRemaining, t.remaining);
               return (
                 <tr key={i}>
-                  <td>{usd(t.amount)}</td>
-                  <td>{t.odds ? int(t.odds) : "—"}</td>
+                  <td>{usdCompact(t.amount)}</td>
+                  <td>{t.odds ? compact(t.odds) : "—"}</td>
                   <td className={t.remaining === 0 ? "gone" : "now-odds"}>
-                    {t.remaining === 0 ? "gone" : now ? int(now) : "—"}
+                    {t.remaining === 0 ? "gone" : now ? compact(now) : "—"}
                   </td>
-                  <td>{int(t.originalCount)}</td>
-                  <td className={t.remaining === 0 ? "gone" : ""}>{int(t.remaining)}</td>
+                  <td>
+                    <span className={t.remaining === 0 ? "gone" : ""}>{compact(t.remaining)}</span>
+                    <span className="tier-made"> ⁄ {compact(t.originalCount)}</span>
+                  </td>
                 </tr>
               );
             })}

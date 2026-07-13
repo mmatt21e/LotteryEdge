@@ -17,6 +17,10 @@ export const pct = (frac: number, dp = 0): string => `${(frac * 100).toFixed(dp)
 
 export const int = (n: number): string => Math.round(n).toLocaleString("en-US");
 
+/** Compact plain number: 1535558 -> "1.5M", 413298 -> "413K", 397 -> "397". */
+export const compact = (n: number): string =>
+  Math.round(n).toLocaleString("en-US", { notation: "compact", maximumFractionDigits: 1 });
+
 /** Net expected win/loss per $1 wagered. roi 0.933 -> -0.067 (a 6.7¢ loss). */
 export const netPerDollar = (roi: number): number => roi - 1;
 
