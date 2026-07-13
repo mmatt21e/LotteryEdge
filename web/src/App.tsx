@@ -496,7 +496,10 @@ function AllStatesView({
   const [price, setPrice] = useState<number | "all">("all");
   const [sort, setSort] = useState<SortKey>("roi");
   const [query, setQuery] = useState("");
-  const [states, setStates] = useState<Set<string>>(new Set()); // empty = all
+  // Persisted so the combined view reopens with the last state selection
+  // (empty array = all states). Stored as an array since Sets aren't JSON.
+  const [stateFilter, setStateFilter] = useLocalStorage<string[]>("all-states-filter", []);
+  const states = useMemo(() => new Set(stateFilter), [stateFilter]);
   const [topOnly, setTopOnly] = useState(false);
   const [favOnly, setFavOnly] = useState(false);
   const [endingOnly, setEndingOnly] = useState(false);
@@ -535,12 +538,7 @@ function AllStatesView({
 
   const shown = filtered.slice(0, ALL_RENDER_CAP);
   const toggleState = (key: string) =>
-    setStates((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
+    setStateFilter((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
 
   if (all.loading && all.games.length === 0)
     return <div className="status">Loading all states…</div>;
@@ -565,7 +563,7 @@ function AllStatesView({
         />
 
         <div className="chips scroll-chips" role="group" aria-label="Filter by state">
-          <Chip active={states.size === 0} onClick={() => setStates(new Set())}>
+          <Chip active={states.size === 0} onClick={() => setStateFilter([])}>
             All states
           </Chip>
           {loadedStates.map((key) => (
