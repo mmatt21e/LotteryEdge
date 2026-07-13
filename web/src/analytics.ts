@@ -12,6 +12,31 @@ export function profitOdds(game: Game): number | null {
   return rate > 0 ? 1 / rate : null;
 }
 
+/**
+ * Live odds "1 in X" for a single prize tier, recomputed from what's left:
+ * estimated tickets remaining ÷ prizes of this tier still unclaimed. Returns
+ * null when this tier is exhausted (no prizes left) or we can't estimate the
+ * remaining ticket pool. It's an estimate on an estimate — noisier than the
+ * printed odds — so the UI shows it beside, not instead of, the printed value.
+ */
+export function liveTierOdds(ticketsRemaining: number, tierRemaining: number): number | null {
+  if (tierRemaining <= 0 || ticketsRemaining <= 0) return null;
+  return ticketsRemaining / tierRemaining;
+}
+
+/**
+ * "1 in X to profit" recomputed from remaining prizes vs. estimated tickets
+ * left, rather than from the printed odds. Consistent with the live EV.
+ */
+export function liveProfitOdds(game: Game): number | null {
+  const tr = game.computed.ticketsRemaining;
+  if (!tr || tr <= 0) return null;
+  const winnersLeft = game.tiers
+    .filter((t) => t.amount > game.price)
+    .reduce((sum, t) => sum + Math.max(0, t.remaining), 0);
+  return winnersLeft > 0 ? tr / winnersLeft : null;
+}
+
 export type ConfidenceLevel = "low" | "medium" | "high";
 
 /**

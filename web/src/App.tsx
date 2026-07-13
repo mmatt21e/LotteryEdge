@@ -12,6 +12,8 @@ import { isLimited } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
   profitOdds,
+  liveTierOdds,
+  liveProfitOdds,
   confidence,
   computeVelocity,
   isoDaysAgo,
@@ -406,7 +408,7 @@ function GameCard({
   const roi = effectiveRoi(game, afterTax);
   const width = Math.min(100, Math.max(4, roi * 100));
   const conf = confidence(c.fractionRemaining);
-  const odds = profitOdds(game);
+  const odds = liveProfitOdds(game) ?? profitOdds(game);
   const ending = endingSoon(game);
   const nets = (history?.series[game.gameId]?.points ?? []).map(pointNet);
 
@@ -888,7 +890,8 @@ function Detail({
   const roi = effectiveRoi(game, afterTax);
   const net = netPerDollar(roi);
   const conf = confidence(c.fractionRemaining);
-  const odds = profitOdds(game);
+  const odds = profitOdds(game); // as printed
+  const liveOdds = liveProfitOdds(game); // recomputed from what's left
   const points = history?.series[game.gameId]?.points ?? [];
   const nets = points.map(pointNet);
   const dir = trendDirection(nets);
@@ -935,8 +938,9 @@ function Detail({
           <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={roiColor(roi)} />
           <Kpi label="Return / $1" value={usd2(roi)} />
           <Kpi
-            label="Odds to profit"
-            value={odds ? `1 in ${int(odds)}` : "—"}
+            label="Odds to profit (now)"
+            value={liveOdds ? `1 in ${int(liveOdds)}` : odds ? `1 in ${int(odds)}` : "—"}
+            sub={liveOdds && odds ? `printed 1 in ${int(odds)}` : undefined}
           />
           <Kpi label="EV / ticket" value={usd2(c.evPerTicket)} />
           <Kpi label="Tickets left" value={int(c.ticketsRemaining)} />
@@ -970,11 +974,11 @@ function Detail({
           For every <strong>$1</strong> spent, expect about <strong>{usd2(roi)}</strong> back — a
           net of <strong style={{ color: roiColor(roi) }}>{centsPerDollar(net)}</strong> per dollar
           {afterTax ? " (after tax)" : ""}.
-          {odds && (
+          {(liveOdds ?? odds) && (
             <>
               {" "}
-              Chance of winning more than the ${game.price} ticket:{" "}
-              <strong>1 in {int(odds)}</strong>.
+              Chance of winning more than the ${game.price} ticket, based on what’s left:{" "}
+              <strong>1 in {int((liveOdds ?? odds)!)}</strong>.
             </>
           )}
         </p>
@@ -994,24 +998,37 @@ function Detail({
           </div>
         </div>
 
+        <div className="tiers-head">
+          <span>Prize odds</span>
+          <span className="tiers-sub">
+            “Now” = est. tickets left ÷ prizes left — updates as the game sells down.
+          </span>
+        </div>
         <table className="tiers">
           <thead>
             <tr>
               <th>Prize</th>
-              <th>Odds 1 in</th>
+              <th>1 in (printed)</th>
+              <th>1 in (now)</th>
               <th>Total</th>
               <th>Left</th>
             </tr>
           </thead>
           <tbody>
-            {tiers.map((t, i) => (
-              <tr key={i}>
-                <td>{usd(t.amount)}</td>
-                <td>{t.odds ? int(t.odds) : "—"}</td>
-                <td>{int(t.originalCount)}</td>
-                <td className={t.remaining === 0 ? "gone" : ""}>{int(t.remaining)}</td>
-              </tr>
-            ))}
+            {tiers.map((t, i) => {
+              const now = liveTierOdds(c.ticketsRemaining, t.remaining);
+              return (
+                <tr key={i}>
+                  <td>{usd(t.amount)}</td>
+                  <td>{t.odds ? int(t.odds) : "—"}</td>
+                  <td className={t.remaining === 0 ? "gone" : "now-odds"}>
+                    {t.remaining === 0 ? "gone" : now ? int(now) : "—"}
+                  </td>
+                  <td>{int(t.originalCount)}</td>
+                  <td className={t.remaining === 0 ? "gone" : ""}>{int(t.remaining)}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
 
@@ -1043,13 +1060,24 @@ function Chip({
   );
 }
 
-function Kpi({ label, value, accent }: { label: string; value: string; accent?: string }) {
+function Kpi({
+  label,
+  value,
+  accent,
+  sub,
+}: {
+  label: string;
+  value: string;
+  accent?: string;
+  sub?: string;
+}) {
   return (
     <div className="kpi">
       <div className="kpi-val" style={accent ? { color: accent } : undefined}>
         {value}
       </div>
       <div className="kpi-label">{label}</div>
+      {sub && <div className="kpi-sub">{sub}</div>}
     </div>
   );
 }
@@ -1124,7 +1152,19 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
           <h4>Odds “1 in X to profit”</h4>
           <p>
             Your chance of winning <em>more</em> than the ticket price — the honest odds, not the
-            “win anything” figure (which counts break-even prizes).
+            “win anything” figure (which counts break-even prizes). This uses the <em>live</em>{" "}
+            odds (see below), so it moves as the game sells down.
+          </p>
+
+          <h4>Prize odds: “printed” vs “now”</h4>
+          <p>
+            In a game’s prize table, <strong>printed</strong> is the odds the state set at launch —
+            fixed for the whole print run, it never changes. <strong>Now</strong> re-derives each
+            tier’s odds from what’s left: <em>estimated tickets remaining ÷ prizes of that tier
+            still unclaimed</em>. As a jackpot gets claimed, its “now” odds get longer; as low tiers
+            deplete faster than tickets, theirs can shorten. Because it builds on the estimated
+            ticket pool, “now” is noisier than the printed figure — treat it as a live guide, not a
+            guarantee.
           </p>
 
           <h4>Confidence</h4>
