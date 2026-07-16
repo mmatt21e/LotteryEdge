@@ -81,6 +81,41 @@ async function runLite(src: CliSource & { kind: "lite" }): Promise<void> {
   console.log(`[${src.key.toUpperCase()}] ${games.length} games (lite)`);
 }
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Scrape one state, retrying once on failure. Returns true on success. A state
+ * that ultimately fails keeps its last-good committed data file (we never
+ * delete on failure), so the app just shows slightly-staler data for it.
+ */
+async function scrapeOne(src: CliSource): Promise<boolean> {
+  const run = () => (src.kind === "full" ? runFull(src) : runLite(src));
+  try {
+    await run();
+    return true;
+  } catch (err) {
+    console.warn(
+      `[${src.key.toUpperCase()}] attempt 1 failed: ${(err as Error).message} — retrying in 3s`,
+    );
+    await sleep(3000);
+    try {
+      await run();
+      return true;
+    } catch (err2) {
+      console.error(`[${src.key.toUpperCase()}] scrape failed: ${(err2 as Error).message}`);
+      return false;
+    }
+  }
+}
+
+/**
+ * Fraction of states allowed to fail before we treat it as a systemic outage
+ * and fail the CI job. Below this, a few flaky third-party sites (e.g. Ohio's
+ * auth endpoint returning a transient 404) must NOT block the daily deploy —
+ * the other states' fresh data still ships.
+ */
+const FAIL_JOB_THRESHOLD = 0.34;
+
 async function main() {
   const arg = (process.argv[2] ?? "all").toLowerCase();
   const targets =
@@ -88,20 +123,33 @@ async function main() {
 
   await mkdir(DATA_DIR, { recursive: true });
 
+  const failed: string[] = [];
   for (const key of targets) {
     const src = getSource(key);
     if (!src) {
       console.error(`Unknown state "${key}". Known: ${sourceKeys().join(", ")}`);
-      process.exitCode = 1;
+      failed.push(key);
       continue;
     }
-    try {
-      if (src.kind === "full") await runFull(src);
-      else await runLite(src);
-    } catch (err) {
-      console.error(`[${key.toUpperCase()}] scrape failed:`, (err as Error).message);
-      process.exitCode = 1;
-    }
+    if (!(await scrapeOne(src))) failed.push(key);
+  }
+
+  const total = targets.length;
+  const okCount = total - failed.length;
+  console.log(
+    `\n[scrape] ${okCount}/${total} states OK` +
+      (failed.length ? ` · failed: ${failed.join(", ")}` : ""),
+  );
+
+  // Only fail the job on a systemic outage (nothing worked, or too many did
+  // not). A handful of flaky sites is expected and must not skip the deploy.
+  if (okCount === 0 || failed.length / total > FAIL_JOB_THRESHOLD) {
+    console.error(
+      `[scrape] ${failed.length}/${total} states failed — above ${Math.round(
+        FAIL_JOB_THRESHOLD * 100,
+      )}% threshold; failing the job.`,
+    );
+    process.exitCode = 1;
   }
 }
 
