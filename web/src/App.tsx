@@ -9,7 +9,7 @@ import { StatePicker } from "./StatePicker.js";
 import { stateName, ALL_KEY } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
-import { usd2, usdCompact, pct, int, compact, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
+import { usd, usd2, usdCompact, pct, int, compact, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
   profitOdds,
   liveTierOdds,
@@ -22,6 +22,7 @@ import {
   pointNet,
   effectiveRoi,
   ticketsToTopPrize,
+  topPrizeAttempt,
   recommendForBudget,
   endingSoon,
   type ConfidenceLevel,
@@ -894,6 +895,7 @@ function Detail({
   const nets = points.map(pointNet);
   const dir = trendDirection(nets);
   const toTop = ticketsToTopPrize(game);
+  const attempt = topPrizeAttempt(game, afterTax);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
@@ -994,6 +996,53 @@ function Detail({
               expected net on a $100 run{afterTax ? " (after tax)" : ""}
             </span>
           </div>
+        </div>
+
+        <div className="attempt">
+          <div className="attempt-head">
+            Chasing the {usdCompact(c.topPrizeAmount)} top prize
+          </div>
+          {attempt ? (
+            <>
+              <div className="attempt-grid">
+                <div className="attempt-item">
+                  <span className="attempt-val">~{int(attempt.tickets)}</span>
+                  <span className="attempt-label">tickets to buy (avg)</span>
+                </div>
+                <div className="attempt-item">
+                  <span className="attempt-val">{usdCompact(attempt.cost)}</span>
+                  <span className="attempt-label">cost to attempt</span>
+                </div>
+                <div className="attempt-item">
+                  <span className="attempt-val" style={{ color: "var(--accent)" }}>
+                    {usdCompact(attempt.winnings)}
+                  </span>
+                  <span className="attempt-label">
+                    est. winnings{afterTax ? " (after tax)" : ""}
+                  </span>
+                </div>
+                <div className="attempt-item">
+                  <span className="attempt-val" style={{ color: roiColor(roi) }}>
+                    {attempt.net >= 0 ? "+" : "−"}
+                    {usdCompact(Math.abs(attempt.net))}
+                  </span>
+                  <span className="attempt-label">expected net</span>
+                </div>
+              </div>
+              <p className="attempt-note">
+                On average you’d buy about <strong>{int(attempt.tickets)}</strong> ${game.price}{" "}
+                tickets to hit one top prize — spending <strong>{usd(attempt.cost)}</strong> and
+                winning back about <strong>{usd(attempt.winnings)}</strong> across all of them (the
+                top prize plus every smaller prize along the way). A long-run average only — any real
+                attempt swings wildly and almost always loses.
+              </p>
+            </>
+          ) : (
+            <p className="attempt-note">
+              No top prizes remain for this game, so there’s nothing left to chase — the{" "}
+              {usdCompact(c.topPrizeAmount)} tier is fully claimed.
+            </p>
+          )}
         </div>
 
         <div className="tiers-head">

@@ -157,6 +157,28 @@ export function ticketsToTopPrize(game: Game): number | null {
   return Math.round(ticketsRemaining / topPrizesRemaining);
 }
 
+export interface TopPrizeAttempt {
+  tickets: number; // avg tickets to hit one top prize (from live remaining odds)
+  cost: number; // tickets × price
+  winnings: number; // expected total prize $ won across those tickets (all tiers)
+  net: number; // winnings − cost (essentially always negative)
+}
+
+/**
+ * Models "buy enough tickets to (on average) win the top prize once": how many
+ * tickets that takes, what it costs, and the expected total winnings across all
+ * of those tickets — the top prize plus every smaller prize hit along the way.
+ * Winnings use the game's expected value (optionally after tax), so this is a
+ * long-run average, not a guarantee. Returns null if no top prize remains.
+ */
+export function topPrizeAttempt(game: Game, afterTax = false): TopPrizeAttempt | null {
+  const tickets = ticketsToTopPrize(game);
+  if (!tickets) return null;
+  const cost = tickets * game.price;
+  const winnings = effectiveRoi(game, afterTax) * cost; // roi = EV/price, so EV×tickets
+  return { tickets, cost, winnings, net: winnings - cost };
+}
+
 export interface BudgetPick {
   game: Game;
   count: number;
