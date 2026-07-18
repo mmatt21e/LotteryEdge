@@ -984,6 +984,47 @@ body {
   font-size: 12px;
   margin: 8px 0 0;
 }
+/* Prizes won previous day (per-tier counts) */
+.wonprev {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+  background: var(--surface-2);
+}
+.wonprev-head {
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.won-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.won-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+.won-item:last-child {
+  border-bottom: none;
+}
+.won-amt {
+  font-weight: 600;
+}
+.won-count {
+  font-weight: 700;
+}
+.won-total {
+  margin-top: 2px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .daily-wrap {
   margin-top: 10px;
 }

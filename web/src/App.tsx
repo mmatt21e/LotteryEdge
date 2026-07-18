@@ -25,6 +25,7 @@ import {
   topPrizeAttempt,
   dailySales,
   dailyBreakdown,
+  prizesWonPreviousDay,
   recommendForBudget,
   endingSoon,
   type ConfidenceLevel,
@@ -901,6 +902,7 @@ function Detail({
   const attempt = topPrizeAttempt(game, afterTax);
   const sales = dailySales(history?.series[game.gameId]);
   const breakdown = dailyBreakdown(history?.series[game.gameId]);
+  const wonPrev = prizesWonPreviousDay(history?.series[game.gameId]);
   const [showHistory, setShowHistory] = useState(false);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
@@ -989,6 +991,37 @@ function Detail({
           <p className="sales-note">
             Daily sales appear once 2+ daily snapshots are collected for this game.
           </p>
+        )}
+
+        {sales && (
+          <div className="wonprev">
+            <div className="wonprev-head">
+              Prizes won {wonPrev ? `on ${shortDay(wonPrev.date)}` : "previous day"}{" "}
+              {demo && <span className="sample-pill">Sample</span>}
+            </div>
+            {wonPrev ? (
+              wonPrev.total === 0 ? (
+                <p className="sales-note">No prizes were claimed that day.</p>
+              ) : (
+                <ul className="won-list">
+                  {wonPrev.prizes.map((p) => (
+                    <li key={p.amount} className="won-item">
+                      <span className="won-amt">{usdCompact(p.amount)}</span>
+                      <span className="won-count">{int(p.count)}</span>
+                    </li>
+                  ))}
+                  <li className="won-item won-total">
+                    <span className="won-amt">Total prizes</span>
+                    <span className="won-count">{int(wonPrev.total)}</span>
+                  </li>
+                </ul>
+              )
+            ) : (
+              <p className="sales-note">
+                Per-prize daily counts start collecting after the next couple of daily updates.
+              </p>
+            )}
+          </div>
         )}
 
         {breakdown.length > 0 && (

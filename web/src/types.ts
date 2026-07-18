@@ -36,6 +36,11 @@ export interface ScrapeResult {
   games: Game[];
 }
 
+export interface TierPoint {
+  amount: number;
+  remaining: number;
+}
+
 export interface HistoryPoint {
   date: string;
   ticketsRemaining: number;
@@ -43,6 +48,7 @@ export interface HistoryPoint {
   topPrizesRemaining: number;
   fractionRemaining: number;
   remainingPrizeValue: number;
+  tiers?: TierPoint[]; // per-tier remaining, only on recent points
 }
 
 export interface GameSeries {

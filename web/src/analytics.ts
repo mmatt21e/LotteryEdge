@@ -104,6 +104,40 @@ export interface DailyChange {
  * snapshots, how many tickets sold and how much prize value was claimed.
  * Most-recent day first. Empty if fewer than 2 snapshots exist.
  */
+export interface PrizeWon {
+  amount: number;
+  count: number;
+}
+export interface PreviousDayPrizes {
+  date: string; // the day these prizes were claimed
+  prizes: PrizeWon[]; // per-tier counts (>0 only), largest prize first
+  total: number; // total prizes claimed that day
+}
+
+/**
+ * Counts how many of each individual prize were claimed on the most recent day,
+ * by diffing per-tier remaining between the last two snapshots. Returns null if
+ * the two latest points don't both carry per-tier detail (only the recent days
+ * do — see the scraper's TIER_POINTS), so the UI can explain it's still filling.
+ */
+export function prizesWonPreviousDay(series: GameSeries | undefined): PreviousDayPrizes | null {
+  if (!series || series.points.length < 2) return null;
+  const pts = [...series.points].sort((a, b) => a.date.localeCompare(b.date));
+  const cur = pts[pts.length - 1]!;
+  const prev = pts[pts.length - 2]!;
+  if (!cur.tiers || !prev.tiers) return null;
+  const before = new Map(prev.tiers.map((t) => [t.amount, t.remaining]));
+  const prizes: PrizeWon[] = [];
+  for (const t of cur.tiers) {
+    const had = before.get(t.amount);
+    if (had == null) continue;
+    const count = had - t.remaining;
+    if (count > 0) prizes.push({ amount: t.amount, count });
+  }
+  prizes.sort((a, b) => b.amount - a.amount);
+  return { date: cur.date, prizes, total: prizes.reduce((s, p) => s + p.count, 0) };
+}
+
 export function dailyBreakdown(series: GameSeries | undefined): DailyChange[] {
   if (!series || series.points.length < 2) return [];
   const pts = [...series.points].sort((a, b) => a.date.localeCompare(b.date));
