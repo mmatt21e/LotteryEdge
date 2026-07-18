@@ -1202,3 +1202,89 @@ body {
 .alerts-box .add-btn {
   flex: 0 0 auto;
 }
+
+/* ============================================================
+   Button affordances — make every button read as a button
+   (tap/press feedback, hover, focus ring) and give the
+   text-like ones a clearer, raised skin.
+   ============================================================ */
+
+/* All buttons: pointer, no mobile tap-flash, smooth state changes. */
+button {
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.06s ease,
+    filter 0.12s ease,
+    background 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+button:not(:disabled) {
+  cursor: pointer;
+}
+/* Tactile press: everything nudges down slightly when tapped. */
+button:not(:disabled):active {
+  transform: translateY(1px) scale(0.985);
+}
+/* Desktop hover lift for the main controls. */
+@media (hover: hover) {
+  .refresh:not(:disabled):hover,
+  .tab:hover,
+  .chip:hover,
+  .add-btn:not(:disabled):hover,
+  .history-btn:hover,
+  .state-picker-btn:hover,
+  .close:hover,
+  .star:hover,
+  .picker-row:not(.picker-row-off):hover {
+    filter: brightness(1.06);
+    border-color: var(--accent);
+  }
+}
+/* Keyboard focus ring for accessibility. */
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Tabs: a clear segmented control (all three read as buttons,
+   the active one is filled with the accent). */
+.tabs {
+  gap: 6px;
+}
+.tab {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.tab-on {
+  background: var(--accent);
+  color: #1a1300;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+/* Day-by-day toggle: accent outline + chevron so it clearly invites a tap. */
+.history-btn {
+  color: var(--accent);
+  border-color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.history-btn::after {
+  content: "▾";
+  font-size: 11px;
+}
+.history-btn[aria-expanded="true"]::after {
+  content: "▴";
+}
+
+/* State picker button: accent caret so it reads as a dropdown control. */
+.state-picker-btn {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.state-picker-caret {
+  color: var(--accent);
+}
