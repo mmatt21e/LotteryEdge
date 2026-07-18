@@ -80,6 +80,31 @@ export function computeVelocity(
   return { sold, perDay: sold / days, days, from: first.date, to: last.date };
 }
 
+export interface DailySales {
+  avgPerDay: number; // average tickets sold per day over the whole history span
+  previousDay: number | null; // tickets sold in the most recent day-over-day step
+  spanDays: number; // days of history the average covers
+  lastDate: string; // date of the most recent snapshot
+}
+
+/**
+ * Per-game daily sales pace from the time-series: the long-run average tickets
+ * sold per day, plus the most recent day's drop. Needs ≥2 snapshots; returns
+ * null otherwise (and the caller labels it "sample" when history is illustrative).
+ */
+export function dailySales(series: GameSeries | undefined): DailySales | null {
+  if (!series || series.points.length < 2) return null;
+  const pts = [...series.points].sort((a, b) => a.date.localeCompare(b.date));
+  const first = pts[0]!;
+  const last = pts[pts.length - 1]!;
+  const prev = pts[pts.length - 2]!;
+  const spanDays = Math.max(1, daysBetween(first.date, last.date));
+  const avgPerDay = Math.max(0, first.ticketsRemaining - last.ticketsRemaining) / spanDays;
+  const gap = Math.max(1, daysBetween(prev.date, last.date));
+  const previousDay = Math.max(0, prev.ticketsRemaining - last.ticketsRemaining) / gap;
+  return { avgPerDay, previousDay, spanDays, lastDate: last.date };
+}
+
 function daysBetween(a: string, b: string): number {
   const ms = new Date(b + "T00:00:00Z").getTime() - new Date(a + "T00:00:00Z").getTime();
   return Math.round(ms / 86_400_000);

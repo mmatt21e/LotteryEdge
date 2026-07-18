@@ -9,7 +9,7 @@ import { StatePicker } from "./StatePicker.js";
 import { stateName, ALL_KEY } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
-import { usd, usd2, usdCompact, pct, int, compact, relativeTime, netPerDollar, centsPerDollar } from "./format.js";
+import { usd, usd2, usdCompact, pct, int, compact, relativeTime, shortDateTime, netPerDollar, centsPerDollar } from "./format.js";
 import {
   profitOdds,
   liveTierOdds,
@@ -23,6 +23,7 @@ import {
   effectiveRoi,
   ticketsToTopPrize,
   topPrizeAttempt,
+  dailySales,
   recommendForBudget,
   endingSoon,
   type ConfidenceLevel,
@@ -132,14 +133,15 @@ export default function App() {
       <div className="meta">
         <StatePicker value={stateKey} onChange={setStateKey} />
         {isAll && all.generatedAt && (
-          <span className="freshness">
+          <span className="freshness" title={shortDateTime(all.generatedAt)}>
             {all.games.length} games · {all.loaded.length} states · updated{" "}
-            {relativeTime(all.generatedAt)}
+            {shortDateTime(all.generatedAt)} ({relativeTime(all.generatedAt)})
           </span>
         )}
         {!isAll && data && (
-          <span className="freshness">
-            {data.gameCount} games · updated {relativeTime(data.generatedAt)}
+          <span className="freshness" title={shortDateTime(data.generatedAt)}>
+            {data.gameCount} games · updated {shortDateTime(data.generatedAt)} (
+            {relativeTime(data.generatedAt)})
           </span>
         )}
       </div>
@@ -896,6 +898,7 @@ function Detail({
   const dir = trendDirection(nets);
   const toTop = ticketsToTopPrize(game);
   const attempt = topPrizeAttempt(game, afterTax);
+  const sales = dailySales(history?.series[game.gameId]);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
@@ -962,6 +965,28 @@ function Detail({
             </div>
           )}
         </div>
+
+        <div className="sales-row">
+          <div className="sales-item">
+            <span className="sales-val">{sales ? int(Math.round(sales.avgPerDay)) : "—"}</span>
+            <span className="sales-label">
+              avg sold / day {demo && <span className="sample-pill">Sample</span>}
+            </span>
+          </div>
+          <div className="sales-item">
+            <span className="sales-val">
+              {sales && sales.previousDay != null ? int(Math.round(sales.previousDay)) : "—"}
+            </span>
+            <span className="sales-label">
+              sold previous day {demo && <span className="sample-pill">Sample</span>}
+            </span>
+          </div>
+        </div>
+        {!sales && (
+          <p className="sales-note">
+            Daily sales appear once 2+ daily snapshots are collected for this game.
+          </p>
+        )}
 
         <div className="conf-line">
           <i style={{ background: CONF_COLOR[conf.level] }} />

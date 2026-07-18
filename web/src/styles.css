@@ -955,6 +955,36 @@ body {
   margin: 12px 0 0;
 }
 
+/* Per-game daily sales */
+.sales-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0 0;
+}
+.sales-item {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.sales-val {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.sales-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+.sales-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
 /* Budget helper */
 .budget-btn {
   background: var(--surface-2);

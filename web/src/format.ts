@@ -31,6 +31,16 @@ export function centsPerDollar(net: number): string {
   return `${sign}${Math.abs(cents).toFixed(1)}¢`;
 }
 
+/** Absolute local date+time: "Jul 16, 6:12 AM" from an ISO timestamp. */
+export function shortDateTime(iso: string): string {
+  return new Date(iso).toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
 /** "3 hours ago", "2 days ago" from an ISO timestamp. */
 export function relativeTime(iso: string): string {
   const then = new Date(iso).getTime();
