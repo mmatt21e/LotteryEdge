@@ -92,6 +92,35 @@ export interface DailySales {
  * sold per day, plus the most recent day's drop. Needs ≥2 snapshots; returns
  * null otherwise (and the caller labels it "sample" when history is illustrative).
  */
+export interface DailyChange {
+  date: string; // the day this change was observed (YYYY-MM-DD)
+  ticketsSold: number; // drop in tickets remaining vs the prior snapshot
+  prizeValueWon: number; // $ value of prizes claimed that day (all tiers)
+  topPrizesWon: number; // count of top-tier prizes claimed that day
+}
+
+/**
+ * Day-by-day deltas from the time-series: for each consecutive pair of daily
+ * snapshots, how many tickets sold and how much prize value was claimed.
+ * Most-recent day first. Empty if fewer than 2 snapshots exist.
+ */
+export function dailyBreakdown(series: GameSeries | undefined): DailyChange[] {
+  if (!series || series.points.length < 2) return [];
+  const pts = [...series.points].sort((a, b) => a.date.localeCompare(b.date));
+  const out: DailyChange[] = [];
+  for (let i = 1; i < pts.length; i++) {
+    const prev = pts[i - 1]!;
+    const cur = pts[i]!;
+    out.push({
+      date: cur.date,
+      ticketsSold: Math.max(0, prev.ticketsRemaining - cur.ticketsRemaining),
+      prizeValueWon: Math.max(0, prev.remainingPrizeValue - cur.remainingPrizeValue),
+      topPrizesWon: Math.max(0, prev.topPrizesRemaining - cur.topPrizesRemaining),
+    });
+  }
+  return out.reverse();
+}
+
 export function dailySales(series: GameSeries | undefined): DailySales | null {
   if (!series || series.points.length < 2) return null;
   const pts = [...series.points].sort((a, b) => a.date.localeCompare(b.date));

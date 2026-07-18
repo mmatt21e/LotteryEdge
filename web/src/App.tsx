@@ -9,7 +9,7 @@ import { StatePicker } from "./StatePicker.js";
 import { stateName, ALL_KEY } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
-import { usd, usd2, usdCompact, pct, int, compact, relativeTime, shortDateTime, netPerDollar, centsPerDollar } from "./format.js";
+import { usd, usd2, usdCompact, pct, int, compact, relativeTime, shortDateTime, shortDay, netPerDollar, centsPerDollar } from "./format.js";
 import {
   profitOdds,
   liveTierOdds,
@@ -24,6 +24,7 @@ import {
   ticketsToTopPrize,
   topPrizeAttempt,
   dailySales,
+  dailyBreakdown,
   recommendForBudget,
   endingSoon,
   type ConfidenceLevel,
@@ -899,6 +900,8 @@ function Detail({
   const toTop = ticketsToTopPrize(game);
   const attempt = topPrizeAttempt(game, afterTax);
   const sales = dailySales(history?.series[game.gameId]);
+  const breakdown = dailyBreakdown(history?.series[game.gameId]);
+  const [showHistory, setShowHistory] = useState(false);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
@@ -986,6 +989,46 @@ function Detail({
           <p className="sales-note">
             Daily sales appear once 2+ daily snapshots are collected for this game.
           </p>
+        )}
+
+        {breakdown.length > 0 && (
+          <div className="daily-wrap">
+            <button
+              className="history-btn"
+              onClick={() => setShowHistory((v) => !v)}
+              aria-expanded={showHistory}
+            >
+              {showHistory ? "Hide" : "Show"} day-by-day history{" "}
+              {demo && <span className="sample-pill">Sample</span>}
+            </button>
+            {showHistory && (
+              <table className="daily">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Tickets sold</th>
+                    <th>Prizes won</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {breakdown.map((d) => (
+                    <tr key={d.date}>
+                      <td>{shortDay(d.date)}</td>
+                      <td>{int(d.ticketsSold)}</td>
+                      <td>
+                        {usdCompact(d.prizeValueWon)}
+                        {d.topPrizesWon > 0 && (
+                          <span className="badge badge-warn daily-top">
+                            +{d.topPrizesWon} top
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
         )}
 
         <div className="conf-line">

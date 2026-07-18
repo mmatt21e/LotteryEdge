@@ -31,6 +31,15 @@ export function centsPerDollar(net: number): string {
   return `${sign}${Math.abs(cents).toFixed(1)}¢`;
 }
 
+/** "Jul 16" from a date-only "YYYY-MM-DD" (parsed as local to avoid TZ shift). */
+export function shortDay(ymd: string): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  return new Date(y!, (m ?? 1) - 1, d ?? 1).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+}
+
 /** Absolute local date+time: "Jul 16, 6:12 AM" from an ISO timestamp. */
 export function shortDateTime(iso: string): string {
   return new Date(iso).toLocaleString("en-US", {
