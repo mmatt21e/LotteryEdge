@@ -14,6 +14,27 @@ export interface TicketAnchor {
   overallOdds?: number;
   /** Total tickets printed, if the source states it directly. */
   totalTickets?: number;
+  /** Ticket price, used only to sanity-check anchors against payout ratio. */
+  price?: number;
+}
+
+/**
+ * A scratch game cannot pay out more than it takes in. Realistic payout tops
+ * out near 80–90%; anything above this ceiling means an anchor is wrong (e.g. a
+ * stale/half ticket count), so we reject/repair it rather than publish a bogus
+ * positive EV.
+ */
+const MAX_PAYOUT = 0.95;
+
+/** Total original prize dollars printed (Σ amount × originalCount). */
+function originalPrizeValue(tiers: PrizeTier[]): number {
+  return tiers.reduce((s, t) => s + t.amount * t.originalCount, 0);
+}
+
+/** Payout ratio a given ticket-count estimate would imply (Infinity if unknown). */
+function impliedPayout(tiers: PrizeTier[], tickets: number, price?: number): number {
+  if (!tickets || !price || price <= 0) return Infinity;
+  return originalPrizeValue(tiers) / (tickets * price);
 }
 
 /**
@@ -22,10 +43,14 @@ export interface TicketAnchor {
  * Preference order:
  *  1. Per-tier odds — "1 in X" implies tickets ≈ odds × originalCount for each
  *     tier; take the median (robust to a rounded/bad tier). (NC-style.)
- *  2. A stated total-tickets anchor. (Some sources publish it.)
- *  3. Overall odds — totalWinningTickets (Σ originalCount) × overallOdds.
- *     (MA-style: per-tier counts + remaining but no per-tier odds.)
- *  4. Unknown → 0 (EV can't be computed for this game).
+ *  2. A whole-game anchor: a stated total-tickets count and/or overall odds
+ *     (Σ originalCount × overallOdds). When BOTH exist and disagree, prefer the
+ *     one implying a physically possible payout — a reported ticket total that
+ *     conflicts with the odds×counts identity is the unreliable one (observed
+ *     on NH "Fat Stacks", whose ticketsOrdered was ~half the true run).
+ *  3. Unknown → 0 (EV can't be computed for this game).
+ *
+ * A final floor guarantees the estimate never implies a >MAX_PAYOUT payout.
  */
 export function estimateOriginalTickets(tiers: PrizeTier[], anchor: TicketAnchor = {}): number {
   const perTier = tiers
@@ -33,13 +58,34 @@ export function estimateOriginalTickets(tiers: PrizeTier[], anchor: TicketAnchor
     .map((t) => t.odds! * t.originalCount);
   if (perTier.length > 0) return Math.round(median(perTier));
 
-  if (anchor.totalTickets && anchor.totalTickets > 0) return Math.round(anchor.totalTickets);
+  const winning = tiers.reduce((s, t) => s + t.originalCount, 0);
+  const fromTotal =
+    anchor.totalTickets && anchor.totalTickets > 0 ? Math.round(anchor.totalTickets) : 0;
+  const fromOdds =
+    anchor.overallOdds && anchor.overallOdds > 0 && winning > 0
+      ? Math.round(winning * anchor.overallOdds)
+      : 0;
 
-  if (anchor.overallOdds && anchor.overallOdds > 0) {
-    const winning = tiers.reduce((s, t) => s + t.originalCount, 0);
-    return Math.round(winning * anchor.overallOdds);
+  let est = 0;
+  if (fromTotal > 0 && fromOdds > 0) {
+    // Both anchors present: default to the stated total, but switch to the
+    // odds-derived count if the total implies an impossible payout and the
+    // odds estimate is more plausible.
+    const pTotal = impliedPayout(tiers, fromTotal, anchor.price);
+    const pOdds = impliedPayout(tiers, fromOdds, anchor.price);
+    est = pTotal > MAX_PAYOUT && pOdds <= pTotal ? fromOdds : fromTotal;
+  } else {
+    est = fromTotal || fromOdds;
   }
-  return 0;
+  if (est <= 0) return 0;
+
+  // Backstop: raise an implausibly-low estimate so payout can't exceed the
+  // ceiling (never lowers a good estimate).
+  if (anchor.price && anchor.price > 0) {
+    const floor = Math.round(originalPrizeValue(tiers) / (anchor.price * MAX_PAYOUT));
+    if (floor > est) est = floor;
+  }
+  return est;
 }
 
 /**
@@ -65,6 +111,7 @@ export function computeStats(game: RawGame): ComputedStats {
   const originalTickets = estimateOriginalTickets(tiers, {
     overallOdds: game.overallOdds,
     totalTickets: game.totalTickets,
+    price: game.price,
   });
   const frac = fractionRemaining(tiers);
   const ticketsRemaining = Math.round(originalTickets * frac);

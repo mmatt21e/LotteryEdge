@@ -87,3 +87,38 @@ describe("computeStats", () => {
     expect(s.roi).toBe(0);
   });
 });
+
+describe("anchor payout sanity (NH Fat Stacks bug)", () => {
+  // No per-tier odds. Prize pool = $500k. A truthful print run of 1,000,000 at
+  // $5 = $5M sales → 10% payout. A stale totalTickets of 100,000 would imply a
+  // $500k pool on $500k sales = 100% payout (impossible).
+  const tiers = [
+    { amount: 100000, originalCount: 5, remaining: 5 }, // $500k pool
+  ];
+  const overallOdds = 200_000; // 5 winners × 200,000 = 1,000,000 tickets
+
+  it("prefers the odds identity when totalTickets implies an impossible payout", () => {
+    const est = estimateOriginalTickets(tiers, {
+      overallOdds,
+      totalTickets: 100_000, // bad (half-ish / stale)
+      price: 5,
+    });
+    expect(est).toBe(1_000_000); // odds-derived, not the bad total
+  });
+
+  it("keeps a stated total when it is consistent with a plausible payout", () => {
+    const est = estimateOriginalTickets(tiers, {
+      overallOdds,
+      totalTickets: 1_000_000, // agrees with odds
+      price: 5,
+    });
+    expect(est).toBe(1_000_000);
+  });
+
+  it("floors a lone total-tickets anchor so payout cannot exceed ~95%", () => {
+    // Only a (too-low) total anchor, no odds: prize $500k at $5 needs ≥ ~105k
+    // tickets to stay under 95% payout, so 50k must be raised.
+    const est = estimateOriginalTickets(tiers, { totalTickets: 50_000, price: 5 });
+    expect(est).toBeGreaterThanOrEqual(Math.round(500_000 / (5 * 0.95)));
+  });
+});
