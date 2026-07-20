@@ -1288,3 +1288,62 @@ button:focus-visible {
 .state-picker-caret {
   color: var(--accent);
 }
+
+/* Find-a-retailer link (header) */
+.retailer-link {
+  display: block;
+  margin: -6px 0 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+@media (hover: hover) {
+  .retailer-link:hover {
+    border-color: var(--accent);
+  }
+}
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.detail-links .official {
+  margin: 0;
+}
+
+/* In-depth analysis panel */
+.analysis-wrap {
+  margin-top: 12px;
+}
+.analysis {
+  margin-top: 10px;
+}
+.analysis-note {
+  background: rgba(61, 220, 151, 0.1);
+  border: 1px solid rgba(61, 220, 151, 0.4);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+.analysis-grid {
+  margin-bottom: 6px;
+}
+.analysis-grid .kpi-val {
+  font-size: 16px;
+}
+.tiers .tier-total td {
+  border-top: 2px solid var(--line);
+  border-bottom: none;
+  font-weight: 800;
+  color: var(--accent);
+}

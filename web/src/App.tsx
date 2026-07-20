@@ -6,7 +6,7 @@ import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges, type GameChange } from "./changes.js";
 import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
 import { StatePicker } from "./StatePicker.js";
-import { stateName, ALL_KEY } from "./states.js";
+import { stateName, ALL_KEY, retailerUrl } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, compact, relativeTime, shortDateTime, shortDay, netPerDollar, centsPerDollar } from "./format.js";
@@ -26,6 +26,7 @@ import {
   dailySales,
   dailyBreakdown,
   prizesWonPreviousDay,
+  gameAnalysis,
   recommendForBudget,
   endingSoon,
   type ConfidenceLevel,
@@ -147,6 +148,12 @@ export default function App() {
           </span>
         )}
       </div>
+
+      {!isAll && retailerUrl(stateKey) && (
+        <a className="retailer-link" href={retailerUrl(stateKey)} target="_blank" rel="noreferrer">
+          📍 Find a retailer in {stateName(stateKey)} ↗
+        </a>
+      )}
 
       {isAll && (
         <AllStatesView
@@ -903,7 +910,10 @@ function Detail({
   const sales = dailySales(history?.series[game.gameId]);
   const breakdown = dailyBreakdown(history?.series[game.gameId]);
   const wonPrev = prizesWonPreviousDay(history?.series[game.gameId]);
+  const positiveEv = c.roi >= 1;
+  const analysis = gameAnalysis(game);
   const [showHistory, setShowHistory] = useState(false);
+  const [showAnalysis, setShowAnalysis] = useState(positiveEv);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
@@ -1146,6 +1156,92 @@ function Detail({
           )}
         </div>
 
+        <div className="analysis-wrap">
+          <button
+            className="history-btn"
+            onClick={() => setShowAnalysis((v) => !v)}
+            aria-expanded={showAnalysis}
+          >
+            {showAnalysis ? "Hide" : "Show"} full breakdown &amp; analysis
+          </button>
+          {showAnalysis && (
+            <div className="analysis">
+              {positiveEv && (
+                <div className="analysis-note">
+                  This game shows <strong>positive expected value</strong> — genuine, but it rides on
+                  a big prize still being unclaimed in a nearly-sold-out game, so it’s{" "}
+                  <strong>very high variance</strong> (one purchase almost never realizes it). Payout
+                  under 100% and odds that reconcile confirm the data is sound.
+                </div>
+              )}
+              <div className="kpis analysis-grid">
+                <Kpi label="Ticket price" value={usd2(game.price)} />
+                <Kpi
+                  label="Overall odds"
+                  value={analysis.overallOdds ? `1 in ${analysis.overallOdds.toFixed(2)}` : "—"}
+                />
+                <Kpi label="Est. tickets printed" value={int(analysis.originalTickets)} />
+                <Kpi
+                  label="Est. tickets sold"
+                  value={int(analysis.ticketsSold)}
+                  sub={pct(analysis.fractionSold, 0)}
+                />
+                <Kpi
+                  label="Est. tickets left"
+                  value={int(analysis.ticketsRemaining)}
+                  sub={pct(analysis.fractionRemaining, 0)}
+                />
+                <Kpi
+                  label="Payout ratio"
+                  value={pct(analysis.payoutRatio, 1)}
+                  sub="prize $ ÷ sales"
+                />
+                <Kpi label="Prize $ printed" value={usdCompact(analysis.originalPrizeValue)} />
+                <Kpi label="Prize $ won" value={usdCompact(analysis.claimedPrizeValue)} />
+                <Kpi label="Prize $ left" value={usdCompact(analysis.remainingPrizeValue)} />
+                <Kpi label="EV / ticket" value={usd2(analysis.evPerTicket)} />
+                <Kpi label="Return / $1" value={usd2(analysis.roi)} accent={roiColor(analysis.roi)} />
+                <Kpi
+                  label="Net / $1"
+                  value={centsPerDollar(netPerDollar(analysis.roi))}
+                  accent={roiColor(analysis.roi)}
+                />
+              </div>
+
+              <div className="tiers-head">
+                <span>Every prize — remaining vs. started</span>
+                <span className="tiers-sub">$ left = prize × remaining. Mirrors the state’s table.</span>
+              </div>
+              <table className="tiers">
+                <thead>
+                  <tr>
+                    <th>Prize</th>
+                    <th>Left</th>
+                    <th>Start</th>
+                    <th>$ left</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tiers.map((t, i) => (
+                    <tr key={i}>
+                      <td>{usdCompact(t.amount)}</td>
+                      <td className={t.remaining === 0 ? "gone" : ""}>{int(t.remaining)}</td>
+                      <td>{int(t.originalCount)}</td>
+                      <td>{usdCompact(t.amount * t.remaining)}</td>
+                    </tr>
+                  ))}
+                  <tr className="tier-total">
+                    <td>Total</td>
+                    <td>{int(analysis.totalPrizesRemaining)}</td>
+                    <td>{int(analysis.totalPrizesStart)}</td>
+                    <td>{usdCompact(analysis.remainingPrizeValue)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+
         <div className="tiers-head">
           <span>Prize odds</span>
           <span className="tiers-sub">
@@ -1191,11 +1287,18 @@ function Detail({
           </tbody>
         </table>
 
-        {game.url && (
-          <a className="official" href={game.url} target="_blank" rel="noreferrer">
-            View official game page ↗
-          </a>
-        )}
+        <div className="detail-links">
+          {game.url && (
+            <a className="official" href={game.url} target="_blank" rel="noreferrer">
+              View official game page ↗
+            </a>
+          )}
+          {retailerUrl(game.state) && (
+            <a className="official" href={retailerUrl(game.state)} target="_blank" rel="noreferrer">
+              📍 Find a retailer ↗
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

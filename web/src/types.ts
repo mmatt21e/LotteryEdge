@@ -24,6 +24,8 @@ export interface Game {
   name: string;
   price: number;
   url?: string;
+  overallOdds?: number; // "1 in X" to win any prize (present for anchor-based states)
+  totalTickets?: number; // stated original print run, when the source gives it
   tiers: PrizeTier[];
   computed: ComputedStats;
 }

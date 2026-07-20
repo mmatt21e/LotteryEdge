@@ -104,6 +104,50 @@ export interface DailyChange {
  * snapshots, how many tickets sold and how much prize value was claimed.
  * Most-recent day first. Empty if fewer than 2 snapshots exist.
  */
+export interface GameAnalysis {
+  overallOdds: number | null; // 1 in X to win any prize (stated or derived)
+  originalTickets: number;
+  ticketsRemaining: number;
+  ticketsSold: number;
+  fractionRemaining: number;
+  fractionSold: number;
+  originalPrizeValue: number; // $ of all prizes printed
+  remainingPrizeValue: number; // $ of prizes still unclaimed
+  claimedPrizeValue: number; // $ of prizes already won
+  totalPrizesStart: number; // count of all prizes printed
+  totalPrizesRemaining: number; // count of prizes still unclaimed
+  payoutRatio: number; // original prize $ ÷ total sales (data-quality check)
+  evPerTicket: number;
+  roi: number;
+}
+
+/** Every derived figure for a game, for the in-depth breakdown panel. */
+export function gameAnalysis(game: Game): GameAnalysis {
+  const c = game.computed;
+  const totalPrizesStart = game.tiers.reduce((s, t) => s + t.originalCount, 0);
+  const totalPrizesRemaining = game.tiers.reduce((s, t) => s + t.remaining, 0);
+  const originalPrizeValue = game.tiers.reduce((s, t) => s + t.amount * t.originalCount, 0);
+  const sales = c.originalTickets * game.price;
+  const derivedOdds =
+    totalPrizesStart > 0 && c.originalTickets > 0 ? c.originalTickets / totalPrizesStart : null;
+  return {
+    overallOdds: game.overallOdds ?? derivedOdds,
+    originalTickets: c.originalTickets,
+    ticketsRemaining: c.ticketsRemaining,
+    ticketsSold: Math.max(0, c.originalTickets - c.ticketsRemaining),
+    fractionRemaining: c.fractionRemaining,
+    fractionSold: Math.max(0, 1 - c.fractionRemaining),
+    originalPrizeValue,
+    remainingPrizeValue: c.remainingPrizeValue,
+    claimedPrizeValue: Math.max(0, originalPrizeValue - c.remainingPrizeValue),
+    totalPrizesStart,
+    totalPrizesRemaining,
+    payoutRatio: sales > 0 ? originalPrizeValue / sales : 0,
+    evPerTicket: c.evPerTicket,
+    roi: c.roi,
+  };
+}
+
 export interface PrizeWon {
   amount: number;
   count: number;

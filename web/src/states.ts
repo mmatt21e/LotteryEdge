@@ -75,6 +75,55 @@ export const UNAVAILABLE: UnavailableState[] = [
   { name: "Wyoming", reason: "No state scratch-off games (draw games only)." },
 ];
 
+/**
+ * Official state-lottery "find a retailer" locator pages (enter ZIP/city → the
+ * licensed stores that sell that state's tickets). These list licensed
+ * retailers, not per-game inventory — no state publishes which store stocks a
+ * specific game. Verified reachable on each state's own official domain.
+ */
+export const RETAILERS: Record<string, string> = {
+  ar: "https://www.myarkansaslottery.com/retailer-locator/index",
+  ca: "https://www.calottery.com/en/where-to-play",
+  co: "https://www.coloradolottery.com/en/retailers/",
+  ct: "https://www.ctlottery.org/WhereToPlay/107262",
+  de: "https://www.delottery.com/Where-to-Buy",
+  fl: "https://floridalottery.com/where-to-play",
+  ga: "https://www.galottery.com/en-us/player-zone/where-to-play.html",
+  id: "https://www.idaholottery.com/pages/find-a-retailer",
+  ia: "https://ialottery.com/Pages/AboutUs/FindARetailer.aspx",
+  ks: "https://www.playonkansas.com/find-retailers",
+  ky: "https://www.kylottery.com/apps/customer_service/find_retailer.html",
+  la: "https://louisianalottery.com/where-to-play/",
+  me: "https://www.mainelottery.com/players_info/where_to_buy.html",
+  md: "https://rewards.mdlottery.com/retail/locator",
+  ma: "https://www.masslottery.com/tools/location-finder",
+  mi: "https://www.michiganlottery.com/resources/find-a-retailer",
+  mn: "https://www.mnlottery.com/retailers/find-a-retailer",
+  ms: "https://www.mslottery.com/players/locate-a-retailer/",
+  mo: "https://www.molottery.com/where-to-play/where-to-play.jsp",
+  ne: "https://nelottery.com/homeapp/retailers/search",
+  nh: "https://www.nhlottery.com/find-retailer",
+  nj: "https://www.njlottery.com/en-us/retailer/findretailer.html",
+  nm: "https://www.nmlottery.com/retailers/",
+  nc: "https://nclottery.com/wheretoplay",
+  oh: "https://www.ohiolottery.com/retail-locations",
+  ok: "https://www.lottery.ok.gov/retailers/find",
+  or: "https://www.oregonlottery.org/retailer/where-to-play/",
+  pa: "https://www.palottery.pa.gov/Mobile-App/Find-Retailers.aspx",
+  ri: "https://www.rilot.com/en-us/player-zone/find-a-retailer.html",
+  sc: "https://www.sceducationlottery.com/Retailers",
+  sd: "https://lottery.sd.gov/locations/",
+  tx: "https://www.texaslottery.com/opencms/Games/Scratch_Offs/Retailer_Locator.jsp",
+  vt: "https://vtlottery.com/where-to-play",
+  va: "https://www.valottery.com/aboutus/findaretailer",
+  wa: "https://www.walottery.com/WhereToPlay/",
+  dc: "https://dclottery.com/player-resources/where-to-play",
+  wv: "https://wvlottery.com/find-retailers",
+  wi: "https://wilottery.com/locate-retailers",
+};
+
+export const retailerUrl = (key: string): string | undefined => RETAILERS[key];
+
 /** Sentinel key for the merged cross-state view. */
 export const ALL_KEY = "all";
 
