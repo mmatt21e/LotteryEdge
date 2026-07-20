@@ -27,6 +27,7 @@ import {
   dailyBreakdown,
   prizesWonPreviousDay,
   gameAnalysis,
+  simulateGame,
   recommendForBudget,
   endingSoon,
   type ConfidenceLevel,
@@ -914,6 +915,7 @@ function Detail({
   const analysis = gameAnalysis(game);
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalysis, setShowAnalysis] = useState(positiveEv);
+  const [showSim, setShowSim] = useState(false);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
@@ -1242,6 +1244,17 @@ function Detail({
           )}
         </div>
 
+        <div className="sim-wrap">
+          <button
+            className="history-btn"
+            onClick={() => setShowSim((v) => !v)}
+            aria-expanded={showSim}
+          >
+            {showSim ? "Hide" : "🎲 Simulate"} odds — remove tickets
+          </button>
+          {showSim && <Simulator key={game.gameId} game={game} />}
+        </div>
+
         <div className="tiers-head">
           <span>Prize odds</span>
           <span className="tiers-sub">
@@ -1300,6 +1313,116 @@ function Detail({
           )}
         </div>
       </div>
+    </div>
+  );
+}
+
+/* -------------------------------- Simulator ------------------------------- */
+
+function Simulator({ game }: { game: Game }) {
+  const [removed, setRemoved] = useState<Record<number, number>>({});
+  const [losers, setLosers] = useState(0);
+  const sim = useMemo(() => simulateGame(game, removed, losers), [game, removed, losers]);
+  const base = useMemo(() => simulateGame(game, {}, 0), [game]);
+  const dirty = sim.removedWinners > 0 || losers > 0;
+
+  const setTier = (amount: number, val: number, max: number) =>
+    setRemoved((p) => ({ ...p, [amount]: Math.min(max, Math.max(0, Math.floor(val) || 0)) }));
+  const bump = (amount: number, delta: number, max: number) =>
+    setRemoved((p) => ({ ...p, [amount]: Math.min(max, Math.max(0, (p[amount] ?? 0) + delta)) }));
+  const reset = () => {
+    setRemoved({});
+    setLosers(0);
+  };
+  const oddsStr = (o: number | null) => (o ? `1 in ${int(o)}` : "gone");
+
+  return (
+    <div className="sim">
+      <div className="sim-note">
+        Hypothetically remove prizes (winners) or losing tickets and watch the odds move — live, and
+        before tax. This never changes the real data.
+      </div>
+      <div className="kpis sim-stats">
+        <Kpi
+          label="Net / $1"
+          value={centsPerDollar(netPerDollar(sim.roi))}
+          accent={roiColor(sim.roi)}
+          sub={dirty ? `was ${centsPerDollar(netPerDollar(base.roi))}` : undefined}
+        />
+        <Kpi
+          label="Odds to profit"
+          value={oddsStr(sim.profitOdds)}
+          sub={dirty && base.profitOdds ? `was 1 in ${int(base.profitOdds)}` : undefined}
+        />
+        <Kpi
+          label="Top-prize odds"
+          value={oddsStr(sim.topOdds)}
+          sub={dirty && base.topOdds ? `was 1 in ${int(base.topOdds)}` : undefined}
+        />
+        <Kpi
+          label="Tickets left"
+          value={int(sim.ticketsRemaining)}
+          sub={dirty ? `was ${int(base.ticketsRemaining)}` : undefined}
+        />
+      </div>
+
+      <div className="sim-row sim-losers">
+        <span className="sim-amt">Losing tickets</span>
+        <span className="sim-rem" />
+        <div className="sim-step">
+          <button onClick={() => setLosers((l) => Math.max(0, l - 1000))} disabled={losers <= 0}>
+            −
+          </button>
+          <input
+            type="number"
+            min={0}
+            value={losers}
+            onChange={(e) => setLosers(Math.max(0, Math.floor(Number(e.target.value) || 0)))}
+          />
+          <button onClick={() => setLosers((l) => l + 1000)}>+</button>
+        </div>
+      </div>
+
+      <div className="sim-tiers">
+        <div className="sim-row sim-head">
+          <span className="sim-amt">Prize</span>
+          <span className="sim-rem">left</span>
+          <span className="sim-step-label">remove</span>
+        </div>
+        {sim.tiers.map((t) => (
+          <div className="sim-row" key={t.amount}>
+            <span className="sim-amt">{usdCompact(t.amount)}</span>
+            <span className="sim-rem">
+              {int(t.remaining)}
+              <span className="sim-base"> / {int(t.baseRemaining)}</span>
+            </span>
+            <div className="sim-step">
+              <button onClick={() => bump(t.amount, -1, t.baseRemaining)} disabled={t.removed <= 0}>
+                −
+              </button>
+              <input
+                type="number"
+                min={0}
+                max={t.baseRemaining}
+                value={t.removed}
+                onChange={(e) => setTier(t.amount, Number(e.target.value), t.baseRemaining)}
+              />
+              <button
+                onClick={() => bump(t.amount, 1, t.baseRemaining)}
+                disabled={t.removed >= t.baseRemaining}
+              >
+                +
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {dirty && (
+        <button className="sim-reset" onClick={reset}>
+          ↺ Reset simulation
+        </button>
+      )}
     </div>
   );
 }

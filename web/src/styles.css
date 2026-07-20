@@ -1347,3 +1347,98 @@ button:focus-visible {
   font-weight: 800;
   color: var(--accent);
 }
+
+/* Odds simulator */
+.sim-wrap {
+  margin-top: 12px;
+}
+.sim {
+  margin-top: 10px;
+}
+.sim-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+.sim-stats {
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 12px;
+}
+.sim-stats .kpi-val {
+  font-size: 16px;
+}
+.sim-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+}
+.sim-head {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid var(--line);
+}
+.sim-head .sim-step-label {
+  text-align: center;
+}
+.sim-losers {
+  border-top: 1px solid var(--line);
+  margin-bottom: 6px;
+}
+.sim-amt {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.sim-rem {
+  font-variant-numeric: tabular-nums;
+}
+.sim-base {
+  color: var(--muted);
+  font-size: 12px;
+}
+.sim-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sim-step button {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+.sim-step button:disabled {
+  opacity: 0.4;
+}
+.sim-step input {
+  width: 62px;
+  text-align: center;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 4px;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.sim-reset {
+  margin-top: 12px;
+  width: 100%;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}

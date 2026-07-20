@@ -104,6 +104,61 @@ export interface DailyChange {
  * snapshots, how many tickets sold and how much prize value was claimed.
  * Most-recent day first. Empty if fewer than 2 snapshots exist.
  */
+export interface SimTier {
+  amount: number;
+  baseRemaining: number; // prizes of this value left today
+  removed: number; // how many the user has hypothetically removed
+  remaining: number; // baseRemaining − removed
+}
+export interface SimResult {
+  ticketsRemaining: number;
+  remainingPrizeValue: number;
+  evPerTicket: number;
+  roi: number;
+  profitOdds: number | null; // 1 in X to win more than the ticket price
+  topOdds: number | null; // 1 in X to hit the top prize
+  tiers: SimTier[]; // largest prize first
+  removedWinners: number;
+}
+
+/**
+ * "What-if" simulator: recompute a game's odds/EV after hypothetically removing
+ * winning tickets (prizes claimed, by value) and/or non-winning tickets from the
+ * pool. Pure client-side math over today's snapshot — before tax.
+ */
+export function simulateGame(
+  game: Game,
+  removedByAmount: Record<number, number>,
+  removedLosers: number,
+): SimResult {
+  const price = game.price;
+  const base = game.computed.ticketsRemaining;
+  let removedWinners = 0;
+  const tiers: SimTier[] = [...game.tiers]
+    .sort((a, b) => b.amount - a.amount)
+    .map((t) => {
+      const removed = Math.min(Math.max(0, Math.floor(removedByAmount[t.amount] ?? 0)), t.remaining);
+      removedWinners += removed;
+      return { amount: t.amount, baseRemaining: t.remaining, removed, remaining: t.remaining - removed };
+    });
+  const winnersLeft = tiers.reduce((s, t) => s + t.remaining, 0);
+  // Tickets left can't drop below the winners still in the pool.
+  const ticketsRemaining = Math.max(
+    winnersLeft,
+    base - removedWinners - Math.max(0, Math.floor(removedLosers)),
+  );
+  const remainingPrizeValue = tiers.reduce((s, t) => s + t.amount * t.remaining, 0);
+  const evPerTicket = ticketsRemaining > 0 ? remainingPrizeValue / ticketsRemaining : 0;
+  const roi = price > 0 ? evPerTicket / price : 0;
+  const profitWinners = tiers
+    .filter((t) => t.amount > price)
+    .reduce((s, t) => s + t.remaining, 0);
+  const profitOdds = profitWinners > 0 && ticketsRemaining > 0 ? ticketsRemaining / profitWinners : null;
+  const top = tiers[0];
+  const topOdds = top && top.remaining > 0 && ticketsRemaining > 0 ? ticketsRemaining / top.remaining : null;
+  return { ticketsRemaining, remainingPrizeValue, evPerTicket, roi, profitOdds, topOdds, tiers, removedWinners };
+}
+
 export interface GameAnalysis {
   overallOdds: number | null; // 1 in X to win any prize (stated or derived)
   originalTickets: number;
