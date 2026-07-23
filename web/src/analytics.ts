@@ -1,4 +1,5 @@
 import type { Game, GameSeries, HistoryPoint } from "./types.js";
+import { stateTaxRate } from "./states.js";
 
 /**
  * Odds of winning MORE than the ticket price ("1 in X to profit").
@@ -313,19 +314,21 @@ export function sparklinePath(values: number[], w: number, h: number, pad = 1): 
 export const pointNet = (p: HistoryPoint): number => p.roi - 1;
 
 /**
- * Estimated withholding on a single prize (rough, for the "after tax" view):
+ * Estimated tax on a single prize (rough, for the "after tax" view):
  *  - under $600: not reported → 0
- *  - $600–$4,999: NC state income tax (~4.5%)
- *  - $5,000+: federal withholding 24% + NC 4.5%
+ *  - $600–$4,999: the game's state tax only
+ *  - $5,000+: federal withholding 24% + state tax
+ * The state rate comes from STATE_TAX (0 for no-income-tax states and CA).
  */
-function taxRate(amount: number): number {
+function taxRate(amount: number, state: string): number {
   if (amount < 600) return 0;
-  if (amount < 5000) return 0.045;
-  return 0.24 + 0.045;
+  const st = stateTaxRate(state);
+  if (amount < 5000) return st;
+  return 0.24 + st;
 }
 
 /**
- * Sell-through "ending soon" signal. NC doesn't publish forward claim
+ * Sell-through "ending soon" signal. Most states don't publish forward claim
  * deadlines for active games, so we approximate from how little of the print
  * run is left: a game with almost no tickets remaining is winding down and
  * likely to be pulled (with a claim deadline announced) soon.
@@ -397,7 +400,7 @@ export function effectiveRoi(game: Game, afterTax: boolean): number {
   const tr = game.computed.ticketsRemaining;
   if (tr <= 0 || game.price <= 0) return 0;
   const afterTaxValue = game.tiers.reduce(
-    (s, t) => s + t.amount * t.remaining * (1 - taxRate(t.amount)),
+    (s, t) => s + t.amount * t.remaining * (1 - taxRate(t.amount, game.state)),
     0,
   );
   return afterTaxValue / tr / game.price;

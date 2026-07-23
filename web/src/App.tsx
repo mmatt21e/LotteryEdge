@@ -70,7 +70,7 @@ export default function App() {
     () => (!limited && data ? (data as { games: Game[] }).games : []),
     [limited, data],
   );
-  const changes = useChanges(limited ? undefined : ncGames, data?.generatedAt);
+  const changes = useChanges(limited || isAll ? undefined : ncGames, data?.generatedAt, stateKey);
   const ledger = useLedger(stateKey);
   const { theme, cycle } = useTheme();
   const online = useOnline();
@@ -330,7 +330,7 @@ function ValueTab({
       if (sort === "topPrize") return b.computed.topPrizeAmount - a.computed.topPrizeAmount;
       if (sort === "topLeft") return b.computed.topPrizesRemaining - a.computed.topPrizesRemaining;
       if (sort === "unsold") return b.computed.fractionRemaining - a.computed.fractionRemaining;
-      return effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
+      return lowConfRank(a) - lowConfRank(b) || effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
     });
     return l;
   }, [games, price, sort, query, topOnly, favOnly, endingOnly, favSet, afterTax]);
@@ -384,7 +384,7 @@ function ValueTab({
             <button
               className={`chip ${afterTax ? "chip-on" : ""}`}
               onClick={() => onAfterTax(!afterTax)}
-              title="Estimate net after federal + NC withholding"
+              title="Estimate net after federal + state withholding (varies by state)"
             >
               After tax
             </button>
@@ -393,6 +393,9 @@ function ValueTab({
             </button>
           </div>
         </div>
+        {sort === "roi" && (
+          <div className="sort-note">Low-confidence estimates rank last.</div>
+        )}
       </div>
 
       {list.length === 0 && <div className="status">No games match.</div>}
@@ -440,6 +443,14 @@ const pressKeys = (fn: () => void) => (e: React.KeyboardEvent) => {
     fn();
   }
 };
+
+/**
+ * Default-sort demotion: a "low" confidence EV (brand-new or nearly-sold-out
+ * game) is usually an artifact, so it ranks after every medium/high game
+ * instead of spiking to the top of "Best value".
+ */
+const lowConfRank = (g: Game): number =>
+  confidence(g.computed.fractionRemaining).level === "low" ? 1 : 0;
 
 const CONF_COLOR: Record<ConfidenceLevel, string> = {
   high: "var(--good)",
@@ -595,7 +606,7 @@ function AllStatesView({
       if (sort === "topPrize") return b.computed.topPrizeAmount - a.computed.topPrizeAmount;
       if (sort === "topLeft") return b.computed.topPrizesRemaining - a.computed.topPrizesRemaining;
       if (sort === "unsold") return b.computed.fractionRemaining - a.computed.fractionRemaining;
-      return effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
+      return lowConfRank(a) - lowConfRank(b) || effectiveRoi(b, afterTax) - effectiveRoi(a, afterTax);
     });
     return l;
   }, [all.games, states, price, sort, query, topOnly, favOnly, endingOnly, isFav, afterTax]);
@@ -615,6 +626,15 @@ function AllStatesView({
         <strong>All states combined.</strong> Every full-EV game from{" "}
         {all.loaded.length} states, ranked head-to-head by value. Lite states (top-prize only) and
         states not yet available are excluded.
+        {all.failed.length > 0 && (
+          <>
+            {" "}
+            <strong>
+              {all.failed.length} full state{all.failed.length === 1 ? "" : "s"} had no data today
+            </strong>{" "}
+            ({all.failed.map((k) => k.toUpperCase()).join(", ")}).
+          </>
+        )}
       </div>
 
       <div className="controls">
@@ -683,6 +703,9 @@ function AllStatesView({
             </button>
           </div>
         </div>
+        {sort === "roi" && (
+          <div className="sort-note">Low-confidence estimates rank last.</div>
+        )}
       </div>
 
       <div className="sellers-caption">
@@ -1005,7 +1028,9 @@ function Detail({
           </div>
         </div>
 
-        {afterTax && <div className="tax-note">Showing net after estimated federal + NC tax.</div>}
+        {afterTax && (
+          <div className="tax-note">Showing net after estimated federal + state tax.</div>
+        )}
         <div className="kpis">
           <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={signColor(net)} />
           <Kpi label="Return / $1" value={usd2(roi)} />
@@ -1617,9 +1642,16 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
 
           <h4>“Ending soon”</h4>
           <p>
-            NC doesn’t publish claim deadlines for active games, so this is a{" "}
+            Most states don’t publish claim deadlines for active games, so this is a{" "}
             <em>sell-through</em> signal: a game with almost none of its print run left is winding
             down and will likely be pulled soon. It’s a heads-up, not an official date.
+          </p>
+
+          <h4>“After tax”</h4>
+          <p>
+            A rough estimate: 24% federal withholding on prizes of $5,000+, plus the game’s own
+            state’s tax on prizes of $600+ (zero in no-income-tax states and California). Actual
+            taxes depend on your situation — this is a comparison aid, not tax advice.
           </p>
 
           <h4>The estimate isn’t a promise</h4>

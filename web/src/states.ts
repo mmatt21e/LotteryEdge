@@ -128,6 +128,56 @@ export const RETAILERS: Record<string, string> = {
 
 export const retailerUrl = (key: string): string | undefined => RETAILERS[key];
 
+/**
+ * Approximate state tax on lottery winnings, for the "after tax" ESTIMATE:
+ * the state's lottery-withholding rate where one exists, otherwise a rounded
+ * top income-tax rate (some states don't withhold but still tax). 0 = the
+ * state taxes no lottery income (incl. CA, which exempts its own lottery).
+ * These feed a rough net estimate, not tax advice.
+ */
+export const STATE_TAX: Record<string, number> = {
+  ar: 0.044,
+  ca: 0,
+  co: 0.044,
+  ct: 0.0699,
+  dc: 0.085,
+  de: 0.066,
+  fl: 0,
+  ga: 0.0549,
+  ia: 0.05,
+  id: 0.058,
+  ks: 0.05,
+  ky: 0.04,
+  la: 0.0425,
+  ma: 0.05,
+  md: 0.0895,
+  me: 0.0715,
+  mi: 0.0425,
+  mn: 0.0725,
+  mo: 0.048,
+  ms: 0.047,
+  nc: 0.045,
+  ne: 0.05,
+  nh: 0,
+  nj: 0.08,
+  nm: 0.059,
+  oh: 0.035,
+  ok: 0.0475,
+  or: 0.08,
+  pa: 0.0307,
+  ri: 0.0599,
+  sc: 0.064,
+  sd: 0,
+  tx: 0,
+  vt: 0.06,
+  wa: 0,
+  wi: 0.0765,
+  wv: 0.0482,
+};
+
+/** State tax rate for the estimate; a mid-range default for unknown keys. */
+export const stateTaxRate = (key: string): number => STATE_TAX[key] ?? 0.045;
+
 /** Sentinel key for the merged cross-state view. */
 export const ALL_KEY = "all";
 

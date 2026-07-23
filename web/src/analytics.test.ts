@@ -134,6 +134,20 @@ describe("effectiveRoi", () => {
     expect(taxed).toBeLessThan(1.2);
     expect(taxed).toBeGreaterThan(0);
   });
+  it("uses the game's own state tax (TX has none; NC withholds)", () => {
+    // One $10,000 tier: federal 24% always applies at $5,000+, state varies.
+    const base = makeGame();
+    base.tiers = [{ amount: 10_000, originalCount: 10, remaining: 5 }];
+    base.computed = { ...base.computed, ticketsRemaining: 10_000 };
+    const pretax = (10_000 * 5) / 10_000 / 10; // 0.5
+
+    const tx = { ...base, state: "tx" };
+    expect(effectiveRoi(tx, true)).toBeCloseTo(pretax * (1 - 0.24), 10);
+
+    const nc = { ...base, state: "nc" };
+    expect(effectiveRoi(nc, true)).toBeCloseTo(pretax * (1 - 0.24 - 0.045), 10);
+  });
+
   it("prizes under $600 are never withheld", () => {
     const g = makeGame();
     g.tiers = [{ amount: 100, originalCount: 10, remaining: 5 }];
