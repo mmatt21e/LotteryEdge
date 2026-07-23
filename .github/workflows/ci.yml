@@ -15,7 +15,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - name: EV math tests
+      - name: EV math + parser fixture tests
         run: npm test
       - name: Typecheck scraper
         run: npm run typecheck
@@ -29,6 +29,9 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+        working-directory: web
+      - name: Web unit tests
+        run: npm test
         working-directory: web
       - name: Build PWA
         run: npm run build
