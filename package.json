@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Scrapes NC & VA lottery scratch-off prize data and ranks games by estimated expected value.",
+  "description": "Scrapes US state lottery scratch-off prize data (37 states) and ranks games by estimated expected value.",
   "scripts": {
     "scrape": "tsx src/index.ts all",
     "scrape:nc": "tsx src/index.ts nc",

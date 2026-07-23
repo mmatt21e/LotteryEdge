@@ -40,6 +40,9 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            web/package-lock.json
 
       # --- Scrape ---
       - name: Install scraper deps
@@ -50,7 +53,13 @@ jobs:
 
       # VA is "lite" (list + closing-soon only; no public per-tier data) and
       # needs a headless browser. Non-blocking: a VA failure must not stop the
-      # NC deploy.
+      # NC deploy. The ~150 MB browser download is cached between daily runs.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
       - name: Install Chromium (for VA)
         run: npx playwright install --with-deps chromium
         continue-on-error: true

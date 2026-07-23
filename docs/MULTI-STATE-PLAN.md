@@ -1,5 +1,10 @@
 # LotteryEdge — All-US-States Plan
 
+> **Historical document.** The rollout described here has shipped (37 states
+> live). The tier tables below reflect pre-implementation research and drifted
+> in places (e.g. VT and KS shipped as lite, VA is currently blocked); the
+> source of truth is `src/sources/registry.ts` and `web/src/states.ts`.
+
 Goal: support every US jurisdiction that runs a lottery (~45 states + DC), each
 as a selectable "state" in the app, reusing the NC/VA multi-state foundation.
 

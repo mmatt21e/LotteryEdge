@@ -4,23 +4,31 @@ A personal, mobile-first tool that scrapes state lottery scratch-off prize data
 and ranks games by **estimated expected value** — comparing prizes remaining
 against tickets remaining to find the least-bad (occasionally +EV) games.
 
-See [`PLAN.md`](./PLAN.md) for the full architecture and roadmap.
+See [`PLAN.md`](./PLAN.md) for the original architecture notes and
+[`docs/MULTI-STATE-PLAN.md`](./docs/MULTI-STATE-PLAN.md) for the multi-state
+rollout research; both predate the current state and are kept as history.
 
 ## Status
 
 - ✅ **EV math** — pure, unit-tested (`src/ev.ts`, `src/ev.test.ts`)
-- ✅ **North Carolina scraper** — live, static HTML via Cheerio (`src/sources/nc.ts`)
-- ✅ **Mobile PWA** — installable React app that ranks games by ROI, with a
-  per-game prize-tier detail sheet (`web/`)
-- ✅ **Automation** — daily GitHub Actions cron scrapes, commits data, and
-  deploys the PWA to GitHub Pages (`.github/workflows/update.yml`)
-- 🚧 **Virginia scraper** — scaffolded; needs the JSON XHR endpoint or a
-  Playwright render (`src/sources/va.ts`)
+- ✅ **37 state scrapers** — 23 full-EV states (per-tier prizes remaining) and
+  14 "lite" states (top-prize list only), one adapter per state in
+  `src/sources/`, registered in `src/sources/registry.ts`
+- ✅ **Mobile PWA** — installable React app with a searchable state picker, a
+  cross-state combined ranking, per-game detail (odds, trends, simulator),
+  budget helper, and a personal win/loss ledger (`web/`)
+- ✅ **Automation** — daily GitHub Actions cron scrapes all states, commits
+  data, and deploys the PWA to GitHub Pages (`.github/workflows/update.yml`)
+- ✅ **Tests** — EV engine + parser fixture tests (`npm test`) and web unit
+  tests (`cd web && npm test`), all run in CI
+- 🚫 **Virginia** — its site blocks the automated (Playwright) scrape; listed
+  as "not yet available" in the app until `scripts/va-scrape.mjs` lands data
 
 ## Repository layout
 
 ```
-src/                 scraper + EV engine (Node/TypeScript)
+src/                 scraper CLI + EV engine (Node/TypeScript)
+src/sources/         one adapter per state + shared http/parse helpers
 data/                published JSON the PWA reads (committed by CI)
 web/                 the PWA (Vite + React)
 .github/workflows/   ci.yml (tests) + update.yml (scrape + deploy)
@@ -59,14 +67,16 @@ scrape site HTML  ->  parse prize tiers  ->  compute EV/ROI  ->  data/scratchers
 
 ```bash
 npm install
-npm test              # run EV math tests
-npm run scrape:nc     # scrape NC, write data/scratchers-nc.json, print top 5
-npm run scrape:va     # (not implemented yet)
+npm test               # EV math + parser fixture tests
+npm run scrape         # scrape every registered state ("all")
+npm run scrape:nc      # scrape one state (any key from src/sources/registry.ts)
+npm run scrape:va      # VA lite scrape (Playwright; currently blocked by the site)
 npm run typecheck
 ```
 
-Output is written to `data/scratchers-<state>.json`, games sorted by ROI
-(descending).
+Output is written to `data/scratchers-<state>.json` (games sorted by ROI,
+descending), `data/history-<state>.json` (daily time-series for full states),
+and `data/status.json` (per-run health report: ok/failed/stale per state).
 
 ## The EV estimate
 
