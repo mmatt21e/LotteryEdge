@@ -47,8 +47,15 @@ export function useScratchers(state: string) {
         ]);
         if (!dataRes.ok) throw new Error(`HTTP ${dataRes.status}`);
         const data = (await dataRes.json()) as AnyResult;
-        const history =
-          histRes && histRes.ok ? ((await histRes.json()) as History) : null;
+        // History is best-effort: lite states have none, and SPA-fallback hosts
+        // (e.g. vite preview) answer the missing file with index.html/200 —
+        // an unparseable history must never fail the state's main data.
+        const history = histRes && histRes.ok
+          ? await histRes
+              .json()
+              .then((h) => h as History)
+              .catch(() => null)
+          : null;
         setS({ data, history, loading: false, error: null });
       } catch (err) {
         setS((prev) => ({ ...prev, loading: false, error: (err as Error).message }));
