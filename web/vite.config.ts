@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
@@ -6,8 +7,15 @@ import { VitePWA } from "vite-plugin-pwa";
 // VITE_BASE=/LotteryEdge/. Locally it defaults to "/".
 const base = process.env.VITE_BASE || "/";
 
+// Surface the package version inside the app (footer + info sheet) so the
+// deployed build is identifiable — useful with the auto-updating service worker.
+const { version } = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url), "utf8"),
+) as { version: string };
+
 export default defineConfig({
   base,
+  define: { __APP_VERSION__: JSON.stringify(version) },
   plugins: [
     react(),
     VitePWA({

@@ -14,7 +14,10 @@ export function InfoSheet({ onClose }: { onClose: () => void }) {
   return (
     <Sheet label="How LotteryEdge works" onClose={onClose}>
         <div className="sheet-head">
-          <div className="sheet-title">How LotteryEdge works</div>
+          <div>
+            <div className="sheet-title">How LotteryEdge works</div>
+            <div className="sheet-sub">Version {__APP_VERSION__}</div>
+          </div>
           <button className="close" onClick={onClose} aria-label="Close">
             ✕
           </button>

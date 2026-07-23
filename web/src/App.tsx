@@ -33,6 +33,13 @@ export default function App() {
   // Favorites are namespaced per state so switching states shows that state's
   // own ★ list rather than bleeding NC's game ids into, say, Texas.
   const [favsByState, setFavsByState] = useLocalStorage<Record<string, string[]>>("favs", {});
+  // The combined view's quick-select state filter lives here (not inside the
+  // view) so the state-picker button can mirror it — the dropdown and the
+  // chips always tell the same story. Empty array = all states.
+  const [allStatesFilter, setAllStatesFilter] = useLocalStorage<string[]>(
+    "all-states-filter",
+    [],
+  );
   const favs = useMemo(() => favsByState[stateKey] ?? [], [favsByState, stateKey]);
   const favSet = useMemo(() => new Set(favs), [favs]);
   const toggleFav = (id: string) => toggleFavIn(stateKey, id);
@@ -120,11 +127,18 @@ export default function App() {
       {!online && <div className="offline-banner">Offline — showing the last saved data.</div>}
 
       <div className="meta">
-        <StatePicker value={stateKey} onChange={setStateKey} />
+        <StatePicker
+          value={stateKey}
+          onChange={setStateKey}
+          allFilter={isAll ? allStatesFilter : []}
+        />
         {isAll && all.generatedAt && (
           <span className="freshness" title={shortDateTime(all.generatedAt)}>
-            {all.games.length} games · {all.loaded.length} states · updated{" "}
-            {shortDateTime(all.generatedAt)} ({relativeTime(all.generatedAt)})
+            {all.games.length} games ·{" "}
+            {allStatesFilter.length > 0
+              ? `${allStatesFilter.length} of ${all.loaded.length} states shown`
+              : `${all.loaded.length} states`}{" "}
+            · updated {shortDateTime(all.generatedAt)} ({relativeTime(all.generatedAt)})
           </span>
         )}
         {!isAll && data && (
@@ -144,6 +158,8 @@ export default function App() {
       {isAll && (
         <AllStatesView
           all={all}
+          stateFilter={allStatesFilter}
+          onStateFilter={setAllStatesFilter}
           afterTax={afterTax}
           onAfterTax={setAfterTax}
           isFav={isFavGame}
@@ -216,6 +232,8 @@ export default function App() {
       )}
 
       {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
+
+      <footer className="version-line">LotteryEdge v{__APP_VERSION__}</footer>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { useAllScratchers } from "../useScratchers.js";
-import { useLocalStorage } from "../storage.js";
 import { stateName } from "../states.js";
 import type { Game } from "../types.js";
 import { effectiveRoi, endingSoon } from "../analytics.js";
@@ -20,6 +19,8 @@ const SORT_OPTIONS = [
 
 export function AllStatesView({
   all,
+  stateFilter,
+  onStateFilter,
   afterTax,
   onAfterTax,
   isFav,
@@ -27,6 +28,9 @@ export function AllStatesView({
   onSelect,
 }: {
   all: ReturnType<typeof useAllScratchers>;
+  /** Quick-select state filter — owned by App so the state picker mirrors it. */
+  stateFilter: string[];
+  onStateFilter: (update: (prev: string[]) => string[]) => void;
   afterTax: boolean;
   onAfterTax: (v: boolean) => void;
   isFav: (g: Game) => boolean;
@@ -36,9 +40,6 @@ export function AllStatesView({
   const [price, setPrice] = useState<number | "all">("all");
   const [sort, setSort] = useState<SortKey>("roi");
   const [query, setQuery] = useState("");
-  // Persisted so the combined view reopens with the last state selection
-  // (empty array = all states). Stored as an array since Sets aren't JSON.
-  const [stateFilter, setStateFilter] = useLocalStorage<string[]>("all-states-filter", []);
   const states = useMemo(() => new Set(stateFilter), [stateFilter]);
   const [topOnly, setTopOnly] = useState(false);
   const [favOnly, setFavOnly] = useState(false);
@@ -78,7 +79,7 @@ export function AllStatesView({
 
   const shown = filtered.slice(0, ALL_RENDER_CAP);
   const toggleState = (key: string) =>
-    setStateFilter((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
+    onStateFilter((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
 
   if (all.loading && all.games.length === 0)
     return <div className="status">Loading all states…</div>;
@@ -117,7 +118,7 @@ export function AllStatesView({
           keys: loadedStates,
           active: states,
           onToggle: toggleState,
-          onClear: () => setStateFilter([]),
+          onClear: () => onStateFilter(() => []),
         }}
         toggles={
           <>

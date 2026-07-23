@@ -2,6 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Sheet } from "./Sheet.js";
 import { STATES, UNAVAILABLE, ALL_KEY, stateName, type StateInfo } from "./states.js";
 
+/** "tx" -> "· TX", ["tx","ca"] -> "· TX, CA", more -> "· TX +2". */
+function filterSuffix(keys: string[]): string {
+  if (keys.length === 0) return "";
+  const up = keys.map((k) => k.toUpperCase());
+  return up.length <= 2 ? ` · ${up.join(", ")}` : ` · ${up[0]} +${up.length - 1}`;
+}
+
 /**
  * Searchable state picker. Opens a sheet with a filter box and two groups —
  * full EV states and lite (top-prize only) states — plus a greyed "not yet
@@ -10,9 +17,15 @@ import { STATES, UNAVAILABLE, ALL_KEY, stateName, type StateInfo } from "./state
 export function StatePicker({
   value,
   onChange,
+  allFilter = [],
 }: {
   value: string;
   onChange: (key: string) => void;
+  /**
+   * The combined view's quick-select state filter, so the button and the
+   * chips always agree ("All states · TX" while the TX chip is active).
+   */
+  allFilter?: string[];
 }) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
@@ -43,7 +56,10 @@ export function StatePicker({
   return (
     <>
       <button className="state-picker-btn" onClick={() => setOpen(true)} aria-label="Choose state">
-        <span className="state-picker-name">{stateName(value)}</span>
+        <span className="state-picker-name">
+          {stateName(value)}
+          {value === ALL_KEY ? filterSuffix(allFilter) : ""}
+        </span>
         <span className="state-picker-caret">▾</span>
       </button>
 
@@ -74,7 +90,14 @@ export function StatePicker({
                   >
                     <span className="picker-row-name">◎ All states combined</span>
                     {value === ALL_KEY ? (
-                      <span className="picker-row-check">✓</span>
+                      <>
+                        {allFilter.length > 0 && (
+                          <span className="picker-group-hint">
+                            filtered to {allFilter.map((k) => k.toUpperCase()).join(", ")}
+                          </span>
+                        )}
+                        <span className="picker-row-check">✓</span>
+                      </>
                     ) : (
                       <span className="picker-group-hint">every full-EV state, ranked together</span>
                     )}
