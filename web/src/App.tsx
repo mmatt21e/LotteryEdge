@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useScratchers, useAllScratchers } from "./useScratchers.js";
+import { Sheet } from "./Sheet.js";
 import { Sparkline } from "./Sparkline.js";
 import { buildDemoHistory, distinctDates } from "./demo.js";
 import { useLocalStorage, useLedger } from "./storage.js";
@@ -185,17 +186,7 @@ export default function App() {
 
       {!isAll && data && !limited && (
         <>
-          <div className="tabs" role="tablist">
-            <button className={`tab ${tab === "value" ? "tab-on" : ""}`} onClick={() => setTab("value")}>
-              Best value
-            </button>
-            <button className={`tab ${tab === "sellers" ? "tab-on" : ""}`} onClick={() => setTab("sellers")}>
-              Hot sellers
-            </button>
-            <button className={`tab ${tab === "me" ? "tab-on" : ""}`} onClick={() => setTab("me")}>
-              My tickets
-            </button>
-          </div>
+          <TabBar tab={tab} onTab={setTab} />
 
           {isDemo && tab !== "me" && (
             <div className="demo-banner">
@@ -244,6 +235,45 @@ export default function App() {
       )}
 
       {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
+    </div>
+  );
+}
+
+/* --------------------------------- Tabs ----------------------------------- */
+
+const TAB_ORDER: { key: Tab; label: string }[] = [
+  { key: "value", label: "Best value" },
+  { key: "sellers", label: "Hot sellers" },
+  { key: "me", label: "My tickets" },
+];
+
+function TabBar({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void }) {
+  // Roving tabindex: the active tab is the tab stop; arrows move + focus.
+  const refs = useRef<Partial<Record<Tab, HTMLButtonElement | null>>>({});
+  const onKey = (e: React.KeyboardEvent) => {
+    const dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+    if (!dir) return;
+    e.preventDefault();
+    const i = TAB_ORDER.findIndex((t) => t.key === tab);
+    const next = TAB_ORDER[(i + dir + TAB_ORDER.length) % TAB_ORDER.length]!.key;
+    onTab(next);
+    refs.current[next]?.focus();
+  };
+  return (
+    <div className="tabs" role="tablist" aria-label="Sections" onKeyDown={onKey}>
+      {TAB_ORDER.map(({ key, label }) => (
+        <button
+          key={key}
+          ref={(el) => (refs.current[key] = el)}
+          className={`tab ${tab === key ? "tab-on" : ""}`}
+          role="tab"
+          aria-selected={tab === key}
+          tabIndex={tab === key ? 0 : -1}
+          onClick={() => onTab(key)}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 }
@@ -389,17 +419,32 @@ function ValueTab({
   );
 }
 
+/**
+ * Value-quality band for a game's ROI (relative value, not profitability).
+ * Returns a theme-aware CSS variable so both themes stay readable.
+ */
 function roiColor(roi: number): string {
-  if (roi >= 0.9) return "#3ddc97";
-  if (roi >= 0.8) return "#a3d977";
-  if (roi >= 0.7) return "#f5c451";
-  return "#e08a5b";
+  if (roi >= 0.9) return "var(--good)";
+  if (roi >= 0.8) return "var(--ok)";
+  if (roi >= 0.7) return "var(--warn)";
+  return "var(--bad)";
 }
 
+/** Color for a signed dollar/cent figure: sign decides, never band quality. */
+const signColor = (n: number): string => (n >= 0 ? "var(--good)" : "var(--bad)");
+
+/** Enter/Space activation for clickable non-button elements (cards). */
+const pressKeys = (fn: () => void) => (e: React.KeyboardEvent) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    fn();
+  }
+};
+
 const CONF_COLOR: Record<ConfidenceLevel, string> = {
-  high: "#3ddc97",
-  medium: "#f5c451",
-  low: "#e08a5b",
+  high: "var(--good)",
+  medium: "var(--warn)",
+  low: "var(--bad)",
 };
 
 function GameCard({
@@ -432,7 +477,7 @@ function GameCard({
   const nets = (history?.series[game.gameId]?.points ?? []).map(pointNet);
 
   return (
-    <li className="card" onClick={onClick}>
+    <li className="card" role="button" tabIndex={0} onClick={onClick} onKeyDown={pressKeys(onClick)}>
       <div className="card-head">
         <span className="price-tag">${game.price}</span>
         {badge && <span className="state-badge">{badge}</span>}
@@ -467,7 +512,7 @@ function GameCard({
         <div className="roi-bar">
           <div className="roi-fill" style={{ width: `${width}%`, background: roiColor(roi) }} />
         </div>
-        <span className="per-dollar" style={{ color: roiColor(roi) }}>
+        <span className="per-dollar" style={{ color: signColor(netPerDollar(roi)) }}>
           {centsPerDollar(netPerDollar(roi))}
           <span className="per-dollar-unit"> / $1{afterTax ? " (net of tax)" : ""}</span>
         </span>
@@ -756,7 +801,10 @@ function SellersTab({
                 <li
                   key={id}
                   className="card seller"
+                  role="button"
+                  tabIndex={0}
                   onClick={() => g && onSelect(g)}
+                  onKeyDown={pressKeys(() => g && onSelect(g))}
                 >
                   <span className="rank">{i + 1}</span>
                   <div className="seller-main">
@@ -926,9 +974,7 @@ function Detail({
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
 
   return (
-    <div className="sheet-backdrop" onClick={onClose}>
-      <div className="sheet" onClick={(e) => e.stopPropagation()}>
-        <div className="sheet-grab" />
+    <Sheet label={game.name} onClose={onClose}>
         <div className="sheet-head">
           <div>
             <div className="sheet-title">{game.name}</div>
@@ -961,7 +1007,7 @@ function Detail({
 
         {afterTax && <div className="tax-note">Showing net after estimated federal + NC tax.</div>}
         <div className="kpis">
-          <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={roiColor(roi)} />
+          <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={signColor(net)} />
           <Kpi label="Return / $1" value={usd2(roi)} />
           <Kpi
             label="Odds to profit (now)"
@@ -1091,7 +1137,7 @@ function Detail({
 
         <p className="plain">
           For every <strong>$1</strong> spent, expect about <strong>{usd2(roi)}</strong> back — a
-          net of <strong style={{ color: roiColor(roi) }}>{centsPerDollar(net)}</strong> per dollar
+          net of <strong style={{ color: signColor(net) }}>{centsPerDollar(net)}</strong> per dollar
           {afterTax ? " (after tax)" : ""}.
           {(liveOdds ?? odds) && (
             <>
@@ -1108,7 +1154,7 @@ function Detail({
             <span className="proj-label">tickets to a top prize (avg)</span>
           </div>
           <div className="proj-item">
-            <span className="proj-val" style={{ color: roiColor(roi) }}>
+            <span className="proj-val" style={{ color: signColor(run100) }}>
               {run100 >= 0 ? "+" : "−"}${Math.abs(run100).toFixed(0)}
             </span>
             <span className="proj-label">
@@ -1141,7 +1187,7 @@ function Detail({
                   </span>
                 </div>
                 <div className="attempt-item">
-                  <span className="attempt-val" style={{ color: roiColor(roi) }}>
+                  <span className="attempt-val" style={{ color: signColor(attempt.net) }}>
                     {attempt.net >= 0 ? "+" : "−"}
                     {usdCompact(Math.abs(attempt.net))}
                   </span>
@@ -1212,7 +1258,7 @@ function Detail({
                 <Kpi
                   label="Net / $1"
                   value={centsPerDollar(netPerDollar(analysis.roi))}
-                  accent={roiColor(analysis.roi)}
+                  accent={signColor(netPerDollar(analysis.roi))}
                 />
               </div>
 
@@ -1318,8 +1364,7 @@ function Detail({
             </a>
           )}
         </div>
-      </div>
-    </div>
+    </Sheet>
   );
 }
 
@@ -1352,7 +1397,7 @@ function Simulator({ game }: { game: Game }) {
         <Kpi
           label="Net / $1"
           value={centsPerDollar(netPerDollar(sim.roi))}
-          accent={roiColor(sim.roi)}
+          accent={signColor(netPerDollar(sim.roi))}
           sub={dirty ? `was ${centsPerDollar(netPerDollar(base.roi))}` : undefined}
         />
         <Kpi
@@ -1473,7 +1518,8 @@ function Kpi({
   );
 }
 
-const dirColor = (d: -1 | 0 | 1) => (d > 0 ? "#3ddc97" : d < 0 ? "#e08a5b" : "#9aa4c2");
+const dirColor = (d: -1 | 0 | 1) =>
+  d > 0 ? "var(--good)" : d < 0 ? "var(--bad)" : "var(--flat)";
 const dirLabel = (d: -1 | 0 | 1) => (d > 0 ? "improving ↗" : d < 0 ? "declining ↘" : "flat →");
 
 function shareGame(game: Game, roi: number) {
@@ -1497,9 +1543,7 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="sheet-backdrop" onClick={onClose}>
-      <div className="sheet" onClick={(e) => e.stopPropagation()}>
-        <div className="sheet-grab" />
+    <Sheet label="How LotteryEdge works" onClose={onClose}>
         <div className="sheet-head">
           <div className="sheet-title">How LotteryEdge works</div>
           <button className="close" onClick={onClose} aria-label="Close">
@@ -1590,8 +1634,7 @@ function InfoSheet({ onClose }: { onClose: () => void }) {
             <a href="tel:18004262537">1-800-GAMBLER</a> (free, confidential, 24/7).
           </div>
         </div>
-      </div>
-    </div>
+    </Sheet>
   );
 }
 
@@ -1610,9 +1653,7 @@ function BudgetSheet({
     [games, budget, afterTax],
   );
   return (
-    <div className="sheet-backdrop" onClick={onClose}>
-      <div className="sheet" onClick={(e) => e.stopPropagation()}>
-        <div className="sheet-grab" />
+    <Sheet label="Budget helper" onClose={onClose}>
         <div className="sheet-head">
           <div className="sheet-title">Budget helper</div>
           <button className="close" onClick={onClose} aria-label="Close">
@@ -1646,7 +1687,7 @@ function BudgetSheet({
                 <span className="sold">
                   {count} ticket{count > 1 ? "s" : ""} (${spend})
                 </span>
-                <span style={{ color: roiColor(roi) }}>
+                <span style={{ color: signColor(expectedNet) }}>
                   expected {expectedNet >= 0 ? "+" : "−"}${Math.abs(expectedNet).toFixed(2)}
                 </span>
                 <span>{pct(roi, 0)} return</span>
@@ -1658,8 +1699,7 @@ function BudgetSheet({
           “Expected” is an average over the game’s remaining tickets — any single purchase varies
           wildly. Almost every option loses money on average.
         </p>
-      </div>
-    </div>
+    </Sheet>
   );
 }
 
@@ -1702,8 +1742,8 @@ function MeTab({
         <Kpi label="Won" value={usd2(totals.won)} />
         <Kpi
           label="Net"
-          value={`${totals.net >= 0 ? "+" : "−"}${usd2(Math.abs(totals.net)).replace("$", "$")}`}
-          accent={totals.net >= 0 ? "#3ddc97" : "#e08a5b"}
+          value={`${totals.net >= 0 ? "+" : "−"}${usd2(Math.abs(totals.net))}`}
+          accent={signColor(totals.net)}
         />
       </div>
 
@@ -1751,7 +1791,7 @@ function MeTab({
                   <span>spent ${e.spent}</span>
                   <span>won ${e.won}</span>
                   <span
-                    style={{ color: e.won - e.spent >= 0 ? "#3ddc97" : "#e08a5b", fontWeight: 700 }}
+                    style={{ color: signColor(e.won - e.spent), fontWeight: 700 }}
                   >
                     {e.won - e.spent >= 0 ? "+" : "−"}${Math.abs(e.won - e.spent)}
                   </span>

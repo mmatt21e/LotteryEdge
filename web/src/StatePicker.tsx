@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Sheet } from "./Sheet.js";
 import { STATES, UNAVAILABLE, ALL_KEY, stateName, type StateInfo } from "./states.js";
 
 /**
@@ -47,9 +48,7 @@ export function StatePicker({
       </button>
 
       {open && (
-        <div className="sheet-backdrop" onClick={() => setOpen(false)}>
-          <div className="sheet picker-sheet" onClick={(e) => e.stopPropagation()}>
-            <div className="sheet-grab" />
+        <Sheet label="Choose a state" className="picker-sheet" onClose={() => setOpen(false)}>
             <div className="sheet-head">
               <div className="sheet-title">Choose a state</div>
               <button className="close" onClick={() => setOpen(false)} aria-label="Close">
@@ -108,8 +107,7 @@ export function StatePicker({
               )}
               {nothing && <div className="status">No states match “{q}”.</div>}
             </div>
-          </div>
-        </div>
+        </Sheet>
       )}
     </>
   );
