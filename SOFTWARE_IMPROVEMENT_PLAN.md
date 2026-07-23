@@ -7,6 +7,56 @@ referenced files, and implement the approved tasks without any other context.
 
 ---
 
+## 0. Implementation Status (updated 2026-07-23, same session)
+
+The user selected **Option A — implement all recommended improvements**. All seven
+batches are implemented, validated, and pushed to `claude/document-instructions-5inn5q`
+(one commit per batch; the batch number is in each commit subject).
+
+| Task | Status | Notes |
+|---|---|---|
+| T-01 wrong-state data | ✅ done | Verified via Playwright: blocked fetch shows the error state, zero stale cards |
+| T-02 push-failure fix | ✅ done | Retry loop now exits 1 after 3 failed attempts |
+| T-03 main() catch | ✅ done | |
+| T-04 fetch timeouts | ✅ done | `AbortSignal.timeout(30_000)` in oh/ok/fl/mi + `timeout-minutes: 45` on the update job |
+| T-05 Virginia honesty | ✅ done | VA delisted to "Not yet available"; CI step warns visibly; persisted `va` key falls back to NC |
+| T-06 accidental commits | ✅ done | `game.html`, `_s.mjs` removed; `.gitignore` hardened |
+| T-07 per-state snapshots | ✅ done | `seen-<state>` keys, managed directly (useLocalStorage can't follow a changing key) |
+| T-08 honest taxes | ✅ done | Option (b): `STATE_TAX` table in states.ts; copy state-neutral; TX/NC unit tests |
+| T-09 semantic colors | ✅ done | `--good/--ok/--warn/--bad/--flat` per theme; Sparkline moved SVG color to style props (var() doesn't resolve in presentation attributes) |
+| T-10 accessibility | ✅ done | Shared `Sheet` (dialog/Escape/focus-restore), keyboard cards, real tablist with roving tabindex, `:focus-visible` ring |
+| T-11 shared helpers | ✅ done | **Deviation:** helpers went into the existing `http.ts` (UA, fetchJson, mapPool) + new `parse.ts` — no separate `net.ts` |
+| T-12 dead code | ✅ done | Decision D1 taken as recommended: `in.ts` deleted; va.ts findings preserved in `scripts/va-scrape.mjs` header |
+| T-13 degradation reporting | ✅ done | Run summary table, `staleRuns` carried through status.json, `::warning::` annotations; MA odds-feed failure now fails the state |
+| T-14 confidence ranking | ✅ done | Decision D3 option (a); "low" demotes, medium ranks with high; all-states banner reports missing states |
+| T-15 parser fixtures | ✅ done | Trimmed live fixtures (NC HTML, MA/CA JSON, MI GraphQL); tests in `src/sources/parsers.test.ts` |
+| T-16 web unit tests | ✅ done | vitest in web/ (28 tests: analytics, format, taxes); wired into ci.yml |
+| T-17 App.tsx split | ✅ done | 1,845 → 221 lines; components/, views/, sheets/ + FilterControls; runtime-verified pixel-identical |
+| T-18 docs refresh | ✅ done | README/package.json updated; PLAN.md and MULTI-STATE-PLAN.md marked historical |
+| T-19 ledger IDs | ✅ done | `crypto.randomUUID()` |
+| T-20 CI caching | ✅ done | Both lockfiles cached; Playwright browser cache in update.yml |
+| CODE-004 / REL-004 | ✅ no change needed | On inspection, oh/nh/or/ky constants were already documented in place |
+
+**Deviations from the plan:**
+1. Batch order: Batch 7's docs/CI commit landed before Batch 6 (the split ran in
+   parallel; committing finished work first kept the repo's stop-hook satisfied).
+   No dependency was violated.
+2. T-11 module naming: `net.ts` became extensions to the existing `http.ts` (reuse
+   over new files).
+3. One extra fix found during Batch 6 runtime verification: `useScratchers` treated
+   an unparseable *optional* history file as fatal for the whole state load
+   (SPA-fallback hosts answer the missing file with index.html/200). History is now
+   best-effort — a parse failure never blocks the state's data.
+
+**Final validation (after Batches 6/7):** root `tsc --noEmit` clean; root vitest
+50/50; web vitest 28/28; `vite build` + PWA generation green; Playwright runtime
+sweep of all tabs, sheets, lite view, all-states view, both themes, and the keyboard
+flow — zero console/page errors. §14 definition-of-done items are met; §13 items
+11–14 (offline/install behavior, live scrape, workflow behavior on GitHub) should be
+spot-checked in production on the next scheduled Actions run.
+
+---
+
 ## 1. Executive Summary
 
 **Overall project condition: good.** LotteryEdge is a working, two-part system — a
