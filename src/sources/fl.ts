@@ -1,4 +1,6 @@
 import type { RawGame, PrizeTier } from "../types.js";
+import { leadingNum } from "./parse.js";
+import { UA } from "./http.js";
 
 /**
  * Florida scratch-off "remaining prizes" adapter.
@@ -37,12 +39,7 @@ interface FlGame {
 }
 
 /** Parse "$5,000,000.00" / "20" / "  2 of 4 " -> leading numeric value, else NaN. */
-function num(s: unknown): number {
-  const cleaned = String(s ?? "").replace(/[^0-9.]/g, "");
-  if (cleaned === "") return NaN;
-  const v = Number(cleaned);
-  return Number.isFinite(v) ? v : NaN;
-}
+const num = leadingNum;
 
 /** Parse "1-in-3000000" / "1-in-3,000" -> 3000000, empty "1-in-" -> undefined. */
 function parseOdds(s: unknown): number | undefined {
@@ -112,7 +109,7 @@ export async function scrapeFl(): Promise<{ source: string; games: RawGame[] }> 
     headers: {
       // The APIM gateway requires the partner header the site's widget sends.
       "x-partner": "web",
-      "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
+      "User-Agent": UA,
       Accept: "application/json",
       Origin: "https://floridalottery.com",
       Referer: "https://floridalottery.com/games/scratch-offs/top-remaining-prizes",

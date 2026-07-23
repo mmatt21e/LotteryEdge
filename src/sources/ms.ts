@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { fetchText } from "./http.js";
+import { fetchText, mapPool } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 const HUB_URL = "https://www.mslottery.com/gamestatus/active/";
@@ -94,37 +94,35 @@ export function parseMsGame(html: string, url: string): RawGame | null {
   });
   if (tiers.length === 0) return null;
 
+  // A game without a readable price can't be ranked — drop it rather than
+  // publish price:null (which would flow to a silent roi 0).
+  if (!Number.isFinite(price) || price <= 0) return null;
+
   return {
     state: "ms",
     gameId,
     name,
-    price: Number.isFinite(price) ? price : NaN,
+    price,
     url,
     tiers,
     overallOdds,
   };
 }
 
-/** Fetch detail pages with bounded concurrency. */
+/** Fetch detail pages with bounded concurrency; failures are counted, not hidden. */
 async function fetchGames(urls: string[]): Promise<RawGame[]> {
-  const out: RawGame[] = [];
-  const CONCURRENCY = 8;
-  let idx = 0;
-  async function worker() {
-    while (idx < urls.length) {
-      const i = idx++;
-      const u = urls[i]!;
-      try {
-        const html = await fetchText(u);
-        const g = parseMsGame(html, u);
-        if (g) out.push(g);
-      } catch {
-        // Skip a game whose page failed to load; keep scraping the rest.
-      }
+  let failed = 0;
+  const results = await mapPool(urls, 8, async (u): Promise<RawGame | null> => {
+    try {
+      const html = await fetchText(u);
+      return parseMsGame(html, u);
+    } catch {
+      failed++;
+      return null;
     }
-  }
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, urls.length) }, worker));
-  return out;
+  });
+  if (failed > 0) console.warn(`[ms] ${failed}/${urls.length} game pages failed or were skipped`);
+  return results.filter((g): g is RawGame => g !== null);
 }
 
 /** Fetch and parse live Mississippi scratch-off data. */

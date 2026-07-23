@@ -3,6 +3,21 @@
 // prizes-remaining data, so this captures only what's public — name, price,
 // top prize, and the "closing soon" flag — and writes a clearly-limited data
 // file the PWA renders without EV. Runs in CI (open internet, Playwright).
+//
+// WHY VA IS LITE (findings from seven discovery passes, 2026; the discovery
+// harness itself has been deleted — see git history for scripts/va-discovery.mjs):
+//   ✅ Game list: POST https://www.valottery.com/api/v1/scratchers
+//        (form-encoded; needs the site session cookie — GET/plain fetch 302s;
+//         must run via Playwright with the page's own jQuery/session)
+//        → per game: { Title, GameID, TicketPrice, TopPrize, IsClosingSoon }
+//   ❌ Per-tier prizes remaining + odds + totals (needed for EV):
+//        - not in the list response; not server-rendered on /scratchers/{id}
+//        - /api/v1/prizesandodds is for DRAW games only
+//        - /api/v1/scratchers/{id} and .../prizesremaining exist but are gated
+//          (500 to anonymous); their data/params were not obtainable
+// Consequence: the EV engine cannot run for VA with public data — lite only.
+// NOTE: this script currently fails in CI (bot detection); the app lists VA
+// under "Not yet available" until data/scratchers-va.json actually lands.
 import { chromium } from "playwright";
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";

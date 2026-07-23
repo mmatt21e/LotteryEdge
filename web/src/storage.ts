@@ -22,6 +22,11 @@ export function useLocalStorage<T>(key: string, initial: T) {
   return [value, setValue] as const;
 }
 
+const newId = (): string =>
+  typeof crypto !== "undefined" && "randomUUID" in crypto
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
 export interface LedgerEntry {
   id: string;
   date: string; // YYYY-MM-DD
@@ -39,8 +44,9 @@ export function useLedger(stateKey: string) {
     [setByState, stateKey],
   );
   const add = useCallback(
-    (e: Omit<LedgerEntry, "id">) =>
-      setEntries((prev) => [{ ...e, id: `${e.date}-${prev.length}-${e.gameName}` }, ...prev]),
+    // Unique id per entry: the old date-length-name scheme could collide after
+    // a delete, making remove() take out two rows at once.
+    (e: Omit<LedgerEntry, "id">) => setEntries((prev) => [{ ...e, id: newId() }, ...prev]),
     [setEntries],
   );
   const remove = useCallback(

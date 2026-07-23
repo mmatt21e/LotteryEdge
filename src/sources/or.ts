@@ -1,3 +1,5 @@
+import { fetchJson } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 /**
@@ -83,11 +85,6 @@ export function unscramble(encoded: string, chunkSize = 4, shift = 3): string {
   return chunks.join("");
 }
 
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
-}
-
 /** True if the game is currently for sale (started, not yet ended). */
 function isActive(g: OlInstantGame, now: number): boolean {
   if (!g.GameNameTitle) return false;
@@ -122,12 +119,7 @@ function toLiteGame(g: OlInstantGame): LiteGame {
 async function fetchAllGames(): Promise<OlInstantGame[]> {
   const clientId = unscramble(SCRAMBLED_CLIENT);
   const clientSecret = unscramble(SCRAMBLED_SECRET);
-  const headers = {
-    client_id: clientId,
-    client_secret: clientSecret,
-    Accept: "application/json",
-    "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-  };
+  const headers = { client_id: clientId, client_secret: clientSecret };
 
   const all: OlInstantGame[] = [];
   let offset = 0;
@@ -135,16 +127,7 @@ async function fetchAllGames(): Promise<OlInstantGame[]> {
   // Bounded loop: the full catalog is a few hundred games.
   for (let page = 0; page < 50; page++) {
     const url = `${API_BASE}?offset=${offset}&count=${count}&includePrizeTiers=false`;
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 30_000);
-    let data: OlListResponse;
-    try {
-      const res = await fetch(url, { headers, signal: controller.signal });
-      if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-      data = (await res.json()) as OlListResponse;
-    } finally {
-      clearTimeout(timer);
-    }
+    const data = await fetchJson<OlListResponse>(url, { headers });
     const games = data.InstantGames ?? [];
     all.push(...games);
     if (!data.NextPageUrl || games.length === 0) break;

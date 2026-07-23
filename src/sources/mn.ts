@@ -1,3 +1,5 @@
+import { fetchJson } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 /**
@@ -44,11 +46,6 @@ interface MnPublishedGamesResponse {
   totalElements: number;
 }
 
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
-}
-
 /** Convert one API game record into a LiteGame. */
 export function toLiteGame(g: MnPublishedGame): LiteGame {
   const topPrizeValue =
@@ -73,22 +70,7 @@ export async function scrapeMn(): Promise<{ source: string; games: LiteGame[] }>
     `${API_BASE}?gameTypeId.in=${INSTANT_GAME_TYPE_ID}` +
     `&excludeFeatured=false&page=0&size=500`;
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 30_000);
-  let data: MnPublishedGamesResponse;
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: "application/json",
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    data = (await res.json()) as MnPublishedGamesResponse;
-  } finally {
-    clearTimeout(timer);
-  }
+  const data = await fetchJson<MnPublishedGamesResponse>(url);
 
   const content = data.content ?? [];
   const games = content

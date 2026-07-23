@@ -1,3 +1,4 @@
+import { fetchJson } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 /**
@@ -47,29 +48,6 @@ interface NhPrize {
   prizeAmountInDollars?: number;
   startingCount?: number;
   remainingCount?: number;
-}
-
-async function fetchJson<T>(
-  url: string,
-  headers: Record<string, string> = {},
-  timeoutMs = 30_000,
-): Promise<T> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-        Accept: "application/json",
-        ...headers,
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    return (await res.json()) as T;
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 export function parseNh(
@@ -137,7 +115,7 @@ export async function scrapeNh(): Promise<{ source: string; games: RawGame[] }> 
   const [catalog, prizes] = await Promise.all([
     fetchJson<{ data?: { games?: NhCatalogGame[] } }>(CATALOG_URL),
     fetchJson<{ prizesRemaining?: NhPrize[] }>(PRIZES_URL, {
-      "X-API-Key": GAME_DATA_API_KEY,
+      headers: { "X-API-Key": GAME_DATA_API_KEY },
     }),
   ]);
   const games = parseNh(catalog, prizes);

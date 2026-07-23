@@ -1,4 +1,5 @@
 import { fetchText } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 const API_BASE = "https://www.galottery.com/api/v1/instant-games/games/page";
@@ -44,11 +45,6 @@ const PAGE_SIZE = 100;
 const MAX_PAGES = 20; // safety cap
 /** Flag a game as closing soon when it disables within this window. */
 const CLOSING_SOON_MS = 30 * 24 * 60 * 60 * 1000;
-
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
-}
 
 export function toLiteGames(all: GaGame[], now: number): LiteGame[] {
   const games: LiteGame[] = [];

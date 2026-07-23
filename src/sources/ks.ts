@@ -1,4 +1,5 @@
 import { fetchText } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 /**
@@ -34,11 +35,6 @@ interface KsGame {
   ticketPrice?: number;
   topPrize?: number;
   endDate?: string | null;
-}
-
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
 }
 
 /**

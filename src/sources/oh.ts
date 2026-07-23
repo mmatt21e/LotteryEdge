@@ -1,4 +1,5 @@
 import type { RawGame, PrizeTier } from "../types.js";
+import { UA } from "./http.js";
 
 /**
  * Ohio Lottery "Prizes Remaining" (https://www.ohiolottery.com/games/scratch-offs/prizes-remaining)
@@ -25,7 +26,6 @@ const PAGE_URL = "https://www.ohiolottery.com/games/scratch-offs/prizes-remainin
 const PUBLIC_USER = "mobilepublic@mtllc.com";
 const PUBLIC_PASS = "R7V5Sz8@";
 
-const UA = "LotteryEdge/0.1 (personal scratch-off EV tool)";
 
 interface OhPrizeRow {
   prizeValue: number;

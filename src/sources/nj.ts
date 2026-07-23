@@ -1,3 +1,5 @@
+import { fetchJson } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 const API_URL = "https://www.njlottery.com/api/v1/instant-games/games?size=1000";
@@ -43,36 +45,9 @@ const YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 /** Flag a game as closing soon when it enters the "ended" window within this span. */
 const CLOSING_SOON_MS = 30 * 24 * 60 * 60 * 1000;
 
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
-}
-
 /** Zero-pad a game number to 5 digits, matching the NJ site display. */
 function padZeros(id: string): string {
   return id.length < 5 ? id.padStart(5, "0") : id;
-}
-
-/**
- * Polite JSON fetch. NJ's API returns 406 for the `Accept: text/html` header
- * that the shared fetchText helper sends, so this adapter asks for JSON.
- */
-async function fetchJson(url: string, timeoutMs = 30_000): Promise<unknown> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-        Accept: "application/json",
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 export function toLiteGames(all: NjGame[], now: number): LiteGame[] {
@@ -108,7 +83,9 @@ export function toLiteGames(all: NjGame[], now: number): LiteGame[] {
 
 /** Fetch and parse live NJ scratch-off data (LITE: top prize + closing-soon). */
 export async function scrapeNj(): Promise<{ source: string; games: LiteGame[] }> {
-  const data = (await fetchJson(API_URL)) as NjResponse;
+  // NJ's API returns 406 for the `Accept: text/html` header that the shared
+  // fetchText helper sends, so this adapter asks for JSON.
+  const data = await fetchJson<NjResponse>(API_URL);
   const games = toLiteGames(data.games ?? [], Date.now());
   if (games.length === 0) {
     throw new Error(

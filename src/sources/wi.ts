@@ -1,5 +1,6 @@
 import * as cheerio from "cheerio";
 import { fetchText } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 const LIST_URL = "https://wilottery.com/games/instant-games/scratch-games";
@@ -32,11 +33,6 @@ const LIST_URL = "https://wilottery.com/games/instant-games/scratch-games";
 const DAY = 86_400;
 const NEW_WINDOW = 14 * DAY;
 const HIST_WINDOW = 180 * DAY; // 15552000, matching the site's 15552e3.
-
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
-}
 
 export function parseWi(html: string, nowSec: number = Math.floor(Date.now() / 1000)): LiteGame[] {
   const $ = cheerio.load(html);

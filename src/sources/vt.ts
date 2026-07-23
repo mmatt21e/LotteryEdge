@@ -1,5 +1,6 @@
 import * as cheerio from "cheerio";
 import { fetchText } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 const PRIZES_URL = "https://vtlottery.com/games/instant-tickets/outstanding-prizes";
@@ -42,11 +43,6 @@ function lines(html: string | null): string[] {
     .split("\n")
     .map((x) => x.trim())
     .filter((x) => x.length > 0);
-}
-
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
 }
 
 /** A game is "closing soon" when it is ≥85% sold or its top prizes are all gone. */

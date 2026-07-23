@@ -186,6 +186,34 @@ async function main() {
       (stale.length ? ` · no changes (stale source?): ${stale.join(", ")}` : ""),
   );
 
+  // Per-run summary table so degradation is readable at a glance in the log.
+  console.log("\nstate | ok | games | changed");
+  for (const s of [...statuses].sort((a, b) => a.state.localeCompare(b.state))) {
+    console.log(
+      `${s.state.padEnd(5)} | ${s.ok ? "ok" : "FAIL"} | ${String(s.gameCount).padStart(5)} | ${
+        s.kind === "full" ? String(s.changed ?? "-").padStart(7) : "   lite"
+      }`,
+    );
+  }
+
+  // Count consecutive no-change runs per state (carried through status.json)
+  // so a source that quietly stopped updating becomes visible, not folklore.
+  const statusPath = resolve(DATA_DIR, "status.json");
+  const prevReport = await loadJson<{ staleRuns?: Record<string, number> }>(statusPath);
+  const staleRuns: Record<string, number> = {};
+  for (const st of stale) staleRuns[st] = (prevReport?.staleRuns?.[st] ?? 0) + 1;
+
+  // Surface problems as GitHub Actions annotations when running in CI.
+  if (process.env.GITHUB_ACTIONS) {
+    for (const f of failed)
+      console.log(`::warning::${f.toUpperCase()} scrape failed — serving last-good data`);
+    for (const [st, runs] of Object.entries(staleRuns))
+      if (runs >= 3)
+        console.log(
+          `::warning::${st.toUpperCase()} data unchanged for ${runs} runs — source may have stopped updating`,
+        );
+  }
+
   // Write a machine-readable health report the app (or a human) can inspect.
   if (arg === "all") {
     const report = {
@@ -194,9 +222,10 @@ async function main() {
       total,
       failed,
       stale,
+      staleRuns,
       states: statuses.sort((a, b) => a.state.localeCompare(b.state)),
     };
-    await writeFile(resolve(DATA_DIR, "status.json"), JSON.stringify(report, null, 2) + "\n");
+    await writeFile(statusPath, JSON.stringify(report, null, 2) + "\n");
   }
 
   // Only fail the job on a systemic outage (nothing worked, or too many did
