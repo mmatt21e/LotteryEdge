@@ -27,6 +27,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Backstop: every adapter fetch has a 30s abort, so a healthy full run takes
+    # minutes. Never let a pathological hang burn the 6-hour Actions limit.
+    timeout-minutes: 45
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -53,7 +56,8 @@ jobs:
         continue-on-error: true
 
       - name: Scrape Virginia (lite)
-        run: node scripts/va-scrape.mjs
+        # Non-blocking, but never silent: surface the failure as a job warning.
+        run: node scripts/va-scrape.mjs || { echo "::warning::VA scrape failed — no data/scratchers-va.json published this run"; exit 1; }
         continue-on-error: true
 
       - name: Commit refreshed data
@@ -67,11 +71,15 @@ jobs:
             git commit -m "chore: refresh scratch-off data"
             # Rebase onto anything pushed while we were scraping (manual
             # re-triggers or an overlapping run) so the push can't be rejected.
+            # If every attempt fails, fail the job — deploying a PWA whose data
+            # commit never landed would silently serve stale data.
+            ok=0
             for i in 1 2 3; do
-              git pull --rebase origin "$GITHUB_REF_NAME" && git push && break
+              git pull --rebase origin "$GITHUB_REF_NAME" && git push && { ok=1; break; }
               echo "push attempt $i failed; retrying in 5s"
               sleep 5
             done
+            [ "$ok" = "1" ] || { echo "::error::git push failed after 3 attempts"; exit 1; }
           fi
 
       # --- Build PWA ---

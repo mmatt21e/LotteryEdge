@@ -6,7 +6,7 @@ import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges, type GameChange } from "./changes.js";
 import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
 import { StatePicker } from "./StatePicker.js";
-import { stateName, ALL_KEY, retailerUrl } from "./states.js";
+import { stateName, ALL_KEY, retailerUrl, isKnownState } from "./states.js";
 import type { Game, History, LiteResult, LiteGame } from "./types.js";
 import { isLimited } from "./types.js";
 import { usd, usd2, usdCompact, pct, int, compact, relativeTime, shortDateTime, shortDay, netPerDollar, centsPerDollar } from "./format.js";
@@ -37,7 +37,10 @@ type SortKey = "roi" | "topPrize" | "topLeft" | "unsold" | "price";
 type Tab = "value" | "sellers" | "me";
 
 export default function App() {
-  const [stateKey, setStateKey] = useLocalStorage<string>("state", "nc");
+  const [storedState, setStateKey] = useLocalStorage<string>("state", "nc");
+  // A persisted key can outlive the catalog (e.g. VA was delisted until its
+  // scraper works) — fall back rather than dead-end on a state with no data.
+  const stateKey = isKnownState(storedState) ? storedState : "nc";
   const isAll = stateKey === ALL_KEY;
   const { data, history, loading, error, refresh } = useScratchers(stateKey);
   const all = useAllScratchers();
@@ -173,6 +176,9 @@ export default function App() {
           No data yet for {stateKey.toUpperCase()} ({error}). It appears once the scraper has
           published it.
         </div>
+      )}
+      {!isAll && error && data && (
+        <div className="status">Refresh failed ({error}) — showing the last loaded data.</div>
       )}
 
       {!isAll && data && limited && <LiteView data={data as LiteResult} />}

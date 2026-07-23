@@ -2,6 +2,9 @@ node_modules/
 dist/
 *.log
 scratch-*.html
+# Saved copies of scraped pages (debug fixtures live in src/sources/__fixtures__)
+game.html
+*.snapshot.html
 .DS_Store
 
 # Local assistant tooling / scratch files (never commit)
@@ -15,4 +18,4 @@ AGENTS.md
 *Claude*
 *codex*
 *Codex*
-_shot*.mjs
+_s*.mjs

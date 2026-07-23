@@ -211,4 +211,9 @@ async function main() {
   }
 }
 
-main();
+// Failures outside scrapeOne's try/catch (mkdir, status.json write) must still
+// exit non-zero cleanly instead of dying as an unhandled rejection.
+main().catch((err) => {
+  console.error(err);
+  process.exitCode = 1;
+});

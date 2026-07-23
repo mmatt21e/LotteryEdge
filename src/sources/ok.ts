@@ -74,6 +74,7 @@ export async function scrapeOk(): Promise<{ source: string; games: RawGame[] }> 
       "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
       Accept: "application/json,text/plain,*/*",
     },
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`GET ${API_URL} -> ${res.status} ${res.statusText}`);
   const games = parseOk(await res.text());

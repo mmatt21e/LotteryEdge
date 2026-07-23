@@ -99,6 +99,7 @@ async function gql<T>(query: string): Promise<T> {
       Accept: "application/json",
     },
     body: JSON.stringify({ query }),
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`POST ${API_URL} -> ${res.status} ${res.statusText}`);
   const json = (await res.json()) as { data?: T; errors?: unknown };

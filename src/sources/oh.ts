@@ -54,6 +54,7 @@ async function getToken(): Promise<string> {
     method: "POST",
     headers: { "Content-Type": "application/json-patch+json", "User-Agent": UA },
     body: JSON.stringify({ userName: PUBLIC_USER, password: PUBLIC_PASS }),
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`OH auth -> ${res.status} ${res.statusText}`);
   const body = (await res.json()) as { data?: { token?: string } };
@@ -65,6 +66,7 @@ async function getToken(): Promise<string> {
 async function getJson<T>(url: string, token: string): Promise<T> {
   const res = await fetch(url, {
     headers: { Authorization: `Bearer ${token}`, "User-Agent": UA, Accept: "application/json" },
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
   const body = (await res.json()) as { data?: T };

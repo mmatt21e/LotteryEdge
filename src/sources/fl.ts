@@ -117,6 +117,7 @@ export async function scrapeFl(): Promise<{ source: string; games: RawGame[] }> 
       Origin: "https://floridalottery.com",
       Referer: "https://floridalottery.com/games/scratch-offs/top-remaining-prizes",
     },
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`GET ${API_URL} -> ${res.status} ${res.statusText}`);
   const data = await res.json();

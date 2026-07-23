@@ -54,7 +54,6 @@ export const STATES: StateInfo[] = [
   { key: "sd", name: "South Dakota", tier: "lite" },
   { key: "tx", name: "Texas", tier: "full" },
   { key: "vt", name: "Vermont", tier: "lite" },
-  { key: "va", name: "Virginia", tier: "lite" },
   { key: "wa", name: "Washington", tier: "full" },
   { key: "dc", name: "Washington DC", tier: "lite" },
   { key: "wv", name: "West Virginia", tier: "full" },
@@ -66,6 +65,11 @@ export const STATES: StateInfo[] = [
  * in the picker so its absence reads as "known & explained", not "forgotten".
  */
 export const UNAVAILABLE: UnavailableState[] = [
+  // VA's scrape needs a headless browser and is currently blocked by the site's
+  // bot detection — no data file has ever been published. Listed here (instead
+  // of as a selectable lite state) until data actually exists; move it back to
+  // STATES when scripts/va-scrape.mjs starts landing scratchers-va.json.
+  { name: "Virginia", reason: "Site blocks automated access — no data yet." },
   { name: "New York", reason: "Doesn't publish per-ticket prices in its open data." },
   { name: "Illinois", reason: "Site needs a real browser we can't automate reliably." },
   { name: "Tennessee", reason: "Site disallows automated access — respecting robots.txt." },
@@ -126,6 +130,10 @@ export const retailerUrl = (key: string): string | undefined => RETAILERS[key];
 
 /** Sentinel key for the merged cross-state view. */
 export const ALL_KEY = "all";
+
+/** True for keys the app can actually show (catalog states + the merged view). */
+export const isKnownState = (key: string): boolean =>
+  key === ALL_KEY || STATES.some((s) => s.key === key);
 
 export const stateName = (key: string): string =>
   key === ALL_KEY ? "All states" : (STATES.find((s) => s.key === key)?.name ?? key.toUpperCase());

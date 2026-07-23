@@ -32,7 +32,12 @@ export function useScratchers(state: string) {
         setS({ data: null, history: null, loading: false, error: null });
         return;
       }
-      setS((prev) => ({ ...prev, loading: true, error: null }));
+      // Initial load for a (possibly new) state: clear whatever is on screen so
+      // a failed fetch can NEVER leave another state's games showing under this
+      // state's name. Manual refresh (bust != 0) is the one case where keeping
+      // the current data on failure is right — it's the same state's data.
+      if (bust === 0) setS({ data: null, history: null, loading: true, error: null });
+      else setS((prev) => ({ ...prev, loading: true, error: null }));
       try {
         const opts: RequestInit = { cache: bust ? "reload" : "default" };
         const [dataRes, histRes] = await Promise.all([
