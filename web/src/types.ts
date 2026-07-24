@@ -87,3 +87,27 @@ export interface LiteResult {
 
 export type AnyResult = ScrapeResult | LiteResult;
 export const isLimited = (r: AnyResult | null): r is LiteResult => !!r && (r as LiteResult).limited === true;
+
+/**
+ * One publicly posted winner (mirrors the scraper's WinnerRecord). Posted
+ * winners are a VISIBILITY signal — which retailers sell lots of winning
+ * tickets — not a statement of odds; many states only post larger claims.
+ */
+export interface WinnerRecord {
+  game: string;
+  gameId?: string;
+  prize: number;
+  retailer: string;
+  city?: string;
+  player?: string;
+  date?: string; // YYYY-MM-DD
+  scratch?: boolean;
+}
+
+export interface WinnersResult {
+  generatedAt: string;
+  state: string;
+  source: string;
+  count: number;
+  winners: WinnerRecord[];
+}

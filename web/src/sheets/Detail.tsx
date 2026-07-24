@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import { Sheet } from "../Sheet.js";
 import { Sparkline } from "../Sparkline.js";
 import { stateName, retailerUrl } from "../states.js";
+import { useWinners } from "../useWinners.js";
+import { winnersForGame } from "../retailers.js";
 import type { Game, History } from "../types.js";
 import { usd, usd2, usdCompact, pct, int, compact, shortDay, netPerDollar, centsPerDollar } from "../format.js";
 import {
@@ -69,6 +71,13 @@ export function Detail({
   const [showSim, setShowSim] = useState(false);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
+  // Posted winners for this game's state (null when the state has no feed),
+  // fetched here so the section also works from the all-states view.
+  const stateWinners = useWinners(game.state);
+  const gameWinners = useMemo(
+    () => winnersForGame(stateWinners?.winners ?? [], game.name),
+    [stateWinners, game.name],
+  );
 
   return (
     <Sheet label={game.name} onClose={onClose}>
@@ -450,6 +459,36 @@ export function Detail({
             })}
           </tbody>
         </table>
+
+        {gameWinners.length > 0 && (
+          <>
+            <div className="tiers-head">
+              <span>Winners posted online — where they bought</span>
+              <span className="tiers-sub">
+                Only wins the lottery posted publicly. A store that shows up often likely just
+                sells (and restocks) a lot of this game.
+              </span>
+            </div>
+            <ul className="won-list winners-where">
+              {gameWinners.slice(0, 12).map((w, i) => (
+                <li key={i} className="won-item">
+                  <span className="won-amt">{usdCompact(w.prize)}</span>
+                  <span className="winner-store">
+                    {w.retailer}
+                    {w.city ? ` · ${w.city}` : ""}
+                    {w.date ? ` · ${shortDay(w.date)}` : ""}
+                  </span>
+                </li>
+              ))}
+              {gameWinners.length > 12 && (
+                <li className="won-item won-total">
+                  <span className="won-amt">…and</span>
+                  <span className="won-count">{gameWinners.length - 12} more</span>
+                </li>
+              )}
+            </ul>
+          </>
+        )}
 
         <div className="detail-links">
           {game.url && (

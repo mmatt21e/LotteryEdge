@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 import { computeStats } from "./ev.js";
 import { loadHistory, saveHistory, upsertHistory } from "./history.js";
 import { getSource, sourceKeys, type CliSource } from "./sources/registry.js";
-import type { Game, ScrapeResult, LiteResult } from "./types.js";
+import { WINNER_SOURCES } from "./sources/winners/registry.js";
+import type { Game, ScrapeResult, LiteResult, WinnerRecord, WinnersResult } from "./types.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, "..", "data");
@@ -152,12 +153,72 @@ async function scrapeOne(src: CliSource): Promise<StateStatus> {
  */
 const FAIL_JOB_THRESHOLD = 0.34;
 
+/* ------------------------------ Posted winners ---------------------------- */
+
+/**
+ * Sources only show the winners currently posted, so each run merges fresh
+ * posts into the accumulated file — the retailer picture gets richer daily.
+ * Capped so the committed file stays small.
+ */
+const WINNERS_CAP = 1000;
+
+/** Stable identity for deduping a posted winner across daily runs. */
+const winnerKey = (w: WinnerRecord): string =>
+  [w.date ?? "", w.player ?? "", w.game, w.prize, w.retailer, w.city ?? ""]
+    .join("|")
+    .toLowerCase();
+
+function mergeWinners(prev: WinnersResult | null, fresh: WinnerRecord[]): WinnerRecord[] {
+  const seen = new Set(fresh.map(winnerKey));
+  const carried = (prev?.winners ?? []).filter((w) => !seen.has(winnerKey(w)));
+  // Fresh posts first, then carried-over history, capped.
+  return [...fresh, ...carried].slice(0, WINNERS_CAP);
+}
+
+/**
+ * Scrape every winner feed. Never fails the job — winner data is an extra
+ * signal layered on top of the core prizes-remaining pipeline.
+ */
+async function scrapeWinners(): Promise<void> {
+  for (const src of WINNER_SOURCES) {
+    try {
+      const { source, winners } = await src.scrape();
+      if (winners.length === 0) throw new Error("0 winners parsed");
+      const path = resolve(DATA_DIR, `winners-${src.key}.json`);
+      const prev = await loadJson<WinnersResult>(path);
+      const merged = mergeWinners(prev, winners);
+      const result: WinnersResult = {
+        generatedAt: new Date().toISOString(),
+        state: src.key,
+        source,
+        count: merged.length,
+        winners: merged,
+      };
+      await writeFile(path, JSON.stringify(result, null, 2) + "\n");
+      console.log(
+        `[${src.key.toUpperCase()}] winners: ${winners.length} posted now, ${merged.length} tracked`,
+      );
+    } catch (err) {
+      console.warn(
+        `[${src.key.toUpperCase()}] winners scrape failed: ${(err as Error).message} — keeping last-good`,
+      );
+    }
+  }
+}
+
 async function main() {
   const arg = (process.argv[2] ?? "all").toLowerCase();
-  const targets =
-    arg === "all" ? sourceKeys() : arg.split(",").map((s) => s.trim());
 
   await mkdir(DATA_DIR, { recursive: true });
+
+  // Winner feeds only — used by `npm run scrape:winners` and for local testing.
+  if (arg === "winners") {
+    await scrapeWinners();
+    return;
+  }
+
+  const targets =
+    arg === "all" ? sourceKeys() : arg.split(",").map((s) => s.trim());
 
   const statuses: StateStatus[] = [];
   for (const key of targets) {
@@ -169,6 +230,9 @@ async function main() {
     }
     statuses.push(await scrapeOne(src));
   }
+
+  // Posted-winner feeds ride along with the daily "all" run (non-blocking).
+  if (arg === "all") await scrapeWinners();
 
   const failed = statuses.filter((s) => !s.ok).map((s) => s.state);
   const total = targets.length;

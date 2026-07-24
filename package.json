@@ -8,6 +8,7 @@
     "scrape": "tsx src/index.ts all",
     "scrape:nc": "tsx src/index.ts nc",
     "scrape:va": "node scripts/va-scrape.mjs",
+    "scrape:winners": "tsx src/index.ts winners",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },

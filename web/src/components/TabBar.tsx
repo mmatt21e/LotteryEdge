@@ -1,10 +1,11 @@
 import { useRef } from "react";
 
-export type Tab = "value" | "sellers" | "me";
+export type Tab = "value" | "sellers" | "retailers" | "me";
 
 export const TAB_ORDER: { key: Tab; label: string }[] = [
   { key: "value", label: "Best value" },
   { key: "sellers", label: "Hot sellers" },
+  { key: "retailers", label: "Retailers" },
   { key: "me", label: "My tickets" },
 ];
 

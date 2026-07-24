@@ -13,8 +13,10 @@ import { TabBar, type Tab } from "./components/TabBar.js";
 import { ValueTab } from "./views/ValueTab.js";
 import { AllStatesView } from "./views/AllStatesView.js";
 import { SellersTab } from "./views/SellersTab.js";
+import { RetailersView } from "./views/RetailersView.js";
 import { LiteView } from "./views/LiteView.js";
 import { MeTab } from "./views/MeTab.js";
+import { useWinners } from "./useWinners.js";
 import { Detail } from "./sheets/Detail.js";
 import { InfoSheet } from "./sheets/InfoSheet.js";
 
@@ -60,6 +62,7 @@ export default function App() {
   );
   const changes = useChanges(limited || isAll ? undefined : ncGames, data?.generatedAt, stateKey);
   const ledger = useLedger(stateKey);
+  const winners = useWinners(isAll ? "" : stateKey);
   const { theme, cycle } = useTheme();
   const online = useOnline();
   const { canInstall, install } = useInstallPrompt();
@@ -179,7 +182,19 @@ export default function App() {
         <div className="status">Refresh failed ({error}) — showing the last loaded data.</div>
       )}
 
-      {!isAll && data && limited && <LiteView data={data as LiteResult} />}
+      {!isAll && data && limited && (
+        <>
+          <LiteView data={data as LiteResult} />
+          {winners && (
+            <>
+              <div className="tiers-head lite-retailers-head">
+                <span>Retailers with posted winners</span>
+              </div>
+              <RetailersView winners={winners} stateName={stateName(stateKey)} />
+            </>
+          )}
+        </>
+      )}
 
       {!isAll && data && !limited && (
         <>
@@ -208,6 +223,9 @@ export default function App() {
           )}
           {tab === "sellers" && (
             <SellersTab games={ncGames} history={effHistory} demo={isDemo} onSelect={setSelected} />
+          )}
+          {tab === "retailers" && (
+            <RetailersView winners={winners} stateName={stateName(stateKey)} />
           )}
           {tab === "me" && <MeTab games={ncGames} ledger={ledger} afterTax={afterTax} />}
 
