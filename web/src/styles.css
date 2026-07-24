@@ -563,6 +563,49 @@ body {
   text-align: center;
   margin: 20px 0 4px;
 }
+.version-pill {
+  display: inline-block;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.ledger-hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 2px 0;
+}
+.pending-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pending-result label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.pending-result input {
+  width: 72px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 4px 8px;
+  font-size: 14px;
+}
+.add-btn.mini,
+.chip.mini {
+  padding: 4px 10px;
+  font-size: 12px;
+}
 .ret-city {
   color: var(--muted);
 }

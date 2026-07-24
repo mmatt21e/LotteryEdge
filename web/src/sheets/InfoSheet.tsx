@@ -15,8 +15,9 @@ export function InfoSheet({ onClose }: { onClose: () => void }) {
     <Sheet label="How LotteryEdge works" onClose={onClose}>
         <div className="sheet-head">
           <div>
-            <div className="sheet-title">How LotteryEdge works</div>
-            <div className="sheet-sub">Version {__APP_VERSION__}</div>
+            <div className="sheet-title">
+              How LotteryEdge works <span className="version-pill">v{__APP_VERSION__}</span>
+            </div>
           </div>
           <button className="close" onClick={onClose} aria-label="Close">
             ✕
