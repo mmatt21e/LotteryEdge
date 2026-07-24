@@ -132,13 +132,6 @@ export function Detail({
           <Kpi label="Prize $ left" value={usdCompact(c.remainingPrizeValue)} />
         </div>
 
-        <LogPurchase
-          game={game}
-          logged={logged}
-          showState={showState}
-          onLog={onLogTicket}
-        />
-
         <div className="trend">
           <div className="trend-head">
             <span>Net / $1 trend {demo && <span className="sample-pill">Sample</span>}</span>
@@ -514,6 +507,16 @@ export function Detail({
             </a>
           )}
         </div>
+
+        {/* Last child on purpose: sticks to the sheet's bottom edge, so the
+            logger is usable the moment the sheet opens and stays in reach
+            while scrolling through odds — no hunting for it. */}
+        <LogPurchase
+          game={game}
+          logged={logged}
+          showState={showState}
+          onLog={onLogTicket}
+        />
     </Sheet>
   );
 }
