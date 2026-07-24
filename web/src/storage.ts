@@ -22,12 +22,22 @@ export function useLocalStorage<T>(key: string, initial: T) {
   return [value, setValue] as const;
 }
 
+const newId = (): string =>
+  typeof crypto !== "undefined" && "randomUUID" in crypto
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
 export interface LedgerEntry {
   id: string;
   date: string; // YYYY-MM-DD
   gameName: string;
   spent: number;
-  won: number;
+  /**
+   * Winnings in dollars; null = ticket not scratched / result not recorded
+   * yet — the result can be filled in later. (Entries saved before this
+   * field became nullable always carry a number, so they stay "resolved".)
+   */
+  won: number | null;
 }
 
 export function useLedger(stateKey: string) {
@@ -39,13 +49,20 @@ export function useLedger(stateKey: string) {
     [setByState, stateKey],
   );
   const add = useCallback(
-    (e: Omit<LedgerEntry, "id">) =>
-      setEntries((prev) => [{ ...e, id: `${e.date}-${prev.length}-${e.gameName}` }, ...prev]),
+    // Unique id per entry: the old date-length-name scheme could collide after
+    // a delete, making remove() take out two rows at once.
+    (e: Omit<LedgerEntry, "id">) => setEntries((prev) => [{ ...e, id: newId() }, ...prev]),
     [setEntries],
   );
   const remove = useCallback(
     (id: string) => setEntries((prev) => prev.filter((x) => x.id !== id)),
     [setEntries],
   );
-  return { entries, add, remove };
+  /** Record (or correct) the result of a previously logged ticket. */
+  const setResult = useCallback(
+    (id: string, won: number) =>
+      setEntries((prev) => prev.map((x) => (x.id === id ? { ...x, won } : x))),
+    [setEntries],
+  );
+  return { entries, add, remove, setResult };
 }

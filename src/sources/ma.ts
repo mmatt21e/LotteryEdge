@@ -1,4 +1,6 @@
 import type { RawGame, PrizeTier } from "../types.js";
+import { fetchJson } from "./http.js";
+import { parseOdds } from "./parse.js";
 
 /**
  * Massachusetts State Lottery — instant (scratch) game prizes.
@@ -44,14 +46,8 @@ interface MaGameMeta {
   odds?: string | null;
 }
 
-/** Parse MA's overall-odds string "1 in 4.13" -> 4.13 (undefined if absent). */
-export function parseOdds(s: string | null | undefined): number | undefined {
-  if (!s) return undefined;
-  const m = /1\s*in\s*([\d.]+)/i.exec(s);
-  if (!m) return undefined;
-  const v = Number(m[1]);
-  return Number.isFinite(v) && v > 0 ? v : undefined;
-}
+/** Re-exported so tests and callers keep one import site for MA parsing. */
+export { parseOdds } from "./parse.js";
 
 interface MaTier {
   tierNumber: number;
@@ -70,25 +66,6 @@ interface MaGame {
   startDate: string;
   ticketCost: number;
   prizeTiers: MaTier[];
-}
-
-/** Fetch JSON with a sane timeout, identifying the client and asking for JSON. */
-async function fetchJson<T>(url: string, timeoutMs = 30_000): Promise<T> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-        Accept: "application/json",
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    return (await res.json()) as T;
-  } finally {
-    clearTimeout(timer);
-  }
 }
 
 /**
@@ -162,9 +139,10 @@ export function buildOddsMap(meta: MaGameMeta[]): Map<number, number> {
 export async function scrapeMa(): Promise<{ source: string; games: RawGame[] }> {
   const [raw, meta] = await Promise.all([
     fetchJson<MaGame[]>(PRIZES_URL),
-    // Odds are best-effort: if the games feed fails, games simply get no anchor
-    // (EV 0) rather than the whole state failing.
-    fetchJson<MaGameMeta[]>(GAMES_URL).catch(() => [] as MaGameMeta[]),
+    // If the odds feed fails, EVERY game would silently lose its EV anchor and
+    // publish roi 0 — worse than failing the state (which keeps last-good data
+    // and shows up in the run summary). So a feed failure fails the scrape.
+    fetchJson<MaGameMeta[]>(GAMES_URL),
   ]);
   const games = parseMa(raw, buildOddsMap(meta));
   if (games.length === 0) {

@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 import { computeStats } from "./ev.js";
 import { loadHistory, saveHistory, upsertHistory } from "./history.js";
 import { getSource, sourceKeys, type CliSource } from "./sources/registry.js";
-import type { Game, ScrapeResult, LiteResult } from "./types.js";
+import { WINNER_SOURCES } from "./sources/winners/registry.js";
+import type { Game, ScrapeResult, LiteResult, WinnerRecord, WinnersResult } from "./types.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, "..", "data");
@@ -152,12 +153,80 @@ async function scrapeOne(src: CliSource): Promise<StateStatus> {
  */
 const FAIL_JOB_THRESHOLD = 0.34;
 
+/* ------------------------------ Posted winners ---------------------------- */
+
+/**
+ * Sources only show the winners currently posted, so each run merges fresh
+ * posts into the accumulated file — the retailer picture gets richer daily.
+ * Capped so the committed file stays small.
+ */
+const WINNERS_CAP = 3000;
+
+/** Stable identity for deduping a posted winner across daily runs. */
+const winnerKey = (w: WinnerRecord): string =>
+  w.id
+    ? `id:${w.id}`
+    : [w.date ?? "", w.player ?? "", w.game, w.prize, w.retailer, w.city ?? ""]
+        .join("|")
+        .toLowerCase();
+
+function mergeWinners(prev: WinnersResult | null, fresh: WinnerRecord[]): WinnerRecord[] {
+  const seen = new Set(fresh.map(winnerKey));
+  const carried = (prev?.winners ?? []).filter((w) => !seen.has(winnerKey(w)));
+  // Fresh posts first, then carried-over history, capped.
+  return [...fresh, ...carried].slice(0, WINNERS_CAP);
+}
+
+/**
+ * Scrape every winner feed. Never fails the job — winner data is an extra
+ * signal layered on top of the core prizes-remaining pipeline.
+ */
+async function scrapeWinners(): Promise<void> {
+  for (const src of WINNER_SOURCES) {
+    try {
+      const path = resolve(DATA_DIR, `winners-${src.key}.json`);
+      const prev = await loadJson<WinnersResult>(path);
+      // Sources with per-record ids can skip re-fetching winners we already
+      // hold (LA needs one detail-page fetch per winner).
+      const knownIds = new Set(
+        (prev?.winners ?? []).map((w) => w.id).filter((x): x is string => !!x),
+      );
+      const { source, winners } = await src.scrape(knownIds);
+      if (winners.length === 0 && (prev?.winners.length ?? 0) === 0)
+        throw new Error("0 winners parsed");
+      const merged = mergeWinners(prev, winners);
+      const result: WinnersResult = {
+        generatedAt: new Date().toISOString(),
+        state: src.key,
+        source,
+        count: merged.length,
+        winners: merged,
+      };
+      await writeFile(path, JSON.stringify(result, null, 2) + "\n");
+      console.log(
+        `[${src.key.toUpperCase()}] winners: ${winners.length} posted now, ${merged.length} tracked`,
+      );
+    } catch (err) {
+      console.warn(
+        `[${src.key.toUpperCase()}] winners scrape failed: ${(err as Error).message} — keeping last-good`,
+      );
+    }
+  }
+}
+
 async function main() {
   const arg = (process.argv[2] ?? "all").toLowerCase();
-  const targets =
-    arg === "all" ? sourceKeys() : arg.split(",").map((s) => s.trim());
 
   await mkdir(DATA_DIR, { recursive: true });
+
+  // Winner feeds only — used by `npm run scrape:winners` and for local testing.
+  if (arg === "winners") {
+    await scrapeWinners();
+    return;
+  }
+
+  const targets =
+    arg === "all" ? sourceKeys() : arg.split(",").map((s) => s.trim());
 
   const statuses: StateStatus[] = [];
   for (const key of targets) {
@@ -169,6 +238,9 @@ async function main() {
     }
     statuses.push(await scrapeOne(src));
   }
+
+  // Posted-winner feeds ride along with the daily "all" run (non-blocking).
+  if (arg === "all") await scrapeWinners();
 
   const failed = statuses.filter((s) => !s.ok).map((s) => s.state);
   const total = targets.length;
@@ -186,6 +258,34 @@ async function main() {
       (stale.length ? ` · no changes (stale source?): ${stale.join(", ")}` : ""),
   );
 
+  // Per-run summary table so degradation is readable at a glance in the log.
+  console.log("\nstate | ok | games | changed");
+  for (const s of [...statuses].sort((a, b) => a.state.localeCompare(b.state))) {
+    console.log(
+      `${s.state.padEnd(5)} | ${s.ok ? "ok" : "FAIL"} | ${String(s.gameCount).padStart(5)} | ${
+        s.kind === "full" ? String(s.changed ?? "-").padStart(7) : "   lite"
+      }`,
+    );
+  }
+
+  // Count consecutive no-change runs per state (carried through status.json)
+  // so a source that quietly stopped updating becomes visible, not folklore.
+  const statusPath = resolve(DATA_DIR, "status.json");
+  const prevReport = await loadJson<{ staleRuns?: Record<string, number> }>(statusPath);
+  const staleRuns: Record<string, number> = {};
+  for (const st of stale) staleRuns[st] = (prevReport?.staleRuns?.[st] ?? 0) + 1;
+
+  // Surface problems as GitHub Actions annotations when running in CI.
+  if (process.env.GITHUB_ACTIONS) {
+    for (const f of failed)
+      console.log(`::warning::${f.toUpperCase()} scrape failed — serving last-good data`);
+    for (const [st, runs] of Object.entries(staleRuns))
+      if (runs >= 3)
+        console.log(
+          `::warning::${st.toUpperCase()} data unchanged for ${runs} runs — source may have stopped updating`,
+        );
+  }
+
   // Write a machine-readable health report the app (or a human) can inspect.
   if (arg === "all") {
     const report = {
@@ -194,9 +294,10 @@ async function main() {
       total,
       failed,
       stale,
+      staleRuns,
       states: statuses.sort((a, b) => a.state.localeCompare(b.state)),
     };
-    await writeFile(resolve(DATA_DIR, "status.json"), JSON.stringify(report, null, 2) + "\n");
+    await writeFile(statusPath, JSON.stringify(report, null, 2) + "\n");
   }
 
   // Only fail the job on a systemic outage (nothing worked, or too many did
@@ -211,4 +312,9 @@ async function main() {
   }
 }
 
-main();
+// Failures outside scrapeOne's try/catch (mkdir, status.json write) must still
+// exit non-zero cleanly instead of dying as an unhandled rejection.
+main().catch((err) => {
+  console.error(err);
+  process.exitCode = 1;
+});

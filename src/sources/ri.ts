@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { fetchText } from "./http.js";
+import { fetchJson, fetchText } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 /**
@@ -14,7 +14,6 @@ import type { RawGame, PrizeTier } from "../types.js";
  */
 
 const PAGE_URL = "https://www.rilot.com/en-us/instantgames.html";
-const UA = "LotteryEdge/0.1 (personal scratch-off EV tool)";
 
 interface RiPrizeTier {
   prizeAmount: number; // in cents
@@ -49,24 +48,13 @@ export function parseRiConfig(pageHtml: string): { apiKey: string; apiBase: stri
 }
 
 async function fetchGamesJson(url: string, apiKey: string): Promise<RiPage> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 30_000);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": UA,
-        Accept: "application/json",
-        "X-User-Agent": "portal",
-        "x-esa-api-key": apiKey,
-        "x-request-id": randomUUID(),
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    return (await res.json()) as RiPage;
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchJson<RiPage>(url, {
+    headers: {
+      "X-User-Agent": "portal",
+      "x-esa-api-key": apiKey,
+      "x-request-id": randomUUID(),
+    },
+  });
 }
 
 /** Convert one API game into a RawGame, or null if it has no usable prize data. */

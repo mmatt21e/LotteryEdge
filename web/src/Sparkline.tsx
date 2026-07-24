@@ -21,16 +21,18 @@ export function Sparkline({
   const last = pts.split(" ").pop()!.split(",");
   return (
     <svg className="spark" width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+      {/* color may be a var(--token); var() only resolves in CSS properties,
+          not SVG presentation attributes, so stroke/fill go through style. */}
       <polyline
         points={pts}
         fill="none"
-        stroke={color}
+        style={{ stroke: color }}
         strokeWidth="2"
         strokeLinejoin="round"
         strokeDasharray={dashed ? "3 3" : undefined}
         opacity={dashed ? 0.75 : 1}
       />
-      <circle cx={last[0]} cy={last[1]} r="2.4" fill={color} opacity={dashed ? 0.75 : 1} />
+      <circle cx={last[0]} cy={last[1]} r="2.4" style={{ fill: color }} opacity={dashed ? 0.75 : 1} />
     </svg>
   );
 }

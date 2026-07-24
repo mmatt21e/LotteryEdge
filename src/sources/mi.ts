@@ -1,4 +1,6 @@
 import type { RawGame, PrizeTier } from "../types.js";
+import { leadingNum } from "./parse.js";
+import { UA } from "./http.js";
 
 /**
  * Michigan retail scratch-off "prizes remaining" adapter.
@@ -74,13 +76,8 @@ interface PrizeGame {
   prizesRemainingData?: PrizeRow[] | null;
 }
 
-/** Parse "$5.00" / "500000" -> numeric value, else NaN. */
-function num(s: unknown): number {
-  const cleaned = String(s ?? "").replace(/[^0-9.]/g, "");
-  if (cleaned === "") return NaN;
-  const v = Number(cleaned);
-  return Number.isFinite(v) ? v : NaN;
-}
+/** Parse "$5.00" / "500000" -> the leading numeric value, else NaN. */
+const num = leadingNum;
 
 /** Parse "1 in 4.13" -> 4.13, else undefined. */
 function parseOverallOdds(s: unknown): number | undefined {
@@ -95,10 +92,11 @@ async function gql<T>(query: string): Promise<T> {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
+      "User-Agent": UA,
       Accept: "application/json",
     },
     body: JSON.stringify({ query }),
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`POST ${API_URL} -> ${res.status} ${res.statusText}`);
   const json = (await res.json()) as { data?: T; errors?: unknown };

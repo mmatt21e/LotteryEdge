@@ -1,4 +1,5 @@
 import type { RawGame, PrizeTier } from "../types.js";
+import { UA } from "./http.js";
 
 /**
  * Oklahoma Lottery "Remaining Prizes" page is a Vue app
@@ -71,9 +72,10 @@ export function parseOk(json: string): RawGame[] {
 export async function scrapeOk(): Promise<{ source: string; games: RawGame[] }> {
   const res = await fetch(API_URL, {
     headers: {
-      "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
+      "User-Agent": UA,
       Accept: "application/json,text/plain,*/*",
     },
+    signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) throw new Error(`GET ${API_URL} -> ${res.status} ${res.statusText}`);
   const games = parseOk(await res.text());

@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { fetchText } from "./http.js";
+import { fetchText, UA } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 const BASE = "https://www.ctlottery.org";
@@ -18,7 +18,7 @@ async function fetchAjax(url: string, timeoutMs = 30_000): Promise<string> {
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
+        "User-Agent": UA,
         Accept: "text/html,application/xhtml+xml",
         Referer: LIST_URL,
       },

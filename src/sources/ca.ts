@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import { fetchJson, fetchText, mapPool } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 /**
@@ -48,42 +49,6 @@ function num(s: string | undefined): number {
   return Number.isFinite(v) ? v : NaN;
 }
 
-async function fetchJson<T>(url: string, timeoutMs = 30_000): Promise<T> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-        Accept: "application/json",
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    return (await res.json()) as T;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-async function fetchText(url: string, timeoutMs = 30_000): Promise<string> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": "LotteryEdge/0.1 (personal scratch-off EV tool)",
-        Accept: "text/html,application/xhtml+xml",
-      },
-    });
-    if (!res.ok) throw new Error(`GET ${url} -> ${res.status} ${res.statusText}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 /** Parse the `.odds-available-prizes__table` on a CA detail page into tiers. */
 export function parseCaTiers(html: string): PrizeTier[] {
   const $ = cheerio.load(html);
@@ -114,30 +79,12 @@ export function parseCaTiers(html: string): PrizeTier[] {
   return tiers;
 }
 
-/** Run an async mapper over items with bounded concurrency. */
-async function mapLimit<T, R>(
-  items: T[],
-  limit: number,
-  fn: (item: T) => Promise<R>,
-): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let i = 0;
-  async function worker() {
-    while (i < items.length) {
-      const idx = i++;
-      results[idx] = await fn(items[idx]!);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
-}
-
 /** Fetch and parse live CA Scratchers data (list + per-game detail tiers). */
 export async function scrapeCa(): Promise<{ source: string; games: RawGame[] }> {
   const list = await fetchJson<CaList>(LIST_URL);
   const cards = list.SerializedScratcherCardList ?? [];
 
-  const built = await mapLimit(cards, CONCURRENCY, async (c): Promise<RawGame | null> => {
+  const built = await mapPool(cards, CONCURRENCY, async (c): Promise<RawGame | null> => {
     const gameId = String(c.GameNumber);
     const name = (c.MarketingTitle || c.GameName || "").trim();
     const price = num(c.GamePrice);

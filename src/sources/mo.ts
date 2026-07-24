@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { fetchText } from "./http.js";
+import { fetchText, mapPool } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 const LIST_URL = "https://www.molottery.com/scratchers-list.do";
@@ -84,37 +84,36 @@ export function parseMoGame(html: string, id: string, url: string): RawGame | nu
   });
   if (tiers.length === 0) return null;
 
+  // A game without a readable price can't be ranked — drop it rather than
+  // publish price:null (which would flow to a silent roi 0).
+  if (!Number.isFinite(price) || price <= 0) return null;
+
   return {
     state: "mo",
     gameId: id,
     name,
-    price: Number.isFinite(price) ? price : NaN,
+    price,
     url,
     tiers,
     overallOdds,
   };
 }
 
-/** Fetch detail pages with bounded concurrency. */
+/** Fetch detail pages with bounded concurrency; failures are counted, not hidden. */
 async function fetchGames(entries: { id: string; url: string }[]): Promise<RawGame[]> {
-  const out: RawGame[] = [];
-  const CONCURRENCY = 8;
-  let idx = 0;
-  async function worker() {
-    while (idx < entries.length) {
-      const i = idx++;
-      const e = entries[i]!;
-      try {
-        const html = await fetchText(e.url);
-        const g = parseMoGame(html, e.id, e.url);
-        if (g) out.push(g);
-      } catch {
-        // Skip a game whose page failed to load; keep scraping the rest.
-      }
+  let failed = 0;
+  const results = await mapPool(entries, 8, async (e): Promise<RawGame | null> => {
+    try {
+      const html = await fetchText(e.url);
+      return parseMoGame(html, e.id, e.url);
+    } catch {
+      failed++;
+      return null;
     }
-  }
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, entries.length) }, worker));
-  return out;
+  });
+  if (failed > 0)
+    console.warn(`[mo] ${failed}/${entries.length} game pages failed or were skipped`);
+  return results.filter((g): g is RawGame => g !== null);
 }
 
 /** Fetch and parse live Missouri scratch-off data. */

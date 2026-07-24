@@ -1,5 +1,10 @@
 # LotteryEdge — Build Plan
 
+> **Historical document.** This was the original build plan; the project has
+> since shipped all of it and grown to 37 states (see `README.md` for current
+> status and `docs/MULTI-STATE-PLAN.md` for the multi-state research). Kept
+> for the architecture rationale.
+
 A mobile-first Progressive Web App (PWA) that scrapes an official lottery
 website, calculates statistics, and surfaces the best-value plays. Built as a
 **personal tool** (single user, your phone).

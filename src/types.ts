@@ -86,3 +86,39 @@ export interface LiteResult {
   gameCount: number;
   games: LiteGame[];
 }
+
+/**
+ * One publicly posted winner, as the lottery chose to publish it. Posted
+ * winners are a VISIBILITY signal (which retailers sell lots of winning
+ * tickets), not a statement of odds — many states only post larger claims.
+ */
+export interface WinnerRecord {
+  /** Source-native record id, when one exists — used to dedupe across runs. */
+  id?: string;
+  /** Game name as posted — matched to scratch-off games by normalized name. */
+  game: string;
+  /** Numeric game id when the source provides one. */
+  gameId?: string;
+  /** Prize amount in dollars. */
+  prize: number;
+  /** Retailer (store) where the winning ticket was sold, as posted. */
+  retailer: string;
+  /** Retailer city/town, when published. */
+  city?: string;
+  /** Retailer street address, when published (MO does). */
+  address?: string;
+  /** Winner's name, when published. */
+  player?: string;
+  /** Claim/post date (YYYY-MM-DD; may be month-granular), when available. */
+  date?: string;
+  /** True when the source marks the game as a scratch-off (vs draw game). */
+  scratch?: boolean;
+}
+
+export interface WinnersResult {
+  generatedAt: string;
+  state: string;
+  source: string;
+  count: number;
+  winners: WinnerRecord[];
+}

@@ -1,5 +1,6 @@
 import * as cheerio from "cheerio";
 import { fetchText } from "./http.js";
+import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
 const PRIZES_URL = "https://m.nelottery.com/homeapp/scratch/prizesremaining/web";
@@ -31,11 +32,6 @@ function num(s: string | undefined): number {
   if (cleaned === "") return NaN;
   const v = Number(cleaned);
   return Number.isFinite(v) ? v : NaN;
-}
-
-/** Format a dollar amount as "$1,000,000". */
-function fmtDollars(n: number): string {
-  return "$" + n.toLocaleString("en-US");
 }
 
 /** Extract the set of game numbers ("1339") listed on the Game Closings page. */

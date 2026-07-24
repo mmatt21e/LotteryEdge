@@ -78,12 +78,15 @@ export function parseLaGame(html: string, gameId: string, url: string): RawGame 
   });
 
   if (tiers.length === 0) return null;
+  // A game without a readable price can't be ranked — drop it rather than
+  // publish price:null (which would flow to a silent roi 0).
+  if (!Number.isFinite(price) || price <= 0) return null;
 
   return {
     state: "la",
     gameId,
     name,
-    price: Number.isFinite(price) ? price : NaN,
+    price,
     url,
     tiers,
     overallOdds: Number.isFinite(overallOdds) ? overallOdds : undefined,

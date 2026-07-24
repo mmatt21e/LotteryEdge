@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio";
-import { fetchText } from "./http.js";
+import { fetchText, mapPool } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
 
 const BASE = "https://www.idaholottery.com";
@@ -108,24 +108,6 @@ export function parseIdDetail(html: string): PrizeTier[] {
         ? r.remaining
         : Math.round(r.originalCount * fracRemaining),
   }));
-}
-
-/** Run tasks with a small concurrency cap to stay polite. */
-async function mapPool<T, R>(
-  items: T[],
-  limit: number,
-  fn: (item: T) => Promise<R>,
-): Promise<R[]> {
-  const results: R[] = new Array(items.length);
-  let next = 0;
-  async function worker() {
-    while (next < items.length) {
-      const i = next++;
-      results[i] = await fn(items[i]!);
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
-  return results;
 }
 
 /** Fetch and parse live Idaho scratch data (list -> per-game detail). */
