@@ -2,6 +2,10 @@ import type { WinnerRecord } from "../../types.js";
 import { scrapeScWinners } from "./sc.js";
 import { scrapeMoWinners } from "./mo.js";
 import { scrapeLaWinners } from "./la.js";
+import { scrapeNcWinners } from "./nc.js";
+import { scrapeGaWinners } from "./ga.js";
+import { scrapeMsWinners } from "./ms.js";
+import { scrapeArWinners } from "./ar.js";
 import { scrapeTxWinners } from "./tx.js";
 import { scrapeMiWinners } from "./mi.js";
 
@@ -30,10 +34,13 @@ export const WINNER_SOURCES: WinnerSource[] = [
   { key: "la", name: "Louisiana", scrape: scrapeLaWinners },
   { key: "tx", name: "Texas", scrape: scrapeTxWinners },
   { key: "mi", name: "Michigan", scrape: scrapeMiWinners },
+  { key: "nc", name: "North Carolina", scrape: scrapeNcWinners },
+  { key: "ga", name: "Georgia", scrape: scrapeGaWinners },
+  { key: "ms", name: "Mississippi", scrape: scrapeMsWinners },
+  { key: "ar", name: "Arkansas", scrape: scrapeArWinners },
 ];
 // Not covered (documented for future passes): FL posts only press-released
 // top prizes in prose; CA publishes winners only as PDF press releases;
-// KY's gallery is ~17 cards with prose-only retailers; NC/GA/MS/AR are
-// prose press releases (adapters in progress / see git history).
+// KY's gallery is ~17 cards with prose-only retailers.
 
 export const winnerSourceKeys = (): string[] => WINNER_SOURCES.map((s) => s.key);
