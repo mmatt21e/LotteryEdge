@@ -160,13 +160,15 @@ const FAIL_JOB_THRESHOLD = 0.34;
  * posts into the accumulated file — the retailer picture gets richer daily.
  * Capped so the committed file stays small.
  */
-const WINNERS_CAP = 1000;
+const WINNERS_CAP = 3000;
 
 /** Stable identity for deduping a posted winner across daily runs. */
 const winnerKey = (w: WinnerRecord): string =>
-  [w.date ?? "", w.player ?? "", w.game, w.prize, w.retailer, w.city ?? ""]
-    .join("|")
-    .toLowerCase();
+  w.id
+    ? `id:${w.id}`
+    : [w.date ?? "", w.player ?? "", w.game, w.prize, w.retailer, w.city ?? ""]
+        .join("|")
+        .toLowerCase();
 
 function mergeWinners(prev: WinnersResult | null, fresh: WinnerRecord[]): WinnerRecord[] {
   const seen = new Set(fresh.map(winnerKey));
@@ -182,10 +184,16 @@ function mergeWinners(prev: WinnersResult | null, fresh: WinnerRecord[]): Winner
 async function scrapeWinners(): Promise<void> {
   for (const src of WINNER_SOURCES) {
     try {
-      const { source, winners } = await src.scrape();
-      if (winners.length === 0) throw new Error("0 winners parsed");
       const path = resolve(DATA_DIR, `winners-${src.key}.json`);
       const prev = await loadJson<WinnersResult>(path);
+      // Sources with per-record ids can skip re-fetching winners we already
+      // hold (LA needs one detail-page fetch per winner).
+      const knownIds = new Set(
+        (prev?.winners ?? []).map((w) => w.id).filter((x): x is string => !!x),
+      );
+      const { source, winners } = await src.scrape(knownIds);
+      if (winners.length === 0 && (prev?.winners.length ?? 0) === 0)
+        throw new Error("0 winners parsed");
       const merged = mergeWinners(prev, winners);
       const result: WinnersResult = {
         generatedAt: new Date().toISOString(),
