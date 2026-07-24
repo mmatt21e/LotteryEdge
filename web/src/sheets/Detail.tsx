@@ -1,10 +1,11 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Sheet } from "../Sheet.js";
 import { Sparkline } from "../Sparkline.js";
 import { stateName, retailerUrl } from "../states.js";
 import { useWinners } from "../useWinners.js";
 import { winnersForGame } from "../retailers.js";
 import type { Game, History } from "../types.js";
+import type { LedgerEntry } from "../storage.js";
 import { usd, usd2, usdCompact, pct, int, compact, shortDay, netPerDollar, centsPerDollar } from "../format.js";
 import {
   profitOdds,
@@ -39,6 +40,8 @@ export function Detail({
   showState,
   isFav,
   onToggleFav,
+  logged,
+  onLogTicket,
   onClose,
 }: {
   game: Game;
@@ -48,6 +51,8 @@ export function Detail({
   showState?: boolean;
   isFav: boolean;
   onToggleFav: () => void;
+  logged: LedgerEntry[];
+  onLogTicket: (qty: number) => void;
   onClose: () => void;
 }) {
   const c = game.computed;
@@ -126,6 +131,13 @@ export function Detail({
           <Kpi label="Tickets left" value={int(c.ticketsRemaining)} />
           <Kpi label="Prize $ left" value={usdCompact(c.remainingPrizeValue)} />
         </div>
+
+        <LogPurchase
+          game={game}
+          logged={logged}
+          showState={showState}
+          onLog={onLogTicket}
+        />
 
         <div className="trend">
           <div className="trend-head">
@@ -503,6 +515,74 @@ export function Detail({
           )}
         </div>
     </Sheet>
+  );
+}
+
+/* ----------------------------- Log a purchase ----------------------------- */
+
+/**
+ * Quick "I bought this" logger: adds the purchase to the My Tickets ledger
+ * straight from the game sheet, with the result left pending to fill in after
+ * scratching (same flow as the Me tab's manual form).
+ */
+function LogPurchase({
+  game,
+  logged,
+  showState,
+  onLog,
+}: {
+  game: Game;
+  logged: LedgerEntry[];
+  showState?: boolean;
+  onLog: (qty: number) => void;
+}) {
+  const [qty, setQty] = useState(1);
+  const [added, setAdded] = useState(false);
+  useEffect(() => {
+    if (!added) return;
+    const t = setTimeout(() => setAdded(false), 2500);
+    return () => clearTimeout(t);
+  }, [added]);
+  const submit = () => {
+    onLog(qty);
+    setQty(1);
+    setAdded(true);
+  };
+  const spent = logged.reduce((a, e) => a + e.spent, 0);
+  const pending = logged.filter((e) => e.won == null).length;
+
+  return (
+    <div className="log-purchase">
+      <div className="log-row">
+        <span className="log-label">🎟 Bought it?</span>
+        <div className="sim-step">
+          <button onClick={() => setQty((q) => Math.max(1, q - 1))} disabled={qty <= 1}>
+            −
+          </button>
+          <input
+            type="number"
+            min={1}
+            value={qty}
+            onChange={(e) => setQty(Math.max(1, Math.floor(Number(e.target.value) || 1)))}
+            aria-label="Number of tickets"
+          />
+          <button onClick={() => setQty((q) => q + 1)}>+</button>
+        </div>
+        <button className="add-btn" onClick={submit}>
+          {added ? "✓ Added" : `Add · ${usd(qty * game.price)}`}
+        </button>
+      </div>
+      <p className="log-note">
+        {logged.length > 0 ? (
+          <>
+            {logged.length} ticket{logged.length === 1 ? "" : "s"} · {usd(spent)} logged on this
+            game{pending > 0 ? ` (${pending} awaiting result)` : ""}.{" "}
+          </>
+        ) : null}
+        Record what you won on the <strong>Me</strong> tab
+        {showState ? ` under ${stateName(game.state)}` : ""} after scratching.
+      </p>
+    </div>
   );
 }
 

@@ -48,11 +48,19 @@ export function useLedger(stateKey: string) {
       setByState((prev) => ({ ...prev, [stateKey]: updater(prev[stateKey] ?? []) })),
     [setByState, stateKey],
   );
-  const add = useCallback(
+  const addTo = useCallback(
+    // Takes an explicit state key so a purchase logged from the game detail
+    // sheet lands in the game's own state ledger, even when browsing the
+    // combined all-states view.
     // Unique id per entry: the old date-length-name scheme could collide after
     // a delete, making remove() take out two rows at once.
-    (e: Omit<LedgerEntry, "id">) => setEntries((prev) => [{ ...e, id: newId() }, ...prev]),
-    [setEntries],
+    (st: string, e: Omit<LedgerEntry, "id">) =>
+      setByState((prev) => ({ ...prev, [st]: [{ ...e, id: newId() }, ...(prev[st] ?? [])] })),
+    [setByState],
+  );
+  const add = useCallback(
+    (e: Omit<LedgerEntry, "id">) => addTo(stateKey, e),
+    [addTo, stateKey],
   );
   const remove = useCallback(
     (id: string) => setEntries((prev) => prev.filter((x) => x.id !== id)),
@@ -64,5 +72,5 @@ export function useLedger(stateKey: string) {
       setEntries((prev) => prev.map((x) => (x.id === id ? { ...x, won } : x))),
     [setEntries],
   );
-  return { entries, add, remove, setResult };
+  return { entries, byState, add, addTo, remove, setResult };
 }

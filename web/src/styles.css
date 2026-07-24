@@ -1535,3 +1535,32 @@ button:focus-visible {
   font-size: 14px;
   font-weight: 600;
 }
+
+/* --- Log a purchase from the game sheet --- */
+.log-purchase {
+  margin: 12px 0 4px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.log-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.log-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+.log-row .add-btn {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.log-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 8px 0 0;
+}

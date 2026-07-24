@@ -9,6 +9,7 @@ import { stateName, ALL_KEY, retailerUrl, isKnownState } from "./states.js";
 import type { Game, LiteResult } from "./types.js";
 import { isLimited } from "./types.js";
 import { relativeTime, shortDateTime } from "./format.js";
+import { todayIso } from "./analytics.js";
 import { TabBar, type Tab } from "./components/TabBar.js";
 import { ValueTab } from "./views/ValueTab.js";
 import { AllStatesView } from "./views/AllStatesView.js";
@@ -245,6 +246,17 @@ export default function App() {
           showState={isAll}
           isFav={isFavGame(selected)}
           onToggleFav={() => toggleFavIn(selected.state, selected.gameId)}
+          logged={(ledger.byState[selected.state] ?? []).filter(
+            (e) => e.gameName === selected.name,
+          )}
+          onLogTicket={(qty) =>
+            ledger.addTo(selected.state, {
+              date: todayIso(),
+              gameName: selected.name,
+              spent: qty * selected.price,
+              won: null,
+            })
+          }
           onClose={() => setSelected(null)}
         />
       )}
