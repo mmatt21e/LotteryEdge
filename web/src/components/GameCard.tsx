@@ -1,7 +1,7 @@
 import { Sparkline } from "../Sparkline.js";
 import type { GameChange } from "../changes.js";
 import type { Game, History } from "../types.js";
-import { usdCompact, pct, int, netPerDollar, centsPerDollar } from "../format.js";
+import { usdCompact, pct, int, compact, netPerDollar, centsPerDollar } from "../format.js";
 import {
   profitOdds,
   liveProfitOdds,
@@ -9,6 +9,7 @@ import {
   pointNet,
   effectiveRoi,
   endingSoon,
+  ticketsToTopPrize,
 } from "../analytics.js";
 import { roiColor, signColor, pressKeys, CONF_COLOR } from "./primitives.js";
 
@@ -22,6 +23,7 @@ export function GameCard({
   change,
   onClick,
   badge,
+  showTopOdds,
 }: {
   game: Game;
   history: History | null;
@@ -32,6 +34,8 @@ export function GameCard({
   change?: GameChange;
   onClick: () => void;
   badge?: string;
+  /** Show the live 1-in-N odds of hitting the top prize (used when sorting by them). */
+  showTopOdds?: boolean;
 }) {
   const c = game.computed;
   const roi = effectiveRoi(game, afterTax);
@@ -92,7 +96,12 @@ export function GameCard({
           </span>
         )}
         <span>{odds ? `1 in ${int(odds)} to profit` : `${pct(roi, 0)} return`}</span>
-        <span>Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left</span>
+        <span>
+          Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left
+          {showTopOdds && ticketsToTopPrize(game) != null && (
+            <strong className="top-odds"> · 1 in {compact(ticketsToTopPrize(game)!)} now</strong>
+          )}
+        </span>
         {nets.length >= 2 && (
           <span className="card-spark" title={demo ? "Sample trend" : "Net/$1 trend"}>
             <Sparkline values={nets} color={roiColor(roi)} width={64} height={18} dashed={demo} />

@@ -347,6 +347,20 @@ export function ticketsToTopPrize(game: Game): number | null {
   return Math.round(ticketsRemaining / topPrizesRemaining);
 }
 
+/**
+ * Sort comparator: best current top-prize odds (fewest est. tickets per
+ * remaining top prize) first; games with no top prize left rank last,
+ * ordered among themselves by top-prize size.
+ */
+export function topOddsRank(a: Game, b: Game): number {
+  const ta = ticketsToTopPrize(a);
+  const tb = ticketsToTopPrize(b);
+  if (ta == null && tb == null) return b.computed.topPrizeAmount - a.computed.topPrizeAmount;
+  if (ta == null) return 1;
+  if (tb == null) return -1;
+  return ta - tb;
+}
+
 export interface TopPrizeAttempt {
   tickets: number; // avg tickets to hit one top prize (from live remaining odds)
   cost: number; // tickets × price

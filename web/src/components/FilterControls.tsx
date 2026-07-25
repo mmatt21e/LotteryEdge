@@ -1,4 +1,4 @@
-import { Chip } from "./primitives.js";
+import { Chip, TOP_PRIZE_TIERS } from "./primitives.js";
 
 /**
  * Shared filter/search/sort controls block used by the Best-value, All-states
@@ -23,6 +23,8 @@ interface FilterControlsProps {
     onToggle: (k: string) => void;
     onClear: () => void;
   };
+  /** Minimum top-prize size filter ($0 = off); chips from TOP_PRIZE_TIERS. */
+  topPrize?: { value: number; onChange: (min: number) => void };
   toggles: React.ReactNode;
 }
 
@@ -38,6 +40,7 @@ export function FilterControls({
   onSort,
   sortNote,
   stateChips,
+  topPrize,
   toggles,
 }: FilterControlsProps) {
   return (
@@ -73,6 +76,16 @@ export function FilterControls({
           </Chip>
         ))}
       </div>
+
+      {topPrize && (
+        <div className="chips" role="group" aria-label="Filter by top prize size">
+          {TOP_PRIZE_TIERS.map((t) => (
+            <Chip key={t.min} active={topPrize.value === t.min} onClick={() => topPrize.onChange(t.min)}>
+              {t.label}
+            </Chip>
+          ))}
+        </div>
+      )}
 
       <div className="control-row">
         <div className="sort">
