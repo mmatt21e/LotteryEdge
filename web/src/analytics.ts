@@ -347,6 +347,78 @@ export function ticketsToTopPrize(game: Game): number | null {
   return Math.round(ticketsRemaining / topPrizesRemaining);
 }
 
+export interface LedgerInsights {
+  /** Spent on resolved tickets whose game is in the current catalog. */
+  resolvedSpent: number;
+  actualWon: number;
+  /** What the current per-game return/$1 says that spend should return. */
+  expectedWon: number;
+  /** actualWon − expectedWon: positive = running ahead of the math. */
+  luck: number;
+  /** Matched tickets still awaiting a result. */
+  pendingSpent: number;
+  pendingExpected: number;
+  /** Spent on games not in the catalog anymore (ended/renamed) — excluded. */
+  unmatchedSpent: number;
+  perGame: { name: string; plays: number; spent: number; won: number; expected: number }[];
+}
+
+/**
+ * Compare logged tickets against what the catalog's *current* expected value
+ * says they should return. Games are matched by name (case-insensitive);
+ * expectation uses today's remaining-prize estimates, not the odds at the
+ * time of purchase.
+ */
+export function ledgerInsights(
+  entries: { gameName: string; spent: number; won: number | null }[],
+  games: Game[],
+  afterTax: boolean,
+): LedgerInsights {
+  const byName = new Map(games.map((g) => [g.name.trim().toLowerCase(), g]));
+  const perGame = new Map<string, LedgerInsights["perGame"][number]>();
+  const out: LedgerInsights = {
+    resolvedSpent: 0,
+    actualWon: 0,
+    expectedWon: 0,
+    luck: 0,
+    pendingSpent: 0,
+    pendingExpected: 0,
+    unmatchedSpent: 0,
+    perGame: [],
+  };
+  for (const e of entries) {
+    const game = byName.get(e.gameName.trim().toLowerCase());
+    if (!game) {
+      out.unmatchedSpent += e.spent;
+      continue;
+    }
+    const expected = e.spent * effectiveRoi(game, afterTax);
+    if (e.won == null) {
+      out.pendingSpent += e.spent;
+      out.pendingExpected += expected;
+      continue;
+    }
+    out.resolvedSpent += e.spent;
+    out.actualWon += e.won;
+    out.expectedWon += expected;
+    const row = perGame.get(game.name) ?? {
+      name: game.name,
+      plays: 0,
+      spent: 0,
+      won: 0,
+      expected: 0,
+    };
+    row.plays += 1;
+    row.spent += e.spent;
+    row.won += e.won;
+    row.expected += expected;
+    perGame.set(game.name, row);
+  }
+  out.luck = out.actualWon - out.expectedWon;
+  out.perGame = [...perGame.values()].sort((a, b) => b.spent - a.spent);
+  return out;
+}
+
 /**
  * Sort comparator: best current top-prize odds (fewest est. tickets per
  * remaining top prize) first; games with no top prize left rank last,

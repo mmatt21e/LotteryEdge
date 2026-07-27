@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { useLedger, type LedgerEntry } from "../storage.js";
 import type { Game } from "../types.js";
-import { usd2 } from "../format.js";
-import { todayIso } from "../analytics.js";
+import { usd2, centsPerDollar } from "../format.js";
+import { todayIso, ledgerInsights } from "../analytics.js";
 import { Kpi, signColor } from "../components/primitives.js";
 
 export function MeTab({
@@ -55,6 +55,8 @@ export function MeTab({
           accent={signColor(totals.net)}
         />
       </div>
+
+      <Insights entries={ledger.entries} games={games} afterTax={afterTax} />
 
       <div className="ledger-form">
         <input
@@ -132,6 +134,106 @@ export function MeTab({
         <p className="disclaimer">Tip: “After tax” affects estimates, not your logged actuals.</p>
       )}
     </>
+  );
+}
+
+/**
+ * Your results vs. the math: compares logged tickets against what each game's
+ * *current* expected value says that spend should return.
+ */
+function Insights({
+  entries,
+  games,
+  afterTax,
+}: {
+  entries: LedgerEntry[];
+  games: Game[];
+  afterTax: boolean;
+}) {
+  const ins = useMemo(() => ledgerInsights(entries, games, afterTax), [entries, games, afterTax]);
+  const hasResolved = ins.resolvedSpent > 0;
+  if (!hasResolved && ins.pendingSpent <= 0) return null;
+
+  const luckPerDollar = hasResolved ? ins.luck / ins.resolvedSpent : 0;
+
+  return (
+    <div className="insights">
+      <div className="insights-head">📈 Insights — you vs. the math</div>
+
+      {hasResolved && (
+        <>
+          <div className="kpis insights-kpis">
+            <Kpi label="Expected back" value={usd2(ins.expectedWon)} sub={`on ${usd2(ins.resolvedSpent)} played`} />
+            <Kpi label="Actually won" value={usd2(ins.actualWon)} />
+            <Kpi
+              label="Luck"
+              value={`${ins.luck >= 0 ? "+" : "−"}${usd2(Math.abs(ins.luck))}`}
+              accent={signColor(ins.luck)}
+              sub={`${centsPerDollar(luckPerDollar)} / $1 vs. expected`}
+            />
+          </div>
+          <p className="insights-plain">
+            On the {usd2(ins.resolvedSpent)} you’ve scratched, today’s odds
+            {afterTax ? " (after tax)" : ""} would expect about{" "}
+            <strong>{usd2(ins.expectedWon)}</strong> back. You actually won{" "}
+            <strong>{usd2(ins.actualWon)}</strong> — running{" "}
+            <strong style={{ color: signColor(ins.luck) }}>
+              {usd2(Math.abs(ins.luck))} {ins.luck >= 0 ? "ahead of" : "behind"}
+            </strong>{" "}
+            expectation.
+          </p>
+        </>
+      )}
+
+      {ins.pendingSpent > 0 && (
+        <p className="insights-plain">
+          {usd2(ins.pendingSpent)} still awaiting results — on average worth about{" "}
+          <strong>{usd2(ins.pendingExpected)}</strong> back.
+        </p>
+      )}
+
+      {ins.perGame.length > 0 && (
+        <table className="tiers insights-table">
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Spent</th>
+              <th>Won</th>
+              <th>Expected</th>
+              <th>±Luck</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ins.perGame.slice(0, 8).map((r) => {
+              const luck = r.won - r.expected;
+              return (
+                <tr key={r.name}>
+                  <td className="insights-game">{r.name}</td>
+                  <td>{usd2(r.spent)}</td>
+                  <td>{usd2(r.won)}</td>
+                  <td>{usd2(r.expected)}</td>
+                  <td style={{ color: signColor(luck), fontWeight: 700 }}>
+                    {luck >= 0 ? "+" : "−"}
+                    {usd2(Math.abs(luck))}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+      {ins.perGame.length > 8 && (
+        <p className="insights-note">…and {ins.perGame.length - 8} more games.</p>
+      )}
+
+      <p className="insights-note">
+        Expectation uses <em>today’s</em> estimated remaining prizes, not the odds when you bought
+        {ins.unmatchedSpent > 0
+          ? `; ${usd2(ins.unmatchedSpent)} on games no longer in the catalog is excluded`
+          : ""}
+        . Short runs swing far from expectation — that’s variance, not fate.
+      </p>
+    </div>
   );
 }
 
