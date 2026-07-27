@@ -14,6 +14,7 @@ import {
   endingSoon,
   trendDirection,
   sparklinePath,
+  ledgerInsights,
 } from "./analytics.js";
 
 /** A $10 game: 100,000 tickets left, 2 top prizes, generous mid tier. */
@@ -201,5 +202,43 @@ describe("endingSoon / trendDirection / sparklinePath", () => {
     const path = sparklinePath([0, 1], 100, 20);
     expect(path.split(" ")).toHaveLength(2);
     expect(sparklinePath([], 100, 20)).toBe("");
+  });
+});
+
+describe("ledgerInsights", () => {
+  // makeGame(): roi = 1.2, so every $1 played "expects" $1.20 back.
+  const games = [makeGame()];
+
+  it("compares resolved tickets against current EV", () => {
+    const ins = ledgerInsights(
+      [
+        { gameName: "Test", spent: 10, won: 0 },
+        { gameName: "test ", spent: 20, won: 50 }, // name matching is loose
+      ],
+      games,
+      false,
+    );
+    expect(ins.resolvedSpent).toBe(30);
+    expect(ins.actualWon).toBe(50);
+    expect(ins.expectedWon).toBeCloseTo(36, 6); // 30 × 1.2
+    expect(ins.luck).toBeCloseTo(14, 6);
+    expect(ins.perGame).toHaveLength(1);
+    expect(ins.perGame[0]).toMatchObject({ name: "Test", plays: 2, spent: 30, won: 50 });
+  });
+
+  it("keeps pending and unmatched spend out of the luck math", () => {
+    const ins = ledgerInsights(
+      [
+        { gameName: "Test", spent: 10, won: null },
+        { gameName: "Retired Game", spent: 40, won: 5 },
+      ],
+      games,
+      false,
+    );
+    expect(ins.resolvedSpent).toBe(0);
+    expect(ins.pendingSpent).toBe(10);
+    expect(ins.pendingExpected).toBeCloseTo(12, 6);
+    expect(ins.unmatchedSpent).toBe(40);
+    expect(ins.perGame).toHaveLength(0);
   });
 });
