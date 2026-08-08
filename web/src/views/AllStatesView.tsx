@@ -52,6 +52,17 @@ export function AllStatesView({
     setMinTop(min);
     if (min > 0) setSort("topOdds");
   };
+  const resetFilters = () => {
+    setQuery("");
+    setPrice("all");
+    setSort("roi");
+    setTopOnly(false);
+    setFavOnly(false);
+    setEndingOnly(false);
+    setMinTop(0);
+    onAfterTax(false);
+    onStateFilter(() => []);
+  };
 
   const prices = useMemo(() => {
     const set = new Set<number>();
@@ -140,6 +151,13 @@ export function AllStatesView({
           onToggle: toggleState,
           onClear: () => onStateFilter(() => []),
         }}
+        activeToggleLabels={[
+          ...(favOnly ? ["Favorites"] : []),
+          ...(topOnly ? ["Top prize left"] : []),
+          ...(endingOnly ? ["Ending soon"] : []),
+          ...(afterTax ? ["After tax"] : []),
+        ]}
+        onReset={resetFilters}
         toggles={
           <>
             <button className={`chip ${favOnly ? "chip-on" : ""}`} onClick={() => setFavOnly((v) => !v)}>

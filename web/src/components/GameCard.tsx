@@ -11,7 +11,7 @@ import {
   endingSoon,
   ticketsToTopPrize,
 } from "../analytics.js";
-import { roiColor, signColor, pressKeys, CONF_COLOR } from "./primitives.js";
+import { roiColor, signColor, CONF_COLOR } from "./primitives.js";
 
 export function GameCard({
   game,
@@ -46,68 +46,84 @@ export function GameCard({
   const nets = (history?.series[game.gameId]?.points ?? []).map(pointNet);
 
   return (
-    <li className="card" role="button" tabIndex={0} onClick={onClick} onKeyDown={pressKeys(onClick)}>
-      <div className="card-head">
-        <span className="price-tag">${game.price}</span>
-        {badge && <span className="state-badge">{badge}</span>}
-        <span className="game-name">{game.name}</span>
-        <button
-          className={`star ${isFav ? "star-on" : ""}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFav();
-          }}
-          aria-label={isFav ? "Unfavorite" : "Favorite"}
-        >
-          {isFav ? "★" : "☆"}
-        </button>
-      </div>
-      {change && (
-        <div className="change-row">
-          {change.topClaimed > 0 && (
-            <span className="badge badge-warn">
-              {change.topClaimed} top prize{change.topClaimed > 1 ? "s" : ""} claimed
-            </span>
-          )}
-          {Math.abs(change.netDelta) >= 0.005 && (
-            <span className={`badge ${change.netDelta > 0 ? "badge-up" : "badge-down"}`}>
-              {change.netDelta > 0 ? "▲ better value" : "▼ worse value"}
-            </span>
-          )}
-          <span className="since">since last visit</span>
+    <li className="card game-card">
+      <button className="card-open" onClick={onClick} aria-label={`Open details for ${game.name}`}>
+        <div className="card-head">
+          <span className="price-tag">${game.price}</span>
+          {badge && <span className="state-badge">{badge}</span>}
+          <span className="game-name">{game.name}</span>
         </div>
-      )}
-      <div className="roi-row">
-        <div className="roi-bar">
-          <div className="roi-fill" style={{ width: `${width}%`, background: roiColor(roi) }} />
-        </div>
-        <span className="per-dollar" style={{ color: signColor(netPerDollar(roi)) }}>
-          {centsPerDollar(netPerDollar(roi))}
-          <span className="per-dollar-unit"> / $1{afterTax ? " (net of tax)" : ""}</span>
-        </span>
-      </div>
-      <div className="card-stats">
-        <span className="conf-dot" title={conf.reason}>
-          <i style={{ background: CONF_COLOR[conf.level] }} /> {conf.level}
-        </span>
-        {ending && (
-          <span className={`badge ${ending === "ending" ? "badge-warn" : "badge-down"}`}>
-            ⏳ {ending === "ending" ? "ending" : "ending soon"}
-          </span>
+        {change && (
+          <div className="change-row">
+            {change.topClaimed > 0 && (
+              <span className="badge badge-warn">
+                {change.topClaimed} top prize{change.topClaimed > 1 ? "s" : ""} claimed
+              </span>
+            )}
+            {Math.abs(change.netDelta) >= 0.005 && (
+              <span className={`badge ${change.netDelta > 0 ? "badge-up" : "badge-down"}`}>
+                {change.netDelta > 0 ? "▲ better value" : "▼ worse value"}
+              </span>
+            )}
+            <span className="since">since last visit</span>
+          </div>
         )}
-        <span>{odds ? `1 in ${int(odds)} to profit` : `${pct(roi, 0)} return`}</span>
-        <span>
-          Top {usdCompact(c.topPrizeAmount)} · {c.topPrizesRemaining} left
+
+        <div className="card-primary">
+          <span className="metric-label">Estimated net</span>
+          <strong className="per-dollar" style={{ color: signColor(netPerDollar(roi)) }}>
+            {centsPerDollar(netPerDollar(roi))}
+            <span className="per-dollar-unit"> / $1{afterTax ? " after tax" : ""}</span>
+          </strong>
+          <span className="card-chevron" aria-hidden="true">›</span>
+        </div>
+        <div className="roi-row" aria-hidden="true">
+          <div className="roi-bar">
+            <div className="roi-fill" style={{ width: `${width}%`, background: roiColor(roi) }} />
+          </div>
+        </div>
+
+        <div className="card-metrics">
+          <span>
+            <strong>{odds ? `1 in ${int(odds)}` : pct(roi, 0)}</strong>
+            <small>{odds ? "chance to profit" : "estimated return"}</small>
+          </span>
+          <span>
+            <strong>{usdCompact(c.topPrizeAmount)}</strong>
+            <small>{c.topPrizesRemaining} top prize{c.topPrizesRemaining === 1 ? "" : "s"} left</small>
+          </span>
           {showTopOdds && ticketsToTopPrize(game) != null && (
-            <strong className="top-odds"> · 1 in {compact(ticketsToTopPrize(game)!)} now</strong>
+            <span>
+              <strong className="top-odds">1 in {compact(ticketsToTopPrize(game)!)}</strong>
+              <small>top-prize odds now</small>
+            </span>
           )}
-        </span>
-        {nets.length >= 2 && (
-          <span className="card-spark" title={demo ? "Sample trend" : "Net/$1 trend"}>
-            <Sparkline values={nets} color={roiColor(roi)} width={64} height={18} dashed={demo} />
+        </div>
+
+        <div className="card-foot">
+          <span className="conf-dot" title={conf.reason}>
+            <i style={{ background: CONF_COLOR[conf.level] }} /> {conf.level} confidence
           </span>
-        )}
-      </div>
+          {ending && (
+            <span className={`badge ${ending === "ending" ? "badge-warn" : "badge-down"}`}>
+              ⏳ {ending === "ending" ? "ending" : "ending soon"}
+            </span>
+          )}
+          {nets.length >= 2 && (
+            <span className="card-spark" title={demo ? "Sample trend" : "Net/$1 trend"}>
+              <Sparkline values={nets} color={roiColor(roi)} width={64} height={18} dashed={demo} />
+            </span>
+          )}
+        </div>
+      </button>
+      <button
+        className={`star ${isFav ? "star-on" : ""}`}
+        onClick={onToggleFav}
+        aria-label={isFav ? `Remove ${game.name} from favorites` : `Add ${game.name} to favorites`}
+        aria-pressed={isFav}
+      >
+        {isFav ? "★" : "☆"}
+      </button>
     </li>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useScratchers, useAllScratchers } from "./useScratchers.js";
 import { buildDemoHistory, distinctDates } from "./demo.js";
 import { useLocalStorage, useLedger } from "./storage.js";
@@ -20,6 +20,7 @@ import { MeTab } from "./views/MeTab.js";
 import { useWinners } from "./useWinners.js";
 import { Detail } from "./sheets/Detail.js";
 import { InfoSheet } from "./sheets/InfoSheet.js";
+import { AppMenuSheet } from "./sheets/AppMenuSheet.js";
 
 export default function App() {
   const [storedState, setStateKey] = useLocalStorage<string>("state", "nc");
@@ -30,9 +31,12 @@ export default function App() {
   const { data, history, loading, error, refresh } = useScratchers(stateKey);
   const all = useAllScratchers();
   const [tab, setTab] = useState<Tab>("value");
+  const tabScrollPositions = useRef<Partial<Record<Tab, number>>>({});
+  const pendingTabScroll = useRef<number | null>(null);
   const [selected, setSelected] = useState<Game | null>(null);
   const [afterTax, setAfterTax] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   // Favorites are namespaced per state so switching states shows that state's
   // own ★ list rather than bleeding NC's game ids into, say, Texas.
   const [favsByState, setFavsByState] = useLocalStorage<Record<string, string[]>>("favs", {});
@@ -67,6 +71,23 @@ export default function App() {
   const { theme, cycle } = useTheme();
   const online = useOnline();
   const { canInstall, install } = useInstallPrompt();
+  const currentRetailerUrl = isAll ? undefined : retailerUrl(stateKey);
+  const refreshing = isAll ? all.loading : loading;
+
+  const switchTab = (next: Tab) => {
+    if (next === tab) return;
+    tabScrollPositions.current[tab] = window.scrollY;
+    pendingTabScroll.current = tabScrollPositions.current[next] ?? 0;
+    setTab(next);
+  };
+
+  // Restore after React has mounted the destination view but before it paints.
+  // Unvisited sections have no saved position, so they intentionally start at 0.
+  useLayoutEffect(() => {
+    if (pendingTabScroll.current == null) return;
+    window.scrollTo({ top: pendingTabScroll.current, left: 0, behavior: "auto" });
+    pendingTabScroll.current = null;
+  }, [tab]);
 
   // Fire local notifications for favorited games that changed since last visit
   // (only when the user has granted permission). Once per data generation.
@@ -100,32 +121,20 @@ export default function App() {
   );
 
   return (
-    <div className="app">
+    <div className={`app ${!isAll && data && !limited ? "has-bottom-nav" : ""}`}>
       <header className="topbar">
         <div className="brand">
           <span className="mark">◆</span> LotteryEdge
         </div>
-        <div className="top-actions">
-          {canInstall && (
-            <button className="refresh install-pill" onClick={install} aria-label="Install app">
-              ⬇︎
-            </button>
-          )}
-          <button className="refresh" onClick={cycle} aria-label={`Theme: ${theme}`}>
-            {theme === "auto" ? "🌗" : theme === "light" ? "☀️" : "🌙"}
-          </button>
-          <button className="refresh" onClick={() => setShowInfo(true)} aria-label="How it works">
-            ?
-          </button>
-          <button
-            className="refresh"
-            onClick={isAll ? all.refresh : refresh}
-            disabled={isAll ? all.loading : loading}
-            aria-label="Refresh"
-          >
-            <span className={(isAll ? all.loading : loading) ? "spin" : ""}>↻</span>
-          </button>
-        </div>
+        <button
+          className="menu-trigger"
+          onClick={() => setShowMenu(true)}
+          aria-label="Open app menu"
+          aria-haspopup="dialog"
+          aria-expanded={showMenu}
+        >
+          <span aria-hidden="true">•••</span>
+        </button>
       </header>
 
       {!online && <div className="offline-banner">Offline — showing the last saved data.</div>}
@@ -140,102 +149,128 @@ export default function App() {
           <span className="freshness" title={shortDateTime(all.generatedAt)}>
             {all.games.length} games ·{" "}
             {allStatesFilter.length > 0
-              ? `${allStatesFilter.length} of ${all.loaded.length} states shown`
+              ? `${allStatesFilter.length}/${all.loaded.length} states`
               : `${all.loaded.length} states`}{" "}
-            · updated {shortDateTime(all.generatedAt)} ({relativeTime(all.generatedAt)})
+            · {relativeTime(all.generatedAt)}
           </span>
         )}
         {!isAll && data && (
           <span className="freshness" title={shortDateTime(data.generatedAt)}>
-            {data.gameCount} games · updated {shortDateTime(data.generatedAt)} (
-            {relativeTime(data.generatedAt)})
+            {data.gameCount} games · updated {relativeTime(data.generatedAt)}
           </span>
         )}
       </div>
 
-      {!isAll && retailerUrl(stateKey) && (
-        <a className="retailer-link" href={retailerUrl(stateKey)} target="_blank" rel="noreferrer">
-          📍 Find a retailer in {stateName(stateKey)} ↗
-        </a>
-      )}
-
-      {isAll && (
-        <AllStatesView
-          all={all}
-          stateFilter={allStatesFilter}
-          onStateFilter={setAllStatesFilter}
-          afterTax={afterTax}
-          onAfterTax={setAfterTax}
-          isFav={isFavGame}
-          onToggleFav={(g) => toggleFavIn(g.state, g.gameId)}
-          onSelect={setSelected}
-        />
-      )}
-
-      {!isAll && loading && !data && <div className="status">Loading…</div>}
-      {!isAll && error && !data && (
-        <div className="status error">
-          No data yet for {stateKey.toUpperCase()} ({error}). It appears once the scraper has
-          published it.
+      {((isAll && all.games.length > 0) || (!isAll && data && !limited)) && (
+        <div className="trust-strip" role="note">
+          <span aria-hidden="true">ⓘ</span>
+          <span><strong>Estimates, not predictions.</strong> Compare games—never expect a win.</span>
         </div>
       )}
-      {!isAll && error && data && (
-        <div className="status">Refresh failed ({error}) — showing the last loaded data.</div>
-      )}
 
-      {!isAll && data && limited && (
-        <>
-          <LiteView data={data as LiteResult} />
-          {winners && (
-            <>
-              <div className="tiers-head lite-retailers-head">
-                <span>Retailers with posted winners</span>
-              </div>
-              <RetailersView winners={winners} stateName={stateName(stateKey)} />
-            </>
-          )}
-        </>
-      )}
+      <main id="main-content">
+        {isAll && (
+          <AllStatesView
+            all={all}
+            stateFilter={allStatesFilter}
+            onStateFilter={setAllStatesFilter}
+            afterTax={afterTax}
+            onAfterTax={setAfterTax}
+            isFav={isFavGame}
+            onToggleFav={(g) => toggleFavIn(g.state, g.gameId)}
+            onSelect={setSelected}
+          />
+        )}
 
-      {!isAll && data && !limited && (
-        <>
-          <TabBar tab={tab} onTab={setTab} />
+        {!isAll && loading && !data && <div className="status">Loading…</div>}
+        {!isAll && error && !data && (
+          <div className="status error">
+            No data yet for {stateKey.toUpperCase()} ({error}). It appears once the scraper has
+            published it.
+          </div>
+        )}
+        {!isAll && error && data && (
+          <div className="status">Refresh failed ({error}) — showing the last loaded data.</div>
+        )}
 
-          {isDemo && tab !== "me" && (
-            <div className="demo-banner">
-              <strong>Sample data</strong> — trend lines and “Hot sellers” below use{" "}
-              <em>illustrative</em> history until 2+ daily updates are collected. Prices, odds, EV and
-              net/$1 are real.
-            </div>
-          )}
+        {!isAll && data && limited && (
+          <>
+            <LiteView data={data as LiteResult} />
+            {winners && (
+              <>
+                <div className="tiers-head lite-retailers-head">
+                  <span>Retailers with posted winners</span>
+                </div>
+                <RetailersView winners={winners} stateName={stateName(stateKey)} />
+              </>
+            )}
+          </>
+        )}
 
-          {tab === "value" && (
-            <ValueTab
-              games={ncGames}
-              history={effHistory}
-              demo={isDemo}
-              afterTax={afterTax}
-              onAfterTax={setAfterTax}
-              favSet={favSet}
-              onToggleFav={toggleFav}
-              changes={changes}
-              onSelect={setSelected}
-            />
-          )}
-          {tab === "sellers" && (
-            <SellersTab games={ncGames} history={effHistory} demo={isDemo} onSelect={setSelected} />
-          )}
-          {tab === "retailers" && (
-            <RetailersView winners={winners} stateName={stateName(stateKey)} />
-          )}
-          {tab === "me" && <MeTab games={ncGames} ledger={ledger} afterTax={afterTax} />}
+        {!isAll && data && !limited && (
+          <>
+            <section
+              id="main-panel"
+              role="tabpanel"
+              aria-labelledby={`tab-${tab}`}
+              className="tab-panel"
+            >
+              {isDemo && (tab === "value" || tab === "sellers") && (
+                <div className="demo-banner compact-note">
+                  <strong>Sample trend</strong> · history is illustrative until a second daily update;
+                  today’s prices, odds, and rankings are current.
+                </div>
+              )}
 
-          <p className="disclaimer">
-            ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
-            Most games sit below break-even.
-          </p>
-        </>
-      )}
+              {tab === "value" && (
+                <ValueTab
+                  games={ncGames}
+                  history={effHistory}
+                  demo={isDemo}
+                  afterTax={afterTax}
+                  onAfterTax={setAfterTax}
+                  favSet={favSet}
+                  onToggleFav={toggleFav}
+                  changes={changes}
+                  onSelect={setSelected}
+                />
+              )}
+              {tab === "sellers" && (
+                <SellersTab games={ncGames} history={effHistory} demo={isDemo} onSelect={setSelected} />
+              )}
+              {tab === "retailers" && (
+                <>
+                  {currentRetailerUrl && (
+                    <a
+                      className="places-retailer-cta"
+                      href={currentRetailerUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="places-cta-icon" aria-hidden="true">⌖</span>
+                      <span>
+                        <strong>Find lottery retailers near you</strong>
+                        <small>Official {stateName(stateKey)} retailer finder</small>
+                      </span>
+                      <span className="places-cta-arrow" aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                  <h2 className="places-history-title">Posted winner history</h2>
+                  <RetailersView winners={winners} stateName={stateName(stateKey)} />
+                </>
+              )}
+              {tab === "me" && <MeTab games={ncGames} ledger={ledger} afterTax={afterTax} />}
+            </section>
+
+            <p className="disclaimer">
+              ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
+              Most games sit below break-even.
+            </p>
+          </>
+        )}
+      </main>
+
+      {!isAll && data && !limited && <TabBar tab={tab} onTab={switchTab} />}
 
       {selected && (
         <Detail
@@ -262,6 +297,21 @@ export default function App() {
       )}
 
       {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
+
+      {showMenu && (
+        <AppMenuSheet
+          theme={theme}
+          canInstall={canInstall}
+          refreshing={refreshing}
+          retailerHref={currentRetailerUrl}
+          retailerName={stateName(stateKey)}
+          onTheme={cycle}
+          onInstall={install}
+          onRefresh={isAll ? all.refresh : refresh}
+          onInfo={() => setShowInfo(true)}
+          onClose={() => setShowMenu(false)}
+        />
+      )}
 
       <footer className="version-line">LotteryEdge v{__APP_VERSION__}</footer>
     </div>
