@@ -13,6 +13,12 @@ export function LiteView({ data }: { data: LiteResult }) {
   const [query, setQuery] = useState("");
   const [closingOnly, setClosingOnly] = useState(false);
   const [sort, setSort] = useState<"top" | "price">("top");
+  const resetFilters = () => {
+    setQuery("");
+    setPrice("all");
+    setSort("top");
+    setClosingOnly(false);
+  };
 
   const prices = useMemo(
     () => [...new Set(data.games.map((g) => g.price))].sort((a, b) => a - b),
@@ -49,6 +55,8 @@ export function LiteView({ data }: { data: LiteResult }) {
         sortOptions={SORT_OPTIONS}
         sort={sort}
         onSort={(s) => setSort(s as "top" | "price")}
+        activeToggleLabels={closingOnly ? ["Closing soon"] : []}
+        onReset={resetFilters}
         toggles={
           <button
             className={`chip ${closingOnly ? "chip-on" : ""}`}

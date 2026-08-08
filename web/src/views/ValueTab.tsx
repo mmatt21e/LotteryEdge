@@ -51,6 +51,16 @@ export function ValueTab({
     setMinTop(min);
     if (min > 0) setSort("topOdds");
   };
+  const resetFilters = () => {
+    setQuery("");
+    setPrice("all");
+    setSort("roi");
+    setTopOnly(false);
+    setFavOnly(false);
+    setEndingOnly(false);
+    setMinTop(0);
+    onAfterTax(false);
+  };
 
   const prices = useMemo(() => {
     const set = new Set<number>();
@@ -102,6 +112,13 @@ export function ValueTab({
               : undefined
         }
         topPrize={{ value: minTop, onChange: pickMinTop }}
+        activeToggleLabels={[
+          ...(favOnly ? ["Favorites"] : []),
+          ...(topOnly ? ["Top prize left"] : []),
+          ...(endingOnly ? ["Ending soon"] : []),
+          ...(afterTax ? ["After tax"] : []),
+        ]}
+        onReset={resetFilters}
         toggles={
           <>
             <button className={`chip ${favOnly ? "chip-on" : ""}`} onClick={() => setFavOnly((v) => !v)}>
