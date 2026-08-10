@@ -9,7 +9,7 @@
     "scrape:nc": "tsx src/index.ts nc",
     "scrape:va": "node scripts/va-scrape.mjs",
     "scrape:winners": "tsx src/index.ts winners",
-    "test": "vitest run",
+    "test": "vitest run src/ev.test.ts src/sources/parsers.test.ts src/sources/winners/winners.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

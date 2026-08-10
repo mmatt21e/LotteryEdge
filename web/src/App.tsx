@@ -130,7 +130,6 @@ export default function App() {
           className="menu-trigger"
           onClick={() => setShowMenu(true)}
           aria-label="Open app menu"
-          aria-haspopup="dialog"
           aria-expanded={showMenu}
         >
           <span aria-hidden="true">•••</span>
@@ -296,8 +295,6 @@ export default function App() {
         />
       )}
 
-      {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
-
       {showMenu && (
         <AppMenuSheet
           theme={theme}
@@ -312,6 +309,8 @@ export default function App() {
           onClose={() => setShowMenu(false)}
         />
       )}
+
+      {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
 
       <footer className="version-line">LotteryEdge v{__APP_VERSION__}</footer>
     </div>

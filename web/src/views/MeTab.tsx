@@ -4,6 +4,7 @@ import type { Game } from "../types.js";
 import { usd2, centsPerDollar } from "../format.js";
 import { todayIso, ledgerInsights } from "../analytics.js";
 import { Kpi, signColor } from "../components/primitives.js";
+import { FullPage } from "../Sheet.js";
 
 export function MeTab({
   games,
@@ -17,6 +18,8 @@ export function MeTab({
   const [name, setName] = useState("");
   const [spent, setSpent] = useState("");
   const [won, setWon] = useState("");
+  const [showInsights, setShowInsights] = useState(false);
+  const [saveStatus, setSaveStatus] = useState("");
 
   const totals = useMemo(() => {
     const s = ledger.entries.reduce((a, e) => a + e.spent, 0);
@@ -26,6 +29,10 @@ export function MeTab({
   }, [ledger.entries]);
 
   const canAdd = name.trim() && Number(spent) > 0;
+  const orderedEntries = useMemo(
+    () => [...ledger.entries].sort((a, b) => Number(a.won != null) - Number(b.won != null)),
+    [ledger.entries],
+  );
   const submit = () => {
     if (!canAdd) return;
     ledger.add({
@@ -35,6 +42,7 @@ export function MeTab({
       // Blank = result not known yet (scratch it later); an explicit 0 = lost.
       won: won.trim() === "" ? null : Math.max(0, Number(won) || 0),
     });
+    setSaveStatus(`${name.trim()} added to purchase history.`);
     setName("");
     setSpent("");
     setWon("");
@@ -42,6 +50,10 @@ export function MeTab({
 
   return (
     <>
+      <div className="tickets-intro">
+        <h2>My tickets</h2>
+        <p>Log purchases, then add each result after you scratch it.</p>
+      </div>
       <div className="totals">
         <Kpi label="Spent" value={usd2(totals.spent)} />
         <Kpi
@@ -56,15 +68,17 @@ export function MeTab({
         />
       </div>
 
-      <Insights entries={ledger.entries} games={games} afterTax={afterTax} />
-
       <div className="ledger-form">
-        <input
-          list="game-names"
-          placeholder="Game name (any ticket)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <h3>Log a ticket</h3>
+        <label className="ledger-game-label">
+          Game name
+          <input
+            list="game-names"
+            placeholder="Choose or type a game"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
         <datalist id="game-names">
           {games.map((g) => (
             <option key={g.gameId} value={g.name} />
@@ -92,6 +106,7 @@ export function MeTab({
         <p className="ledger-hint">
           Leave “Won $” blank to record the result later; enter 0 for a losing ticket.
         </p>
+        <p className="save-status" role="status" aria-live="polite">{saveStatus}</p>
       </div>
 
       {ledger.entries.length === 0 ? (
@@ -100,8 +115,13 @@ export function MeTab({
           add the result right away or once you’ve scratched it.
         </div>
       ) : (
+        <>
+          <div className="ticket-list-head">
+            <h3>Purchase history</h3>
+            {totals.pending > 0 && <span>{totals.pending} awaiting result</span>}
+          </div>
         <ul className="list">
-          {ledger.entries.map((e) => (
+          {orderedEntries.map((e) => (
             <li key={e.id} className="card ledger-row">
               <div className="seller-main">
                 <div className="card-head">
@@ -119,7 +139,13 @@ export function MeTab({
                       </span>
                     </>
                   ) : (
-                    <PendingResult entry={e} onResult={(w) => ledger.setResult(e.id, w)} />
+                    <PendingResult
+                      entry={e}
+                      onResult={(w) => {
+                        ledger.setResult(e.id, w);
+                        setSaveStatus(`${e.gameName} result saved: $${w} won.`);
+                      }}
+                    />
                   )}
                 </div>
               </div>
@@ -129,6 +155,26 @@ export function MeTab({
             </li>
           ))}
         </ul>
+        </>
+      )}
+
+      {ledger.entries.length > 0 && (
+        <button className="detail-page-link tickets-insights-link" onClick={() => setShowInsights(true)}>
+          <span aria-hidden="true">≈</span>
+          <span><strong>Your results vs. the math</strong><small>Expected return, actual wins, and variance</small></span>
+          <span aria-hidden="true">›</span>
+        </button>
+      )}
+
+      {showInsights && (
+        <FullPage
+          label="Ticket insights"
+          title="Your results vs. the math"
+          subtitle="Compare resolved tickets with today’s estimated value"
+          onClose={() => setShowInsights(false)}
+        >
+          <Insights entries={ledger.entries} games={games} afterTax={afterTax} />
+        </FullPage>
       )}
       {afterTax && (
         <p className="disclaimer">Tip: “After tax” affects estimates, not your logged actuals.</p>
@@ -193,6 +239,7 @@ function Insights({
       )}
 
       {ins.perGame.length > 0 && (
+        <div className="table-scroll" tabIndex={0} aria-label="Per-game ticket insights">
         <table className="tiers insights-table">
           <thead>
             <tr>
@@ -221,6 +268,7 @@ function Insights({
             })}
           </tbody>
         </table>
+        </div>
       )}
       {ins.perGame.length > 8 && (
         <p className="insights-note">…and {ins.perGame.length - 8} more games.</p>
