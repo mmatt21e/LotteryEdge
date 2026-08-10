@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sheet } from "../Sheet.js";
+import { FullPage } from "../Sheet.js";
 
 export function InfoSheet({ onClose }: { onClose: () => void }) {
   const [perm, setPerm] = useState(
@@ -12,18 +12,12 @@ export function InfoSheet({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <Sheet label="How LotteryEdge works" onClose={onClose}>
-        <div className="sheet-head">
-          <div>
-            <div className="sheet-title">
-              How LotteryEdge works <span className="version-pill">v{__APP_VERSION__}</span>
-            </div>
-          </div>
-          <button className="close" onClick={onClose} aria-label="Close">
-            ✕
-          </button>
-        </div>
-
+    <FullPage
+      label="How LotteryEdge works"
+      title={<>How LotteryEdge works <span className="version-pill">v{__APP_VERSION__}</span></>}
+      subtitle="What the rankings mean and how to use them responsibly"
+      onClose={onClose}
+    >
         <div className="alerts-box">
           <div>
             <strong>Change alerts</strong>
@@ -114,6 +108,6 @@ export function InfoSheet({ onClose }: { onClose: () => void }) {
             <a href="tel:18004262537">1-800-GAMBLER</a> (free, confidential, 24/7).
           </div>
         </div>
-    </Sheet>
+    </FullPage>
   );
 }

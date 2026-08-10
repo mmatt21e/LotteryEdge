@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Sheet } from "../Sheet.js";
+import { FullPage } from "../Sheet.js";
 import type { Game } from "../types.js";
 import { pct } from "../format.js";
 import { recommendForBudget } from "../analytics.js";
@@ -20,13 +20,12 @@ export function BudgetSheet({
     [games, budget, afterTax],
   );
   return (
-    <Sheet label="Budget helper" onClose={onClose}>
-        <div className="sheet-head">
-          <div className="sheet-title">Budget helper</div>
-          <button className="close" onClick={onClose} aria-label="Close">
-            ✕
-          </button>
-        </div>
+    <FullPage
+      label="Budget helper"
+      title="Budget helper"
+      subtitle="Find the strongest current value within a spending limit"
+      onClose={onClose}
+    >
         <label className="budget-input">
           I want to spend
           <span>
@@ -66,6 +65,6 @@ export function BudgetSheet({
           “Expected” is an average over the game’s remaining tickets — any single purchase varies
           wildly. Almost every option loses money on average.
         </p>
-    </Sheet>
+    </FullPage>
   );
 }

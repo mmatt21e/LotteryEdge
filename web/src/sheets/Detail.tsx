@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Sheet } from "../Sheet.js";
+import { FullPage } from "../Sheet.js";
 import { Sparkline } from "../Sparkline.js";
 import { stateName, retailerUrl } from "../states.js";
 import { useWinners } from "../useWinners.js";
@@ -71,9 +71,9 @@ export function Detail({
   const wonPrev = prizesWonPreviousDay(history?.series[game.gameId]);
   const positiveEv = c.roi >= 1;
   const analysis = gameAnalysis(game);
-  const [showHistory, setShowHistory] = useState(false);
-  const [showAnalysis, setShowAnalysis] = useState(positiveEv);
-  const [showSim, setShowSim] = useState(false);
+  const [detailPage, setDetailPage] = useState<
+    "history" | "analysis" | "simulator" | "prizes" | "log" | null
+  >(null);
   const run100 = Math.floor(100 / game.price) * game.price * (roi - 1); // net over ~$100
   const tiers = [...game.tiers].sort((a, b) => b.amount - a.amount);
   // Posted winners for this game's state (null when the state has no feed),
@@ -85,16 +85,16 @@ export function Detail({
   );
 
   return (
-    <Sheet label={game.name} onClose={onClose}>
-        <div className="sheet-head">
-          <div>
-            <div className="sheet-title">{game.name}</div>
-            <div className="sheet-sub">
-              {showState && <strong>{stateName(game.state)} · </strong>}${game.price} · game #
-              {game.gameId}
-            </div>
-          </div>
-          <div className="sheet-actions">
+    <FullPage
+      label={game.name}
+      title={game.name}
+      subtitle={
+        <>
+          {showState && <strong>{stateName(game.state)} · </strong>}${game.price} · game #{game.gameId}
+        </>
+      }
+      actions={
+        <>
             <button
               className="close"
               onClick={() => shareGame(game, roi)}
@@ -107,14 +107,14 @@ export function Detail({
               className={`star ${isFav ? "star-on" : ""}`}
               onClick={onToggleFav}
               aria-label={isFav ? "Unfavorite" : "Favorite"}
+              aria-pressed={isFav}
             >
               {isFav ? "★" : "☆"}
             </button>
-            <button className="close" onClick={onClose} aria-label="Close">
-              ✕
-            </button>
-          </div>
-        </div>
+        </>
+      }
+      onClose={onClose}
+    >
 
         {afterTax && (
           <div className="tax-note">Showing net after estimated federal + state tax.</div>
@@ -132,9 +132,16 @@ export function Detail({
           <Kpi label="Prize $ left" value={usdCompact(c.remainingPrizeValue)} />
         </div>
 
-        <div className="trend">
+        {detailPage === "history" && (
+          <FullPage
+            label={`${game.name} history`}
+            title="Sales & prize history"
+            subtitle={game.name}
+            onClose={() => setDetailPage(null)}
+          >
+        <section className="trend" aria-labelledby="history-trend-heading">
           <div className="trend-head">
-            <span>Net / $1 trend {demo && <span className="sample-pill">Sample</span>}</span>
+            <h2 id="history-trend-heading">Net / $1 trend {demo && <span className="sample-pill">Sample</span>}</h2>
             <span className="trend-dir" style={{ color: dirColor(dir) }}>
               {dirLabel(dir)}
             </span>
@@ -146,9 +153,9 @@ export function Detail({
               Trend builds as daily snapshots accumulate — check back soon.
             </div>
           )}
-        </div>
+        </section>
 
-        <div className="sales-row">
+        <div className="sales-row" role="region" aria-label="Daily sales summary">
           <div className="sales-item">
             <span className="sales-val">{sales ? int(Math.round(sales.avgPerDay)) : "—"}</span>
             <span className="sales-label">
@@ -171,11 +178,11 @@ export function Detail({
         )}
 
         {sales && (
-          <div className="wonprev">
-            <div className="wonprev-head">
+          <section className="wonprev" aria-labelledby="previous-prizes-heading">
+            <h2 id="previous-prizes-heading" className="wonprev-head">
               Prizes won {wonPrev ? `on ${shortDay(wonPrev.date)}` : "previous day"}{" "}
               {demo && <span className="sample-pill">Sample</span>}
-            </div>
+            </h2>
             {wonPrev ? (
               wonPrev.total === 0 ? (
                 <p className="sales-note">No prizes were claimed that day.</p>
@@ -198,20 +205,11 @@ export function Detail({
                 Per-prize daily counts start collecting after the next couple of daily updates.
               </p>
             )}
-          </div>
+          </section>
         )}
 
         {breakdown.length > 0 && (
           <div className="daily-wrap">
-            <button
-              className="history-btn"
-              onClick={() => setShowHistory((v) => !v)}
-              aria-expanded={showHistory}
-            >
-              {showHistory ? "Hide" : "Show"} day-by-day history{" "}
-              {demo && <span className="sample-pill">Sample</span>}
-            </button>
-            {showHistory && (
               <table className="daily">
                 <thead>
                   <tr>
@@ -237,8 +235,9 @@ export function Detail({
                   ))}
                 </tbody>
               </table>
-            )}
           </div>
+        )}
+          </FullPage>
         )}
 
         <div className="conf-line">
@@ -276,6 +275,41 @@ export function Detail({
           </div>
         </div>
 
+        <div className="detail-page-links" aria-label="More game details">
+          <button className="detail-page-link detail-log-link" onClick={() => setDetailPage("log")}>
+            <span aria-hidden="true">🎟</span>
+            <span><strong>Log a purchase</strong><small>Add tickets to My Tickets</small></span>
+            <span aria-hidden="true">›</span>
+          </button>
+          <button className="detail-page-link" onClick={() => setDetailPage("history")}>
+            <span aria-hidden="true">▥</span>
+            <span><strong>Sales &amp; prize history</strong><small>Trends and daily changes</small></span>
+            <span aria-hidden="true">›</span>
+          </button>
+          <button className="detail-page-link" onClick={() => setDetailPage("analysis")}>
+            <span aria-hidden="true">∑</span>
+            <span><strong>Full analysis</strong><small>Print run, payout, EV, and prize value</small></span>
+            <span aria-hidden="true">›</span>
+          </button>
+          <button className="detail-page-link" onClick={() => setDetailPage("prizes")}>
+            <span aria-hidden="true">◆</span>
+            <span><strong>Prize odds &amp; winners</strong><small>Every tier and posted locations</small></span>
+            <span aria-hidden="true">›</span>
+          </button>
+          <button className="detail-page-link" onClick={() => setDetailPage("simulator")}>
+            <span aria-hidden="true">⚄</span>
+            <span><strong>Odds simulator</strong><small>Explore hypothetical ticket changes</small></span>
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        {detailPage === "analysis" && (
+          <FullPage
+            label={`${game.name} analysis`}
+            title="Full analysis"
+            subtitle={game.name}
+            onClose={() => setDetailPage(null)}
+          >
         <div className="attempt">
           <div className="attempt-head">
             Chasing the {usdCompact(c.topPrizeAmount)} top prize
@@ -323,16 +357,7 @@ export function Detail({
           )}
         </div>
 
-        <div className="analysis-wrap">
-          <button
-            className="history-btn"
-            onClick={() => setShowAnalysis((v) => !v)}
-            aria-expanded={showAnalysis}
-          >
-            {showAnalysis ? "Hide" : "Show"} full breakdown &amp; analysis
-          </button>
-          {showAnalysis && (
-            <div className="analysis">
+            <div className="analysis detail-analysis">
               {positiveEv && (
                 <div className="analysis-note">
                   This game shows <strong>positive expected value</strong> — genuine, but it rides on
@@ -406,20 +431,27 @@ export function Detail({
                 </tbody>
               </table>
             </div>
-          )}
-        </div>
+          </FullPage>
+        )}
 
-        <div className="sim-wrap">
-          <button
-            className="history-btn"
-            onClick={() => setShowSim((v) => !v)}
-            aria-expanded={showSim}
+        {detailPage === "simulator" && (
+          <FullPage
+            label={`${game.name} odds simulator`}
+            title="Odds simulator"
+            subtitle="Hypothetical changes only — real data is never modified"
+            onClose={() => setDetailPage(null)}
           >
-            {showSim ? "Hide" : "🎲 Simulate"} odds — remove tickets
-          </button>
-          {showSim && <Simulator key={game.gameId} game={game} />}
-        </div>
+            <Simulator key={game.gameId} game={game} />
+          </FullPage>
+        )}
 
+        {detailPage === "prizes" && (
+          <FullPage
+            label={`${game.name} prize odds`}
+            title="Prize odds & winners"
+            subtitle={game.name}
+            onClose={() => setDetailPage(null)}
+          >
         <div className="tiers-head">
           <span>Prize odds</span>
           <span className="tiers-sub">
@@ -494,30 +526,39 @@ export function Detail({
             </ul>
           </>
         )}
+          </FullPage>
+        )}
 
         <div className="detail-links">
           {game.url && (
             <a className="official" href={game.url} target="_blank" rel="noreferrer">
-              View official game page ↗
+              View official game page ↗<span className="sr-only"> (opens in a new tab)</span>
             </a>
           )}
           {retailerUrl(game.state) && (
             <a className="official" href={retailerUrl(game.state)} target="_blank" rel="noreferrer">
-              📍 Find a retailer ↗
+              📍 Find a retailer ↗<span className="sr-only"> (opens in a new tab)</span>
             </a>
           )}
         </div>
 
-        {/* Last child on purpose: sticks to the sheet's bottom edge, so the
-            logger is usable the moment the sheet opens and stays in reach
-            while scrolling through odds — no hunting for it. */}
-        <LogPurchase
-          game={game}
-          logged={logged}
-          showState={showState}
-          onLog={onLogTicket}
-        />
-    </Sheet>
+        {detailPage === "log" && (
+          <FullPage
+            label={`Log ${game.name}`}
+            title="Log a purchase"
+            subtitle={`${game.name} · $${game.price} per ticket`}
+            className="detail-log-page"
+            onClose={() => setDetailPage(null)}
+          >
+            <LogPurchase
+              game={game}
+              logged={logged}
+              showState={showState}
+              onLog={onLogTicket}
+            />
+          </FullPage>
+        )}
+    </FullPage>
   );
 }
 
@@ -525,7 +566,7 @@ export function Detail({
 
 /**
  * Quick "I bought this" logger: adds the purchase to the My Tickets ledger
- * straight from the game sheet, with the result left pending to fill in after
+ * straight from the game page, with the result left pending to fill in after
  * scratching (same flow as the Me tab's manual form).
  */
 function LogPurchase({
@@ -540,16 +581,17 @@ function LogPurchase({
   onLog: (qty: number) => void;
 }) {
   const [qty, setQty] = useState(1);
-  const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState<number | null>(null);
   useEffect(() => {
-    if (!added) return;
-    const t = setTimeout(() => setAdded(false), 2500);
+    if (added == null) return;
+    const t = setTimeout(() => setAdded(null), 2500);
     return () => clearTimeout(t);
   }, [added]);
   const submit = () => {
+    const count = qty;
     onLog(qty);
     setQty(1);
-    setAdded(true);
+    setAdded(count);
   };
   const spent = logged.reduce((a, e) => a + e.spent, 0);
   const pending = logged.filter((e) => e.won == null).length;
@@ -572,9 +614,14 @@ function LogPurchase({
           <button onClick={() => setQty((q) => q + 1)}>+</button>
         </div>
         <button className="add-btn" onClick={submit}>
-          {added ? "✓ Added" : `Add · ${usd(qty * game.price)}`}
+          {added != null ? "✓ Added" : `Add · ${usd(qty * game.price)}`}
         </button>
       </div>
+      <p className="save-status" role="status" aria-live="polite">
+        {added != null
+          ? `${added} ticket${added === 1 ? "" : "s"} added to My Tickets.`
+          : ""}
+      </p>
       <p className="log-note">
         {logged.length > 0 ? (
           <>

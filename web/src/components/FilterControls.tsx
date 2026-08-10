@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { Sheet } from "../Sheet.js";
+import { FullPage } from "../Sheet.js";
 import { Chip, TOP_PRIZE_TIERS } from "./primitives.js";
 
 /** Shared search plus progressively disclosed filters for every game list. */
@@ -85,7 +85,6 @@ export function FilterControls({
         <button
           className="filter-button"
           onClick={() => setOpen(true)}
-          aria-haspopup="dialog"
           aria-expanded={open}
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -108,17 +107,15 @@ export function FilterControls({
       </div>
 
       {open && (
-        <Sheet label="Filters and sorting" className="filter-sheet" onClose={() => setOpen(false)}>
-          <div className="sheet-head">
-            <div>
-              <div className="sheet-title">Filters &amp; sort</div>
-              <div className="sheet-sub">Narrow the list without losing your place</div>
-            </div>
-            <button className="close" onClick={() => setOpen(false)} aria-label="Close filters">
-              ✕
-            </button>
-          </div>
-
+        <FullPage
+          label="Filters and sorting"
+          title="Filters & sort"
+          subtitle="Narrow the list without losing your place"
+          className="filter-sheet"
+          onClose={() => setOpen(false)}
+        >
+          {(back) => (
+            <>
           {stateChips && (
             <section className="filter-group" aria-labelledby={`${searchId}-states`}>
               <h3 id={`${searchId}-states`}>State</h3>
@@ -192,11 +189,13 @@ export function FilterControls({
                 Reset all
               </button>
             )}
-            <button className="sheet-done" onClick={() => setOpen(false)}>
+            <button className="sheet-done" onClick={back}>
               Show results
             </button>
           </div>
-        </Sheet>
+            </>
+          )}
+        </FullPage>
       )}
     </div>
   );

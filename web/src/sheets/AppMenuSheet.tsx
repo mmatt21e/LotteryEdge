@@ -1,4 +1,4 @@
-import { Sheet } from "../Sheet.js";
+import { FullPage } from "../Sheet.js";
 
 export function AppMenuSheet({
   theme,
@@ -25,25 +25,24 @@ export function AppMenuSheet({
 }) {
   const themeLabel = theme === "auto" ? "Match device" : theme === "light" ? "Light" : "Dark";
 
-  const closeThen = (action: () => void) => {
-    onClose();
-    action();
-  };
-
   return (
-    <Sheet label="App menu" className="app-menu-sheet" onClose={onClose}>
-      <div className="sheet-head">
-        <div>
-          <div className="sheet-title">LotteryEdge menu</div>
-          <div className="sheet-sub">App tools and official links</div>
-        </div>
-        <button className="close" onClick={onClose} aria-label="Close menu">
-          ✕
-        </button>
-      </div>
-
+    <FullPage
+      label="LotteryEdge menu"
+      title="LotteryEdge menu"
+      subtitle="App tools and official links"
+      className="app-menu-sheet"
+      onClose={onClose}
+    >
+      {(back) => (
       <div className="menu-list">
-        <button className="menu-row" onClick={() => closeThen(onRefresh)} disabled={refreshing}>
+        <button
+          className="menu-row"
+          onClick={() => {
+            back();
+            onRefresh();
+          }}
+          disabled={refreshing}
+        >
           <span className={`menu-icon ${refreshing ? "spin" : ""}`} aria-hidden="true">
             ↻
           </span>
@@ -66,7 +65,13 @@ export function AppMenuSheet({
         </button>
 
         {canInstall && (
-          <button className="menu-row" onClick={() => closeThen(onInstall)}>
+          <button
+            className="menu-row"
+            onClick={() => {
+              back();
+              onInstall();
+            }}
+          >
             <span className="menu-icon" aria-hidden="true">↓</span>
             <span>
               <strong>Install LotteryEdge</strong>
@@ -81,13 +86,16 @@ export function AppMenuSheet({
             <span className="menu-icon" aria-hidden="true">⌖</span>
             <span>
               <strong>Find a retailer</strong>
-              <small>Open the official {retailerName} finder</small>
+              <small>
+                Open the official {retailerName} finder
+                <span className="sr-only"> in a new tab</span>
+              </small>
             </span>
             <span className="menu-chevron" aria-hidden="true">↗</span>
           </a>
         )}
 
-        <button className="menu-row" onClick={() => closeThen(onInfo)}>
+        <button className="menu-row" onClick={onInfo}>
           <span className="menu-icon" aria-hidden="true">?</span>
           <span>
             <strong>How it works</strong>
@@ -96,6 +104,7 @@ export function AppMenuSheet({
           <span className="menu-chevron" aria-hidden="true">›</span>
         </button>
       </div>
-    </Sheet>
+      )}
+    </FullPage>
   );
 }

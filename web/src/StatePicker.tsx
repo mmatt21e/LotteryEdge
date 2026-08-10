@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Sheet } from "./Sheet.js";
+import { FullPage, type PageBack } from "./Sheet.js";
 import { STATES, UNAVAILABLE, ALL_KEY, stateName, type StateInfo } from "./states.js";
 
 /** "tx" -> "· TX", ["tx","ca"] -> "· TX, CA", more -> "· TX +2". */
@@ -10,7 +10,7 @@ function filterSuffix(keys: string[]): string {
 }
 
 /**
- * Searchable state picker. Opens a sheet with a filter box and two groups —
+ * Searchable state picker. Opens a full page with a filter box and two groups —
  * full EV states and lite (top-prize only) states — plus a greyed "not yet
  * available" section that explains, per state, why it isn't here.
  */
@@ -48,14 +48,19 @@ export function StatePicker({
   const soon = useMemo(() => UNAVAILABLE.filter((s) => match(s.name)), [query]);
   const nothing = full.length === 0 && lite.length === 0 && soon.length === 0;
 
-  const pick = (key: string) => {
+  const pick = (key: string, back: PageBack) => {
     onChange(key);
-    setOpen(false);
+    back();
   };
 
   return (
     <>
-      <button className="state-picker-btn" onClick={() => setOpen(true)} aria-label="Choose state">
+      <button
+        className="state-picker-btn"
+        onClick={() => setOpen(true)}
+        aria-label="Choose state"
+        aria-expanded={open}
+      >
         <span className="state-picker-name">
           {stateName(value)}
           {value === ALL_KEY ? filterSuffix(allFilter) : ""}
@@ -64,14 +69,15 @@ export function StatePicker({
       </button>
 
       {open && (
-        <Sheet label="Choose a state" className="picker-sheet" onClose={() => setOpen(false)}>
-            <div className="sheet-head">
-              <div className="sheet-title">Choose a state</div>
-              <button className="close" onClick={() => setOpen(false)} aria-label="Close">
-                ✕
-              </button>
-            </div>
-
+        <FullPage
+          label="Choose a state"
+          title="Choose a state"
+          subtitle="Pick one lottery or compare full-ranking states together"
+          className="picker-sheet"
+          onClose={() => setOpen(false)}
+        >
+          {(back) => (
+            <>
             <input
               ref={searchRef}
               className="search picker-search"
@@ -86,7 +92,7 @@ export function StatePicker({
                 <div className="picker-group">
                   <button
                     className={`picker-row picker-row-all ${value === ALL_KEY ? "picker-row-on" : ""}`}
-                    onClick={() => pick(ALL_KEY)}
+                    onClick={() => pick(ALL_KEY, back)}
                   >
                     <span className="picker-row-name">◎ All states combined</span>
                     {value === ALL_KEY ? (
@@ -107,14 +113,14 @@ export function StatePicker({
               {full.length > 0 && (
                 <Group title="Full ranking" hint="EV & net-per-$1">
                   {full.map((s) => (
-                    <StateRow key={s.key} s={s} active={s.key === value} onPick={pick} />
+                    <StateRow key={s.key} s={s} active={s.key === value} onPick={(key) => pick(key, back)} />
                   ))}
                 </Group>
               )}
               {lite.length > 0 && (
                 <Group title="Lite" hint="top prize & closing-soon only">
                   {lite.map((s) => (
-                    <StateRow key={s.key} s={s} active={s.key === value} onPick={pick} />
+                    <StateRow key={s.key} s={s} active={s.key === value} onPick={(key) => pick(key, back)} />
                   ))}
                 </Group>
               )}
@@ -130,7 +136,9 @@ export function StatePicker({
               )}
               {nothing && <div className="status">No states match “{q}”.</div>}
             </div>
-        </Sheet>
+            </>
+          )}
+        </FullPage>
       )}
     </>
   );
