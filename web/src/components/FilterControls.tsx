@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import { FullPage } from "../Sheet.js";
-import { Chip, TOP_PRIZE_TIERS } from "./primitives.js";
+import { Chip, PRIZE_GOALS } from "./primitives.js";
 
 /** Shared search plus progressively disclosed filters for every game list. */
 interface FilterControlsProps {
@@ -20,8 +20,8 @@ interface FilterControlsProps {
     onToggle: (k: string) => void;
     onClear: () => void;
   };
-  /** Minimum top-prize size filter ($0 = off); chips from TOP_PRIZE_TIERS. */
-  topPrize?: { value: number; onChange: (min: number) => void };
+  /** Minimum prize amount the user wants a chance to win ($0 = off). */
+  prizeGoal?: { value: number; onChange: (min: number) => void };
   toggles: React.ReactNode;
   /** Active states owned by opaque toggle controls, excluding action buttons. */
   activeToggleLabels?: string[];
@@ -41,7 +41,7 @@ export function FilterControls({
   onSort,
   sortNote,
   stateChips,
-  topPrize,
+  prizeGoal,
   toggles,
   activeToggleLabels = [],
   onReset,
@@ -59,8 +59,8 @@ export function FilterControls({
     stateChips && stateChips.active.size > 0
       ? `${stateChips.active.size} state${stateChips.active.size === 1 ? "" : "s"}`
       : null,
-    topPrize && topPrize.value > 0
-      ? TOP_PRIZE_TIERS.find((tier) => tier.min === topPrize.value)?.label
+    prizeGoal && prizeGoal.value > 0
+      ? `Win ${PRIZE_GOALS.find((goal) => goal.min === prizeGoal.value)?.label ?? "$100k+"}`
       : null,
     ...activeToggleLabels,
   ].filter((label): label is string => Boolean(label));
@@ -146,15 +146,23 @@ export function FilterControls({
             </div>
           </section>
 
-          {topPrize && (
+          {prizeGoal && (
             <section className="filter-group" aria-labelledby={`${searchId}-prize`}>
-              <h3 id={`${searchId}-prize`}>Top prize</h3>
-              <div className="chips" role="group" aria-label="Filter by top prize size">
-                {TOP_PRIZE_TIERS.map((t) => (
-                  <Chip key={t.min} active={topPrize.value === t.min} onClick={() => topPrize.onChange(t.min)}>
-                    {t.label}
+              <h3 id={`${searchId}-prize`}>Prize goal</h3>
+              <div className="chips" role="group" aria-label="Filter by minimum prize amount">
+                {PRIZE_GOALS.map((goal) => (
+                  <Chip
+                    key={goal.min}
+                    active={prizeGoal.value === goal.min}
+                    onClick={() => prizeGoal.onChange(goal.min)}
+                  >
+                    {goal.label}
                   </Chip>
                 ))}
+              </div>
+              <div className="sort-note">
+                Selecting a goal keeps games with a qualifying prize left and ranks the best
+                estimated chance first.
               </div>
             </section>
           )}

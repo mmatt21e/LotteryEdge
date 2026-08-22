@@ -9,6 +9,8 @@ import {
   pointNet,
   effectiveRoi,
   endingSoon,
+  livePrizeGoalOdds,
+  remainingPrizesAtOrAbove,
   ticketsToTopPrize,
 } from "../analytics.js";
 import { roiColor, signColor, CONF_COLOR } from "./primitives.js";
@@ -24,6 +26,7 @@ export function GameCard({
   onClick,
   badge,
   showTopOdds,
+  prizeGoal,
 }: {
   game: Game;
   history: History | null;
@@ -36,12 +39,16 @@ export function GameCard({
   badge?: string;
   /** Show the live 1-in-N odds of hitting the top prize (used when sorting by them). */
   showTopOdds?: boolean;
+  /** Show live combined odds for all unclaimed prizes at or above this amount. */
+  prizeGoal?: number;
 }) {
   const c = game.computed;
   const roi = effectiveRoi(game, afterTax);
   const width = Math.min(100, Math.max(4, roi * 100));
   const conf = confidence(c.fractionRemaining);
   const odds = liveProfitOdds(game) ?? profitOdds(game);
+  const goalOdds = prizeGoal ? livePrizeGoalOdds(game, prizeGoal) : null;
+  const goalPrizes = prizeGoal ? remainingPrizesAtOrAbove(game, prizeGoal) : 0;
   const ending = endingSoon(game);
   const nets = (history?.series[game.gameId]?.points ?? []).map(pointNet);
 
@@ -92,12 +99,20 @@ export function GameCard({
             <strong>{usdCompact(c.topPrizeAmount)}</strong>
             <small>{c.topPrizesRemaining} top prize{c.topPrizesRemaining === 1 ? "" : "s"} left</small>
           </span>
-          {showTopOdds && ticketsToTopPrize(game) != null && (
+          {prizeGoal && goalOdds != null ? (
             <span>
-              <strong className="top-odds">1 in {compact(ticketsToTopPrize(game)!)}</strong>
+              <strong className="prize-odds">1 in {compact(goalOdds)}</strong>
+              <small>
+                chance at {usdCompact(prizeGoal)}+ now · {goalPrizes} prize
+                {goalPrizes === 1 ? "" : "s"} left
+              </small>
+            </span>
+          ) : showTopOdds && ticketsToTopPrize(game) != null ? (
+            <span>
+              <strong className="prize-odds">1 in {compact(ticketsToTopPrize(game)!)}</strong>
               <small>top-prize odds now</small>
             </span>
-          )}
+          ) : null}
         </div>
 
         <div className="card-foot">

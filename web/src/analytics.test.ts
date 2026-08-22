@@ -4,6 +4,9 @@ import {
   profitOdds,
   liveTierOdds,
   liveProfitOdds,
+  remainingPrizesAtOrAbove,
+  livePrizeGoalOdds,
+  prizeGoalOddsRank,
   confidence,
   computeVelocity,
   simulateGame,
@@ -67,6 +70,41 @@ describe("liveTierOdds / liveProfitOdds", () => {
     const g = makeGame();
     // Winners above price: 2 + 5,000.
     expect(liveProfitOdds(g)).toBeCloseTo(100_000 / 5_002, 6);
+  });
+});
+
+describe("prize-goal odds", () => {
+  it("combines every remaining tier at or above the goal", () => {
+    const g = makeGame();
+    g.tiers = [
+      { amount: 1_000_000, originalCount: 2, remaining: 1 },
+      { amount: 100_000, originalCount: 8, remaining: 4 },
+      { amount: 50_000, originalCount: 10, remaining: 9 },
+    ];
+    expect(remainingPrizesAtOrAbove(g, 100_000)).toBe(5);
+    expect(livePrizeGoalOdds(g, 100_000)).toBe(20_000);
+  });
+
+  it("still qualifies when the top tier is exhausted but a lower goal tier remains", () => {
+    const g = makeGame();
+    g.tiers = [
+      { amount: 1_000_000, originalCount: 2, remaining: 0 },
+      { amount: 100_000, originalCount: 8, remaining: 3 },
+    ];
+    g.computed = { ...g.computed, topPrizesRemaining: 0 };
+    expect(remainingPrizesAtOrAbove(g, 100_000)).toBe(3);
+    expect(livePrizeGoalOdds(g, 100_000)).toBeCloseTo(100_000 / 3, 6);
+  });
+
+  it("ranks the smallest live 1-in-X odds first and exhausted games last", () => {
+    const best = makeGame({ gameId: "best" });
+    best.tiers = [{ amount: 100_000, originalCount: 10, remaining: 5 }];
+    const second = makeGame({ gameId: "second" });
+    second.tiers = [{ amount: 100_000, originalCount: 10, remaining: 2 }];
+    const exhausted = makeGame({ gameId: "gone" });
+    exhausted.tiers = [{ amount: 100_000, originalCount: 10, remaining: 0 }];
+    const ranked = [exhausted, second, best].sort((a, b) => prizeGoalOddsRank(a, b, 100_000));
+    expect(ranked.map((g) => g.gameId)).toEqual(["best", "second", "gone"]);
   });
 });
 

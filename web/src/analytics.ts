@@ -38,6 +38,25 @@ export function liveProfitOdds(game: Game): number | null {
   return winnersLeft > 0 ? tr / winnersLeft : null;
 }
 
+/** Number of unclaimed prizes worth at least `minimumPrize`. */
+export function remainingPrizesAtOrAbove(game: Game, minimumPrize: number): number {
+  if (!Number.isFinite(minimumPrize) || minimumPrize <= 0) return 0;
+  return game.tiers
+    .filter((tier) => tier.amount >= minimumPrize)
+    .reduce((sum, tier) => sum + Math.max(0, tier.remaining), 0);
+}
+
+/**
+ * Live "1 in X" odds of winning any prize at or above a chosen goal. Unlike
+ * top-prize odds, this combines every qualifying prize tier still unclaimed.
+ */
+export function livePrizeGoalOdds(game: Game, minimumPrize: number): number | null {
+  const ticketsRemaining = game.computed.ticketsRemaining;
+  const qualifyingPrizes = remainingPrizesAtOrAbove(game, minimumPrize);
+  if (ticketsRemaining <= 0 || qualifyingPrizes <= 0) return null;
+  return ticketsRemaining / qualifyingPrizes;
+}
+
 export type ConfidenceLevel = "low" | "medium" | "high";
 
 /**
@@ -431,6 +450,17 @@ export function topOddsRank(a: Game, b: Game): number {
   if (ta == null) return 1;
   if (tb == null) return -1;
   return ta - tb;
+}
+
+/** Best live chance of reaching a selected prize goal first. */
+export function prizeGoalOddsRank(a: Game, b: Game, minimumPrize: number): number {
+  const oa = livePrizeGoalOdds(a, minimumPrize);
+  const ob = livePrizeGoalOdds(b, minimumPrize);
+  if (oa == null && ob == null)
+    return b.computed.topPrizeAmount - a.computed.topPrizeAmount;
+  if (oa == null) return 1;
+  if (ob == null) return -1;
+  return oa - ob;
 }
 
 export interface TopPrizeAttempt {
