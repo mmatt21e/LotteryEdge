@@ -1,14 +1,21 @@
 import type { Game } from "../types.js";
 import { confidence, type ConfidenceLevel } from "../analytics.js";
 
-export type SortKey = "roi" | "topPrize" | "topLeft" | "topOdds" | "unsold" | "price";
+export type SortKey =
+  | "roi"
+  | "topPrize"
+  | "topLeft"
+  | "topOdds"
+  | "prizeGoalOdds"
+  | "unsold"
+  | "price";
 
 /**
- * Top-prize size thresholds for the "big jackpots only" filter chips.
+ * Minimum prize thresholds for the prize-goal filter chips.
  * min = 0 means no filtering.
  */
-export const TOP_PRIZE_TIERS = [
-  { min: 0, label: "Any top prize" },
+export const PRIZE_GOALS = [
+  { min: 0, label: "Any prize" },
   { min: 100_000, label: "$100k+" },
   { min: 500_000, label: "$500k+" },
   { min: 1_000_000, label: "$1M+" },
