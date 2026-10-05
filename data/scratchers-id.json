@@ -1,8 +1,24 @@
 {
-  "generatedAt": "2026-10-05T11:14:12.394Z",
+  "generatedAt": "2026-10-05T17:20:36.759Z",
+  "resultsAsOf": "2026-10-04",
+  "dateBasis": "assumed-previous-day",
+  "timeZone": "America/Denver",
+  "excluded": [
+    {
+      "gameId": "1919",
+      "name": "Mega Cash",
+      "reason": "Conflicting ticket-count anchors require source review"
+    },
+    {
+      "gameId": "1876",
+      "name": "Ninja Cashword Attack",
+      "reason": "Conflicting ticket-count anchors require source review"
+    }
+  ],
+  "validationVersion": "2026-10-05.1",
   "state": "id",
   "source": "https://www.idaholottery.com/games/scratch?view=remaining_prizes",
-  "gameCount": 31,
+  "gameCount": 29,
   "games": [
     {
       "state": "id",
@@ -330,91 +346,6 @@
         "roi": 0.7936,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 100000
-      }
-    },
-    {
-      "state": "id",
-      "gameId": "1919",
-      "name": "Mega Cash",
-      "price": 50,
-      "url": "https://www.idaholottery.com/games/scratch/mega-cash",
-      "tiers": [
-        {
-          "amount": 1000000,
-          "odds": 271913,
-          "originalCount": 2,
-          "remaining": 2
-        },
-        {
-          "amount": 50000,
-          "odds": 108765,
-          "originalCount": 5,
-          "remaining": 4
-        },
-        {
-          "amount": 10000,
-          "odds": 60425,
-          "originalCount": 9,
-          "remaining": 8
-        },
-        {
-          "amount": 5000,
-          "odds": 38845,
-          "originalCount": 14,
-          "remaining": 12
-        },
-        {
-          "amount": 1000,
-          "odds": 21753,
-          "originalCount": 25,
-          "remaining": 23
-        },
-        {
-          "amount": 500,
-          "odds": 119,
-          "originalCount": 4582,
-          "remaining": 4309
-        },
-        {
-          "amount": 300,
-          "odds": 98,
-          "originalCount": 5523,
-          "remaining": 5208
-        },
-        {
-          "amount": 200,
-          "odds": 40,
-          "originalCount": 13443,
-          "remaining": 12676
-        },
-        {
-          "amount": 150,
-          "odds": 65,
-          "originalCount": 8423,
-          "remaining": 7878
-        },
-        {
-          "amount": 100,
-          "odds": 11,
-          "originalCount": 48944,
-          "remaining": 45969
-        },
-        {
-          "amount": 50,
-          "odds": 5,
-          "originalCount": 119642,
-          "remaining": 112434
-        }
-      ],
-      "computed": {
-        "originalTickets": 543825,
-        "fractionRemaining": 0.9397,
-        "ticketsRemaining": 511054,
-        "remainingPrizeValue": 20015400,
-        "evPerTicket": 39.1649,
-        "roi": 0.7833,
-        "topPrizesRemaining": 2,
-        "topPrizeAmount": 1000000
       }
     },
     {
@@ -2196,91 +2127,6 @@
         "roi": 0.6686,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
-      }
-    },
-    {
-      "state": "id",
-      "gameId": "1876",
-      "name": "Ninja Cashword Attack",
-      "price": 3,
-      "url": "https://www.idaholottery.com/games/scratch/ninja-cashword-attack",
-      "tiers": [
-        {
-          "amount": 30000,
-          "odds": 399488,
-          "originalCount": 2,
-          "remaining": 1
-        },
-        {
-          "amount": 1000,
-          "odds": 266325,
-          "originalCount": 3,
-          "remaining": 2
-        },
-        {
-          "amount": 300,
-          "odds": 7538,
-          "originalCount": 106,
-          "remaining": 84
-        },
-        {
-          "amount": 100,
-          "odds": 1944,
-          "originalCount": 411,
-          "remaining": 326
-        },
-        {
-          "amount": 45,
-          "odds": 11943,
-          "originalCount": 670,
-          "remaining": 529
-        },
-        {
-          "amount": 30,
-          "odds": 333,
-          "originalCount": 2396,
-          "remaining": 1894
-        },
-        {
-          "amount": 15,
-          "odds": 30,
-          "originalCount": 26629,
-          "remaining": 21048
-        },
-        {
-          "amount": 10,
-          "odds": 60,
-          "originalCount": 13314,
-          "remaining": 10524
-        },
-        {
-          "amount": 9,
-          "odds": 50,
-          "originalCount": 15974,
-          "remaining": 12626
-        },
-        {
-          "amount": 5,
-          "odds": 16,
-          "originalCount": 50613,
-          "remaining": 40005
-        },
-        {
-          "amount": 3,
-          "odds": 6,
-          "originalCount": 130522,
-          "remaining": 103166
-        }
-      ],
-      "computed": {
-        "originalTickets": 798975,
-        "fractionRemaining": 0.7904,
-        "ticketsRemaining": 631520,
-        "remainingPrizeValue": 1214542,
-        "evPerTicket": 1.9232,
-        "roi": 0.6411,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 30000
       }
     },
     {

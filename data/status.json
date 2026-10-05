@@ -1,242 +1,257 @@
 {
-  "generatedAt": "2026-10-05T11:15:32.017Z",
-  "okCount": 32,
+  "generatedAt": "2026-10-05T17:22:16.516Z",
+  "okCount": 34,
   "total": 37,
   "failed": [
     "ar",
     "ct",
-    "ok",
-    "ne",
-    "ga"
+    "ok"
   ],
   "stale": [
-    "nc",
-    "mo"
+    "md",
+    "ia",
+    "id",
+    "tx",
+    "oh",
+    "ky",
+    "mi",
+    "ri"
   ],
   "staleRuns": {
-    "nc": 1,
-    "mo": 1
+    "md": 1,
+    "ia": 1,
+    "id": 1,
+    "tx": 1,
+    "oh": 1,
+    "ky": 1,
+    "mi": 1,
+    "ri": 1
   },
   "states": [
     {
       "state": "ar",
       "kind": "full",
       "ok": false,
-      "gameCount": 0
+      "gameCount": 0,
+      "error": "Automated access unavailable: official host returns HTTP 403 Cloudflare challenge; no bypass attempted."
     },
     {
       "state": "ca",
       "kind": "full",
       "ok": true,
-      "gameCount": 58,
-      "changed": 58,
-      "generatedAt": "2026-10-05T11:12:56.864Z"
+      "gameCount": 11,
+      "changed": 7,
+      "generatedAt": "2026-10-05T17:18:36.871Z"
     },
     {
       "state": "co",
       "kind": "lite",
       "ok": true,
       "gameCount": 90,
-      "generatedAt": "2026-10-05T11:15:11.181Z"
+      "generatedAt": "2026-10-05T17:21:51.974Z"
     },
     {
       "state": "ct",
       "kind": "full",
       "ok": false,
-      "gameCount": 0
+      "gameCount": 0,
+      "error": "Automated collection paused: ctlottery.com/terms-and-conditions explicitly prohibits automated scraping (Prohibited User Conduct, f)."
     },
     {
       "state": "dc",
       "kind": "lite",
       "ok": true,
       "gameCount": 20,
-      "generatedAt": "2026-10-05T11:15:11.961Z"
+      "generatedAt": "2026-10-05T17:21:52.454Z"
     },
     {
       "state": "de",
       "kind": "lite",
       "ok": true,
       "gameCount": 44,
-      "generatedAt": "2026-10-05T11:15:16.771Z"
+      "generatedAt": "2026-10-05T17:21:56.434Z"
     },
     {
       "state": "fl",
       "kind": "full",
       "ok": true,
-      "gameCount": 89,
-      "changed": 89,
-      "generatedAt": "2026-10-05T11:15:02.220Z"
+      "gameCount": 84,
+      "changed": 54,
+      "generatedAt": "2026-10-05T17:21:35.885Z"
     },
     {
       "state": "ga",
       "kind": "lite",
-      "ok": false,
-      "gameCount": 0
+      "ok": true,
+      "gameCount": 107,
+      "generatedAt": "2026-10-05T17:21:56.989Z"
     },
     {
       "state": "ia",
       "kind": "full",
       "ok": true,
-      "gameCount": 72,
-      "changed": 49,
-      "generatedAt": "2026-10-05T11:14:10.331Z"
+      "gameCount": 0,
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:20:35.861Z"
     },
     {
       "state": "id",
       "kind": "full",
       "ok": true,
-      "gameCount": 31,
-      "changed": 31,
-      "generatedAt": "2026-10-05T11:14:12.394Z"
+      "gameCount": 29,
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:20:36.759Z"
     },
     {
       "state": "ks",
       "kind": "lite",
       "ok": true,
       "gameCount": 102,
-      "generatedAt": "2026-10-05T11:15:12.659Z"
+      "generatedAt": "2026-10-05T17:21:53.250Z"
     },
     {
       "state": "ky",
       "kind": "full",
       "ok": true,
       "gameCount": 105,
-      "changed": 101,
-      "generatedAt": "2026-10-05T11:15:01.453Z"
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:21:34.822Z"
     },
     {
       "state": "la",
       "kind": "full",
       "ok": true,
-      "gameCount": 40,
-      "changed": 39,
-      "generatedAt": "2026-10-05T11:13:45.799Z"
+      "gameCount": 4,
+      "changed": 4,
+      "generatedAt": "2026-10-05T17:20:12.589Z"
     },
     {
       "state": "ma",
       "kind": "full",
       "ok": true,
-      "gameCount": 102,
-      "changed": 100,
-      "generatedAt": "2026-10-05T11:14:17.868Z"
+      "gameCount": 96,
+      "changed": 95,
+      "generatedAt": "2026-10-05T17:20:41.716Z"
     },
     {
       "state": "md",
       "kind": "full",
       "ok": true,
       "gameCount": 93,
-      "changed": 91,
-      "generatedAt": "2026-10-05T11:13:12.540Z"
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:18:51.715Z"
     },
     {
       "state": "me",
       "kind": "lite",
       "ok": true,
       "gameCount": 67,
-      "generatedAt": "2026-10-05T11:15:25.230Z"
+      "generatedAt": "2026-10-05T17:22:03.884Z"
     },
     {
       "state": "mi",
       "kind": "full",
       "ok": true,
       "gameCount": 108,
-      "changed": 105,
-      "generatedAt": "2026-10-05T11:15:02.035Z"
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:21:35.420Z"
     },
     {
       "state": "mn",
       "kind": "lite",
       "ok": true,
       "gameCount": 39,
-      "generatedAt": "2026-10-05T11:15:24.046Z"
+      "generatedAt": "2026-10-05T17:21:59.488Z"
     },
     {
       "state": "mo",
       "kind": "full",
       "ok": true,
       "gameCount": 73,
-      "changed": 0,
-      "generatedAt": "2026-10-05T11:13:11.921Z"
+      "changed": 70,
+      "generatedAt": "2026-10-05T17:18:51.138Z"
     },
     {
       "state": "ms",
       "kind": "full",
       "ok": true,
       "gameCount": 79,
-      "changed": 70,
-      "generatedAt": "2026-10-05T11:13:11.082Z"
+      "changed": 64,
+      "generatedAt": "2026-10-05T17:18:49.498Z"
     },
     {
       "state": "nc",
       "kind": "full",
       "ok": true,
       "gameCount": 81,
-      "changed": 0,
-      "generatedAt": "2026-10-05T11:12:51.587Z"
+      "changed": 80,
+      "generatedAt": "2026-10-05T17:18:32.226Z"
     },
     {
       "state": "ne",
       "kind": "lite",
-      "ok": false,
-      "gameCount": 0
+      "ok": true,
+      "gameCount": 26,
+      "generatedAt": "2026-10-05T17:21:55.056Z"
     },
     {
       "state": "nh",
       "kind": "full",
       "ok": true,
       "gameCount": 60,
-      "changed": 60,
-      "generatedAt": "2026-10-05T11:15:02.949Z"
+      "changed": 59,
+      "generatedAt": "2026-10-05T17:21:36.569Z"
     },
     {
       "state": "nj",
       "kind": "lite",
       "ok": true,
       "gameCount": 72,
-      "generatedAt": "2026-10-05T11:15:20.299Z"
+      "generatedAt": "2026-10-05T17:21:57.540Z"
     },
     {
       "state": "nm",
       "kind": "lite",
       "ok": true,
       "gameCount": 67,
-      "generatedAt": "2026-10-05T11:15:23.727Z"
+      "generatedAt": "2026-10-05T17:21:58.940Z"
     },
     {
       "state": "oh",
       "kind": "full",
       "ok": true,
-      "gameCount": 66,
-      "changed": 57,
-      "generatedAt": "2026-10-05T11:14:13.842Z"
+      "gameCount": 58,
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:20:40.864Z"
     },
     {
       "state": "ok",
       "kind": "full",
       "ok": false,
-      "gameCount": 0
+      "gameCount": 0,
+      "error": "Automated collection paused pending permission review: oklottery.com/terms-conditions section II requires written authorization to copy or reproduce service content; old JSON endpoint is retired."
     },
     {
       "state": "or",
       "kind": "lite",
       "ok": true,
       "gameCount": 51,
-      "generatedAt": "2026-10-05T11:15:21.539Z"
+      "generatedAt": "2026-10-05T17:21:58.444Z"
     },
     {
       "state": "pa",
       "kind": "lite",
       "ok": true,
       "gameCount": 207,
-      "generatedAt": "2026-10-05T11:15:16.504Z"
+      "generatedAt": "2026-10-05T17:21:55.789Z"
     },
     {
       "state": "ri",
       "kind": "full",
       "ok": true,
-      "gameCount": 71,
-      "changed": 63,
-      "generatedAt": "2026-10-05T11:15:09.589Z"
+      "gameCount": 0,
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:21:50.594Z"
     },
     {
       "state": "sc",
@@ -244,52 +259,52 @@
       "ok": true,
       "gameCount": 33,
       "changed": 33,
-      "generatedAt": "2026-10-05T11:12:52.828Z"
+      "generatedAt": "2026-10-05T17:18:33.915Z"
     },
     {
       "state": "sd",
       "kind": "lite",
       "ok": true,
       "gameCount": 36,
-      "generatedAt": "2026-10-05T11:15:24.242Z"
+      "generatedAt": "2026-10-05T17:22:00.212Z"
     },
     {
       "state": "tx",
       "kind": "full",
       "ok": true,
       "gameCount": 74,
-      "changed": 74,
-      "generatedAt": "2026-10-05T11:14:13.436Z"
+      "changed": 0,
+      "generatedAt": "2026-10-05T17:20:39.712Z"
     },
     {
       "state": "vt",
       "kind": "lite",
       "ok": true,
       "gameCount": 88,
-      "generatedAt": "2026-10-05T11:15:10.685Z"
+      "generatedAt": "2026-10-05T17:21:51.170Z"
     },
     {
       "state": "wa",
       "kind": "full",
       "ok": true,
       "gameCount": 58,
-      "changed": 58,
-      "generatedAt": "2026-10-05T11:13:13.108Z"
+      "changed": 57,
+      "generatedAt": "2026-10-05T17:18:51.976Z"
     },
     {
       "state": "wi",
       "kind": "lite",
       "ok": true,
       "gameCount": 87,
-      "generatedAt": "2026-10-05T11:15:25.018Z"
+      "generatedAt": "2026-10-05T17:22:03.454Z"
     },
     {
       "state": "wv",
       "kind": "full",
       "ok": true,
       "gameCount": 131,
-      "changed": 56,
-      "generatedAt": "2026-10-05T11:15:08.407Z"
+      "changed": 50,
+      "generatedAt": "2026-10-05T17:21:47.466Z"
     }
   ]
 }

@@ -1,8 +1,39 @@
 {
-  "generatedAt": "2026-10-05T11:15:02.220Z",
+  "generatedAt": "2026-10-05T17:21:35.885Z",
+  "resultsAsOf": "2026-10-04",
+  "dateBasis": "assumed-previous-day",
+  "timeZone": "America/New_York",
+  "excluded": [
+    {
+      "gameId": "1627",
+      "name": "500X THE CASH",
+      "reason": "Conflicting ticket-count anchors require source review"
+    },
+    {
+      "gameId": "1602",
+      "name": "$10,000 A WEEK FOR LIFE",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1601",
+      "name": "$5,000 A WEEK FOR LIFE",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1599",
+      "name": "$1,000 A WEEK FOR LIFE",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1590",
+      "name": "$25MM GOLD RUSH MULTIPLIER",
+      "reason": "Conflicting ticket-count anchors require source review"
+    }
+  ],
+  "validationVersion": "2026-10-05.1",
   "state": "fl",
   "source": "https://apim-website-prod-eastus.azure-api.net/scratchgamesapp/getscratchinfo",
-  "gameCount": 89,
+  "gameCount": 84,
   "games": [
     {
       "state": "fl",
@@ -92,9 +123,9 @@
       ],
       "overallOdds": 3.39,
       "computed": {
-        "originalTickets": 16232400,
+        "originalTickets": 16232340,
         "fractionRemaining": 0.0323,
-        "ticketsRemaining": 524303,
+        "ticketsRemaining": 524301,
         "remainingPrizeValue": 5451730,
         "evPerTicket": 10.3981,
         "roi": 1.0398,
@@ -356,86 +387,12 @@
       ],
       "overallOdds": 4.23,
       "computed": {
-        "originalTickets": 43840640,
+        "originalTickets": 43840606,
         "fractionRemaining": 0.1469,
-        "ticketsRemaining": 6441401,
+        "ticketsRemaining": 6441396,
         "remainingPrizeValue": 285580800,
         "evPerTicket": 44.3352,
         "roi": 0.8867,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 25000000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1590",
-      "name": "$25MM GOLD RUSH MULTIPLIER",
-      "price": 50,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1590",
-      "tiers": [
-        {
-          "amount": 25000000,
-          "odds": 16639785,
-          "originalCount": 2,
-          "remaining": 1
-        },
-        {
-          "amount": 1000000,
-          "odds": 554660,
-          "originalCount": 60,
-          "remaining": 24
-        },
-        {
-          "amount": 50000,
-          "odds": 195762,
-          "originalCount": 170,
-          "remaining": 61
-        },
-        {
-          "amount": 20000,
-          "odds": 20109,
-          "originalCount": 1655,
-          "remaining": 580
-        },
-        {
-          "amount": 10000,
-          "odds": 20024,
-          "originalCount": 1662,
-          "remaining": 580
-        },
-        {
-          "amount": 5000,
-          "odds": 7084,
-          "originalCount": 4698,
-          "remaining": 1645
-        },
-        {
-          "amount": 1000,
-          "odds": 1202,
-          "originalCount": 27695,
-          "remaining": 9770
-        },
-        {
-          "amount": 500,
-          "odds": 43,
-          "originalCount": 772564,
-          "remaining": 263067
-        },
-        {
-          "amount": 100,
-          "odds": 5,
-          "originalCount": 7321589,
-          "remaining": 2495581
-        }
-      ],
-      "overallOdds": 4.09,
-      "computed": {
-        "originalTickets": 33279888,
-        "fractionRemaining": 0.3409,
-        "ticketsRemaining": 11344130,
-        "remainingPrizeValue": 468536600,
-        "evPerTicket": 41.3021,
-        "roi": 0.826,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 25000000
       }
@@ -528,88 +485,14 @@
       ],
       "overallOdds": 3.94,
       "computed": {
-        "originalTickets": 14286520,
+        "originalTickets": 14286110,
         "fractionRemaining": 0.0526,
-        "ticketsRemaining": 751166,
+        "ticketsRemaining": 751144,
         "remainingPrizeValue": 3058785,
-        "evPerTicket": 4.072,
+        "evPerTicket": 4.0722,
         "roi": 0.8144,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1627",
-      "name": "500X THE CASH",
-      "price": 50,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1627",
-      "tiers": [
-        {
-          "amount": 25000000,
-          "odds": 13985115,
-          "originalCount": 2,
-          "remaining": 1
-        },
-        {
-          "amount": 1000000,
-          "odds": 998937,
-          "originalCount": 28,
-          "remaining": 15
-        },
-        {
-          "amount": 50000,
-          "odds": 241123,
-          "originalCount": 116,
-          "remaining": 67
-        },
-        {
-          "amount": 20000,
-          "odds": 20022,
-          "originalCount": 1397,
-          "remaining": 827
-        },
-        {
-          "amount": 10000,
-          "odds": 20166,
-          "originalCount": 1387,
-          "remaining": 822
-        },
-        {
-          "amount": 5000,
-          "odds": 9289,
-          "originalCount": 3011,
-          "remaining": 1760
-        },
-        {
-          "amount": 1000,
-          "odds": 2068,
-          "originalCount": 13524,
-          "remaining": 8105
-        },
-        {
-          "amount": 500,
-          "odds": 39,
-          "originalCount": 726353,
-          "remaining": 419241
-        },
-        {
-          "amount": 100,
-          "odds": 5,
-          "originalCount": 6153607,
-          "remaining": 3537036
-        }
-      ],
-      "overallOdds": 4.05,
-      "computed": {
-        "originalTickets": 27970242,
-        "fractionRemaining": 0.5751,
-        "ticketsRemaining": 16085746,
-        "remainingPrizeValue": 648339100,
-        "evPerTicket": 40.3052,
-        "roi": 0.8061,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 25000000
       }
     },
     {
@@ -688,9 +571,9 @@
       ],
       "overallOdds": 3.33,
       "computed": {
-        "originalTickets": 17909824,
+        "originalTickets": 17909822,
         "fractionRemaining": 0.529,
-        "ticketsRemaining": 9473528,
+        "ticketsRemaining": 9473527,
         "remainingPrizeValue": 152610500,
         "evPerTicket": 16.1092,
         "roi": 0.8055,
@@ -890,11 +773,11 @@
       ],
       "overallOdds": 3.38,
       "computed": {
-        "originalTickets": 13401583,
+        "originalTickets": 13401686,
         "fractionRemaining": 0.8839,
-        "ticketsRemaining": 11845777,
+        "ticketsRemaining": 11845868,
         "remainingPrizeValue": 94400880,
-        "evPerTicket": 7.9692,
+        "evPerTicket": 7.9691,
         "roi": 0.7969,
         "topPrizesRemaining": 6,
         "topPrizeAmount": 2000000
@@ -1006,9 +889,9 @@
       ],
       "overallOdds": 3.49,
       "computed": {
-        "originalTickets": 33132080,
+        "originalTickets": 33131928,
         "fractionRemaining": 0.0516,
-        "ticketsRemaining": 1708411,
+        "ticketsRemaining": 1708403,
         "remainingPrizeValue": 13536600,
         "evPerTicket": 7.9235,
         "roi": 0.7924,
@@ -1086,12 +969,12 @@
       ],
       "overallOdds": 2.79,
       "computed": {
-        "originalTickets": 12236040,
+        "originalTickets": 12236580,
         "fractionRemaining": 0.4971,
-        "ticketsRemaining": 6081958,
+        "ticketsRemaining": 6082227,
         "remainingPrizeValue": 96079920,
-        "evPerTicket": 15.7975,
-        "roi": 0.7899,
+        "evPerTicket": 15.7968,
+        "roi": 0.7898,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 5000000
       }
@@ -1142,11 +1025,11 @@
       ],
       "overallOdds": 4.08,
       "computed": {
-        "originalTickets": 26485550,
+        "originalTickets": 26485800,
         "fractionRemaining": 0.4308,
-        "ticketsRemaining": 11409634,
+        "ticketsRemaining": 11409742,
         "remainingPrizeValue": 450485700,
-        "evPerTicket": 39.4829,
+        "evPerTicket": 39.4825,
         "roi": 0.7897,
         "topPrizesRemaining": 47,
         "topPrizeAmount": 500000
@@ -1198,9 +1081,9 @@
       ],
       "overallOdds": 4.08,
       "computed": {
-        "originalTickets": 19294077,
+        "originalTickets": 19294110,
         "fractionRemaining": 0.8765,
-        "ticketsRemaining": 16911766,
+        "ticketsRemaining": 16911795,
         "remainingPrizeValue": 665744200,
         "evPerTicket": 39.3657,
         "roi": 0.7873,
@@ -1296,9 +1179,9 @@
       ],
       "overallOdds": 3.99,
       "computed": {
-        "originalTickets": 14227560,
+        "originalTickets": 14227580,
         "fractionRemaining": 0.0755,
-        "ticketsRemaining": 1073623,
+        "ticketsRemaining": 1073625,
         "remainingPrizeValue": 4213870,
         "evPerTicket": 3.9249,
         "roi": 0.785,
@@ -1406,92 +1289,6 @@
     },
     {
       "state": "fl",
-      "gameId": "1594",
-      "name": "$5,000,000 CA$H MONEY",
-      "price": 20,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1594",
-      "tiers": [
-        {
-          "amount": 5000000,
-          "odds": 5605508,
-          "originalCount": 4,
-          "remaining": 1
-        },
-        {
-          "amount": 100000,
-          "odds": 2242203,
-          "originalCount": 10,
-          "remaining": 2
-        },
-        {
-          "amount": 25000,
-          "odds": 373701,
-          "originalCount": 60,
-          "remaining": 13
-        },
-        {
-          "amount": 10000,
-          "odds": 249134,
-          "originalCount": 90,
-          "remaining": 20
-        },
-        {
-          "amount": 1000,
-          "odds": 30465,
-          "originalCount": 736,
-          "remaining": 171
-        },
-        {
-          "amount": 500,
-          "odds": 200,
-          "originalCount": 112232,
-          "remaining": 26047
-        },
-        {
-          "amount": 200,
-          "odds": 197,
-          "originalCount": 113959,
-          "remaining": 26558
-        },
-        {
-          "amount": 100,
-          "odds": 40,
-          "originalCount": 555797,
-          "remaining": 130304
-        },
-        {
-          "amount": 50,
-          "odds": 19,
-          "originalCount": 1195900,
-          "remaining": 280315
-        },
-        {
-          "amount": 30,
-          "odds": 14,
-          "originalCount": 1644343,
-          "remaining": 384930
-        },
-        {
-          "amount": 20,
-          "odds": 6,
-          "originalCount": 4035867,
-          "remaining": 951106
-        }
-      ],
-      "overallOdds": 2.93,
-      "computed": {
-        "originalTickets": 22422240,
-        "fractionRemaining": 0.2349,
-        "ticketsRemaining": 5268063,
-        "remainingPrizeValue": 81847270,
-        "evPerTicket": 15.5365,
-        "roi": 0.7768,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 5000000
-      }
-    },
-    {
-      "state": "fl",
       "gameId": "1623",
       "name": "200X THE CASH",
       "price": 20,
@@ -1584,13 +1381,99 @@
       ],
       "overallOdds": 2.96,
       "computed": {
-        "originalTickets": 42371505,
+        "originalTickets": 42367320,
         "fractionRemaining": 0.5628,
-        "ticketsRemaining": 23846530,
+        "ticketsRemaining": 23844174,
         "remainingPrizeValue": 370424490,
-        "evPerTicket": 15.5337,
-        "roi": 0.7767,
+        "evPerTicket": 15.5352,
+        "roi": 0.7768,
         "topPrizesRemaining": 4,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1594",
+      "name": "$5,000,000 CA$H MONEY",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1594",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 5605508,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 100000,
+          "odds": 2242203,
+          "originalCount": 10,
+          "remaining": 2
+        },
+        {
+          "amount": 25000,
+          "odds": 373701,
+          "originalCount": 60,
+          "remaining": 13
+        },
+        {
+          "amount": 10000,
+          "odds": 249134,
+          "originalCount": 90,
+          "remaining": 20
+        },
+        {
+          "amount": 1000,
+          "odds": 30465,
+          "originalCount": 736,
+          "remaining": 171
+        },
+        {
+          "amount": 500,
+          "odds": 200,
+          "originalCount": 112232,
+          "remaining": 26047
+        },
+        {
+          "amount": 200,
+          "odds": 197,
+          "originalCount": 113959,
+          "remaining": 26558
+        },
+        {
+          "amount": 100,
+          "odds": 40,
+          "originalCount": 555797,
+          "remaining": 130304
+        },
+        {
+          "amount": 50,
+          "odds": 19,
+          "originalCount": 1195900,
+          "remaining": 280315
+        },
+        {
+          "amount": 30,
+          "odds": 14,
+          "originalCount": 1644343,
+          "remaining": 384930
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 4035867,
+          "remaining": 951106
+        }
+      ],
+      "overallOdds": 2.93,
+      "computed": {
+        "originalTickets": 22431552,
+        "fractionRemaining": 0.2349,
+        "ticketsRemaining": 5270250,
+        "remainingPrizeValue": 81847270,
+        "evPerTicket": 15.5301,
+        "roi": 0.7765,
+        "topPrizesRemaining": 1,
         "topPrizeAmount": 5000000
       }
     },
@@ -1688,11 +1571,11 @@
       ],
       "overallOdds": 3.47,
       "computed": {
-        "originalTickets": 14313962,
+        "originalTickets": 14314020,
         "fractionRemaining": 0.7315,
-        "ticketsRemaining": 10471339,
+        "ticketsRemaining": 10471381,
         "remainingPrizeValue": 80685380,
-        "evPerTicket": 7.7054,
+        "evPerTicket": 7.7053,
         "roi": 0.7705,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 2000000
@@ -1792,9 +1675,9 @@
       ],
       "overallOdds": 2.98,
       "computed": {
-        "originalTickets": 15234330,
+        "originalTickets": 15234300,
         "fractionRemaining": 0.6586,
-        "ticketsRemaining": 10032692,
+        "ticketsRemaining": 10032672,
         "remainingPrizeValue": 154543420,
         "evPerTicket": 15.404,
         "roi": 0.7702,
@@ -2184,12 +2067,12 @@
       ],
       "overallOdds": 3.4,
       "computed": {
-        "originalTickets": 41648436,
+        "originalTickets": 41649013,
         "fractionRemaining": 0.4827,
-        "ticketsRemaining": 20103565,
+        "ticketsRemaining": 20103844,
         "remainingPrizeValue": 152797475,
-        "evPerTicket": 7.6005,
-        "roi": 0.7601,
+        "evPerTicket": 7.6004,
+        "roi": 0.76,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 2000000
       }
@@ -2222,11 +2105,11 @@
       ],
       "overallOdds": 8.89,
       "computed": {
-        "originalTickets": 32354568,
+        "originalTickets": 32356457,
         "fractionRemaining": 0.1604,
-        "ticketsRemaining": 5190425,
+        "ticketsRemaining": 5190728,
         "remainingPrizeValue": 38913600,
-        "evPerTicket": 7.4972,
+        "evPerTicket": 7.4968,
         "roi": 0.7497,
         "topPrizesRemaining": 5450,
         "topPrizeAmount": 500
@@ -2320,9 +2203,9 @@
       ],
       "overallOdds": 2.61,
       "computed": {
-        "originalTickets": 19462052,
+        "originalTickets": 19462051,
         "fractionRemaining": 0.3596,
-        "ticketsRemaining": 6998612,
+        "ticketsRemaining": 6998611,
         "remainingPrizeValue": 157284520,
         "evPerTicket": 22.4737,
         "roi": 0.7491,
@@ -2412,9 +2295,9 @@
       ],
       "overallOdds": 4.41,
       "computed": {
-        "originalTickets": 12308234,
+        "originalTickets": 12308250,
         "fractionRemaining": 0.1786,
-        "ticketsRemaining": 2198155,
+        "ticketsRemaining": 2198158,
         "remainingPrizeValue": 3286621,
         "evPerTicket": 1.4952,
         "roi": 0.7476,
@@ -2608,9 +2491,9 @@
       ],
       "overallOdds": 4,
       "computed": {
-        "originalTickets": 22919274,
+        "originalTickets": 22919268,
         "fractionRemaining": 0.402,
-        "ticketsRemaining": 9212487,
+        "ticketsRemaining": 9212484,
         "remainingPrizeValue": 34329270,
         "evPerTicket": 3.7264,
         "roi": 0.7453,
@@ -2700,7 +2583,7 @@
       ],
       "overallOdds": 3.24,
       "computed": {
-        "originalTickets": 24283138,
+        "originalTickets": 24283136,
         "fractionRemaining": 0.41,
         "ticketsRemaining": 9956353,
         "remainingPrizeValue": 73444060,
@@ -2798,9 +2681,9 @@
       ],
       "overallOdds": 3.93,
       "computed": {
-        "originalTickets": 14005864,
+        "originalTickets": 14005862,
         "fractionRemaining": 0.8622,
-        "ticketsRemaining": 12076058,
+        "ticketsRemaining": 12076056,
         "remainingPrizeValue": 44513250,
         "evPerTicket": 3.6861,
         "roi": 0.7372,
@@ -2902,9 +2785,9 @@
       ],
       "overallOdds": 4.05,
       "computed": {
-        "originalTickets": 17778550,
+        "originalTickets": 17778200,
         "fractionRemaining": 0.3228,
-        "ticketsRemaining": 5738523,
+        "ticketsRemaining": 5738410,
         "remainingPrizeValue": 20963132,
         "evPerTicket": 3.6531,
         "roi": 0.7306,
@@ -2994,9 +2877,9 @@
       ],
       "overallOdds": 3.86,
       "computed": {
-        "originalTickets": 19091670,
+        "originalTickets": 19091700,
         "fractionRemaining": 0.3991,
-        "ticketsRemaining": 7619868,
+        "ticketsRemaining": 7619880,
         "remainingPrizeValue": 27625305,
         "evPerTicket": 3.6254,
         "roi": 0.7251,
@@ -3086,9 +2969,9 @@
       ],
       "overallOdds": 3.91,
       "computed": {
-        "originalTickets": 13576590,
+        "originalTickets": 13576740,
         "fractionRemaining": 0.4941,
-        "ticketsRemaining": 6708252,
+        "ticketsRemaining": 6708326,
         "remainingPrizeValue": 24180085,
         "evPerTicket": 3.6045,
         "roi": 0.7209,
@@ -3276,12 +3159,12 @@
       ],
       "overallOdds": 3.81,
       "computed": {
-        "originalTickets": 62607936,
+        "originalTickets": 62612368,
         "fractionRemaining": 0.5861,
-        "ticketsRemaining": 36696563,
+        "ticketsRemaining": 36699161,
         "remainingPrizeValue": 131166335,
-        "evPerTicket": 3.5743,
-        "roi": 0.7149,
+        "evPerTicket": 3.5741,
+        "roi": 0.7148,
         "topPrizesRemaining": 7,
         "topPrizeAmount": 1000000
       }
@@ -3374,9 +3257,9 @@
       ],
       "overallOdds": 3.75,
       "computed": {
-        "originalTickets": 30911112,
+        "originalTickets": 30911106,
         "fractionRemaining": 0.714,
-        "ticketsRemaining": 22070837,
+        "ticketsRemaining": 22070832,
         "remainingPrizeValue": 78625550,
         "evPerTicket": 3.5624,
         "roi": 0.7125,
@@ -3472,9 +3355,9 @@
       ],
       "overallOdds": 4,
       "computed": {
-        "originalTickets": 22630920,
+        "originalTickets": 22631065,
         "fractionRemaining": 0.0714,
-        "ticketsRemaining": 1616371,
+        "ticketsRemaining": 1616381,
         "remainingPrizeValue": 5753460,
         "evPerTicket": 3.5595,
         "roi": 0.7119,
@@ -3570,11 +3453,11 @@
       ],
       "overallOdds": 3.98,
       "computed": {
-        "originalTickets": 56294654,
+        "originalTickets": 56297811,
         "fractionRemaining": 0.1794,
-        "ticketsRemaining": 10098119,
+        "ticketsRemaining": 10098685,
         "remainingPrizeValue": 35940275,
-        "evPerTicket": 3.5591,
+        "evPerTicket": 3.5589,
         "roi": 0.7118,
         "topPrizesRemaining": 5,
         "topPrizeAmount": 1000000
@@ -3674,11 +3557,11 @@
       ],
       "overallOdds": 4.01,
       "computed": {
-        "originalTickets": 16174095,
+        "originalTickets": 16173720,
         "fractionRemaining": 0.5774,
-        "ticketsRemaining": 9338699,
+        "ticketsRemaining": 9338482,
         "remainingPrizeValue": 33188840,
-        "evPerTicket": 3.5539,
+        "evPerTicket": 3.554,
         "roi": 0.7108,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 1000000
@@ -3772,9 +3655,9 @@
       ],
       "overallOdds": 3.41,
       "computed": {
-        "originalTickets": 24283840,
+        "originalTickets": 24283920,
         "fractionRemaining": 0.127,
-        "ticketsRemaining": 3084127,
+        "ticketsRemaining": 3084137,
         "remainingPrizeValue": 21806240,
         "evPerTicket": 7.0705,
         "roi": 0.707,
@@ -3816,9 +3699,9 @@
       ],
       "overallOdds": 9.78,
       "computed": {
-        "originalTickets": 18360116,
+        "originalTickets": 18360232,
         "fractionRemaining": 0.1284,
-        "ticketsRemaining": 2356755,
+        "ticketsRemaining": 2356770,
         "remainingPrizeValue": 8298400,
         "evPerTicket": 3.5211,
         "roi": 0.7042,
@@ -4092,9 +3975,9 @@
       ],
       "overallOdds": 4.36,
       "computed": {
-        "originalTickets": 10967850,
+        "originalTickets": 10967853,
         "fractionRemaining": 0.8804,
-        "ticketsRemaining": 9656036,
+        "ticketsRemaining": 9656039,
         "remainingPrizeValue": 13402256,
         "evPerTicket": 1.388,
         "roi": 0.694,
@@ -4330,11 +4213,11 @@
       ],
       "overallOdds": 3.89,
       "computed": {
-        "originalTickets": 14056538,
+        "originalTickets": 14057055,
         "fractionRemaining": 0.4301,
-        "ticketsRemaining": 6045080,
+        "ticketsRemaining": 6045302,
         "remainingPrizeValue": 20837860,
-        "evPerTicket": 3.4471,
+        "evPerTicket": 3.447,
         "roi": 0.6894,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 500000
@@ -4564,9 +4447,9 @@
       ],
       "overallOdds": 3.97,
       "computed": {
-        "originalTickets": 14183334,
+        "originalTickets": 14183298,
         "fractionRemaining": 0.253,
-        "ticketsRemaining": 3587829,
+        "ticketsRemaining": 3587820,
         "remainingPrizeValue": 4888392,
         "evPerTicket": 1.3625,
         "roi": 0.6812,
@@ -4864,9 +4747,9 @@
       ],
       "overallOdds": 3.91,
       "computed": {
-        "originalTickets": 23136550,
+        "originalTickets": 23135900,
         "fractionRemaining": 0.411,
-        "ticketsRemaining": 9508945,
+        "ticketsRemaining": 9508678,
         "remainingPrizeValue": 19268682,
         "evPerTicket": 2.0264,
         "roi": 0.6755,
@@ -5134,112 +5017,14 @@
       ],
       "overallOdds": 3.98,
       "computed": {
-        "originalTickets": 22376887,
+        "originalTickets": 22376950,
         "fractionRemaining": 0.1031,
-        "ticketsRemaining": 2306729,
+        "ticketsRemaining": 2306735,
         "remainingPrizeValue": 7753315,
         "evPerTicket": 3.3612,
         "roi": 0.6722,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 500000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1601",
-      "name": "$5,000 A WEEK FOR LIFE",
-      "price": 10,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1601",
-      "tiers": [
-        {
-          "amount": 5000,
-          "odds": 5468865,
-          "originalCount": 4,
-          "remaining": 1
-        },
-        {
-          "amount": 20000,
-          "odds": 437509,
-          "originalCount": 50,
-          "remaining": 13
-        },
-        {
-          "amount": 5000,
-          "odds": 104169,
-          "originalCount": 210,
-          "remaining": 49
-        },
-        {
-          "amount": 1000,
-          "odds": 15004,
-          "originalCount": 1458,
-          "remaining": 347
-        },
-        {
-          "amount": 500,
-          "odds": 800,
-          "originalCount": 27351,
-          "remaining": 6207
-        },
-        {
-          "amount": 200,
-          "odds": 601,
-          "originalCount": 36417,
-          "remaining": 8272
-        },
-        {
-          "amount": 100,
-          "odds": 120,
-          "originalCount": 182187,
-          "remaining": 41563
-        },
-        {
-          "amount": 50,
-          "odds": 120,
-          "originalCount": 182316,
-          "remaining": 41415
-        },
-        {
-          "amount": 30,
-          "odds": 60,
-          "originalCount": 364519,
-          "remaining": 84757
-        },
-        {
-          "amount": 25,
-          "odds": 60,
-          "originalCount": 364297,
-          "remaining": 84738
-        },
-        {
-          "amount": 20,
-          "odds": 15,
-          "originalCount": 1458278,
-          "remaining": 343759
-        },
-        {
-          "amount": 15,
-          "odds": 15,
-          "originalCount": 1458432,
-          "remaining": 351807
-        },
-        {
-          "amount": 10,
-          "odds": 9,
-          "originalCount": 2552001,
-          "remaining": 618331
-        }
-      ],
-      "overallOdds": 3.3,
-      "computed": {
-        "originalTickets": 21875490,
-        "fractionRemaining": 0.2386,
-        "ticketsRemaining": 5219270,
-        "remainingPrizeValue": 34838705,
-        "evPerTicket": 6.675,
-        "roi": 0.6675,
-        "topPrizesRemaining": 13,
-        "topPrizeAmount": 20000
       }
     },
     {
@@ -5428,9 +5213,9 @@
       ],
       "overallOdds": 3.99,
       "computed": {
-        "originalTickets": 14153411,
+        "originalTickets": 14153447,
         "fractionRemaining": 0.2718,
-        "ticketsRemaining": 3847006,
+        "ticketsRemaining": 3847016,
         "remainingPrizeValue": 7688626,
         "evPerTicket": 1.9986,
         "roi": 0.6662,
@@ -5526,7 +5311,7 @@
       ],
       "overallOdds": 2.95,
       "computed": {
-        "originalTickets": 22272150,
+        "originalTickets": 22272165,
         "fractionRemaining": 0.0294,
         "ticketsRemaining": 655272,
         "remainingPrizeValue": 8712715,
@@ -5630,9 +5415,9 @@
       ],
       "overallOdds": 2.85,
       "computed": {
-        "originalTickets": 30197408,
+        "originalTickets": 30197340,
         "fractionRemaining": 0.0656,
-        "ticketsRemaining": 1981478,
+        "ticketsRemaining": 1981473,
         "remainingPrizeValue": 26004480,
         "evPerTicket": 13.1238,
         "roi": 0.6562,
@@ -5754,110 +5539,6 @@
         "roi": 0.6554,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 150000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1602",
-      "name": "$10,000 A WEEK FOR LIFE",
-      "price": 20,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1602",
-      "tiers": [
-        {
-          "amount": 10000,
-          "odds": 3848168,
-          "originalCount": 4,
-          "remaining": 1
-        },
-        {
-          "amount": 100000,
-          "odds": 2565445,
-          "originalCount": 6,
-          "remaining": 1
-        },
-        {
-          "amount": 20000,
-          "odds": 1282723,
-          "originalCount": 12,
-          "remaining": 5
-        },
-        {
-          "amount": 10000,
-          "odds": 307853,
-          "originalCount": 50,
-          "remaining": 11
-        },
-        {
-          "amount": 5000,
-          "odds": 60363,
-          "originalCount": 255,
-          "remaining": 66
-        },
-        {
-          "amount": 1000,
-          "odds": 7975,
-          "originalCount": 1930,
-          "remaining": 491
-        },
-        {
-          "amount": 500,
-          "odds": 599,
-          "originalCount": 25686,
-          "remaining": 6237
-        },
-        {
-          "amount": 200,
-          "odds": 375,
-          "originalCount": 41021,
-          "remaining": 9977
-        },
-        {
-          "amount": 100,
-          "odds": 30,
-          "originalCount": 512985,
-          "remaining": 126332
-        },
-        {
-          "amount": 50,
-          "odds": 30,
-          "originalCount": 513089,
-          "remaining": 127130
-        },
-        {
-          "amount": 40,
-          "odds": 30,
-          "originalCount": 513089,
-          "remaining": 127290
-        },
-        {
-          "amount": 30,
-          "odds": 30,
-          "originalCount": 512994,
-          "remaining": 127906
-        },
-        {
-          "amount": 25,
-          "odds": 30,
-          "originalCount": 513089,
-          "remaining": 128300
-        },
-        {
-          "amount": 20,
-          "odds": 6,
-          "originalCount": 2565649,
-          "remaining": 645845
-        }
-      ],
-      "overallOdds": 2.96,
-      "computed": {
-        "originalTickets": 15392660,
-        "fractionRemaining": 0.2499,
-        "ticketsRemaining": 3847062,
-        "remainingPrizeValue": 50297780,
-        "evPerTicket": 13.0743,
-        "roi": 0.6537,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 100000
       }
     },
     {
@@ -6016,9 +5697,9 @@
       ],
       "overallOdds": 4.2,
       "computed": {
-        "originalTickets": 9852900,
+        "originalTickets": 9852750,
         "fractionRemaining": 0.206,
-        "ticketsRemaining": 2030058,
+        "ticketsRemaining": 2030027,
         "remainingPrizeValue": 2595653,
         "evPerTicket": 1.2786,
         "roi": 0.6393,
@@ -6114,11 +5795,11 @@
       ],
       "overallOdds": 4.36,
       "computed": {
-        "originalTickets": 10959696,
+        "originalTickets": 10959928,
         "fractionRemaining": 0.2801,
-        "ticketsRemaining": 3069560,
+        "ticketsRemaining": 3069625,
         "remainingPrizeValue": 3909004,
-        "evPerTicket": 1.2735,
+        "evPerTicket": 1.2734,
         "roi": 0.6367,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 50000
@@ -6206,9 +5887,9 @@
       ],
       "overallOdds": 4.38,
       "computed": {
-        "originalTickets": 27904649,
+        "originalTickets": 27904648,
         "fractionRemaining": 0.1358,
-        "ticketsRemaining": 3789888,
+        "ticketsRemaining": 3789887,
         "remainingPrizeValue": 4798354,
         "evPerTicket": 1.2661,
         "roi": 0.633,
@@ -6304,9 +5985,9 @@
       ],
       "overallOdds": 4,
       "computed": {
-        "originalTickets": 22416576,
+        "originalTickets": 22416588,
         "fractionRemaining": 0.057,
-        "ticketsRemaining": 1277119,
+        "ticketsRemaining": 1277120,
         "remainingPrizeValue": 4035970,
         "evPerTicket": 3.1602,
         "roi": 0.632,
@@ -6390,12 +6071,12 @@
       ],
       "overallOdds": 4.07,
       "computed": {
-        "originalTickets": 14243000,
+        "originalTickets": 14239756,
         "fractionRemaining": 0.1228,
-        "ticketsRemaining": 1748676,
+        "ticketsRemaining": 1748278,
         "remainingPrizeValue": 2180374,
-        "evPerTicket": 1.2469,
-        "roi": 0.6234,
+        "evPerTicket": 1.2472,
+        "roi": 0.6236,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 50000
       }
@@ -6562,9 +6243,9 @@
       ],
       "overallOdds": 4.84,
       "computed": {
-        "originalTickets": 14380503,
+        "originalTickets": 14380500,
         "fractionRemaining": 0.8823,
-        "ticketsRemaining": 12688174,
+        "ticketsRemaining": 12688171,
         "remainingPrizeValue": 7863896,
         "evPerTicket": 0.6198,
         "roi": 0.6198,
@@ -6660,9 +6341,9 @@
       ],
       "overallOdds": 4.36,
       "computed": {
-        "originalTickets": 12235650,
+        "originalTickets": 12235613,
         "fractionRemaining": 0.1995,
-        "ticketsRemaining": 2440506,
+        "ticketsRemaining": 2440498,
         "remainingPrizeValue": 3020146,
         "evPerTicket": 1.2375,
         "roi": 0.6188,
@@ -6740,9 +6421,9 @@
       ],
       "overallOdds": 3.9,
       "computed": {
-        "originalTickets": 16183420,
+        "originalTickets": 16183440,
         "fractionRemaining": 0.1366,
-        "ticketsRemaining": 2210076,
+        "ticketsRemaining": 2210079,
         "remainingPrizeValue": 6796310,
         "evPerTicket": 3.0751,
         "roi": 0.615,
@@ -6900,9 +6581,9 @@
       ],
       "overallOdds": 4.66,
       "computed": {
-        "originalTickets": 53002275,
+        "originalTickets": 53001750,
         "fractionRemaining": 0.6247,
-        "ticketsRemaining": 33112380,
+        "ticketsRemaining": 33112052,
         "remainingPrizeValue": 20291289,
         "evPerTicket": 0.6128,
         "roi": 0.6128,
@@ -7164,11 +6845,11 @@
       ],
       "overallOdds": 3.37,
       "computed": {
-        "originalTickets": 25350552,
+        "originalTickets": 25350144,
         "fractionRemaining": 0.0564,
-        "ticketsRemaining": 1430836,
+        "ticketsRemaining": 1430812,
         "remainingPrizeValue": 8625890,
-        "evPerTicket": 6.0286,
+        "evPerTicket": 6.0287,
         "roi": 0.6029,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 2000000
@@ -7336,9 +7017,9 @@
       ],
       "overallOdds": 4.57,
       "computed": {
-        "originalTickets": 22333025,
+        "originalTickets": 22332750,
         "fractionRemaining": 0.1417,
-        "ticketsRemaining": 3164257,
+        "ticketsRemaining": 3164219,
         "remainingPrizeValue": 3735261,
         "evPerTicket": 1.1805,
         "roi": 0.5902,
@@ -7422,9 +7103,9 @@
       ],
       "overallOdds": 4.65,
       "computed": {
-        "originalTickets": 55210650,
+        "originalTickets": 55213225,
         "fractionRemaining": 0.3277,
-        "ticketsRemaining": 18092283,
+        "ticketsRemaining": 18093126,
         "remainingPrizeValue": 10622558,
         "evPerTicket": 0.5871,
         "roi": 0.5871,
@@ -7502,9 +7183,9 @@
       ],
       "overallOdds": 4.84,
       "computed": {
-        "originalTickets": 11417590,
+        "originalTickets": 11417980,
         "fractionRemaining": 0.2801,
-        "ticketsRemaining": 3198235,
+        "ticketsRemaining": 3198344,
         "remainingPrizeValue": 1854769,
         "evPerTicket": 0.5799,
         "roi": 0.5799,
@@ -7582,105 +7263,13 @@
       ],
       "overallOdds": 4.91,
       "computed": {
-        "originalTickets": 19361347,
+        "originalTickets": 19361589,
         "fractionRemaining": 0.2934,
-        "ticketsRemaining": 5679973,
+        "ticketsRemaining": 5680044,
         "remainingPrizeValue": 3235275,
         "evPerTicket": 0.5696,
         "roi": 0.5696,
         "topPrizesRemaining": 3,
-        "topPrizeAmount": 5000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1599",
-      "name": "$1,000 A WEEK FOR LIFE",
-      "price": 2,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1599",
-      "tiers": [
-        {
-          "amount": 1000,
-          "odds": 5591775,
-          "originalCount": 4,
-          "remaining": 1
-        },
-        {
-          "amount": 5000,
-          "odds": 465981,
-          "originalCount": 48,
-          "remaining": 4
-        },
-        {
-          "amount": 1000,
-          "odds": 159765,
-          "originalCount": 140,
-          "remaining": 14
-        },
-        {
-          "amount": 200,
-          "odds": 5968,
-          "originalCount": 3748,
-          "remaining": 284
-        },
-        {
-          "amount": 100,
-          "odds": 1808,
-          "originalCount": 12372,
-          "remaining": 1022
-        },
-        {
-          "amount": 40,
-          "odds": 899,
-          "originalCount": 24886,
-          "remaining": 2039
-        },
-        {
-          "amount": 30,
-          "odds": 300,
-          "originalCount": 74635,
-          "remaining": 6169
-        },
-        {
-          "amount": 20,
-          "odds": 150,
-          "originalCount": 149114,
-          "remaining": 13100
-        },
-        {
-          "amount": 10,
-          "odds": 42,
-          "originalCount": 536745,
-          "remaining": 53305
-        },
-        {
-          "amount": 5,
-          "odds": 62,
-          "originalCount": 358022,
-          "remaining": 35976
-        },
-        {
-          "amount": 4,
-          "odds": 12,
-          "originalCount": 1938423,
-          "remaining": 193777
-        },
-        {
-          "amount": 2,
-          "odds": 10,
-          "originalCount": 2236751,
-          "remaining": 280146
-        }
-      ],
-      "overallOdds": 4.19,
-      "computed": {
-        "originalTickets": 22367787,
-        "fractionRemaining": 0.1098,
-        "ticketsRemaining": 2456261,
-        "remainingPrizeValue": 2770960,
-        "evPerTicket": 1.1281,
-        "roi": 0.5641,
-        "topPrizesRemaining": 4,
         "topPrizeAmount": 5000
       }
     },
@@ -7834,9 +7423,9 @@
       ],
       "overallOdds": 4.83,
       "computed": {
-        "originalTickets": 13128843,
+        "originalTickets": 13128960,
         "fractionRemaining": 0.2238,
-        "ticketsRemaining": 2938165,
+        "ticketsRemaining": 2938191,
         "remainingPrizeValue": 1579538,
         "evPerTicket": 0.5376,
         "roi": 0.5376,
@@ -7920,9 +7509,9 @@
       ],
       "overallOdds": 4.83,
       "computed": {
-        "originalTickets": 19402208,
+        "originalTickets": 19402260,
         "fractionRemaining": 0.1908,
-        "ticketsRemaining": 3702561,
+        "ticketsRemaining": 3702571,
         "remainingPrizeValue": 1863101,
         "evPerTicket": 0.5032,
         "roi": 0.5032,
@@ -8134,11 +7723,11 @@
       ],
       "overallOdds": 4.092,
       "computed": {
-        "originalTickets": 57940338,
+        "originalTickets": 57950286,
         "fractionRemaining": 0.0641,
-        "ticketsRemaining": 3715153,
+        "ticketsRemaining": 3715791,
         "remainingPrizeValue": 5276678,
-        "evPerTicket": 1.4203,
+        "evPerTicket": 1.4201,
         "roi": 0.4734,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 150000
