@@ -53,7 +53,7 @@ export function InfoSheet({ onClose }: { onClose: () => void }) {
 
           <h4>Odds “1 in X to profit”</h4>
           <p>
-            Your chance of winning <em>more</em> than the ticket price — the honest odds, not the
+            Your chance of winning <em>more</em> than the ticket price — modeled odds rather than the
             “win anything” figure (which counts break-even prizes). This uses the <em>live</em>{" "}
             odds (see below), so it moves as the game sells down.
           </p>
@@ -69,17 +69,16 @@ export function InfoSheet({ onClose }: { onClose: () => void }) {
             guarantee.
           </p>
 
-          <h4>Confidence</h4>
+          <h4>Model limits and source dates</h4>
           <p>
             The EV assumes prizes are won in proportion to tickets sold. That’s noisy for brand-new
             games (little sold) or nearly-finished ones (few left), which get a{" "}
-            <strong>low</strong> tag.
+            <strong>low</strong> tag. No maturity score establishes high confidence. Failed, stale or invalid records are excluded from current comparisons. Results dates are either stated by the source or explicitly assumed to be the previous calendar day in that source's configured time zone. The import timestamp remains separate.
           </p>
 
           <h4>Trends &amp; Hot sellers</h4>
           <p>
-            Built from a daily snapshot. Until 2+ days are collected they show clearly-labeled{" "}
-            <strong>sample</strong> data.
+            Built from observed snapshots only. Missing intervals, added prizes and source revisions do not establish daily sales or claim dates. Legacy history dates are shown one calendar day earlier as an assumption; original snapshot dates remain stored.
           </p>
 
           <h4>“Ending soon”</h4>

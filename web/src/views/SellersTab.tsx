@@ -44,9 +44,9 @@ export function SellersTab({
     if (!history) return [];
     return Object.entries(history.series)
       .map(([id, series]) => ({ id, series, v: computeVelocity(series, window.from, window.to) }))
-      .filter((r) => r.v && r.v.sold > 0)
+      .filter((r) => byId.has(r.id) && r.v && r.v.sold > 0)
       .sort((a, b) => b.v!.sold - a.v!.sold);
-  }, [history, window]);
+  }, [history, window, byId]);
 
   return (
     <>
@@ -72,14 +72,14 @@ export function SellersTab({
 
       {ranked.length === 0 ? (
         <div className="status">
-          Not enough history yet to measure sales. The tracker fills in as daily snapshots
-          accumulate — check back in a few days.
+          No supported trend for the currently validated games in this date range.
+          Snapshot decreases estimate sales; they do not measure ticket purchases.
         </div>
       ) : (
         <>
           <div className="sellers-caption">
             {demo && <span className="sample-pill">Sample</span>}
-            Estimated tickets sold, {window.from} → {window.to}
+            Modeled ticket decrease, {window.from} → {window.to}
           </div>
           <ul className="list">
             {ranked.map(({ id, v }, i) => {

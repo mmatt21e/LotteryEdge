@@ -1,3 +1,4 @@
+import { assertSourceAccess } from "../../shared/sourceAccess.js";
 import * as cheerio from "cheerio";
 import { fetchText, UA } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
@@ -131,6 +132,7 @@ export function parseCtDetail(html: string, gameId: string): RawGame | null {
 
 /** Fetch and parse live Connecticut scratch-game data. */
 export async function scrapeCt(): Promise<{ source: string; games: RawGame[] }> {
+  assertSourceAccess("ct");
   // Touch the landing page via the shared fetcher (honours its UA / timeout).
   await fetchText(LIST_URL);
 

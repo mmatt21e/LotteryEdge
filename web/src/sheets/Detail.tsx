@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { FeedDates } from "../components/DataHealth.js";
 import { FullPage } from "../Sheet.js";
 import { Sparkline } from "../Sparkline.js";
 import { stateName, retailerUrl } from "../states.js";
@@ -58,7 +59,7 @@ export function Detail({
   const c = game.computed;
   const roi = effectiveRoi(game, afterTax);
   const net = netPerDollar(roi);
-  const conf = confidence(c.fractionRemaining);
+  const conf = confidence(c.fractionRemaining, game.feed);
   const odds = profitOdds(game); // as printed
   const liveOdds = liveProfitOdds(game); // recomputed from what's left
   const points = history?.series[game.gameId]?.points ?? [];
@@ -123,12 +124,12 @@ export function Detail({
           <Kpi label="Net / $1 spent" value={centsPerDollar(net)} accent={signColor(net)} />
           <Kpi label="Return / $1" value={usd2(roi)} />
           <Kpi
-            label="Odds to profit (now)"
-            value={liveOdds ? `1 in ${int(liveOdds)}` : odds ? `1 in ${int(odds)}` : "—"}
-            sub={liveOdds && odds ? `printed 1 in ${int(odds)}` : undefined}
+            label="Modeled odds to profit"
+            value={liveOdds ? `1 in ${int(liveOdds)}` : "Unavailable"}
+            sub={liveOdds ? (odds ? `printed 1 in ${int(odds)}` : "Printed profit odds incomplete") : "No unclaimed profit prize or supported denominator"}
           />
           <Kpi label="EV / ticket" value={usd2(c.evPerTicket)} />
-          <Kpi label="Tickets left" value={int(c.ticketsRemaining)} />
+          <Kpi label="Estimated unsold tickets" value={int(c.ticketsRemaining)} />
           <Kpi label="Prize $ left" value={usdCompact(c.remainingPrizeValue)} />
         </div>
 
@@ -159,7 +160,7 @@ export function Detail({
           <div className="sales-item">
             <span className="sales-val">{sales ? int(Math.round(sales.avgPerDay)) : "—"}</span>
             <span className="sales-label">
-              avg sold / day {demo && <span className="sample-pill">Sample</span>}
+              modeled decrease / day {demo && <span className="sample-pill">Sample</span>}
             </span>
           </div>
           <div className="sales-item">
@@ -167,7 +168,7 @@ export function Detail({
               {sales && sales.previousDay != null ? int(Math.round(sales.previousDay)) : "—"}
             </span>
             <span className="sales-label">
-              sold previous day {demo && <span className="sample-pill">Sample</span>}
+              estimated decrease / day in latest interval {demo && <span className="sample-pill">Sample</span>}
             </span>
           </div>
         </div>
@@ -180,12 +181,12 @@ export function Detail({
         {sales && (
           <section className="wonprev" aria-labelledby="previous-prizes-heading">
             <h2 id="previous-prizes-heading" className="wonprev-head">
-              Prizes won {wonPrev ? `on ${shortDay(wonPrev.date)}` : "previous day"}{" "}
+              Unclaimed-prize decreases {wonPrev ? `through reporting date ${shortDay(wonPrev.date)}` : "unavailable"}{" "}
               {demo && <span className="sample-pill">Sample</span>}
             </h2>
             {wonPrev ? (
               wonPrev.total === 0 ? (
-                <p className="sales-note">No prizes were claimed that day.</p>
+                <p className="sales-note">No decrease was observed between these snapshots; this does not establish when prizes were won or claimed.</p>
               ) : (
                 <ul className="won-list">
                   {wonPrev.prizes.map((p) => (
@@ -202,7 +203,7 @@ export function Detail({
               )
             ) : (
               <p className="sales-note">
-                Per-prize daily counts start collecting after the next couple of daily updates.
+                Per-tier change unavailable across missing dates, missing tiers or a source correction.
               </p>
             )}
           </section>
@@ -213,9 +214,9 @@ export function Detail({
               <table className="daily">
                 <thead>
                   <tr>
-                    <th>Day</th>
-                    <th>Tickets sold</th>
-                    <th>Prizes won</th>
+                    <th>Reporting date (assumed for legacy imports)</th>
+                    <th>Modeled ticket decrease</th>
+                    <th>Unclaimed value decrease</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -240,22 +241,23 @@ export function Detail({
           </FullPage>
         )}
 
+        {game.feed && <FeedDates feed={game.feed}/>}
         <div className="conf-line">
           <i style={{ background: CONF_COLOR[conf.level] }} />
           <span>
-            <strong>{conf.level} confidence</strong> — {conf.reason}
+            <strong>Model caveat</strong> — {conf.reason}
           </span>
         </div>
 
         <p className="plain">
-          For every <strong>$1</strong> spent, expect about <strong>{usd2(roi)}</strong> back — a
+          The model estimates, per <strong>$1</strong> spent, about <strong>{usd2(roi)}</strong> back — a
           net of <strong style={{ color: signColor(net) }}>{centsPerDollar(net)}</strong> per dollar
           {afterTax ? " (after tax)" : ""}.
-          {(liveOdds ?? odds) && (
+          {liveOdds && (
             <>
               {" "}
               Chance of winning more than the ${game.price} ticket, based on what’s left:{" "}
-              <strong>1 in {int((liveOdds ?? odds)!)}</strong>.
+              <strong>1 in {int((liveOdds)!)}</strong>.
             </>
           )}
         </p>
@@ -360,7 +362,7 @@ export function Detail({
             <div className="analysis detail-analysis">
               {positiveEv && (
                 <div className="analysis-note">
-                  This game shows <strong>positive expected value</strong> — genuine, but it rides on
+                  This model shows <strong>positive estimated value</strong>, which depends on
                   a big prize still being unclaimed in a nearly-sold-out game, so it’s{" "}
                   <strong>very high variance</strong> (one purchase almost never realizes it). Payout
                   under 100% and odds that reconcile confirm the data is sound.
@@ -389,7 +391,7 @@ export function Detail({
                   sub="prize $ ÷ sales"
                 />
                 <Kpi label="Prize $ printed" value={usdCompact(analysis.originalPrizeValue)} />
-                <Kpi label="Prize $ won" value={usdCompact(analysis.claimedPrizeValue)} />
+                <Kpi label="Prize value no longer unclaimed" value={usdCompact(analysis.claimedPrizeValue)} />
                 <Kpi label="Prize $ left" value={usdCompact(analysis.remainingPrizeValue)} />
                 <Kpi label="EV / ticket" value={usd2(analysis.evPerTicket)} />
                 <Kpi label="Return / $1" value={usd2(analysis.roi)} accent={roiColor(analysis.roi)} />
@@ -679,7 +681,7 @@ function Simulator({ game }: { game: Game }) {
           sub={dirty && base.topOdds ? `was 1 in ${int(base.topOdds)}` : undefined}
         />
         <Kpi
-          label="Tickets left"
+          label="Estimated unsold tickets"
           value={int(sim.ticketsRemaining)}
           sub={dirty ? `was ${int(base.ticketsRemaining)}` : undefined}
         />

@@ -2478,3 +2478,10 @@ button:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+.data-health,.feed-dates {padding:12px;margin:10px 0;border:1px solid #9b7c30;border-radius:12px;}
+.feed-dates {font-size:13px;overflow-wrap:anywhere;}
+.data-health summary {cursor:pointer;font-weight:700;}
+.source-date {display:block;font-size:12px;overflow-wrap:anywhere;}
+.demo-banner {color:var(--text,#252a35);}
+.app-update { position:fixed; z-index:200; bottom:88px; left:50%; transform:translateX(-50%); width:min(90vw,560px); padding:14px; border:1px solid var(--accent,#a98b39); border-radius:12px; background:var(--surface,#fff); color:var(--text,#18202c); box-shadow:0 4px 20px #0003; display:flex; align-items:center; gap:12px; } .app-update button { flex-shrink:0; padding:8px; cursor:pointer; }

@@ -1,3 +1,4 @@
+import type {ReportingDate,FeedHealth} from "../shared/quality.js";
 /** A single prize tier within a scratch-off game, as published by the lottery. */
 export interface PrizeTier {
   /** Dollar value of the prize (e.g. 1000000). */
@@ -26,6 +27,7 @@ export interface RawGame {
 
 /** A "lite" game for states that publish only top-prize / list data. */
 export interface LiteGame {
+  url?: string;
   gameId: string;
   name: string;
   price: number;
@@ -68,9 +70,14 @@ export interface ComputedStats {
 
 export interface Game extends RawGame {
   computed: ComputedStats;
+  feed?: FeedHealth;
 }
 
-export interface ScrapeResult {
+export interface ScrapeResult extends Partial<ReportingDate> {
+  sourceAsOf?: string;
+  validationVersion?: string;
+  health?: FeedHealth;
+  excluded?: {gameId:string;name:string;reason:string}[];
   generatedAt: string;
   state: string;
   source: string;
@@ -78,12 +85,11 @@ export interface ScrapeResult {
   games: Game[];
 }
 
-export interface LiteResult {
-  /** Optional source-specific reporting date, separate from actual import time. */
+export interface LiteResult extends Partial<ReportingDate> {
   sourceAsOf?: string;
-  resultsAsOf?: string;
-  dateBasis?: "source" | "assumed-previous-day";
-  timeZone?: string;
+  validationVersion?: string;
+  health?: FeedHealth;
+  excluded?: {gameId:string;name:string;reason:string}[];
   generatedAt: string;
   state: string;
   limited: true;

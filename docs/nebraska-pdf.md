@@ -31,4 +31,4 @@ The current PDF parser requires the printed date. A missing date or changed layo
 
 The parser checks page geometry, both game columns, unique printed IDs, prices, prize/count alignment and the closing list. Tests use generated synthetic PDFs without redistributing lottery artwork. A saved official report dated October 4, 2026 was locally verified as 26 games, including Pocket Change 5X (#1335), which was absent from the redesigned HTML catalog.
 
-This change only carries Nebraska metadata through the collector's existing lite-result interface. It does not import other local source corrections, freshness/EV policy changes, frontend changes or data snapshots. The existing frontend continues its current import-time presentation; the broader UI repair is separate.
+This change only carries Nebraska metadata through the collector's existing lite-result interface. It does not import other local source corrections, freshness/EV policy changes, frontend changes or data snapshots. The subsequent audited quality release displays both import and reporting dates. The Nebraska compatibility helper now delegates to the shared reporting-date implementation.

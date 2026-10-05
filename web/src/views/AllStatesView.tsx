@@ -118,19 +118,19 @@ export function AllStatesView({
   if (all.loading && all.games.length === 0)
     return <div className="status">Loading all states…</div>;
   if (all.games.length === 0)
-    return <div className="status">No state data published yet.</div>;
+    return <div className="status">No current validated rankings. See source dates and exclusion reasons above.</div>;
 
   return (
     <>
       <div className="demo-banner">
-        <strong>All states combined.</strong> Every full-EV game from{" "}
+        <strong>All states combined.</strong> Validated current model estimates from{" "}
         {all.loaded.length} states, ranked head-to-head by value. Lite states (top-prize only) and
         states not yet available are excluded.
         {all.failed.length > 0 && (
           <>
             {" "}
             <strong>
-              {all.failed.length} full state{all.failed.length === 1 ? "" : "s"} had no data today
+              {all.failed.length} full state{all.failed.length === 1 ? "" : "s"} are unavailable for current comparison
             </strong>{" "}
             ({all.failed.map((k) => k.toUpperCase()).join(", ")}).
           </>

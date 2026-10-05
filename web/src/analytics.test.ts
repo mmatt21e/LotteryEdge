@@ -115,8 +115,8 @@ describe("confidence", () => {
   it("flags brand-new games low", () => {
     expect(confidence(0.97).level).toBe("low");
   });
-  it("mid-life games are high", () => {
-    expect(confidence(0.5).level).toBe("high");
+  it("mid-life games retain model uncertainty", () => {
+    expect(confidence(0.5).level).toBe("medium");
   });
 });
 

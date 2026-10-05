@@ -1,6 +1,7 @@
+import { AppUpdate } from "./components/AppUpdate.js";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useScratchers, useAllScratchers } from "./useScratchers.js";
-import { buildDemoHistory, distinctDates } from "./demo.js";
+import { DataHealth, FeedDates } from "./components/DataHealth.js";
 import { useLocalStorage, useLedger } from "./storage.js";
 import { useChanges } from "./changes.js";
 import { useTheme, useOnline, useInstallPrompt } from "./ux.js";
@@ -65,7 +66,7 @@ export default function App() {
     () => (!limited && data ? (data as { games: Game[] }).games : []),
     [limited, data],
   );
-  const changes = useChanges(limited || isAll ? undefined : ncGames, data?.generatedAt, stateKey);
+  const changes = useChanges(limited || isAll || !data?.health?.eligible ? undefined : ncGames, data?.generatedAt, stateKey);
   const ledger = useLedger(stateKey);
   const winners = useWinners(isAll ? "" : stateKey);
   const { theme, cycle } = useTheme();
@@ -93,7 +94,7 @@ export default function App() {
   // (only when the user has granted permission). Once per data generation.
   const notifiedFor = useRef<string>("");
   useEffect(() => {
-    if (!data || limited || notifiedFor.current === data.generatedAt) return;
+    if (!data || !data.health?.eligible || limited || notifiedFor.current === data.generatedAt) return;
     if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
     if (changes.size === 0) return;
     notifiedFor.current = data.generatedAt;
@@ -112,13 +113,9 @@ export default function App() {
     }
   }, [data, limited, changes, favs, ncGames]);
 
-  // With ≤1 real day of history, trends/velocity have nothing to show, so we
-  // fall back to clearly-labeled SAMPLE data generated from today's snapshot.
-  const isDemo = !limited && distinctDates(history) <= 1;
-  const effHistory = useMemo(
-    () => (!limited && isDemo ? buildDemoHistory(ncGames) : history),
-    [limited, isDemo, ncGames, history],
-  );
+  const selectedCurrent = selected ? (isAll ? all.games : ncGames).find(g=>g.state===selected.state && g.gameId===selected.gameId) : undefined;
+  const isDemo = false;
+  const effHistory = history;
 
   return (
     <div className={`app ${!isAll && data && !limited ? "has-bottom-nav" : ""}`}>
@@ -144,18 +141,18 @@ export default function App() {
           onChange={setStateKey}
           allFilter={isAll ? allStatesFilter : []}
         />
-        {isAll && all.generatedAt && (
-          <span className="freshness" title={shortDateTime(all.generatedAt)}>
+        {isAll && (
+          <span className="freshness">
             {all.games.length} games ·{" "}
             {allStatesFilter.length > 0
               ? `${allStatesFilter.length}/${all.loaded.length} states`
               : `${all.loaded.length} states`}{" "}
-            · {relativeTime(all.generatedAt)}
+            · reporting dates {all.oldest ?? "unavailable"}{all.newest !== all.oldest ? ` to ${all.newest}` : ""}
           </span>
         )}
         {!isAll && data && (
           <span className="freshness" title={shortDateTime(data.generatedAt)}>
-            {data.gameCount} games · updated {relativeTime(data.generatedAt)}
+            {data.gameCount} source records · imported {relativeTime(data.generatedAt)}
           </span>
         )}
       </div>
@@ -168,6 +165,8 @@ export default function App() {
       )}
 
       <main id="main-content">
+        {!isAll && data && <DataHealth data={data} />}
+        {isAll && !all.loading && <section className="data-health"><p>{all.excludedCount} records withheld from current rankings. Dates differ by source; each import is a snapshot, not proof of same-day results.</p><details><summary>Individual source dates and failures</summary>{all.feeds.map(feed=><FeedDates key={feed.state} feed={feed}/>)}</details></section>}
         {isAll && (
           <AllStatesView
             all={all}
@@ -262,8 +261,8 @@ export default function App() {
             </section>
 
             <p className="disclaimer">
-              ROI uses <em>estimated</em> tickets remaining — good for ranking, not a promise of profit.
-              Most games sit below break-even.
+              Gross return = modeled prize value / ticket price. Net return subtracts the ticket cost.
+              Unsold inventory is estimated from unclaimed prizes, not measured.
             </p>
           </>
         )}
@@ -271,9 +270,9 @@ export default function App() {
 
       {!isAll && data && !limited && <TabBar tab={tab} onTab={switchTab} />}
 
-      {selected && (
+      {selected && selectedCurrent && (
         <Detail
-          game={selected}
+          game={selectedCurrent}
           history={isAll ? null : effHistory}
           demo={isAll ? false : isDemo}
           afterTax={afterTax}
@@ -312,6 +311,7 @@ export default function App() {
 
       {showInfo && <InfoSheet onClose={() => setShowInfo(false)} />}
 
+      <AppUpdate />
       <footer className="version-line">LotteryEdge v{__APP_VERSION__}</footer>
     </div>
   );
