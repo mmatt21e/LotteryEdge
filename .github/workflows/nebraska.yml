@@ -1,0 +1,48 @@
+name: Nebraska PDF validation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/nebraska.yml'
+      - '.github/workflows/update.yml'
+      - 'requirements-ne.txt'
+      - 'scripts/ne-prizes.py'
+      - 'scripts/test_ne_prizes.py'
+      - 'scripts/validate-ne.ts'
+      - 'src/sources/ne*'
+      - 'src/index.ts'
+      - 'src/types.ts'
+      - 'src/sources/registry.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-nebraska:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+          cache: pip
+          cache-dependency-path: requirements-ne.txt
+      - run: npm ci
+      - run: python -m pip install -r requirements-ne.txt
+      - name: Test PDF parser using synthetic documents
+        run: python -m unittest discover -s scripts -p test_ne_prizes.py -v
+      - name: Test dates and existing adapters
+        run: npm test
+      - run: npm run typecheck
+      - name: Validate the official Nebraska PDF without publishing
+        run: npm run validate:ne
+      - name: Verify validation did not modify repository files
+        run: git diff --exit-code && test -z "$(git ls-files --others --exclude-standard)"

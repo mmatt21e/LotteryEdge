@@ -1,29 +1,13 @@
 import * as cheerio from "cheerio";
-import { fetchText } from "./http.js";
+import { UA } from "./http.js";
+import { spawn } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
 
-const PRIZES_URL = "https://m.nelottery.com/homeapp/scratch/prizesremaining/web";
-const CLOSING_URL = "https://m.nelottery.com/homeapp/scratch/gameclosing";
+export const NE_PDF_URL = "https://m.nelottery.com/images/media/Scratch_Prizes_Remaining.pdf";
 
-/**
- * Nebraska Lottery — instant tickets, LITE adapter (top prize only, NO EV).
- *
- * The "Prizes Remaining" mobile page (m.nelottery.com) is server-rendered HTML:
- * each `.gameBlock` holds the ticket price (`.ballDollar`), the game number and
- * name (`.nameBlock`), and a short ladder of the game's TOP prize tiers
- * (`.prizesBlock` → `.prizeDescriptionBlock` amount + `.prizeCountBlock`
- * remaining count).
- *
- * WHY LITE (no EV): Nebraska publishes only the top ~3 prize tiers with their
- * remaining counts — not the full prize ladder and no original/print counts.
- * With the bulk of a scratch game's expected value living in the low/mid tiers
- * that are simply absent here, any EV would be systematically wrong. We expose
- * top-prize + closing-soon data only.
- *
- * closingSoon is driven by Nebraska's dedicated "Game Closings" page (games with
- * an announced closing date) plus any game whose top prize tier is exhausted.
- */
+/** Legacy HTML parsers retained for old fixtures. Live collection uses the official PDF below. */
 
 /** Parse "$50,000" / "6,849" / "30" -> number, blanks -> NaN. */
 function num(s: string | undefined): number {
@@ -88,18 +72,36 @@ export function parseNe(html: string, closingIds: Set<string> = new Set()): Lite
   return games;
 }
 
-/** Fetch and parse live NE instant-ticket data (LITE: top prize + closing-soon). */
-export async function scrapeNe(): Promise<{ source: string; games: LiteGame[] }> {
-  const [prizesHtml, closingHtml] = await Promise.all([
-    fetchText(PRIZES_URL),
-    fetchText(CLOSING_URL).catch(() => ""),
-  ]);
-  const closingIds = closingHtml ? parseNeClosing(closingHtml) : new Set<string>();
-  const games = parseNe(prizesHtml, closingIds);
-  if (games.length === 0) {
-    throw new Error(
-      "NE parser found 0 games — the Prizes Remaining page layout may have changed.",
-    );
-  }
-  return { source: PRIZES_URL, games };
+/** Execute the checked PDF parser; no shell, dependency installation, or network fallback. */
+export async function parseNePdf(bytes: Uint8Array): Promise<{sourceAsOf:string; games:LiteGame[]}> {
+  if(bytes.byteLength > 12*1024*1024) throw new Error("NE report exceeds size limit");
+  const python=process.env.LOTTERYEDGE_PYTHON || "python";
+  return new Promise((resolve,reject)=>{
+    const child=spawn(python,[fileURLToPath(new URL("../../scripts/ne-prizes.py",import.meta.url))],{windowsHide:true,stdio:["pipe","pipe","pipe"]});
+    let output="",error="",settled=false;
+    const fail=(message:string)=>{if(!settled){settled=true;clearTimeout(timer);reject(new Error(message));}};
+    const timer=setTimeout(()=>{child.kill();fail("NE PDF parser timed out");},30000);
+    child.on("error",()=>fail("NE PDF parser requires LOTTERYEDGE_PYTHON pointing to Python with pdfplumber 0.11.x; no software was installed automatically."));
+    child.stdout.on("data",chunk=>{output+=chunk;if(output.length>1000000){child.kill();fail("NE parser output exceeds limit");}});
+    child.stderr.on("data",chunk=>{error=(error+chunk).slice(-4000);});
+    child.stdin.on("error",()=>{});
+    child.on("close",code=>{
+      if(settled)return;
+      if(code!==0){fail(error || "NE PDF parser failed; check Python/pdfplumber configuration");return;}
+      try {
+        const parsed=JSON.parse(output);
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(parsed.sourceAsOf)||!Array.isArray(parsed.games)||!parsed.games.length)throw new Error("NE invalid parser result");
+        clearTimeout(timer);settled=true;resolve(parsed);
+      }catch(e){fail(String(e));}
+    });
+    child.stdin.end(bytes);
+  });
+}
+/** Official top-prizes report is incomplete for EV; never treat it as a full ladder. */
+export async function scrapeNe(): Promise<{source:string;sourceAsOf:string;games:LiteGame[]}> {
+  const res=await fetch(NE_PDF_URL,{headers:{"User-Agent":UA,Accept:"application/pdf"},signal:AbortSignal.timeout(30000)});
+  if(!res.ok)throw new Error("NE PDF request failed: HTTP "+res.status);
+  const bytes=new Uint8Array(await res.arrayBuffer());
+  if(Buffer.from(bytes.subarray(0,5)).toString()!=="%PDF-")throw new Error("NE source did not return a PDF");
+  return {source:NE_PDF_URL,...await parseNePdf(bytes)};
 }

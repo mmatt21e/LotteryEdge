@@ -57,7 +57,7 @@ export interface LiteSource {
   key: string;
   name: string;
   kind: "lite";
-  scrape: () => Promise<{ source: string; games: LiteGame[] }>;
+  scrape: () => Promise<{ source: string; games: LiteGame[]; sourceAsOf?: string }>;
 }
 export type CliSource = FullSource | LiteSource;
 
