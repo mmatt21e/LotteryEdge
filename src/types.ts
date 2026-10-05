@@ -79,6 +79,11 @@ export interface ScrapeResult {
 }
 
 export interface LiteResult {
+  /** Optional source-specific reporting date, separate from actual import time. */
+  sourceAsOf?: string;
+  resultsAsOf?: string;
+  dateBasis?: "source" | "assumed-previous-day";
+  timeZone?: string;
   generatedAt: string;
   state: string;
   limited: true;

@@ -44,6 +44,15 @@ jobs:
             package-lock.json
             web/package-lock.json
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+          cache: pip
+          cache-dependency-path: requirements-ne.txt
+
+      - name: Install Nebraska PDF parser dependency
+        run: python -m pip install -r requirements-ne.txt
+
       # --- Scrape ---
       - name: Install scraper deps
         run: npm ci

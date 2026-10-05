@@ -1,3 +1,4 @@
+import { neReportingDate } from "./sources/ne-reporting.js";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -97,9 +98,11 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
 }
 
 async function runLite(src: CliSource & { kind: "lite" }): Promise<StateStatus> {
-  const { source, games } = await src.scrape();
+  const { source, games, sourceAsOf } = await src.scrape();
+  const generatedAt = new Date().toISOString();
   const result: LiteResult = {
-    generatedAt: new Date().toISOString(),
+    generatedAt,
+    ...(src.key === "ne" ? neReportingDate(generatedAt, sourceAsOf) : {}),
     state: src.key,
     limited: true,
     source,
