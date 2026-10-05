@@ -79,7 +79,7 @@ export function parseNc(html: string): RawGame[] {
 }
 
 /** Fetch and parse live NC scratch-off data. */
-export async function scrapeNc(): Promise<{ source: string; games: RawGame[] }> {
+export async function scrapeNc(): Promise<{ source: string; games: RawGame[]; sourceAsOf?: string }> {
   const html = await fetchText(PRIZES_URL);
   const games = parseNc(html);
   if (games.length === 0) {
@@ -87,5 +87,7 @@ export async function scrapeNc(): Promise<{ source: string; games: RawGame[] }> 
       "NC parser found 0 games — the page layout may have changed. Inspect the markup.",
     );
   }
-  return { source: PRIZES_URL, games };
+  const match = /not yet claimed through\s+(\d{1,2})\/(\d{1,2})\/(\d{4})/i.exec(html);
+  const sourceAsOf = match ? `${match[3]}-${match[1]!.padStart(2,"0")}-${match[2]!.padStart(2,"0")}` : undefined;
+  return { source: PRIZES_URL, games, sourceAsOf };
 }

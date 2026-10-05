@@ -60,23 +60,7 @@ jobs:
       - name: Scrape all fetch-based states
         run: npm run scrape
 
-      # VA is "lite" (list + closing-soon only; no public per-tier data) and
-      # needs a headless browser. Non-blocking: a VA failure must not stop the
-      # NC deploy. The ~150 MB browser download is cached between daily runs.
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Chromium (for VA)
-        run: npx playwright install --with-deps chromium
-        continue-on-error: true
-
-      - name: Scrape Virginia (lite)
-        # Non-blocking, but never silent: surface the failure as a job warning.
-        run: node scripts/va-scrape.mjs || { echo "::warning::VA scrape failed — no data/scratchers-va.json published this run"; exit 1; }
-        continue-on-error: true
+      # VA remains unavailable: do not launch a browser against its access block.
 
       - name: Commit refreshed data
         run: |
@@ -101,6 +85,10 @@ jobs:
           fi
 
       # --- Build PWA ---
+      - name: Record exact published revision
+        id: published
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Install web deps
         run: npm ci
         working-directory: web
@@ -110,6 +98,7 @@ jobs:
         working-directory: web
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
+          BUILD_COMMIT: ${{ steps.published.outputs.sha }}
 
       # --- Deploy ---
       - uses: actions/configure-pages@v5

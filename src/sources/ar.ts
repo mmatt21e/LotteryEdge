@@ -1,3 +1,4 @@
+import { assertSourceAccess } from "../../shared/sourceAccess.js";
 import * as cheerio from "cheerio";
 import { fetchText } from "./http.js";
 import type { RawGame, PrizeTier } from "../types.js";
@@ -92,6 +93,7 @@ export function parseArGame(html: string, url: string): RawGame | null {
 
 /** Fetch and parse live Arkansas instant-game data. */
 export async function scrapeAr(): Promise<{ source: string; games: RawGame[] }> {
+  assertSourceAccess("ar");
   const urls = await collectGameUrls();
   const games: RawGame[] = [];
   for (const url of urls) {

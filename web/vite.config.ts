@@ -18,8 +18,9 @@ export default defineConfig({
   define: { __APP_VERSION__: JSON.stringify(version) },
   plugins: [
     react(),
+    { name: "build-evidence", generateBundle() { this.emitFile({ type: "asset", fileName: "build-info.json", source: JSON.stringify({version, commit:process.env.BUILD_COMMIT ?? process.env.GITHUB_SHA ?? "local", workflowCommit:process.env.GITHUB_SHA ?? "local", builtAt:new Date().toISOString()}) }); } },
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: "prompt",
       includeAssets: ["icon.svg"],
       manifest: {
         name: "LotteryEdge",

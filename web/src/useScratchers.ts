@@ -1,141 +1,110 @@
-import { useCallback, useEffect, useState } from "react";
-import type { AnyResult, History, Game, ScrapeResult } from "./types.js";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { AnyResult, History, Game } from "./types.js";
 import { STATES } from "./states.js";
-
-const BASE = import.meta.env.BASE_URL; // "/" locally, "/LotteryEdge/" on Pages
-
-/** A data file for a state, served from the site's own origin (copied at build). */
-function fileUrl(kind: "scratchers" | "history", state: string, bust: number): string {
-  const b = bust ? `?t=${bust}` : "";
-  return `${BASE}data/${kind}-${state}.json${b}`;
+import { prepareSnapshot, reportingHistory, type Correction } from "./dataQuality.js";
+import { freshnessRange, type FeedStatus, type FeedHealth } from "../../shared/quality.js";
+const BASE = import.meta.env.BASE_URL;
+const url = (file: string, bust: number) => `${BASE}data/${file}.json${bust ? `?t=${bust}` : ""}`;
+async function optional<T>(file: string, bust: number, signal: AbortSignal): Promise<T | null> { try {
+    const r = await fetch(url(file, bust), { signal, cache: bust ? "reload" : "default" });
+    return r.ok ? await r.json() as T : null;
 }
-
+catch {
+    return null;
+} }
+async function context(bust: number, signal: AbortSignal) { const [status, corrections] = await Promise.all([optional<FeedStatus>("status", bust, signal), optional<{
+        corrections: Correction[];
+    }>("corrections-v1", bust, signal)]); return { status, corrections: corrections?.corrections ?? [] }; }
 interface State {
-  data: AnyResult | null;
-  history: History | null;
-  loading: boolean;
-  error: string | null;
+    data: AnyResult | null;
+    history: History | null;
+    loading: boolean;
+    error: string | null;
 }
-
 export function useScratchers(state: string) {
-  const [s, setS] = useState<State>({
-    data: null,
-    history: null,
-    loading: true,
-    error: null,
-  });
-
-  const load = useCallback(
-    async (bust = 0) => {
-      // The combined view fetches its own data; there is no "all" file.
-      if (state === "all") {
-        setS({ data: null, history: null, loading: false, error: null });
-        return;
-      }
-      // Initial load for a (possibly new) state: clear whatever is on screen so
-      // a failed fetch can NEVER leave another state's games showing under this
-      // state's name. Manual refresh (bust != 0) is the one case where keeping
-      // the current data on failure is right — it's the same state's data.
-      if (bust === 0) setS({ data: null, history: null, loading: true, error: null });
-      else setS((prev) => ({ ...prev, loading: true, error: null }));
-      try {
-        const opts: RequestInit = { cache: bust ? "reload" : "default" };
-        const [dataRes, histRes] = await Promise.all([
-          fetch(fileUrl("scratchers", state, bust), opts),
-          // History is optional — tolerate its absence (early days).
-          fetch(fileUrl("history", state, bust), opts).catch(() => null),
-        ]);
-        if (!dataRes.ok) throw new Error(`HTTP ${dataRes.status}`);
-        const data = (await dataRes.json()) as AnyResult;
-        // History is best-effort: lite states have none, and SPA-fallback hosts
-        // (e.g. vite preview) answer the missing file with index.html/200 —
-        // an unparseable history must never fail the state's main data.
-        const history = histRes && histRes.ok
-          ? await histRes
-              .json()
-              .then((h) => h as History)
-              .catch(() => null)
-          : null;
-        setS({ data, history, loading: false, error: null });
-      } catch (err) {
-        setS((prev) => ({ ...prev, loading: false, error: (err as Error).message }));
-      }
-    },
-    [state],
-  );
-
-  useEffect(() => {
-    void load(0);
-  }, [load]);
-
-  const refresh = useCallback(() => load(Date.now()), [load]);
-
-  return { ...s, refresh };
-}
-
-export interface AllState {
-  games: Game[]; // every full-EV game across states, each tagged with its state
-  loaded: string[]; // state keys that returned data
-  failed: string[]; // full states with no published data yet
-  generatedAt: string | null; // most recent snapshot across loaded states
-  loading: boolean;
-}
-
-/**
- * Fetches every full-EV state in parallel and merges their games into one
- * list for the cross-state view. Lite states are skipped (no comparable EV).
- * A state with no data file yet is silently dropped into `failed`, never fatal.
- */
-export function useAllScratchers() {
-  const [s, setS] = useState<AllState>({
-    games: [],
-    loaded: [],
-    failed: [],
-    generatedAt: null,
-    loading: true,
-  });
-
-  const load = useCallback(async (bust = 0) => {
-    setS((prev) => ({ ...prev, loading: true }));
-    const fullKeys = STATES.filter((st) => st.tier === "full").map((st) => st.key);
-    const opts: RequestInit = { cache: bust ? "reload" : "default" };
-
-    const results = await Promise.all(
-      fullKeys.map(async (key) => {
-        try {
-          const res = await fetch(fileUrl("scratchers", key, bust), opts);
-          if (!res.ok) return { key, data: null };
-          const data = (await res.json()) as ScrapeResult;
-          if ((data as unknown as { limited?: boolean }).limited) return { key, data: null };
-          return { key, data };
-        } catch {
-          return { key, data: null };
+    const [s, setS] = useState<State>({ data: null, history: null, loading: true, error: null });
+    const request = useRef<AbortController | null>(null);
+    const load = useCallback(async (bust = 0) => {
+        request.current?.abort();
+        const controller = new AbortController();
+        request.current = controller;
+        if (state === "all") {
+            setS({ data: null, history: null, loading: false, error: null });
+            return;
         }
-      }),
-    );
-
-    const games: Game[] = [];
-    const loaded: string[] = [];
-    const failed: string[] = [];
-    let generatedAt: string | null = null;
-    for (const { key, data } of results) {
-      if (!data || !Array.isArray(data.games)) {
-        failed.push(key);
-        continue;
-      }
-      loaded.push(key);
-      if (!generatedAt || data.generatedAt > generatedAt) generatedAt = data.generatedAt;
-      // Stamp the state from the file so a card always knows its origin.
-      for (const g of data.games) games.push({ ...g, state: key });
-    }
-    setS({ games, loaded, failed, generatedAt, loading: false });
-  }, []);
-
-  useEffect(() => {
-    void load(0);
-  }, [load]);
-
-  const refresh = useCallback(() => load(Date.now()), [load]);
-
-  return { ...s, refresh };
+        setS(prev => ({ data: bust ? prev.data : null, history: bust ? prev.history : null, loading: true, error: null }));
+        try {
+            const [res, hist, ctx] = await Promise.all([fetch(url(`scratchers-${state}`, bust), { signal: controller.signal, cache: bust ? "reload" : "default" }), optional<History>(`history-${state}`, bust, controller.signal), context(bust, controller.signal)]);
+            if (!res.ok)
+                throw new Error(`HTTP ${res.status}`);
+            const raw = await res.json() as AnyResult;
+            if (raw.state !== state)
+                throw new Error("Snapshot jurisdiction mismatch");
+            const data = prepareSnapshot(raw, ctx.status, ctx.corrections);
+            if (!controller.signal.aborted)
+                setS({ data, history: reportingHistory(hist), loading: false, error: null });
+        }
+        catch (e) {
+            if (!controller.signal.aborted)
+                setS(prev => ({ ...prev, data: prev.data ? prepareSnapshot(prev.data, { generatedAt: new Date().toISOString(), states: [{ state, ok: false, error: "Refresh failed: " + (e as Error).message }] }) : null, loading: false, error: (e as Error).message }));
+        }
+    }, [state]);
+    useEffect(() => { void load(); return () => request.current?.abort(); }, [load]);
+    // Re-evaluate age even if the app remains open overnight.
+    useEffect(() => { const timer = setInterval(() => void load(), 3600000); return () => clearInterval(timer); }, [load]);
+    return { ...s, refresh: useCallback(() => load(Date.now()), [load]) };
+}
+export interface AllState {
+    games: Game[];
+    loaded: string[];
+    failed: string[];
+    feeds: FeedHealth[];
+    excludedCount: number;
+    oldest: string | null;
+    newest: string | null;
+    loading: boolean;
+}
+export function useAllScratchers() {
+    const [s, setS] = useState<AllState>({ games: [], loaded: [], failed: [], feeds: [], excludedCount: 0, oldest: null, newest: null, loading: true });
+    const request = useRef<AbortController | null>(null);
+    const load = useCallback(async (bust = 0) => {
+        request.current?.abort();
+        const controller = new AbortController();
+        request.current = controller;
+        setS(prev => ({ ...prev, loading: true }));
+        const ctx = await context(bust, controller.signal);
+        const results = await Promise.all(STATES.filter(st => st.tier === "full").map(async ({ key }) => {
+            try {
+                const raw = await optional<AnyResult>(`scratchers-${key}`, bust, controller.signal);
+                if (!raw || raw.state !== key || ("limited" in raw && raw.limited))
+                    return { key, data: null };
+                return { key, data: prepareSnapshot(raw, ctx.status, ctx.corrections) };
+            }
+            catch {
+                return { key, data: null };
+            }
+        }));
+        const games: Game[] = [], loaded: string[] = [], failed: string[] = [], feeds: FeedHealth[] = [];
+        let excludedCount = 0;
+        for (const { key, data } of results) {
+            if (!data) {
+                failed.push(key);
+                continue;
+            }
+            if (data.health)
+                feeds.push(data.health);
+            excludedCount += data.excluded?.length ?? 0;
+            if (!data.health?.eligible || !data.games.length) {
+                failed.push(key);
+                continue;
+            }
+            loaded.push(key);
+            games.push(...data.games as Game[]);
+        }
+        if (!controller.signal.aborted)
+            setS({ games, loaded, failed, feeds, excludedCount, ...freshnessRange(feeds.filter(f => loaded.includes(f.state))), loading: false });
+    }, []);
+    useEffect(() => { void load(); return () => request.current?.abort(); }, [load]);
+    useEffect(() => { const timer = setInterval(() => void load(), 3600000); return () => clearInterval(timer); }, [load]);
+    return { ...s, refresh: useCallback(() => load(Date.now()), [load]) };
 }

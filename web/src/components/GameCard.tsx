@@ -1,9 +1,8 @@
 import { Sparkline } from "../Sparkline.js";
 import type { GameChange } from "../changes.js";
 import type { Game, History } from "../types.js";
-import { usdCompact, pct, int, compact, netPerDollar, centsPerDollar } from "../format.js";
+import { usdCompact, int, compact, netPerDollar, centsPerDollar } from "../format.js";
 import {
-  profitOdds,
   liveProfitOdds,
   confidence,
   pointNet,
@@ -45,8 +44,8 @@ export function GameCard({
   const c = game.computed;
   const roi = effectiveRoi(game, afterTax);
   const width = Math.min(100, Math.max(4, roi * 100));
-  const conf = confidence(c.fractionRemaining);
-  const odds = liveProfitOdds(game) ?? profitOdds(game);
+  const conf = confidence(c.fractionRemaining, game.feed);
+  const odds = liveProfitOdds(game);
   const goalOdds = prizeGoal ? livePrizeGoalOdds(game, prizeGoal) : null;
   const goalPrizes = prizeGoal ? remainingPrizesAtOrAbove(game, prizeGoal) : 0;
   const ending = endingSoon(game);
@@ -92,8 +91,8 @@ export function GameCard({
 
         <div className="card-metrics">
           <span>
-            <strong>{odds ? `1 in ${int(odds)}` : pct(roi, 0)}</strong>
-            <small>{odds ? "chance to profit" : "estimated return"}</small>
+            <strong>{odds ? `1 in ${int(odds)}` : "Unavailable"}</strong>
+            <small>{odds ? "modeled profit odds" : "no unclaimed profit prize / denominator"}</small>
           </span>
           <span>
             <strong>{usdCompact(c.topPrizeAmount)}</strong>
@@ -117,8 +116,9 @@ export function GameCard({
 
         <div className="card-foot">
           <span className="conf-dot" title={conf.reason}>
-            <i style={{ background: CONF_COLOR[conf.level] }} /> {conf.level} confidence
+            <i style={{ background: CONF_COLOR[conf.level] }} /> Model caveat
           </span>
+          {game.feed && <span className="source-date">As of {game.feed.resultsAsOf}{game.feed.dateBasis === "source" ? " (source)" : " (assumed)"}</span>}
           {ending && (
             <span className={`badge ${ending === "ending" ? "badge-warn" : "badge-down"}`}>
               ⏳ {ending === "ending" ? "ending" : "ending soon"}

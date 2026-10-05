@@ -159,7 +159,7 @@ export function ValueTab({
         }
       />
 
-      {list.length === 0 && <div className="status">No games match.</div>}
+      {list.length === 0 && <div className="status">{games.length===0?"No current validated rankings. See source dates and exclusion reasons above.":"No games match these filters."}</div>}
       <ul className="list">
         {list.map((g) => (
           <GameCard

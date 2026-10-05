@@ -1,3 +1,4 @@
+import { assertSourceAccess } from "../../../shared/sourceAccess.js";
 import * as cheerio from "cheerio";
 import { fetchText, mapPool } from "../http.js";
 import { num } from "../parse.js";
@@ -141,6 +142,7 @@ export function parseArArticle(html: string, path: string): WinnerRecord[] {
 export async function scrapeArWinners(
   knownIds: ReadonlySet<string> = new Set(),
 ): Promise<{ source: string; winners: WinnerRecord[] }> {
+  assertSourceAccess("ar");
   const pages = await mapPool(
     Array.from({ length: INDEX_PAGES }, (_, i) => (i === 0 ? INDEX_URL : `${INDEX_URL}?page=${i}`)),
     2,

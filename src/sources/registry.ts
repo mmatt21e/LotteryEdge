@@ -51,7 +51,7 @@ export interface FullSource {
   key: string;
   name: string;
   kind: "full";
-  scrape: () => Promise<{ source: string; games: RawGame[] }>;
+  scrape: () => Promise<{ source: string; games: RawGame[]; sourceAsOf?: string }>;
 }
 export interface LiteSource {
   key: string;

@@ -23,6 +23,8 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
+throw new Error("VA automated collection is paused after source access blocks; no browser bypass is permitted.");
+
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), "..", "data");
 const PAGE = "https://www.valottery.com/scratcher-search";
 const UA =

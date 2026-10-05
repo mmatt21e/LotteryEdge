@@ -1,7 +1,8 @@
-import { neReportingDate } from "./sources/ne-reporting.js";
+import { assertSourceAccess, SOURCE_PAUSES } from "../shared/sourceAccess.js";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportingDate, QUALITY_VERSION } from "../shared/quality.js";
 import { computeStats } from "./ev.js";
 import { loadHistory, saveHistory, upsertHistory } from "./history.js";
 import { getSource, sourceKeys, type CliSource } from "./sources/registry.js";
@@ -38,6 +39,7 @@ interface StateStatus {
   /** Full states: how many games' ticketsRemaining changed vs the last run. */
   changed?: number;
   generatedAt?: string;
+  error?: string;
 }
 
 /** Read a previously written data file, or null if absent/unparseable. */
@@ -50,10 +52,19 @@ async function loadJson<T>(path: string): Promise<T | null> {
 }
 
 async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> {
-  const { source, games: raw } = await src.scrape();
-  const games: Game[] = raw
-    .map((g) => ({ ...g, computed: computeStats(g) }))
-    .sort((a, b) => b.computed.roi - a.computed.roi);
+  const { source, games: raw, sourceAsOf } = await src.scrape();
+  const excluded: {gameId:string;name:string;reason:string}[] = [];
+  const games: Game[] = [];
+  for (const g of raw) {
+    try { games.push({...g, computed: computeStats(g)}); }
+    catch(e) { excluded.push({gameId:g.gameId,name:g.name,reason:(e as Error).message}); }
+  }
+  games.sort((a,b)=>b.computed.roi-a.computed.roi);
+  const importedAt = new Date().toISOString();
+  const dates = reportingDate(importedAt,src.key,sourceAsOf);
+  const observationDir = resolve(DATA_DIR,"observations-v1",src.key);
+  await mkdir(observationDir,{recursive:true});
+  await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+".json"),JSON.stringify({importedAt,source,sourceAsOf,validationVersion:QUALITY_VERSION,raw,excluded},null,2),{flag:"wx"});
 
   assertSaneRois(src.key, games);
 
@@ -61,6 +72,7 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
   // Count how many games actually moved vs the last run — a state whose source
   // is stale will scrape fine but show 0 changed, which we want to surface.
   const prevData = await loadJson<ScrapeResult>(dataPath);
+  if(prevData) await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+"-previous-published.json"),await readFile(dataPath),{flag:"wx"});
   const prevTickets = new Map(
     (prevData?.games ?? []).map((g) => [g.gameId, g.computed?.ticketsRemaining]),
   );
@@ -69,7 +81,8 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
   ).length;
 
   const result: ScrapeResult = {
-    generatedAt: new Date().toISOString(),
+    generatedAt: importedAt,
+    ...dates, sourceAsOf, excluded, validationVersion: QUALITY_VERSION,
     state: src.key,
     source,
     gameCount: games.length,
@@ -81,7 +94,8 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
   const histPath = resolve(DATA_DIR, `history-${src.key}.json`);
   const date = result.generatedAt.slice(0, 10);
   const prev = await loadHistory(histPath);
-  await saveHistory(histPath, upsertHistory(prev, src.key, games, date, result.generatedAt));
+  if(prev) await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+"-previous-history.json"),await readFile(histPath),{flag:"wx"});
+  await saveHistory(histPath, upsertHistory(prev, src.key, games, date, result.generatedAt, dates));
 
   console.log(
     `[${src.key.toUpperCase()}] ${games.length} games · ${changed} changed since last run` +
@@ -99,16 +113,22 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
 
 async function runLite(src: CliSource & { kind: "lite" }): Promise<StateStatus> {
   const { source, games, sourceAsOf } = await src.scrape();
-  const generatedAt = new Date().toISOString();
+  if(!games.length) throw new Error("Empty source listing");
+  const importedAt = new Date().toISOString();
   const result: LiteResult = {
-    generatedAt,
-    ...(src.key === "ne" ? neReportingDate(generatedAt, sourceAsOf) : {}),
+    generatedAt: importedAt,
+    ...reportingDate(importedAt,src.key,sourceAsOf), sourceAsOf, validationVersion: QUALITY_VERSION,
     state: src.key,
     limited: true,
     source,
     gameCount: games.length,
     games,
   };
+  const observationDir=resolve(DATA_DIR,"observations-v1",src.key);
+  await mkdir(observationDir,{recursive:true});
+  const prior=await loadJson<LiteResult>(resolve(DATA_DIR,`scratchers-${src.key}.json`));
+  if(prior) await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+"-previous-published.json"),await readFile(resolve(DATA_DIR,`scratchers-${src.key}.json`)),{flag:"wx"});
+  await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+".json"),JSON.stringify(result,null,2),{flag:"wx"});
   await writeFile(
     resolve(DATA_DIR, `scratchers-${src.key}.json`),
     JSON.stringify(result, null, 2) + "\n",
@@ -131,6 +151,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
  * delete on failure), so the app just shows slightly-staler data for it.
  */
 async function scrapeOne(src: CliSource): Promise<StateStatus> {
+  if (SOURCE_PAUSES[src.key]) return {state:src.key,kind:src.kind,ok:false,gameCount:0,error:SOURCE_PAUSES[src.key]};
   const run = () => (src.kind === "full" ? runFull(src) : runLite(src));
   try {
     return await run();
@@ -143,7 +164,7 @@ async function scrapeOne(src: CliSource): Promise<StateStatus> {
       return await run();
     } catch (err2) {
       console.error(`[${src.key.toUpperCase()}] scrape failed: ${(err2 as Error).message}`);
-      return { state: src.key, kind: src.kind, ok: false, gameCount: 0 };
+      return { state: src.key, kind: src.kind, ok: false, gameCount: 0, error:(err2 as Error).message };
     }
   }
 }
@@ -187,6 +208,7 @@ function mergeWinners(prev: WinnersResult | null, fresh: WinnerRecord[]): Winner
 async function scrapeWinners(): Promise<void> {
   for (const src of WINNER_SOURCES) {
     try {
+      assertSourceAccess(src.key);
       const path = resolve(DATA_DIR, `winners-${src.key}.json`);
       const prev = await loadJson<WinnersResult>(path);
       // Sources with per-record ids can skip re-fetching winners we already
@@ -198,6 +220,11 @@ async function scrapeWinners(): Promise<void> {
       if (winners.length === 0 && (prev?.winners.length ?? 0) === 0)
         throw new Error("0 winners parsed");
       const merged = mergeWinners(prev, winners);
+      if (prev) {
+        const archive=resolve(DATA_DIR,"observations-v1",src.key);
+        await mkdir(archive,{recursive:true});
+        await writeFile(resolve(archive,new Date().toISOString().replace(/:/g,"-")+"-previous-winners.json"),await readFile(path),{flag:"wx"});
+      }
       const result: WinnersResult = {
         generatedAt: new Date().toISOString(),
         state: src.key,

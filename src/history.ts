@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
+import type { ReportingDate } from "../shared/quality.js";
 import type { Game } from "./types.js";
 
 /** Per-tier remaining count on a given day, for day-over-day prize-claim diffs. */
@@ -8,7 +9,8 @@ export interface TierPoint {
 }
 
 /** One daily observation of a game's derived stats. */
-export interface HistoryPoint {
+export interface HistoryPoint extends Partial<ReportingDate> {
+  importedAt?: string;
   date: string; // YYYY-MM-DD (UTC)
   ticketsRemaining: number;
   roi: number;
@@ -43,12 +45,13 @@ export function upsertHistory(
   games: Game[],
   date: string,
   updatedAt: string,
+  reporting?: ReportingDate,
 ): History {
   const series: Record<string, GameSeries> = prev?.series ? { ...prev.series } : {};
 
   for (const g of games) {
     const point: HistoryPoint = {
-      date,
+      date, ...reporting, importedAt: updatedAt,
       ticketsRemaining: g.computed.ticketsRemaining,
       roi: g.computed.roi,
       topPrizesRemaining: g.computed.topPrizesRemaining,
@@ -57,7 +60,7 @@ export function upsertHistory(
       tiers: g.tiers.map((t) => ({ amount: t.amount, remaining: t.remaining })),
     };
     const existing = series[g.gameId];
-    const kept = existing ? existing.points.filter((p) => p.date !== date) : [];
+    const kept = existing ? existing.points.filter((p) => p.date !== date).map(p => ({...p})) : [];
     kept.push(point);
     kept.sort((a, b) => a.date.localeCompare(b.date));
     const points = kept.slice(-MAX_POINTS);

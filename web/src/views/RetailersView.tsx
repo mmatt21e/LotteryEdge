@@ -60,10 +60,11 @@ export function RetailersView({
       <div className="demo-banner">
         <strong>Where winners were sold.</strong> Retailers ranked by winners the {stateName}{" "}
         lottery <em>chose to post online</em> — a visibility signal that often tracks sales
-        volume (useful for finding hard-to-stock games), not a statement of odds. Small wins
+        volume, not current inventory or better future odds. Small wins
         usually go unposted.
       </div>
 
+      <p className="source-date">Winner list imported {winners.generatedAt}. Record dates are source-reported publication/claim dates where known, not import dates or guaranteed ticket-purchase dates.</p>
       <div className="controls">
         <input
           className="search"

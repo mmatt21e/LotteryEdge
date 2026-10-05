@@ -33,13 +33,13 @@ describe("estimateOriginalTickets", () => {
     ).toBe(0);
   });
 
-  it("is robust to one mis-published tier via the median", () => {
+  it("rejects contradictory tier anchors", () => {
     const tiers = [
       { amount: 1, odds: 100, originalCount: 100, remaining: 0 }, // 10,000
       { amount: 2, odds: 100, originalCount: 100, remaining: 0 }, // 10,000
       { amount: 3, odds: 999, originalCount: 100, remaining: 0 }, // 99,900 outlier
     ];
-    expect(estimateOriginalTickets(tiers)).toBe(10_000);
+    expect(()=>estimateOriginalTickets(tiers)).toThrow(/Conflicting/);
   });
 });
 
@@ -81,10 +81,7 @@ describe("computeStats", () => {
       ...clean,
       tiers: clean.tiers.map((t) => ({ ...t, remaining: 0 })),
     };
-    const s = computeStats(soldOut);
-    expect(s.ticketsRemaining).toBe(0);
-    expect(s.evPerTicket).toBe(0);
-    expect(s.roi).toBe(0);
+    expect(()=>computeStats(soldOut)).toThrow(/denominator/);
   });
 });
 
@@ -97,13 +94,8 @@ describe("anchor payout sanity (NH Fat Stacks bug)", () => {
   ];
   const overallOdds = 200_000; // 5 winners × 200,000 = 1,000,000 tickets
 
-  it("prefers the odds identity when totalTickets implies an impossible payout", () => {
-    const est = estimateOriginalTickets(tiers, {
-      overallOdds,
-      totalTickets: 100_000, // bad (half-ish / stale)
-      price: 5,
-    });
-    expect(est).toBe(1_000_000); // odds-derived, not the bad total
+  it("rejects conflicting whole-game anchors",()=>{
+    expect(()=>estimateOriginalTickets(tiers,{overallOdds,totalTickets:100_000,price:5})).toThrow(/Conflicting/);
   });
 
   it("keeps a stated total when it is consistent with a plausible payout", () => {
@@ -115,10 +107,7 @@ describe("anchor payout sanity (NH Fat Stacks bug)", () => {
     expect(est).toBe(1_000_000);
   });
 
-  it("floors a lone total-tickets anchor so payout cannot exceed ~95%", () => {
-    // Only a (too-low) total anchor, no odds: prize $500k at $5 needs ≥ ~105k
-    // tickets to stay under 95% payout, so 50k must be raised.
-    const est = estimateOriginalTickets(tiers, { totalTickets: 50_000, price: 5 });
-    expect(est).toBeGreaterThanOrEqual(Math.round(500_000 / (5 * 0.95)));
+  it("rejects impossible payout rather than inventing a denominator",()=>{
+    expect(()=>estimateOriginalTickets(tiers,{totalTickets:50_000,price:5})).toThrow(/payout-floor/);
   });
 });

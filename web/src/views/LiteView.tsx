@@ -32,7 +32,7 @@ export function LiteView({ data }: { data: LiteResult }) {
       if (q && !g.name.toLowerCase().includes(q)) return false;
       return true;
     });
-    l.sort((a, b) =>
+    if (data.health?.eligible) l.sort((a, b) =>
       sort === "price" ? a.price - b.price : (b.topPrizeValue ?? 0) - (a.topPrizeValue ?? 0),
     );
     return l;
@@ -41,12 +41,11 @@ export function LiteView({ data }: { data: LiteResult }) {
   return (
     <>
       <div className="demo-banner">
-        <strong>{stateName(data.state)} — limited data.</strong> This state doesn’t publish
-        per-prize “remaining” counts, so there’s no EV / net-per-$1 here — only each game’s{" "}
-        <em>top prize</em> and a <strong>closing-soon</strong> flag.
+        <strong>{stateName(data.state)} — limited data.</strong> This feed does not provide a validated complete prize ladder, so EV and modeled odds are unavailable. Published top-prize descriptions are preserved; non-cash prizes have no invented lump-sum value.
       </div>
 
-      <FilterControls
+      {!data.health?.eligible && <p className="status">Historical listing only; current ranking unavailable.</p>}
+      {data.health?.eligible && <FilterControls
         query={query}
         onQuery={setQuery}
         prices={prices}
@@ -65,7 +64,7 @@ export function LiteView({ data }: { data: LiteResult }) {
             ⏳ Closing soon
           </button>
         }
-      />
+      />}
 
       {list.length === 0 && <div className="status">No games match.</div>}
       <ul className="list">
@@ -89,8 +88,7 @@ export function LiteView({ data }: { data: LiteResult }) {
       </ul>
 
       <p className="disclaimer">
-        Source: {data.source}. A full EV ranking (like NC) needs per-prize remaining counts, which
-        this state doesn’t publish.
+        Source: {data.source}. Official unclaimed prizes do not establish unsold ticket inventory.
       </p>
     </>
   );

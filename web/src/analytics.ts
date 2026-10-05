@@ -1,3 +1,4 @@
+import type { FeedHealth } from "../../shared/quality.js";
 import type { Game, GameSeries, HistoryPoint } from "./types.js";
 import { stateTaxRate } from "./states.js";
 
@@ -7,10 +8,10 @@ import { stateTaxRate } from "./states.js";
  * Returns X (as in "1 in X"), or null if odds aren't published.
  */
 export function profitOdds(game: Game): number | null {
-  const rate = game.tiers
-    .filter((t) => t.odds && t.odds > 0 && t.amount > game.price)
-    .reduce((sum, t) => sum + 1 / t.odds!, 0);
-  return rate > 0 ? 1 / rate : null;
+  const tiers = game.tiers.filter(t=>t.amount>game.price);
+  if (!tiers.length || tiers.some(t=>!Number.isFinite(t.odds)||t.odds!<1)) return null;
+  const rate = tiers.reduce((sum,t)=>sum+1/t.odds!,0);
+  return rate>0 && rate<=1 ? 1/rate : null;
 }
 
 /**
@@ -21,7 +22,7 @@ export function profitOdds(game: Game): number | null {
  * printed odds — so the UI shows it beside, not instead of, the printed value.
  */
 export function liveTierOdds(ticketsRemaining: number, tierRemaining: number): number | null {
-  if (tierRemaining <= 0 || ticketsRemaining <= 0) return null;
+  if (![tierRemaining,ticketsRemaining].every(Number.isFinite) || tierRemaining <= 0 || ticketsRemaining < tierRemaining) return null;
   return ticketsRemaining / tierRemaining;
 }
 
@@ -35,7 +36,7 @@ export function liveProfitOdds(game: Game): number | null {
   const winnersLeft = game.tiers
     .filter((t) => t.amount > game.price)
     .reduce((sum, t) => sum + Math.max(0, t.remaining), 0);
-  return winnersLeft > 0 ? tr / winnersLeft : null;
+  return liveTierOdds(tr, winnersLeft);
 }
 
 /** Number of unclaimed prizes worth at least `minimumPrize`. */
@@ -53,8 +54,7 @@ export function remainingPrizesAtOrAbove(game: Game, minimumPrize: number): numb
 export function livePrizeGoalOdds(game: Game, minimumPrize: number): number | null {
   const ticketsRemaining = game.computed.ticketsRemaining;
   const qualifyingPrizes = remainingPrizesAtOrAbove(game, minimumPrize);
-  if (ticketsRemaining <= 0 || qualifyingPrizes <= 0) return null;
-  return ticketsRemaining / qualifyingPrizes;
+  return liveTierOdds(ticketsRemaining, qualifyingPrizes);
 }
 
 export type ConfidenceLevel = "low" | "medium" | "high";
@@ -64,17 +64,19 @@ export type ConfidenceLevel = "low" | "medium" | "high";
  * sold", which is noisy when almost nothing has sold (brand-new game) or when
  * almost everything has (tiny remaining-ticket denominator).
  */
-export function confidence(fractionRemaining: number): {
+export function confidence(fractionRemaining: number, feed?: FeedHealth): {
   level: ConfidenceLevel;
   reason: string;
 } {
+  if (feed && !feed.eligible) return {level:"low",reason:"Unavailable: source is stale or failed"};
+  if (!Number.isFinite(fractionRemaining) || fractionRemaining<=0 || fractionRemaining>1) return {level:"low",reason:"Invalid remaining fraction"};
   const sold = 1 - fractionRemaining;
   if (fractionRemaining < 0.03)
     return { level: "low", reason: "almost sold out — tiny sample of tickets left" };
   if (sold < 0.05)
     return { level: "low", reason: "barely any tickets sold yet — estimate is noisy" };
   if (sold < 0.2) return { level: "medium", reason: "still early in the game's life" };
-  return { level: "high", reason: "enough tickets sold for a stable estimate" };
+  return { level: "medium", reason: "Unclaimed prizes are not measured unsold tickets; claim delays and distribution can bias the model" };
 }
 
 export interface Velocity {
@@ -91,11 +93,12 @@ export function computeVelocity(
   fromDate: string,
   toDate: string,
 ): Velocity | null {
-  const inRange = series.points.filter((p) => p.date >= fromDate && p.date <= toDate);
+  const inRange = series.points.filter((p) => p.date >= fromDate && p.date <= toDate).sort((a,b)=>a.date.localeCompare(b.date));
   if (inRange.length < 2) return null;
   const first = inRange[0]!;
   const last = inRange[inRange.length - 1]!;
-  const sold = Math.max(0, first.ticketsRemaining - last.ticketsRemaining);
+  if(inRange.some((p,i)=>i>0 && (p.date===inRange[i-1]!.date || p.ticketsRemaining>inRange[i-1]!.ticketsRemaining))) return null;
+  const sold = first.ticketsRemaining - last.ticketsRemaining;
   const days = Math.max(1, daysBetween(first.date, last.date));
   return { sold, perDay: sold / days, days, from: first.date, to: last.date };
 }
@@ -244,12 +247,12 @@ export function prizesWonPreviousDay(series: GameSeries | undefined): PreviousDa
   const pts = [...series.points].sort((a, b) => a.date.localeCompare(b.date));
   const cur = pts[pts.length - 1]!;
   const prev = pts[pts.length - 2]!;
-  if (!cur.tiers || !prev.tiers) return null;
+  if (!cur.tiers || !prev.tiers || daysBetween(prev.date,cur.date)!==1 || cur.tiers.length!==prev.tiers.length) return null;
   const before = new Map(prev.tiers.map((t) => [t.amount, t.remaining]));
   const prizes: PrizeWon[] = [];
   for (const t of cur.tiers) {
     const had = before.get(t.amount);
-    if (had == null) continue;
+    if (had == null || t.remaining > had) return null;
     const count = had - t.remaining;
     if (count > 0) prizes.push({ amount: t.amount, count });
   }
@@ -264,6 +267,7 @@ export function dailyBreakdown(series: GameSeries | undefined): DailyChange[] {
   for (let i = 1; i < pts.length; i++) {
     const prev = pts[i - 1]!;
     const cur = pts[i]!;
+    if(daysBetween(prev.date,cur.date)!==1 || cur.ticketsRemaining>prev.ticketsRemaining || cur.remainingPrizeValue>prev.remainingPrizeValue || cur.topPrizesRemaining>prev.topPrizesRemaining) continue;
     out.push({
       date: cur.date,
       ticketsSold: Math.max(0, prev.ticketsRemaining - cur.ticketsRemaining),
@@ -280,6 +284,7 @@ export function dailySales(series: GameSeries | undefined): DailySales | null {
   const first = pts[0]!;
   const last = pts[pts.length - 1]!;
   const prev = pts[pts.length - 2]!;
+  if(pts.some((p,i)=>i>0 && (p.date===pts[i-1]!.date || p.ticketsRemaining>pts[i-1]!.ticketsRemaining))) return null;
   const spanDays = Math.max(1, daysBetween(first.date, last.date));
   const avgPerDay = Math.max(0, first.ticketsRemaining - last.ticketsRemaining) / spanDays;
   const gap = Math.max(1, daysBetween(prev.date, last.date));
@@ -362,8 +367,7 @@ export function endingSoon(game: Game): "ending" | "soon" | null {
 /** Expected number of tickets you'd buy, on average, to hit one top prize. */
 export function ticketsToTopPrize(game: Game): number | null {
   const { ticketsRemaining, topPrizesRemaining } = game.computed;
-  if (topPrizesRemaining <= 0 || ticketsRemaining <= 0) return null;
-  return Math.round(ticketsRemaining / topPrizesRemaining);
+  return liveTierOdds(ticketsRemaining, topPrizesRemaining);
 }
 
 export interface LedgerInsights {

@@ -1,100 +1,44 @@
 import { fetchText } from "./http.js";
-import { fmtDollars } from "./parse.js";
 import type { LiteGame } from "../types.js";
-
-const API_BASE = "https://www.galottery.com/api/v1/instant-games/games/page";
-const SOURCE =
-  "https://www.galottery.com/en-us/games/scratchers/scratchers-top-prizes-claimed.html";
-
-/**
- * Georgia Lottery — scratchers, LITE adapter (top prize only, NO EV).
- *
- * The "Top Prizes Claimed" page is rendered client-side from a JSON API
- * (the same endpoint the page's Backbone models call):
- *   /api/v1/instant-games/games/page?start-item=N&size=100
- * paginated 100 games at a time until `nextItems` reaches 0. Ticket prices and
- * prize amounts are published in CENTS. Each game carries a `prizeTiers` array
- * with { prizeAmount, winningTickets, paidTickets }.
- *
- * WHY LITE (no EV): the page's own logic reports only the single top tier
- * (highest prizeAmount) and how many of it are claimed — the intent is "top
- * prizes claimed", not a full remaining-prize ladder. While the API does list
- * lower tiers, it publishes NO per-tier original odds and no ticket-pool sizing
- * to spread a defensible EV across, so we expose top-prize + closing-soon only.
- */
-
-interface GaTier {
-  prizeAmount: number;
-  winningTickets: number;
-  paidTickets: number;
+export const GA_SOURCE = "https://www.galottery.com/en-us/games/scratchers/scratchers-top-prizes-claimed.html";
+interface PublishedRow {
+    gameId: string;
+    gameName: string;
+    ticketPrice: string;
+    topPrize: string;
+    claimed: string;
+    total: string;
 }
-interface GaGame {
-  gameId: string;
-  gameName: string;
-  ticketPrice: number;
-  launchDate: number;
-  disableDate: number;
-  prizeTiers?: GaTier[];
+/** Official display-dollar table replaces the retired API's unreliable prizeAmount unit assumption.
+ * Parse JSON only; never execute embedded JavaScript or guess a numeric scale. */
+export function parseGa(html: string): {
+    games: LiteGame[];
+    sourceAsOf?: string;
+} {
+    const match = /topPrizListArray\s*:\s*JSON\.stringify\((\[[\s\S]*?\])\)/.exec(html);
+    if (!match)
+        throw new Error("GA published prize table unavailable; do not use the retired API");
+    const rows: PublishedRow[] = JSON.parse(match[1]!);
+    const dollars = (s: string): number | null => /^\$[\d,]+(?:\.\d{1,2})?$/.test(s.trim()) ? Number(s.replace(/[$,]/g, "")) : null;
+    const byId = new Map<string, LiteGame>();
+    for (const row of rows) {
+        const price = dollars(row.ticketPrice), top = dollars(row.topPrize);
+        if (!row.gameId || !row.gameName || !price || !Number.isFinite(price))
+            throw new Error("GA invalid published identity/price");
+        const game: LiteGame = { gameId: row.gameId, name: row.gameName.trim(), price, topPrize: row.topPrize, topPrizeValue: top, closingSoon: false, url: `https://www.galottery.com/en-us/games/scratchers/${row.gameId}.html` };
+        const existing = byId.get(row.gameId);
+        if (!existing || (top ?? -1) > (existing.topPrizeValue ?? -1))
+            byId.set(row.gameId, game);
+    }
+    const date = /Data as of\s+(?:\w+,\s*)?(\w+)\s+(\d{1,2}),\s*(\d{4})/i.exec(html);
+    const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"], month = date ? months.indexOf(date[1]!.toLowerCase()) + 1 : 0;
+    const sourceAsOf = date && month ? `${date[3]}-${String(month).padStart(2, "0")}-${date[2]!.padStart(2, "0")}` : undefined;
+    if (!byId.size)
+        throw new Error("GA published table has no games");
+    return { games: [...byId.values()], sourceAsOf };
 }
-interface GaPage {
-  games: GaGame[];
-  nextItems: number;
-}
-
-const PAGE_SIZE = 100;
-const MAX_PAGES = 20; // safety cap
-/** Flag a game as closing soon when it disables within this window. */
-const CLOSING_SOON_MS = 30 * 24 * 60 * 60 * 1000;
-
-export function toLiteGames(all: GaGame[], now: number): LiteGame[] {
-  const games: LiteGame[] = [];
-  for (const g of all) {
-    // Mirror the site: a game is shown while launched and not yet disabled.
-    if (!(g.launchDate <= now && now < g.disableDate)) continue;
-
-    const tiers = g.prizeTiers ?? [];
-    const top =
-      tiers.length > 0
-        ? tiers.reduce((a, b) => (b.prizeAmount > a.prizeAmount ? b : a))
-        : null;
-
-    const topPrizeValue = top ? top.prizeAmount / 100 : null;
-    const topPrize = topPrizeValue !== null ? fmtDollars(topPrizeValue) : "";
-
-    const topPrizesGone = top ? top.paidTickets >= top.winningTickets : false;
-    const closingSoon = topPrizesGone || g.disableDate - now < CLOSING_SOON_MS;
-
-    games.push({
-      gameId: g.gameId,
-      name: g.gameName,
-      price: g.ticketPrice / 100,
-      topPrize,
-      topPrizeValue,
-      closingSoon,
-    });
-  }
-  return games;
-}
-
-/** Fetch and parse live GA scratcher data (LITE: top prize + closing-soon). */
-export async function scrapeGa(): Promise<{ source: string; games: LiteGame[] }> {
-  const all: GaGame[] = [];
-  let start = 1;
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const text = await fetchText(`${API_BASE}?start-item=${start}&size=${PAGE_SIZE}`);
-    const data = JSON.parse(text) as GaPage;
-    const batch = data.games ?? [];
-    if (batch.length === 0) break;
-    all.push(...batch);
-    if (!data.nextItems || data.nextItems <= 0) break;
-    start += PAGE_SIZE;
-  }
-
-  const games = toLiteGames(all, Date.now());
-  if (games.length === 0) {
-    throw new Error(
-      "GA parser found 0 games — the instant-games API shape may have changed.",
-    );
-  }
-  return { source: SOURCE, games };
-}
+export async function scrapeGa(): Promise<{
+    source: string;
+    games: LiteGame[];
+    sourceAsOf?: string;
+}> { return { source: GA_SOURCE, ...parseGa(await fetchText(GA_SOURCE)) }; }

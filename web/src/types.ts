@@ -1,3 +1,4 @@
+import type {ReportingDate,FeedHealth} from "../../shared/quality.js";
 // Mirrors the scraper's output shape (see ../../src/types.ts).
 
 export interface PrizeTier {
@@ -28,9 +29,14 @@ export interface Game {
   totalTickets?: number; // stated original print run, when the source gives it
   tiers: PrizeTier[];
   computed: ComputedStats;
+  feed?: FeedHealth;
 }
 
-export interface ScrapeResult {
+export interface ScrapeResult extends Partial<ReportingDate> {
+  sourceAsOf?: string;
+  validationVersion?: string;
+  health?: FeedHealth;
+  excluded?: {gameId:string;name:string;reason:string}[];
   generatedAt: string;
   state: string;
   source: string;
@@ -44,6 +50,9 @@ export interface TierPoint {
 }
 
 export interface HistoryPoint {
+  resultsAsOf?: string;
+  dateBasis?: ReportingDate["dateBasis"];
+  snapshotDate?: string;
   date: string;
   ticketsRemaining: number;
   roi: number;
@@ -76,7 +85,11 @@ export interface LiteGame {
   url?: string;
 }
 
-export interface LiteResult {
+export interface LiteResult extends Partial<ReportingDate> {
+  sourceAsOf?: string;
+  validationVersion?: string;
+  health?: FeedHealth;
+  excluded?: {gameId:string;name:string;reason:string}[];
   generatedAt: string;
   state: string;
   limited: true;
