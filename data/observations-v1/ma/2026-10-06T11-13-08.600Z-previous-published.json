@@ -1,0 +1,7339 @@
+{
+  "generatedAt": "2026-10-05T17:20:41.716Z",
+  "resultsAsOf": "2026-10-04",
+  "dateBasis": "assumed-previous-day",
+  "timeZone": "America/New_York",
+  "excluded": [
+    {
+      "gameId": "468",
+      "name": "$100,000 TRIPLE 333",
+      "reason": "Original ticket-count anchor unavailable; Estimated remaining ticket denominator unavailable; Original tickets smaller than winning prizes; Inconsistent prize totals / EV; Original prize pool exceeds ticket revenue; Estimated tickets smaller than unclaimed winning prizes"
+    },
+    {
+      "gameId": "476",
+      "name": "LUCK OF THE IRISH TRIPLER",
+      "reason": "Original ticket-count anchor unavailable; Estimated remaining ticket denominator unavailable; Original tickets smaller than winning prizes; Inconsistent prize totals / EV; Original prize pool exceeds ticket revenue; Estimated tickets smaller than unclaimed winning prizes"
+    },
+    {
+      "gameId": "485",
+      "name": "10X",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    },
+    {
+      "gameId": "505",
+      "name": "WINNER WINNER CHICKEN DINNER",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    },
+    {
+      "gameId": "512",
+      "name": "$200,000 HALLOWEEN",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    },
+    {
+      "gameId": "517",
+      "name": "$200,000 ELF CASHWORD",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    }
+  ],
+  "validationVersion": "2026-10-05.1",
+  "state": "ma",
+  "source": "https://www.masslottery.com/api/v1/instant-game-prizes",
+  "gameCount": 96,
+  "games": [
+    {
+      "state": "ma",
+      "gameId": "413",
+      "name": "$4,000,000 Bonus Loot",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-bonus-loot-2023",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 2257920,
+          "remaining": 194886
+        },
+        {
+          "amount": 25,
+          "originalCount": 645120,
+          "remaining": 53102
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 13554
+        },
+        {
+          "amount": 100,
+          "originalCount": 272384,
+          "remaining": 22760
+        },
+        {
+          "amount": 500,
+          "originalCount": 21952,
+          "remaining": 1693
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7728,
+          "remaining": 695
+        },
+        {
+          "amount": 10000,
+          "originalCount": 224,
+          "remaining": 26
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 1
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.79,
+      "computed": {
+        "originalTickets": 16126095,
+        "fractionRemaining": 0.0852,
+        "ticketsRemaining": 1373384,
+        "remainingPrizeValue": 18980470,
+        "evPerTicket": 13.8202,
+        "roi": 1.382,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "409",
+      "name": "$10,000,000 Cash Blast",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000000-cash-blast-2023",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 1834560,
+          "remaining": 435187
+        },
+        {
+          "amount": 25,
+          "originalCount": 1048320,
+          "remaining": 257016
+        },
+        {
+          "amount": 30,
+          "originalCount": 524160,
+          "remaining": 122888
+        },
+        {
+          "amount": 40,
+          "originalCount": 262080,
+          "remaining": 60719
+        },
+        {
+          "amount": 50,
+          "originalCount": 262080,
+          "remaining": 60339
+        },
+        {
+          "amount": 100,
+          "originalCount": 480480,
+          "remaining": 109607
+        },
+        {
+          "amount": 200,
+          "originalCount": 27573,
+          "remaining": 6231
+        },
+        {
+          "amount": 500,
+          "originalCount": 18564,
+          "remaining": 4180
+        },
+        {
+          "amount": 1000,
+          "originalCount": 10101,
+          "remaining": 2429
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1547,
+          "remaining": 371
+        },
+        {
+          "amount": 5000,
+          "originalCount": 1911,
+          "remaining": 462
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 1
+        },
+        {
+          "amount": 10000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 2.93,
+      "computed": {
+        "originalTickets": 13101155,
+        "fractionRemaining": 0.2369,
+        "ticketsRemaining": 3104136,
+        "remainingPrizeValue": 65039390,
+        "evPerTicket": 20.9525,
+        "roi": 1.0476,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "385",
+      "name": "$10,000,000 LUCKY BUCKS",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000000-lucky-bucks-2023",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 2116800,
+          "remaining": 329864
+        },
+        {
+          "amount": 25,
+          "originalCount": 1209600,
+          "remaining": 194763
+        },
+        {
+          "amount": 30,
+          "originalCount": 604800,
+          "remaining": 92744
+        },
+        {
+          "amount": 40,
+          "originalCount": 302400,
+          "remaining": 45751
+        },
+        {
+          "amount": 50,
+          "originalCount": 302400,
+          "remaining": 45840
+        },
+        {
+          "amount": 100,
+          "originalCount": 528675,
+          "remaining": 79579
+        },
+        {
+          "amount": 200,
+          "originalCount": 32865,
+          "remaining": 4911
+        },
+        {
+          "amount": 500,
+          "originalCount": 20160,
+          "remaining": 2975
+        },
+        {
+          "amount": 1000,
+          "originalCount": 11865,
+          "remaining": 1877
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1995,
+          "remaining": 318
+        },
+        {
+          "amount": 5000,
+          "originalCount": 2625,
+          "remaining": 419
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 1
+        },
+        {
+          "amount": 10000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 2.94,
+      "computed": {
+        "originalTickets": 15094542,
+        "fractionRemaining": 0.1556,
+        "ticketsRemaining": 2349186,
+        "remainingPrizeValue": 44406315,
+        "evPerTicket": 18.9029,
+        "roi": 0.9451,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "441",
+      "name": "$4,000,000 LION’S SHARE",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-lions-share-2024",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1451520,
+          "remaining": 256283
+        },
+        {
+          "amount": 15,
+          "originalCount": 604800,
+          "remaining": 104918
+        },
+        {
+          "amount": 20,
+          "originalCount": 967680,
+          "remaining": 166143
+        },
+        {
+          "amount": 25,
+          "originalCount": 120960,
+          "remaining": 20741
+        },
+        {
+          "amount": 50,
+          "originalCount": 120960,
+          "remaining": 20524
+        },
+        {
+          "amount": 100,
+          "originalCount": 197568,
+          "remaining": 33453
+        },
+        {
+          "amount": 500,
+          "originalCount": 17892,
+          "remaining": 3015
+        },
+        {
+          "amount": 1000,
+          "originalCount": 4452,
+          "remaining": 804
+        },
+        {
+          "amount": 5000,
+          "originalCount": 140,
+          "remaining": 25
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 1
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 12096351,
+        "fractionRemaining": 0.1738,
+        "ticketsRemaining": 2102501,
+        "remainingPrizeValue": 19785985,
+        "evPerTicket": 9.4107,
+        "roi": 0.9411,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "483",
+      "name": "$4,000,000 CASH KING DOUBLER",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-cash-king-doubler-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 442695
+        },
+        {
+          "amount": 15,
+          "originalCount": 1058400,
+          "remaining": 303339
+        },
+        {
+          "amount": 20,
+          "originalCount": 1209600,
+          "remaining": 349282
+        },
+        {
+          "amount": 30,
+          "originalCount": 151200,
+          "remaining": 43723
+        },
+        {
+          "amount": 50,
+          "originalCount": 151200,
+          "remaining": 42984
+        },
+        {
+          "amount": 100,
+          "originalCount": 231105,
+          "remaining": 66170
+        },
+        {
+          "amount": 150,
+          "originalCount": 4305,
+          "remaining": 1221
+        },
+        {
+          "amount": 200,
+          "originalCount": 3990,
+          "remaining": 1148
+        },
+        {
+          "amount": 500,
+          "originalCount": 13125,
+          "remaining": 3708
+        },
+        {
+          "amount": 1000,
+          "originalCount": 4095,
+          "remaining": 1230
+        },
+        {
+          "amount": 5000,
+          "originalCount": 315,
+          "remaining": 89
+        },
+        {
+          "amount": 10000,
+          "originalCount": 20,
+          "remaining": 7
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 3
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 4,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.48,
+      "computed": {
+        "originalTickets": 15101004,
+        "fractionRemaining": 0.2894,
+        "ticketsRemaining": 4369491,
+        "remainingPrizeValue": 41052315,
+        "evPerTicket": 9.3952,
+        "roi": 0.9395,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "535",
+      "name": "$4,000,000 CASH DOUBLER",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-cash-doubler-2026",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1088640,
+          "remaining": 488860
+        },
+        {
+          "amount": 15,
+          "originalCount": 453600,
+          "remaining": 202538
+        },
+        {
+          "amount": 20,
+          "originalCount": 725760,
+          "remaining": 323210
+        },
+        {
+          "amount": 25,
+          "originalCount": 90720,
+          "remaining": 40392
+        },
+        {
+          "amount": 50,
+          "originalCount": 90720,
+          "remaining": 40143
+        },
+        {
+          "amount": 100,
+          "originalCount": 135135,
+          "remaining": 60233
+        },
+        {
+          "amount": 150,
+          "originalCount": 7119,
+          "remaining": 3171
+        },
+        {
+          "amount": 200,
+          "originalCount": 4725,
+          "remaining": 2120
+        },
+        {
+          "amount": 500,
+          "originalCount": 4158,
+          "remaining": 1849
+        },
+        {
+          "amount": 1000,
+          "originalCount": 3024,
+          "remaining": 1430
+        },
+        {
+          "amount": 10000,
+          "originalCount": 72,
+          "remaining": 33
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 7,
+          "remaining": 3
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.48,
+      "computed": {
+        "originalTickets": 9060817,
+        "fractionRemaining": 0.4471,
+        "ticketsRemaining": 4050664,
+        "remainingPrizeValue": 38015270,
+        "evPerTicket": 9.3849,
+        "roi": 0.9385,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "489",
+      "name": "200X",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/200x-2025",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 1693440,
+          "remaining": 786304
+        },
+        {
+          "amount": 25,
+          "originalCount": 967680,
+          "remaining": 454056
+        },
+        {
+          "amount": 30,
+          "originalCount": 483840,
+          "remaining": 223194
+        },
+        {
+          "amount": 40,
+          "originalCount": 241920,
+          "remaining": 111590
+        },
+        {
+          "amount": 50,
+          "originalCount": 241920,
+          "remaining": 110994
+        },
+        {
+          "amount": 100,
+          "originalCount": 362880,
+          "remaining": 166275
+        },
+        {
+          "amount": 200,
+          "originalCount": 75852,
+          "remaining": 34622
+        },
+        {
+          "amount": 500,
+          "originalCount": 11844,
+          "remaining": 5401
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6720,
+          "remaining": 3197
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1596,
+          "remaining": 759
+        },
+        {
+          "amount": 5000,
+          "originalCount": 1872,
+          "remaining": 878
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 3
+        },
+        {
+          "amount": 10000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 2.96,
+      "computed": {
+        "originalTickets": 12105136,
+        "fractionRemaining": 0.4639,
+        "ticketsRemaining": 5615934,
+        "remainingPrizeValue": 102144000,
+        "evPerTicket": 18.1882,
+        "roi": 0.9094,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "488",
+      "name": "100X",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100x-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1774080,
+          "remaining": 367065
+        },
+        {
+          "amount": 15,
+          "originalCount": 967680,
+          "remaining": 194686
+        },
+        {
+          "amount": 20,
+          "originalCount": 1290240,
+          "remaining": 254897
+        },
+        {
+          "amount": 25,
+          "originalCount": 161280,
+          "remaining": 32084
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 31716
+        },
+        {
+          "amount": 100,
+          "originalCount": 161280,
+          "remaining": 32107
+        },
+        {
+          "amount": 150,
+          "originalCount": 34048,
+          "remaining": 6550
+        },
+        {
+          "amount": 300,
+          "originalCount": 26208,
+          "remaining": 5059
+        },
+        {
+          "amount": 500,
+          "originalCount": 12768,
+          "remaining": 2465
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7728,
+          "remaining": 1766
+        },
+        {
+          "amount": 2000,
+          "originalCount": 672,
+          "remaining": 138
+        },
+        {
+          "amount": 10000,
+          "originalCount": 224,
+          "remaining": 52
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 7,
+          "remaining": 2
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.51,
+      "computed": {
+        "originalTickets": 16137218,
+        "fractionRemaining": 0.202,
+        "ticketsRemaining": 3259344,
+        "remainingPrizeValue": 29582180,
+        "evPerTicket": 9.0761,
+        "roi": 0.9076,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "545",
+      "name": "STRIKE IT RICH",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/strike-it-rich",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1108800,
+          "remaining": 663372
+        },
+        {
+          "amount": 15,
+          "originalCount": 604800,
+          "remaining": 360167
+        },
+        {
+          "amount": 20,
+          "originalCount": 806400,
+          "remaining": 478264
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 59821
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 59868
+        },
+        {
+          "amount": 100,
+          "originalCount": 100800,
+          "remaining": 59877
+        },
+        {
+          "amount": 150,
+          "originalCount": 17290,
+          "remaining": 10258
+        },
+        {
+          "amount": 300,
+          "originalCount": 12040,
+          "remaining": 7126
+        },
+        {
+          "amount": 500,
+          "originalCount": 7420,
+          "remaining": 4376
+        },
+        {
+          "amount": 1000,
+          "originalCount": 3010,
+          "remaining": 1843
+        },
+        {
+          "amount": 2000,
+          "originalCount": 420,
+          "remaining": 260
+        },
+        {
+          "amount": 10000,
+          "originalCount": 140,
+          "remaining": 82
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 4
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.52,
+      "computed": {
+        "originalTickets": 10076806,
+        "fractionRemaining": 0.5957,
+        "ticketsRemaining": 6002726,
+        "remainingPrizeValue": 53125630,
+        "evPerTicket": 8.8503,
+        "roi": 0.885,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "536",
+      "name": "$2,000,000 STACKED",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/2000000-stacked-2026",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 1552320,
+          "remaining": 980663
+        },
+        {
+          "amount": 25,
+          "originalCount": 887040,
+          "remaining": 561163
+        },
+        {
+          "amount": 30,
+          "originalCount": 443520,
+          "remaining": 280033
+        },
+        {
+          "amount": 40,
+          "originalCount": 221760,
+          "remaining": 139635
+        },
+        {
+          "amount": 50,
+          "originalCount": 221760,
+          "remaining": 139576
+        },
+        {
+          "amount": 100,
+          "originalCount": 393932,
+          "remaining": 247636
+        },
+        {
+          "amount": 200,
+          "originalCount": 22330,
+          "remaining": 14039
+        },
+        {
+          "amount": 500,
+          "originalCount": 13860,
+          "remaining": 8721
+        },
+        {
+          "amount": 1000,
+          "originalCount": 8085,
+          "remaining": 5233
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1463,
+          "remaining": 938
+        },
+        {
+          "amount": 5000,
+          "originalCount": 1694,
+          "remaining": 1083
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 4
+        },
+        {
+          "amount": 2000000,
+          "originalCount": 14,
+          "remaining": 10
+        }
+      ],
+      "overallOdds": 2.94,
+      "computed": {
+        "originalTickets": 11077282,
+        "fractionRemaining": 0.6313,
+        "ticketsRemaining": 6993478,
+        "remainingPrizeValue": 123063425,
+        "evPerTicket": 17.5969,
+        "roi": 0.8798,
+        "topPrizesRemaining": 10,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "427",
+      "name": "$4,000,000 BONUS BUCKS",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-bonus-bucks-2024",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1935360,
+          "remaining": 504734
+        },
+        {
+          "amount": 15,
+          "originalCount": 806400,
+          "remaining": 208636
+        },
+        {
+          "amount": 20,
+          "originalCount": 1290240,
+          "remaining": 331672
+        },
+        {
+          "amount": 25,
+          "originalCount": 161280,
+          "remaining": 41435
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 41193
+        },
+        {
+          "amount": 100,
+          "originalCount": 264880,
+          "remaining": 67407
+        },
+        {
+          "amount": 500,
+          "originalCount": 24864,
+          "remaining": 6320
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6832,
+          "remaining": 1790
+        },
+        {
+          "amount": 5000,
+          "originalCount": 224,
+          "remaining": 59
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 16140257,
+        "fractionRemaining": 0.2587,
+        "ticketsRemaining": 4175274,
+        "remainingPrizeValue": 35891545,
+        "evPerTicket": 8.5962,
+        "roi": 0.8596,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "433",
+      "name": "Lifetime Millions",
+      "price": 50,
+      "url": "https://www.masslottery.com/games/scratch-tickets/433",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 5544000,
+          "remaining": 1280107
+        },
+        {
+          "amount": 500,
+          "originalCount": 560000,
+          "remaining": 128928
+        },
+        {
+          "amount": 1000,
+          "originalCount": 30275,
+          "remaining": 7343
+        },
+        {
+          "amount": 5000,
+          "originalCount": 6975,
+          "remaining": 1690
+        },
+        {
+          "amount": 10000,
+          "originalCount": 2775,
+          "remaining": 673
+        },
+        {
+          "amount": 20000,
+          "originalCount": 1850,
+          "remaining": 454
+        },
+        {
+          "amount": 50000,
+          "originalCount": 50,
+          "remaining": 13
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 12,
+          "remaining": 3
+        },
+        {
+          "amount": 2000000,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 20000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.1,
+      "computed": {
+        "originalTickets": 25198370,
+        "fractionRemaining": 0.2309,
+        "ticketsRemaining": 5818773,
+        "remainingPrizeValue": 249727700,
+        "evPerTicket": 42.9176,
+        "roi": 0.8584,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 20000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "521",
+      "name": "$2,000,000 50X CASHWORD 2025",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/2M-50X-cashword-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 3024000,
+          "remaining": 1052713
+        },
+        {
+          "amount": 15,
+          "originalCount": 756000,
+          "remaining": 261904
+        },
+        {
+          "amount": 20,
+          "originalCount": 2520000,
+          "remaining": 871616
+        },
+        {
+          "amount": 25,
+          "originalCount": 252000,
+          "remaining": 86953
+        },
+        {
+          "amount": 30,
+          "originalCount": 252000,
+          "remaining": 88278
+        },
+        {
+          "amount": 40,
+          "originalCount": 252000,
+          "remaining": 86938
+        },
+        {
+          "amount": 50,
+          "originalCount": 252000,
+          "remaining": 87227
+        },
+        {
+          "amount": 100,
+          "originalCount": 359975,
+          "remaining": 124833
+        },
+        {
+          "amount": 200,
+          "originalCount": 32725,
+          "remaining": 11456
+        },
+        {
+          "amount": 500,
+          "originalCount": 15575,
+          "remaining": 5461
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6300,
+          "remaining": 2458
+        },
+        {
+          "amount": 2000,
+          "originalCount": 700,
+          "remaining": 267
+        },
+        {
+          "amount": 10000,
+          "originalCount": 250,
+          "remaining": 95
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 5
+        },
+        {
+          "amount": 2000000,
+          "originalCount": 5,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.26,
+      "computed": {
+        "originalTickets": 25178740,
+        "fractionRemaining": 0.347,
+        "ticketsRemaining": 8737471,
+        "remainingPrizeValue": 74996045,
+        "evPerTicket": 8.5833,
+        "roi": 0.8583,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "529",
+      "name": "$4,000,000 IN THE MONEY",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-in-the-money-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1814400,
+          "remaining": 1104856
+        },
+        {
+          "amount": 15,
+          "originalCount": 756000,
+          "remaining": 458889
+        },
+        {
+          "amount": 20,
+          "originalCount": 1209600,
+          "remaining": 732929
+        },
+        {
+          "amount": 25,
+          "originalCount": 151200,
+          "remaining": 91514
+        },
+        {
+          "amount": 50,
+          "originalCount": 151200,
+          "remaining": 91437
+        },
+        {
+          "amount": 100,
+          "originalCount": 224700,
+          "remaining": 135909
+        },
+        {
+          "amount": 150,
+          "originalCount": 13230,
+          "remaining": 8003
+        },
+        {
+          "amount": 200,
+          "originalCount": 10920,
+          "remaining": 6579
+        },
+        {
+          "amount": 500,
+          "originalCount": 13335,
+          "remaining": 8030
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7140,
+          "remaining": 4408
+        },
+        {
+          "amount": 10000,
+          "originalCount": 210,
+          "remaining": 131
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 9,
+          "remaining": 5
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 15101256,
+        "fractionRemaining": 0.6072,
+        "ticketsRemaining": 9170141,
+        "remainingPrizeValue": 78290325,
+        "evPerTicket": 8.5375,
+        "roi": 0.8538,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "491",
+      "name": "$15,000,000 COLOSSAL MILLIONS",
+      "price": 30,
+      "url": "https://www.masslottery.com/games/scratch-tickets/15000000-colossal-millions-2025",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 1814400,
+          "remaining": 1096942
+        },
+        {
+          "amount": 40,
+          "originalCount": 1209600,
+          "remaining": 730098
+        },
+        {
+          "amount": 50,
+          "originalCount": 1209600,
+          "remaining": 729014
+        },
+        {
+          "amount": 60,
+          "originalCount": 302400,
+          "remaining": 182602
+        },
+        {
+          "amount": 100,
+          "originalCount": 793800,
+          "remaining": 478514
+        },
+        {
+          "amount": 200,
+          "originalCount": 30345,
+          "remaining": 18247
+        },
+        {
+          "amount": 500,
+          "originalCount": 57015,
+          "remaining": 34319
+        },
+        {
+          "amount": 1000,
+          "originalCount": 13440,
+          "remaining": 8251
+        },
+        {
+          "amount": 2000,
+          "originalCount": 525,
+          "remaining": 324
+        },
+        {
+          "amount": 10000,
+          "originalCount": 135,
+          "remaining": 82
+        },
+        {
+          "amount": 100000,
+          "originalCount": 180,
+          "remaining": 112
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 15000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 2.78,
+      "computed": {
+        "originalTickets": 15099434,
+        "fractionRemaining": 0.6036,
+        "ticketsRemaining": 9114261,
+        "remainingPrizeValue": 233098300,
+        "evPerTicket": 25.5751,
+        "roi": 0.8525,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "530",
+      "name": "$10,000,000 CASHWORD",
+      "price": 30,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000000-cashword-2025",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 1935360,
+          "remaining": 1498709
+        },
+        {
+          "amount": 50,
+          "originalCount": 1612800,
+          "remaining": 1244024
+        },
+        {
+          "amount": 80,
+          "originalCount": 967680,
+          "remaining": 748281
+        },
+        {
+          "amount": 100,
+          "originalCount": 645120,
+          "remaining": 497576
+        },
+        {
+          "amount": 150,
+          "originalCount": 100240,
+          "remaining": 77329
+        },
+        {
+          "amount": 200,
+          "originalCount": 49280,
+          "remaining": 38059
+        },
+        {
+          "amount": 250,
+          "originalCount": 26880,
+          "remaining": 20734
+        },
+        {
+          "amount": 300,
+          "originalCount": 22400,
+          "remaining": 17269
+        },
+        {
+          "amount": 400,
+          "originalCount": 20160,
+          "remaining": 15552
+        },
+        {
+          "amount": 500,
+          "originalCount": 17920,
+          "remaining": 13816
+        },
+        {
+          "amount": 750,
+          "originalCount": 11200,
+          "remaining": 8750
+        },
+        {
+          "amount": 1000,
+          "originalCount": 5600,
+          "remaining": 4354
+        },
+        {
+          "amount": 5000,
+          "originalCount": 896,
+          "remaining": 696
+        },
+        {
+          "amount": 10000,
+          "originalCount": 176,
+          "remaining": 136
+        },
+        {
+          "amount": 50000,
+          "originalCount": 160,
+          "remaining": 123
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 6
+        },
+        {
+          "amount": 10000000,
+          "originalCount": 3,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 2.98,
+      "computed": {
+        "originalTickets": 16139331,
+        "fractionRemaining": 0.7728,
+        "ticketsRemaining": 12472542,
+        "remainingPrizeValue": 317393200,
+        "evPerTicket": 25.4474,
+        "roi": 0.8482,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "341",
+      "name": "$4,000,000 JUMBO CASH",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4M-jumbo-cash-2022",
+      "tiers": [
+        {
+          "amount": 15,
+          "originalCount": 2419200,
+          "remaining": 659666
+        },
+        {
+          "amount": 20,
+          "originalCount": 604800,
+          "remaining": 165388
+        },
+        {
+          "amount": 25,
+          "originalCount": 302400,
+          "remaining": 80974
+        },
+        {
+          "amount": 50,
+          "originalCount": 151200,
+          "remaining": 41041
+        },
+        {
+          "amount": 100,
+          "originalCount": 266700,
+          "remaining": 72186
+        },
+        {
+          "amount": 500,
+          "originalCount": 20475,
+          "remaining": 5421
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7245,
+          "remaining": 1971
+        },
+        {
+          "amount": 10000,
+          "originalCount": 210,
+          "remaining": 59
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 1
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.01,
+      "computed": {
+        "originalTickets": 15126674,
+        "fractionRemaining": 0.2722,
+        "ticketsRemaining": 4117099,
+        "remainingPrizeValue": 34769250,
+        "evPerTicket": 8.4451,
+        "roi": 0.8445,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "509",
+      "name": "$10,000,000 INSTANT MILLIONS",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10-million-instant-millions-2025",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 1411200,
+          "remaining": 719655
+        },
+        {
+          "amount": 25,
+          "originalCount": 806400,
+          "remaining": 413249
+        },
+        {
+          "amount": 30,
+          "originalCount": 403200,
+          "remaining": 204921
+        },
+        {
+          "amount": 40,
+          "originalCount": 201600,
+          "remaining": 102278
+        },
+        {
+          "amount": 50,
+          "originalCount": 201600,
+          "remaining": 102137
+        },
+        {
+          "amount": 100,
+          "originalCount": 354200,
+          "remaining": 179149
+        },
+        {
+          "amount": 200,
+          "originalCount": 21910,
+          "remaining": 11082
+        },
+        {
+          "amount": 500,
+          "originalCount": 13720,
+          "remaining": 6913
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7910,
+          "remaining": 4094
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1260,
+          "remaining": 650
+        },
+        {
+          "amount": 5000,
+          "originalCount": 1750,
+          "remaining": 914
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 7,
+          "remaining": 3
+        },
+        {
+          "amount": 10000000,
+          "originalCount": 2,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 2.94,
+      "computed": {
+        "originalTickets": 10068791,
+        "fractionRemaining": 0.5095,
+        "ticketsRemaining": 5130435,
+        "remainingPrizeValue": 86621725,
+        "evPerTicket": 16.8839,
+        "roi": 0.8442,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "496",
+      "name": "$500 CA$H",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/500-cash-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 669305
+        },
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 647102
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 128141
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 42676
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 42510
+        },
+        {
+          "amount": 100,
+          "originalCount": 82845,
+          "remaining": 34816
+        },
+        {
+          "amount": 500,
+          "originalCount": 13125,
+          "remaining": 5505
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1995,
+          "remaining": 876
+        },
+        {
+          "amount": 10000,
+          "originalCount": 210,
+          "remaining": 92
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 4,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 4.17,
+      "computed": {
+        "originalTickets": 15121166,
+        "fractionRemaining": 0.4332,
+        "ticketsRemaining": 6551182,
+        "remainingPrizeValue": 27602865,
+        "evPerTicket": 4.2134,
+        "roi": 0.8427,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "523",
+      "name": "$5,000,000 100X CASHWORD",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/5000000-100x-cashword-reorder-2025",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 1411200,
+          "remaining": 892139
+        },
+        {
+          "amount": 25,
+          "originalCount": 806400,
+          "remaining": 508998
+        },
+        {
+          "amount": 30,
+          "originalCount": 403200,
+          "remaining": 254493
+        },
+        {
+          "amount": 40,
+          "originalCount": 302400,
+          "remaining": 191292
+        },
+        {
+          "amount": 50,
+          "originalCount": 201600,
+          "remaining": 127100
+        },
+        {
+          "amount": 100,
+          "originalCount": 362040,
+          "remaining": 228347
+        },
+        {
+          "amount": 200,
+          "originalCount": 21000,
+          "remaining": 13278
+        },
+        {
+          "amount": 500,
+          "originalCount": 13020,
+          "remaining": 8251
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7910,
+          "remaining": 5173
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1400,
+          "remaining": 905
+        },
+        {
+          "amount": 5000,
+          "originalCount": 350,
+          "remaining": 227
+        },
+        {
+          "amount": 10000,
+          "originalCount": 700,
+          "remaining": 458
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 7
+        },
+        {
+          "amount": 5000000,
+          "originalCount": 2,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 2.85,
+      "computed": {
+        "originalTickets": 10064011,
+        "fractionRemaining": 0.6317,
+        "ticketsRemaining": 6357407,
+        "remainingPrizeValue": 106523000,
+        "evPerTicket": 16.7557,
+        "roi": 0.8378,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "470",
+      "name": "$2,000,000 DIAMOND CASHWORD",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/2000000-diamond-cashword-2024",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 3024000,
+          "remaining": 1490313
+        },
+        {
+          "amount": 15,
+          "originalCount": 756000,
+          "remaining": 371314
+        },
+        {
+          "amount": 20,
+          "originalCount": 2520000,
+          "remaining": 1230970
+        },
+        {
+          "amount": 25,
+          "originalCount": 252000,
+          "remaining": 123116
+        },
+        {
+          "amount": 30,
+          "originalCount": 252000,
+          "remaining": 123440
+        },
+        {
+          "amount": 40,
+          "originalCount": 252000,
+          "remaining": 122954
+        },
+        {
+          "amount": 50,
+          "originalCount": 252000,
+          "remaining": 122873
+        },
+        {
+          "amount": 100,
+          "originalCount": 356125,
+          "remaining": 173725
+        },
+        {
+          "amount": 200,
+          "originalCount": 32375,
+          "remaining": 15813
+        },
+        {
+          "amount": 500,
+          "originalCount": 15575,
+          "remaining": 7623
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6300,
+          "remaining": 3177
+        },
+        {
+          "amount": 2000,
+          "originalCount": 525,
+          "remaining": 259
+        },
+        {
+          "amount": 10000,
+          "originalCount": 250,
+          "remaining": 125
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 5
+        },
+        {
+          "amount": 2000000,
+          "originalCount": 5,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 3.26,
+      "computed": {
+        "originalTickets": 25164478,
+        "fractionRemaining": 0.4904,
+        "ticketsRemaining": 12341415,
+        "remainingPrizeValue": 103226750,
+        "evPerTicket": 8.3643,
+        "roi": 0.8364,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "541",
+      "name": "$4,000,000 EXTREME Cash",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-extreme-cash-2026",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1209600,
+          "remaining": 697860
+        },
+        {
+          "amount": 15,
+          "originalCount": 504000,
+          "remaining": 289801
+        },
+        {
+          "amount": 20,
+          "originalCount": 806400,
+          "remaining": 460926
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 57718
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 57339
+        },
+        {
+          "amount": 100,
+          "originalCount": 151060,
+          "remaining": 85817
+        },
+        {
+          "amount": 150,
+          "originalCount": 8750,
+          "remaining": 4963
+        },
+        {
+          "amount": 200,
+          "originalCount": 7560,
+          "remaining": 4288
+        },
+        {
+          "amount": 500,
+          "originalCount": 8400,
+          "remaining": 4777
+        },
+        {
+          "amount": 1000,
+          "originalCount": 4830,
+          "remaining": 2856
+        },
+        {
+          "amount": 10000,
+          "originalCount": 140,
+          "remaining": 80
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 3
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 2,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 10071148,
+        "fractionRemaining": 0.5742,
+        "ticketsRemaining": 5782509,
+        "remainingPrizeValue": 48082285,
+        "evPerTicket": 8.3151,
+        "roi": 0.8315,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "393",
+      "name": "$10,000,000 PREMIER CASH",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000000-premier-cash-2023",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 2419200,
+          "remaining": 963210
+        },
+        {
+          "amount": 40,
+          "originalCount": 756000,
+          "remaining": 301549
+        },
+        {
+          "amount": 50,
+          "originalCount": 302400,
+          "remaining": 120502
+        },
+        {
+          "amount": 100,
+          "originalCount": 545685,
+          "remaining": 216589
+        },
+        {
+          "amount": 200,
+          "originalCount": 33915,
+          "remaining": 13382
+        },
+        {
+          "amount": 500,
+          "originalCount": 19110,
+          "remaining": 7551
+        },
+        {
+          "amount": 1000,
+          "originalCount": 12075,
+          "remaining": 4864
+        },
+        {
+          "amount": 2000,
+          "originalCount": 2100,
+          "remaining": 857
+        },
+        {
+          "amount": 5000,
+          "originalCount": 2625,
+          "remaining": 1057
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 3
+        },
+        {
+          "amount": 10000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.69,
+      "computed": {
+        "originalTickets": 15103616,
+        "fractionRemaining": 0.3981,
+        "ticketsRemaining": 6013095,
+        "remainingPrizeValue": 99957160,
+        "evPerTicket": 16.6232,
+        "roi": 0.8312,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "504",
+      "name": "$1,000,000 BIG MONEY",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-big-money-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1774080,
+          "remaining": 526370
+        },
+        {
+          "amount": 20,
+          "originalCount": 241920,
+          "remaining": 70666
+        },
+        {
+          "amount": 25,
+          "originalCount": 80640,
+          "remaining": 23490
+        },
+        {
+          "amount": 50,
+          "originalCount": 80640,
+          "remaining": 23322
+        },
+        {
+          "amount": 100,
+          "originalCount": 64596,
+          "remaining": 18545
+        },
+        {
+          "amount": 500,
+          "originalCount": 10584,
+          "remaining": 3011
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1596,
+          "remaining": 483
+        },
+        {
+          "amount": 10000,
+          "originalCount": 168,
+          "remaining": 57
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 4,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 5.37,
+      "computed": {
+        "originalTickets": 12105204,
+        "fractionRemaining": 0.2954,
+        "ticketsRemaining": 3576130,
+        "remainingPrizeValue": 14843370,
+        "evPerTicket": 4.1507,
+        "roi": 0.8301,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "542",
+      "name": "$15,000,000 MAGNIFICENT MILLIONS",
+      "price": 30,
+      "url": "https://www.masslottery.com/games/scratch-tickets/15000000-magnificent-millions-2026",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 1814400,
+          "remaining": 1492617
+        },
+        {
+          "amount": 40,
+          "originalCount": 1209600,
+          "remaining": 994339
+        },
+        {
+          "amount": 50,
+          "originalCount": 1209600,
+          "remaining": 993692
+        },
+        {
+          "amount": 60,
+          "originalCount": 302400,
+          "remaining": 248569
+        },
+        {
+          "amount": 100,
+          "originalCount": 792960,
+          "remaining": 651595
+        },
+        {
+          "amount": 200,
+          "originalCount": 32970,
+          "remaining": 27084
+        },
+        {
+          "amount": 500,
+          "originalCount": 56280,
+          "remaining": 46259
+        },
+        {
+          "amount": 1000,
+          "originalCount": 13020,
+          "remaining": 10826
+        },
+        {
+          "amount": 2000,
+          "originalCount": 630,
+          "remaining": 522
+        },
+        {
+          "amount": 10000,
+          "originalCount": 150,
+          "remaining": 125
+        },
+        {
+          "amount": 200000,
+          "originalCount": 90,
+          "remaining": 76
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 8
+        },
+        {
+          "amount": 15000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 2.78,
+      "computed": {
+        "originalTickets": 15101269,
+        "fractionRemaining": 0.8221,
+        "ticketsRemaining": 12414685,
+        "remainingPrizeValue": 309176610,
+        "evPerTicket": 24.9041,
+        "roi": 0.8301,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "457",
+      "name": "$4,000,000 BONUS MONEY",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4m-bonus-money",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1935360,
+          "remaining": 828840
+        },
+        {
+          "amount": 15,
+          "originalCount": 806400,
+          "remaining": 343519
+        },
+        {
+          "amount": 20,
+          "originalCount": 1290240,
+          "remaining": 548113
+        },
+        {
+          "amount": 25,
+          "originalCount": 161280,
+          "remaining": 68513
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 68255
+        },
+        {
+          "amount": 100,
+          "originalCount": 240912,
+          "remaining": 102002
+        },
+        {
+          "amount": 150,
+          "originalCount": 14112,
+          "remaining": 5943
+        },
+        {
+          "amount": 200,
+          "originalCount": 11648,
+          "remaining": 4924
+        },
+        {
+          "amount": 500,
+          "originalCount": 14224,
+          "remaining": 6018
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7728,
+          "remaining": 3311
+        },
+        {
+          "amount": 10000,
+          "originalCount": 224,
+          "remaining": 93
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 4
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 16112671,
+        "fractionRemaining": 0.4263,
+        "ticketsRemaining": 6868990,
+        "remainingPrizeValue": 56855470,
+        "evPerTicket": 8.2771,
+        "roi": 0.8277,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "552",
+      "name": "100X",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100-x-2026",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1693440,
+          "remaining": 1011681
+        },
+        {
+          "amount": 15,
+          "originalCount": 705600,
+          "remaining": 419747
+        },
+        {
+          "amount": 20,
+          "originalCount": 1128960,
+          "remaining": 670047
+        },
+        {
+          "amount": 25,
+          "originalCount": 141120,
+          "remaining": 83727
+        },
+        {
+          "amount": 50,
+          "originalCount": 141120,
+          "remaining": 83498
+        },
+        {
+          "amount": 100,
+          "originalCount": 210602,
+          "remaining": 124773
+        },
+        {
+          "amount": 150,
+          "originalCount": 12348,
+          "remaining": 7320
+        },
+        {
+          "amount": 200,
+          "originalCount": 10192,
+          "remaining": 6035
+        },
+        {
+          "amount": 500,
+          "originalCount": 11368,
+          "remaining": 6725
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6174,
+          "remaining": 3787
+        },
+        {
+          "amount": 10000,
+          "originalCount": 196,
+          "remaining": 121
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 9,
+          "remaining": 6
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 14092128,
+        "fractionRemaining": 0.5953,
+        "ticketsRemaining": 8388614,
+        "remainingPrizeValue": 69223830,
+        "evPerTicket": 8.2521,
+        "roi": 0.8252,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "544",
+      "name": "KENO™",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/keno-instant-ticket",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 705600,
+          "remaining": 328524
+        },
+        {
+          "amount": 10,
+          "originalCount": 611520,
+          "remaining": 275208
+        },
+        {
+          "amount": 15,
+          "originalCount": 47040,
+          "remaining": 20853
+        },
+        {
+          "amount": 20,
+          "originalCount": 141120,
+          "remaining": 62746
+        },
+        {
+          "amount": 25,
+          "originalCount": 94080,
+          "remaining": 42022
+        },
+        {
+          "amount": 50,
+          "originalCount": 47040,
+          "remaining": 20674
+        },
+        {
+          "amount": 100,
+          "originalCount": 47922,
+          "remaining": 20942
+        },
+        {
+          "amount": 450,
+          "originalCount": 3185,
+          "remaining": 1427
+        },
+        {
+          "amount": 1000,
+          "originalCount": 686,
+          "remaining": 315
+        },
+        {
+          "amount": 2500,
+          "originalCount": 98,
+          "remaining": 48
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.15,
+      "computed": {
+        "originalTickets": 7047920,
+        "fractionRemaining": 0.455,
+        "ticketsRemaining": 3206958,
+        "remainingPrizeValue": 13218015,
+        "evPerTicket": 4.1217,
+        "roi": 0.8243,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "559",
+      "name": "DECADE OF DOLLARS",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/decade-of-dollars-2026",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1663200,
+          "remaining": 1266512
+        },
+        {
+          "amount": 15,
+          "originalCount": 907200,
+          "remaining": 689477
+        },
+        {
+          "amount": 20,
+          "originalCount": 1209600,
+          "remaining": 917520
+        },
+        {
+          "amount": 25,
+          "originalCount": 151200,
+          "remaining": 114734
+        },
+        {
+          "amount": 50,
+          "originalCount": 151200,
+          "remaining": 114593
+        },
+        {
+          "amount": 100,
+          "originalCount": 231420,
+          "remaining": 175299
+        },
+        {
+          "amount": 200,
+          "originalCount": 24570,
+          "remaining": 18638
+        },
+        {
+          "amount": 500,
+          "originalCount": 12600,
+          "remaining": 9527
+        },
+        {
+          "amount": 1000,
+          "originalCount": 8085,
+          "remaining": 6395
+        },
+        {
+          "amount": 2000,
+          "originalCount": 630,
+          "remaining": 492
+        },
+        {
+          "amount": 10000,
+          "originalCount": 210,
+          "remaining": 166
+        },
+        {
+          "amount": 2400000,
+          "originalCount": 6,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 15128926,
+        "fractionRemaining": 0.76,
+        "ticketsRemaining": 11497349,
+        "remainingPrizeValue": 94615675,
+        "evPerTicket": 8.2293,
+        "roi": 0.8229,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 2400000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "553",
+      "name": "$500,000 FRENZY",
+      "price": 50,
+      "url": "https://www.masslottery.com/games/scratch-tickets/500000-frenzy",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 1935360,
+          "remaining": 1186898
+        },
+        {
+          "amount": 500,
+          "originalCount": 193984,
+          "remaining": 118812
+        },
+        {
+          "amount": 2000,
+          "originalCount": 304,
+          "remaining": 191
+        },
+        {
+          "amount": 5000,
+          "originalCount": 2300,
+          "remaining": 1475
+        },
+        {
+          "amount": 500000,
+          "originalCount": 50,
+          "remaining": 34
+        }
+      ],
+      "overallOdds": 3.78,
+      "computed": {
+        "originalTickets": 8058952,
+        "fractionRemaining": 0.6132,
+        "ticketsRemaining": 4942010,
+        "remainingPrizeValue": 202852800,
+        "evPerTicket": 41.0466,
+        "roi": 0.8209,
+        "topPrizesRemaining": 34,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "490",
+      "name": "$25,000,000 MEGA MONEY",
+      "price": 50,
+      "url": "https://www.masslottery.com/games/scratch-tickets/25000000-mega-money-2025",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 5544000,
+          "remaining": 2994336
+        },
+        {
+          "amount": 500,
+          "originalCount": 558600,
+          "remaining": 301340
+        },
+        {
+          "amount": 1000,
+          "originalCount": 30275,
+          "remaining": 16788
+        },
+        {
+          "amount": 5000,
+          "originalCount": 6925,
+          "remaining": 3833
+        },
+        {
+          "amount": 10000,
+          "originalCount": 2650,
+          "remaining": 1471
+        },
+        {
+          "amount": 20000,
+          "originalCount": 1700,
+          "remaining": 932
+        },
+        {
+          "amount": 50000,
+          "originalCount": 125,
+          "remaining": 68
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 12,
+          "remaining": 6
+        },
+        {
+          "amount": 1300000,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 25000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.1,
+      "computed": {
+        "originalTickets": 25191605,
+        "fractionRemaining": 0.5401,
+        "ticketsRemaining": 13606985,
+        "remainingPrizeValue": 556406600,
+        "evPerTicket": 40.8912,
+        "roi": 0.8178,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 25000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "458",
+      "name": "DIAMOND DELUXE",
+      "price": 30,
+      "url": "https://www.masslottery.com/games/scratch-tickets/diamond-deluxe-2024",
+      "tiers": [
+        {
+          "amount": 40,
+          "originalCount": 2419200,
+          "remaining": 1160244
+        },
+        {
+          "amount": 50,
+          "originalCount": 1209600,
+          "remaining": 580077
+        },
+        {
+          "amount": 60,
+          "originalCount": 302400,
+          "remaining": 145687
+        },
+        {
+          "amount": 100,
+          "originalCount": 852915,
+          "remaining": 409683
+        },
+        {
+          "amount": 200,
+          "originalCount": 29715,
+          "remaining": 14215
+        },
+        {
+          "amount": 500,
+          "originalCount": 56910,
+          "remaining": 27262
+        },
+        {
+          "amount": 1000,
+          "originalCount": 13650,
+          "remaining": 6681
+        },
+        {
+          "amount": 2000,
+          "originalCount": 630,
+          "remaining": 307
+        },
+        {
+          "amount": 10000,
+          "originalCount": 150,
+          "remaining": 75
+        },
+        {
+          "amount": 100000,
+          "originalCount": 180,
+          "remaining": 87
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 15000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.09,
+      "computed": {
+        "originalTickets": 15095765,
+        "fractionRemaining": 0.4799,
+        "ticketsRemaining": 7243958,
+        "remainingPrizeValue": 177342130,
+        "evPerTicket": 24.4814,
+        "roi": 0.816,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "519",
+      "name": "$250,000 WINTER WINNINGS",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/250000-winter-winnings",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 705600,
+          "remaining": 223547
+        },
+        {
+          "amount": 25,
+          "originalCount": 403200,
+          "remaining": 128299
+        },
+        {
+          "amount": 30,
+          "originalCount": 201600,
+          "remaining": 63997
+        },
+        {
+          "amount": 40,
+          "originalCount": 100800,
+          "remaining": 31582
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 31512
+        },
+        {
+          "amount": 100,
+          "originalCount": 179060,
+          "remaining": 55798
+        },
+        {
+          "amount": 200,
+          "originalCount": 10080,
+          "remaining": 3136
+        },
+        {
+          "amount": 500,
+          "originalCount": 6405,
+          "remaining": 1956
+        },
+        {
+          "amount": 1000,
+          "originalCount": 3675,
+          "remaining": 1172
+        },
+        {
+          "amount": 2000,
+          "originalCount": 665,
+          "remaining": 219
+        },
+        {
+          "amount": 5000,
+          "originalCount": 770,
+          "remaining": 246
+        },
+        {
+          "amount": 250000,
+          "originalCount": 39,
+          "remaining": 14
+        }
+      ],
+      "overallOdds": 2.94,
+      "computed": {
+        "originalTickets": 5035320,
+        "fractionRemaining": 0.3162,
+        "ticketsRemaining": 1591945,
+        "remainingPrizeValue": 25962205,
+        "evPerTicket": 16.3085,
+        "roi": 0.8154,
+        "topPrizesRemaining": 14,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "558",
+      "name": "$1,000,000 SUPREME WINNINGS",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-supreme-winnings-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 806400,
+          "remaining": 601817
+        },
+        {
+          "amount": 10,
+          "originalCount": 806400,
+          "remaining": 594127
+        },
+        {
+          "amount": 15,
+          "originalCount": 53760,
+          "remaining": 39473
+        },
+        {
+          "amount": 20,
+          "originalCount": 161280,
+          "remaining": 118341
+        },
+        {
+          "amount": 50,
+          "originalCount": 53760,
+          "remaining": 39360
+        },
+        {
+          "amount": 100,
+          "originalCount": 68768,
+          "remaining": 50332
+        },
+        {
+          "amount": 500,
+          "originalCount": 3248,
+          "remaining": 2376
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1008,
+          "remaining": 765
+        },
+        {
+          "amount": 5000,
+          "originalCount": 112,
+          "remaining": 86
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.13,
+      "computed": {
+        "originalTickets": 8073072,
+        "fractionRemaining": 0.7401,
+        "ticketsRemaining": 5974788,
+        "remainingPrizeValue": 24293470,
+        "evPerTicket": 4.066,
+        "roi": 0.8132,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "508",
+      "name": "$100,000 MAX WINNINGS",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-max-winnings-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1209600,
+          "remaining": 349185
+        },
+        {
+          "amount": 15,
+          "originalCount": 504000,
+          "remaining": 144597
+        },
+        {
+          "amount": 20,
+          "originalCount": 806400,
+          "remaining": 232065
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 28484
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 28701
+        },
+        {
+          "amount": 100,
+          "originalCount": 167020,
+          "remaining": 47394
+        },
+        {
+          "amount": 500,
+          "originalCount": 14910,
+          "remaining": 4162
+        },
+        {
+          "amount": 1000,
+          "originalCount": 4340,
+          "remaining": 1288
+        },
+        {
+          "amount": 10000,
+          "originalCount": 100,
+          "remaining": 31
+        },
+        {
+          "amount": 100000,
+          "originalCount": 80,
+          "remaining": 24
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 10090934,
+        "fractionRemaining": 0.2875,
+        "ticketsRemaining": 2900681,
+        "remainingPrizeValue": 23267655,
+        "evPerTicket": 8.0214,
+        "roi": 0.8021,
+        "topPrizesRemaining": 24,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "547",
+      "name": "$50, $100, and $500 Blowout",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/50-100-500-blowout-2026",
+      "tiers": [
+        {
+          "amount": 50,
+          "originalCount": 1290240,
+          "remaining": 1157237
+        },
+        {
+          "amount": 100,
+          "originalCount": 500528,
+          "remaining": 448744
+        },
+        {
+          "amount": 500,
+          "originalCount": 29568,
+          "remaining": 26530
+        }
+      ],
+      "overallOdds": 8.86,
+      "computed": {
+        "originalTickets": 16128177,
+        "fractionRemaining": 0.8968,
+        "ticketsRemaining": 14464047,
+        "remainingPrizeValue": 116001250,
+        "evPerTicket": 8.02,
+        "roi": 0.802,
+        "topPrizesRemaining": 26530,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "534",
+      "name": "$1,000,000 HIGH ROLLER",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-high-roller-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 1105209
+        },
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 1098956
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 73188
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 219193
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 73023
+        },
+        {
+          "amount": 100,
+          "originalCount": 101325,
+          "remaining": 73317
+        },
+        {
+          "amount": 250,
+          "originalCount": 8925,
+          "remaining": 6457
+        },
+        {
+          "amount": 500,
+          "originalCount": 8820,
+          "remaining": 6380
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1470,
+          "remaining": 1077
+        },
+        {
+          "amount": 5000,
+          "originalCount": 210,
+          "remaining": 154
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 4.14,
+      "computed": {
+        "originalTickets": 15105846,
+        "fractionRemaining": 0.7282,
+        "ticketsRemaining": 10999806,
+        "remainingPrizeValue": 43631385,
+        "evPerTicket": 3.9666,
+        "roi": 0.7933,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "551",
+      "name": "50X",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/50x-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1310400,
+          "remaining": 854470
+        },
+        {
+          "amount": 10,
+          "originalCount": 1310400,
+          "remaining": 843172
+        },
+        {
+          "amount": 15,
+          "originalCount": 87360,
+          "remaining": 56018
+        },
+        {
+          "amount": 20,
+          "originalCount": 262080,
+          "remaining": 167765
+        },
+        {
+          "amount": 50,
+          "originalCount": 87360,
+          "remaining": 55820
+        },
+        {
+          "amount": 100,
+          "originalCount": 89180,
+          "remaining": 57088
+        },
+        {
+          "amount": 150,
+          "originalCount": 8736,
+          "remaining": 5569
+        },
+        {
+          "amount": 500,
+          "originalCount": 5551,
+          "remaining": 3529
+        },
+        {
+          "amount": 1000,
+          "originalCount": 2366,
+          "remaining": 1557
+        },
+        {
+          "amount": 10000,
+          "originalCount": 156,
+          "remaining": 101
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 4,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.14,
+      "computed": {
+        "originalTickets": 13097275,
+        "fractionRemaining": 0.6464,
+        "ticketsRemaining": 8466681,
+        "remainingPrizeValue": 33566290,
+        "evPerTicket": 3.9645,
+        "roi": 0.7929,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "467",
+      "name": "EMERALD MINE 50X",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/emerald-mine-50x-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 138968
+        },
+        {
+          "amount": 10,
+          "originalCount": 1612800,
+          "remaining": 182017
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 8072
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 27762
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 9798
+        },
+        {
+          "amount": 100,
+          "originalCount": 119280,
+          "remaining": 14635
+        },
+        {
+          "amount": 500,
+          "originalCount": 8610,
+          "remaining": 1029
+        },
+        {
+          "amount": 1000,
+          "originalCount": 2940,
+          "remaining": 332
+        },
+        {
+          "amount": 2000,
+          "originalCount": 210,
+          "remaining": 32
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.02,
+      "computed": {
+        "originalTickets": 15114569,
+        "fractionRemaining": 0.1018,
+        "ticketsRemaining": 1538233,
+        "remainingPrizeValue": 6055230,
+        "evPerTicket": 3.9365,
+        "roi": 0.7873,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "503",
+      "name": "$1,000,000 NEON CASH",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-neon-cash",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 1225497
+        },
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 1222382
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 81255
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 243927
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 81078
+        },
+        {
+          "amount": 100,
+          "originalCount": 100695,
+          "remaining": 81139
+        },
+        {
+          "amount": 200,
+          "originalCount": 10500,
+          "remaining": 8449
+        },
+        {
+          "amount": 500,
+          "originalCount": 5985,
+          "remaining": 4816
+        },
+        {
+          "amount": 1000,
+          "originalCount": 2625,
+          "remaining": 2139
+        },
+        {
+          "amount": 10000,
+          "originalCount": 150,
+          "remaining": 121
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 4.14,
+      "computed": {
+        "originalTickets": 15102554,
+        "fractionRemaining": 0.8089,
+        "ticketsRemaining": 12216341,
+        "remainingPrizeValue": 48063270,
+        "evPerTicket": 3.9343,
+        "roi": 0.7869,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "510",
+      "name": "GHOSTBUSTERS™",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/ghostbusters-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1008000,
+          "remaining": 637174
+        },
+        {
+          "amount": 10,
+          "originalCount": 1075200,
+          "remaining": 669617
+        },
+        {
+          "amount": 15,
+          "originalCount": 67200,
+          "remaining": 41765
+        },
+        {
+          "amount": 20,
+          "originalCount": 201600,
+          "remaining": 124569
+        },
+        {
+          "amount": 50,
+          "originalCount": 67200,
+          "remaining": 41555
+        },
+        {
+          "amount": 100,
+          "originalCount": 73080,
+          "remaining": 45054
+        },
+        {
+          "amount": 500,
+          "originalCount": 5600,
+          "remaining": 3442
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1960,
+          "remaining": 1234
+        },
+        {
+          "amount": 2000,
+          "originalCount": 140,
+          "remaining": 84
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.03,
+      "computed": {
+        "originalTickets": 10074931,
+        "fractionRemaining": 0.6258,
+        "ticketsRemaining": 6304919,
+        "remainingPrizeValue": 24706045,
+        "evPerTicket": 3.9185,
+        "roi": 0.7837,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "513",
+      "name": "$500 MANIA",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/500-mania-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1088640,
+          "remaining": 218259
+        },
+        {
+          "amount": 15,
+          "originalCount": 453600,
+          "remaining": 89078
+        },
+        {
+          "amount": 20,
+          "originalCount": 725760,
+          "remaining": 141940
+        },
+        {
+          "amount": 25,
+          "originalCount": 90720,
+          "remaining": 17521
+        },
+        {
+          "amount": 50,
+          "originalCount": 90720,
+          "remaining": 17340
+        },
+        {
+          "amount": 100,
+          "originalCount": 134820,
+          "remaining": 25593
+        },
+        {
+          "amount": 500,
+          "originalCount": 40509,
+          "remaining": 7592
+        }
+      ],
+      "overallOdds": 3.46,
+      "computed": {
+        "originalTickets": 9081701,
+        "fractionRemaining": 0.1971,
+        "ticketsRemaining": 1789938,
+        "remainingPrizeValue": 14017885,
+        "evPerTicket": 7.8315,
+        "roi": 0.7831,
+        "topPrizesRemaining": 7592,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "498",
+      "name": "$1,000,000 GO FOR THE GREEN",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-go-for-the-green-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 976516
+        },
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 968828
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 64318
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 192892
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 64232
+        },
+        {
+          "amount": 100,
+          "originalCount": 101325,
+          "remaining": 64515
+        },
+        {
+          "amount": 250,
+          "originalCount": 8925,
+          "remaining": 5672
+        },
+        {
+          "amount": 500,
+          "originalCount": 8820,
+          "remaining": 5614
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1470,
+          "remaining": 963
+        },
+        {
+          "amount": 5000,
+          "originalCount": 210,
+          "remaining": 135
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.14,
+      "computed": {
+        "originalTickets": 15105846,
+        "fractionRemaining": 0.6423,
+        "ticketsRemaining": 9702869,
+        "remainingPrizeValue": 37919570,
+        "evPerTicket": 3.9081,
+        "roi": 0.7816,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "484",
+      "name": "$2,500 A WEEK FOR LIFE",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/2500-a-week-for-life-2025",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1774080,
+          "remaining": 533200
+        },
+        {
+          "amount": 15,
+          "originalCount": 806400,
+          "remaining": 239382
+        },
+        {
+          "amount": 20,
+          "originalCount": 1451520,
+          "remaining": 425208
+        },
+        {
+          "amount": 25,
+          "originalCount": 161280,
+          "remaining": 46501
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 46172
+        },
+        {
+          "amount": 100,
+          "originalCount": 234192,
+          "remaining": 67188
+        },
+        {
+          "amount": 400,
+          "originalCount": 18368,
+          "remaining": 5333
+        },
+        {
+          "amount": 1000,
+          "originalCount": 5264,
+          "remaining": 1596
+        },
+        {
+          "amount": 4000,
+          "originalCount": 672,
+          "remaining": 195
+        },
+        {
+          "amount": 10000,
+          "originalCount": 320,
+          "remaining": 100
+        },
+        {
+          "amount": 2000000,
+          "originalCount": 8,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.5,
+      "computed": {
+        "originalTickets": 16146844,
+        "fractionRemaining": 0.2959,
+        "ticketsRemaining": 4777070,
+        "remainingPrizeValue": 37126015,
+        "evPerTicket": 7.7717,
+        "roi": 0.7772,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "516",
+      "name": "$1,000,000 WINTER WINNINGS",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-winter-winnings-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 806400,
+          "remaining": 176240
+        },
+        {
+          "amount": 10,
+          "originalCount": 698880,
+          "remaining": 134891
+        },
+        {
+          "amount": 15,
+          "originalCount": 53760,
+          "remaining": 9698
+        },
+        {
+          "amount": 20,
+          "originalCount": 268800,
+          "remaining": 48808
+        },
+        {
+          "amount": 50,
+          "originalCount": 53760,
+          "remaining": 9585
+        },
+        {
+          "amount": 100,
+          "originalCount": 57792,
+          "remaining": 9204
+        },
+        {
+          "amount": 500,
+          "originalCount": 3752,
+          "remaining": 577
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1064,
+          "remaining": 166
+        },
+        {
+          "amount": 2500,
+          "originalCount": 112,
+          "remaining": 26
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.15,
+      "computed": {
+        "originalTickets": 8068940,
+        "fractionRemaining": 0.2002,
+        "ticketsRemaining": 1615163,
+        "remainingPrizeValue": 6270890,
+        "evPerTicket": 3.8825,
+        "roi": 0.7765,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "548",
+      "name": "MA 250",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/ma-250-2026",
+      "tiers": [
+        {
+          "amount": 25,
+          "originalCount": 403200,
+          "remaining": 44573
+        },
+        {
+          "amount": 50,
+          "originalCount": 140000,
+          "remaining": 15222
+        },
+        {
+          "amount": 250,
+          "originalCount": 9100,
+          "remaining": 1131
+        }
+      ],
+      "overallOdds": 9.13,
+      "computed": {
+        "originalTickets": 5042499,
+        "fractionRemaining": 0.1103,
+        "ticketsRemaining": 556254,
+        "remainingPrizeValue": 2158175,
+        "evPerTicket": 3.8798,
+        "roi": 0.776,
+        "topPrizesRemaining": 1131,
+        "topPrizeAmount": 250
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "373",
+      "name": "MILLIONS",
+      "price": 30,
+      "url": "https://www.masslottery.com/games/scratch-tickets/millions-2022",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 2177280,
+          "remaining": 497668
+        },
+        {
+          "amount": 40,
+          "originalCount": 1451520,
+          "remaining": 328527
+        },
+        {
+          "amount": 50,
+          "originalCount": 1451520,
+          "remaining": 326033
+        },
+        {
+          "amount": 60,
+          "originalCount": 362880,
+          "remaining": 82471
+        },
+        {
+          "amount": 100,
+          "originalCount": 1002960,
+          "remaining": 226319
+        },
+        {
+          "amount": 200,
+          "originalCount": 36414,
+          "remaining": 8172
+        },
+        {
+          "amount": 500,
+          "originalCount": 69300,
+          "remaining": 15445
+        },
+        {
+          "amount": 1000,
+          "originalCount": 17010,
+          "remaining": 3927
+        },
+        {
+          "amount": 10000,
+          "originalCount": 180,
+          "remaining": 44
+        },
+        {
+          "amount": 100000,
+          "originalCount": 252,
+          "remaining": 58
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 15000000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 2.76,
+      "computed": {
+        "originalTickets": 18131343,
+        "fractionRemaining": 0.2266,
+        "ticketsRemaining": 4108724,
+        "remainingPrizeValue": 95476830,
+        "evPerTicket": 23.2376,
+        "roi": 0.7746,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "533",
+      "name": "LOTERIA™",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/loteria-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 806400,
+          "remaining": 374885
+        },
+        {
+          "amount": 10,
+          "originalCount": 806400,
+          "remaining": 371960
+        },
+        {
+          "amount": 15,
+          "originalCount": 75264,
+          "remaining": 34792
+        },
+        {
+          "amount": 20,
+          "originalCount": 139776,
+          "remaining": 63989
+        },
+        {
+          "amount": 25,
+          "originalCount": 10752,
+          "remaining": 4977
+        },
+        {
+          "amount": 30,
+          "originalCount": 21504,
+          "remaining": 10136
+        },
+        {
+          "amount": 50,
+          "originalCount": 21504,
+          "remaining": 9885
+        },
+        {
+          "amount": 75,
+          "originalCount": 24528,
+          "remaining": 11711
+        },
+        {
+          "amount": 100,
+          "originalCount": 42000,
+          "remaining": 19290
+        },
+        {
+          "amount": 200,
+          "originalCount": 8400,
+          "remaining": 3887
+        },
+        {
+          "amount": 500,
+          "originalCount": 3360,
+          "remaining": 1535
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1344,
+          "remaining": 698
+        },
+        {
+          "amount": 10000,
+          "originalCount": 14,
+          "remaining": 7
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.11,
+      "computed": {
+        "originalTickets": 8060733,
+        "fractionRemaining": 0.4628,
+        "ticketsRemaining": 3730865,
+        "remainingPrizeValue": 14438665,
+        "evPerTicket": 3.8701,
+        "roi": 0.774,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "555",
+      "name": "$500,000 COLOR BLAST",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/500000-color-blast-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1128960,
+          "remaining": 972508
+        },
+        {
+          "amount": 10,
+          "originalCount": 344064,
+          "remaining": 296013
+        },
+        {
+          "amount": 15,
+          "originalCount": 86016,
+          "remaining": 74097
+        },
+        {
+          "amount": 20,
+          "originalCount": 107520,
+          "remaining": 92401
+        },
+        {
+          "amount": 25,
+          "originalCount": 64512,
+          "remaining": 55454
+        },
+        {
+          "amount": 40,
+          "originalCount": 43008,
+          "remaining": 37102
+        },
+        {
+          "amount": 50,
+          "originalCount": 64512,
+          "remaining": 55487
+        },
+        {
+          "amount": 100,
+          "originalCount": 96768,
+          "remaining": 83327
+        },
+        {
+          "amount": 200,
+          "originalCount": 448,
+          "remaining": 396
+        },
+        {
+          "amount": 500,
+          "originalCount": 448,
+          "remaining": 385
+        },
+        {
+          "amount": 1000,
+          "originalCount": 15,
+          "remaining": 14
+        },
+        {
+          "amount": 5000,
+          "originalCount": 10,
+          "remaining": 8
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 7
+        },
+        {
+          "amount": 500000,
+          "originalCount": 3,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.16,
+      "computed": {
+        "originalTickets": 8054975,
+        "fractionRemaining": 0.861,
+        "ticketsRemaining": 6935561,
+        "remainingPrizeValue": 26655325,
+        "evPerTicket": 3.8433,
+        "roi": 0.7687,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "487",
+      "name": "50X",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/50x-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 479580
+        },
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 444002
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 29265
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 87208
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 28730
+        },
+        {
+          "amount": 100,
+          "originalCount": 103845,
+          "remaining": 30771
+        },
+        {
+          "amount": 150,
+          "originalCount": 12075,
+          "remaining": 3370
+        },
+        {
+          "amount": 500,
+          "originalCount": 6300,
+          "remaining": 1773
+        },
+        {
+          "amount": 1000,
+          "originalCount": 3150,
+          "remaining": 960
+        },
+        {
+          "amount": 10000,
+          "originalCount": 210,
+          "remaining": 66
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.14,
+      "computed": {
+        "originalTickets": 15125834,
+        "fractionRemaining": 0.3026,
+        "ticketsRemaining": 4577706,
+        "remainingPrizeValue": 17546655,
+        "evPerTicket": 3.8331,
+        "roi": 0.7666,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "528",
+      "name": "RUBY MINE 50X",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/ruby-mine-50x-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 834953
+        },
+        {
+          "amount": 10,
+          "originalCount": 1612800,
+          "remaining": 897989
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 54992
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 165981
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 55378
+        },
+        {
+          "amount": 100,
+          "originalCount": 119280,
+          "remaining": 66718
+        },
+        {
+          "amount": 500,
+          "originalCount": 8610,
+          "remaining": 4818
+        },
+        {
+          "amount": 1000,
+          "originalCount": 2940,
+          "remaining": 1683
+        },
+        {
+          "amount": 2000,
+          "originalCount": 210,
+          "remaining": 126
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.02,
+      "computed": {
+        "originalTickets": 15114569,
+        "fractionRemaining": 0.5539,
+        "ticketsRemaining": 8372209,
+        "remainingPrizeValue": 32083855,
+        "evPerTicket": 3.8322,
+        "roi": 0.7664,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "520",
+      "name": "$25, $50 and $250 CELEBRATION BLOWOUT",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/25-50-and-250-celebration-blowout-2026",
+      "tiers": [
+        {
+          "amount": 25,
+          "originalCount": 806400,
+          "remaining": 457443
+        },
+        {
+          "amount": 50,
+          "originalCount": 276920,
+          "remaining": 156925
+        },
+        {
+          "amount": 250,
+          "originalCount": 18200,
+          "remaining": 10311
+        }
+      ],
+      "overallOdds": 9.15,
+      "computed": {
+        "originalTickets": 10078908,
+        "fractionRemaining": 0.5671,
+        "ticketsRemaining": 5715813,
+        "remainingPrizeValue": 21860075,
+        "evPerTicket": 3.8245,
+        "roi": 0.7649,
+        "topPrizesRemaining": 10311,
+        "topPrizeAmount": 250
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "381",
+      "name": "$500,000 CASHWORD CORNERS",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/500000-cashword-corners-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 2177280,
+          "remaining": 1337612
+        },
+        {
+          "amount": 10,
+          "originalCount": 604800,
+          "remaining": 368714
+        },
+        {
+          "amount": 20,
+          "originalCount": 383040,
+          "remaining": 232984
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 61404
+        },
+        {
+          "amount": 40,
+          "originalCount": 60480,
+          "remaining": 36785
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 61272
+        },
+        {
+          "amount": 60,
+          "originalCount": 20160,
+          "remaining": 12391
+        },
+        {
+          "amount": 100,
+          "originalCount": 181440,
+          "remaining": 110355
+        },
+        {
+          "amount": 150,
+          "originalCount": 4200,
+          "remaining": 2574
+        },
+        {
+          "amount": 300,
+          "originalCount": 1155,
+          "remaining": 701
+        },
+        {
+          "amount": 500,
+          "originalCount": 840,
+          "remaining": 511
+        },
+        {
+          "amount": 1000,
+          "originalCount": 105,
+          "remaining": 67
+        },
+        {
+          "amount": 10000,
+          "originalCount": 15,
+          "remaining": 10
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.16,
+      "computed": {
+        "originalTickets": 15122095,
+        "fractionRemaining": 0.6122,
+        "ticketsRemaining": 9257593,
+        "remainingPrizeValue": 35402840,
+        "evPerTicket": 3.8242,
+        "roi": 0.7648,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "540",
+      "name": "$250,000 JACKPOT",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/250000-jackpot-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 806400,
+          "remaining": 556817
+        },
+        {
+          "amount": 10,
+          "originalCount": 860160,
+          "remaining": 587881
+        },
+        {
+          "amount": 15,
+          "originalCount": 53760,
+          "remaining": 36490
+        },
+        {
+          "amount": 20,
+          "originalCount": 161280,
+          "remaining": 109543
+        },
+        {
+          "amount": 50,
+          "originalCount": 53760,
+          "remaining": 36617
+        },
+        {
+          "amount": 100,
+          "originalCount": 67368,
+          "remaining": 45751
+        },
+        {
+          "amount": 500,
+          "originalCount": 4872,
+          "remaining": 3299
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1008,
+          "remaining": 685
+        },
+        {
+          "amount": 5000,
+          "originalCount": 112,
+          "remaining": 75
+        },
+        {
+          "amount": 250000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.01,
+      "computed": {
+        "originalTickets": 8054979,
+        "fractionRemaining": 0.6856,
+        "ticketsRemaining": 5522411,
+        "remainingPrizeValue": 21016555,
+        "evPerTicket": 3.8057,
+        "roi": 0.7611,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "554",
+      "name": "BIG BLUE BONUS CASHWORD 2026",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/big-blue-bonus-cashword-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 2157120,
+          "remaining": 1723240
+        },
+        {
+          "amount": 10,
+          "originalCount": 604800,
+          "remaining": 481835
+        },
+        {
+          "amount": 20,
+          "originalCount": 383040,
+          "remaining": 304849
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 80282
+        },
+        {
+          "amount": 40,
+          "originalCount": 80640,
+          "remaining": 64198
+        },
+        {
+          "amount": 50,
+          "originalCount": 120960,
+          "remaining": 96140
+        },
+        {
+          "amount": 100,
+          "originalCount": 181440,
+          "remaining": 144443
+        },
+        {
+          "amount": 200,
+          "originalCount": 1995,
+          "remaining": 1590
+        },
+        {
+          "amount": 500,
+          "originalCount": 945,
+          "remaining": 755
+        },
+        {
+          "amount": 1000,
+          "originalCount": 130,
+          "remaining": 105
+        },
+        {
+          "amount": 10000,
+          "originalCount": 15,
+          "remaining": 12
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.16,
+      "computed": {
+        "originalTickets": 15108658,
+        "fractionRemaining": 0.7978,
+        "ticketsRemaining": 12053400,
+        "remainingPrizeValue": 45778300,
+        "evPerTicket": 3.798,
+        "roi": 0.7596,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "538",
+      "name": "777 SLOTS",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/777-slots-2026",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 782208,
+          "remaining": 485254
+        },
+        {
+          "amount": 4,
+          "originalCount": 596736,
+          "remaining": 374802
+        },
+        {
+          "amount": 5,
+          "originalCount": 161280,
+          "remaining": 102056
+        },
+        {
+          "amount": 10,
+          "originalCount": 104832,
+          "remaining": 68996
+        },
+        {
+          "amount": 20,
+          "originalCount": 48384,
+          "remaining": 31139
+        },
+        {
+          "amount": 40,
+          "originalCount": 26880,
+          "remaining": 17082
+        },
+        {
+          "amount": 100,
+          "originalCount": 28896,
+          "remaining": 19378
+        },
+        {
+          "amount": 400,
+          "originalCount": 952,
+          "remaining": 696
+        },
+        {
+          "amount": 1000,
+          "originalCount": 168,
+          "remaining": 119
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 5
+        },
+        {
+          "amount": 77777,
+          "originalCount": 5,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 4.61,
+      "computed": {
+        "originalTickets": 8069109,
+        "fractionRemaining": 0.6282,
+        "ticketsRemaining": 5068838,
+        "remainingPrizeValue": 7672324,
+        "evPerTicket": 1.5136,
+        "roi": 0.7568,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 77777
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "480",
+      "name": "$1,000 A WEEK FOR LIFE",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000-a-week-for-life-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 244916
+        },
+        {
+          "amount": 10,
+          "originalCount": 1411200,
+          "remaining": 193557
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 13124
+        },
+        {
+          "amount": 20,
+          "originalCount": 201600,
+          "remaining": 25700
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 12815
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 12664
+        },
+        {
+          "amount": 100,
+          "originalCount": 69300,
+          "remaining": 8619
+        },
+        {
+          "amount": 500,
+          "originalCount": 6720,
+          "remaining": 850
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1680,
+          "remaining": 235
+        },
+        {
+          "amount": 2000,
+          "originalCount": 420,
+          "remaining": 59
+        },
+        {
+          "amount": 10000,
+          "originalCount": 202,
+          "remaining": 29
+        },
+        {
+          "amount": 800000,
+          "originalCount": 10,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.31,
+      "computed": {
+        "originalTickets": 15108843,
+        "fractionRemaining": 0.1462,
+        "ticketsRemaining": 2209177,
+        "remainingPrizeValue": 8354485,
+        "evPerTicket": 3.7817,
+        "roi": 0.7563,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 800000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "539",
+      "name": "EXTREME GREEN",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/extreme-green-2026",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 907200,
+          "remaining": 537737
+        },
+        {
+          "amount": 10,
+          "originalCount": 967680,
+          "remaining": 558643
+        },
+        {
+          "amount": 15,
+          "originalCount": 60480,
+          "remaining": 35143
+        },
+        {
+          "amount": 20,
+          "originalCount": 181440,
+          "remaining": 103959
+        },
+        {
+          "amount": 50,
+          "originalCount": 60480,
+          "remaining": 34509
+        },
+        {
+          "amount": 100,
+          "originalCount": 71883,
+          "remaining": 40854
+        },
+        {
+          "amount": 500,
+          "originalCount": 3906,
+          "remaining": 2238
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1575,
+          "remaining": 910
+        },
+        {
+          "amount": 2000,
+          "originalCount": 126,
+          "remaining": 74
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.02,
+      "computed": {
+        "originalTickets": 9064187,
+        "fractionRemaining": 0.5828,
+        "ticketsRemaining": 5282553,
+        "remainingPrizeValue": 19869290,
+        "evPerTicket": 3.7613,
+        "roi": 0.7523,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "532",
+      "name": "WIN IT ALL BONUS",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/win-it-all-bonus-2026",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 1053360,
+          "remaining": 639047
+        },
+        {
+          "amount": 4,
+          "originalCount": 831600,
+          "remaining": 498152
+        },
+        {
+          "amount": 5,
+          "originalCount": 177408,
+          "remaining": 106059
+        },
+        {
+          "amount": 10,
+          "originalCount": 188496,
+          "remaining": 114130
+        },
+        {
+          "amount": 20,
+          "originalCount": 77616,
+          "remaining": 47052
+        },
+        {
+          "amount": 25,
+          "originalCount": 31724,
+          "remaining": 19387
+        },
+        {
+          "amount": 40,
+          "originalCount": 22330,
+          "remaining": 13408
+        },
+        {
+          "amount": 100,
+          "originalCount": 29029,
+          "remaining": 17796
+        },
+        {
+          "amount": 200,
+          "originalCount": 2387,
+          "remaining": 1443
+        },
+        {
+          "amount": 1000,
+          "originalCount": 693,
+          "remaining": 430
+        },
+        {
+          "amount": 50000,
+          "originalCount": 8,
+          "remaining": 5
+        },
+        {
+          "amount": 100000,
+          "originalCount": 3,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.59,
+      "computed": {
+        "originalTickets": 11083262,
+        "fractionRemaining": 0.6034,
+        "ticketsRemaining": 6687226,
+        "remainingPrizeValue": 9952532,
+        "evPerTicket": 1.4883,
+        "roi": 0.7441,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "486",
+      "name": "20X",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/20x-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 957600,
+          "remaining": 82372
+        },
+        {
+          "amount": 4,
+          "originalCount": 756000,
+          "remaining": 52237
+        },
+        {
+          "amount": 5,
+          "originalCount": 161280,
+          "remaining": 10665
+        },
+        {
+          "amount": 10,
+          "originalCount": 171360,
+          "remaining": 10572
+        },
+        {
+          "amount": 20,
+          "originalCount": 70560,
+          "remaining": 5305
+        },
+        {
+          "amount": 25,
+          "originalCount": 28350,
+          "remaining": 1449
+        },
+        {
+          "amount": 40,
+          "originalCount": 20370,
+          "remaining": 1556
+        },
+        {
+          "amount": 100,
+          "originalCount": 25900,
+          "remaining": 1887
+        },
+        {
+          "amount": 200,
+          "originalCount": 2170,
+          "remaining": 170
+        },
+        {
+          "amount": 1000,
+          "originalCount": 630,
+          "remaining": 72
+        },
+        {
+          "amount": 50000,
+          "originalCount": 7,
+          "remaining": 0
+        },
+        {
+          "amount": 100000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.59,
+      "computed": {
+        "originalTickets": 10071516,
+        "fractionRemaining": 0.0758,
+        "ticketsRemaining": 763253,
+        "remainingPrizeValue": 1132002,
+        "evPerTicket": 1.4831,
+        "roi": 0.7416,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "474",
+      "name": "TRIPLE 777",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/triple-777-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1512000,
+          "remaining": 618973
+        },
+        {
+          "amount": 10,
+          "originalCount": 1612800,
+          "remaining": 627207
+        },
+        {
+          "amount": 15,
+          "originalCount": 100800,
+          "remaining": 38729
+        },
+        {
+          "amount": 20,
+          "originalCount": 302400,
+          "remaining": 115179
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 38136
+        },
+        {
+          "amount": 100,
+          "originalCount": 119805,
+          "remaining": 44814
+        },
+        {
+          "amount": 500,
+          "originalCount": 6510,
+          "remaining": 2419
+        },
+        {
+          "amount": 1000,
+          "originalCount": 2625,
+          "remaining": 1007
+        },
+        {
+          "amount": 2000,
+          "originalCount": 210,
+          "remaining": 80
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 5,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.02,
+      "computed": {
+        "originalTickets": 15106979,
+        "fractionRemaining": 0.3956,
+        "ticketsRemaining": 5975911,
+        "remainingPrizeValue": 22016150,
+        "evPerTicket": 3.6841,
+        "roi": 0.7368,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "524",
+      "name": "Power Play™ Cashword",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/power-play-cashword-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 1512000,
+          "remaining": 922604
+        },
+        {
+          "amount": 4,
+          "originalCount": 1108800,
+          "remaining": 675184
+        },
+        {
+          "amount": 5,
+          "originalCount": 362880,
+          "remaining": 219670
+        },
+        {
+          "amount": 10,
+          "originalCount": 302400,
+          "remaining": 183013
+        },
+        {
+          "amount": 20,
+          "originalCount": 241920,
+          "remaining": 146240
+        },
+        {
+          "amount": 25,
+          "originalCount": 15960,
+          "remaining": 9666
+        },
+        {
+          "amount": 100,
+          "originalCount": 21000,
+          "remaining": 12758
+        },
+        {
+          "amount": 200,
+          "originalCount": 4200,
+          "remaining": 2568
+        },
+        {
+          "amount": 1000,
+          "originalCount": 840,
+          "remaining": 551
+        },
+        {
+          "amount": 50000,
+          "originalCount": 15,
+          "remaining": 11
+        }
+      ],
+      "overallOdds": 4.24,
+      "computed": {
+        "originalTickets": 15136864,
+        "fractionRemaining": 0.6085,
+        "ticketsRemaining": 9210404,
+        "remainingPrizeValue": 13531274,
+        "evPerTicket": 1.4691,
+        "roi": 0.7346,
+        "topPrizesRemaining": 11,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "525",
+      "name": "$50,000 Star Cashword",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/50k-star-cashword-2026",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 1512000,
+          "remaining": 1081198
+        },
+        {
+          "amount": 4,
+          "originalCount": 1108800,
+          "remaining": 792126
+        },
+        {
+          "amount": 5,
+          "originalCount": 362880,
+          "remaining": 258359
+        },
+        {
+          "amount": 10,
+          "originalCount": 302400,
+          "remaining": 214918
+        },
+        {
+          "amount": 20,
+          "originalCount": 241920,
+          "remaining": 171811
+        },
+        {
+          "amount": 50,
+          "originalCount": 29400,
+          "remaining": 20904
+        },
+        {
+          "amount": 100,
+          "originalCount": 10290,
+          "remaining": 7364
+        },
+        {
+          "amount": 200,
+          "originalCount": 4200,
+          "remaining": 3022
+        },
+        {
+          "amount": 500,
+          "originalCount": 1050,
+          "remaining": 742
+        },
+        {
+          "amount": 1000,
+          "originalCount": 315,
+          "remaining": 229
+        },
+        {
+          "amount": 50000,
+          "originalCount": 15,
+          "remaining": 11
+        }
+      ],
+      "overallOdds": 4.23,
+      "computed": {
+        "originalTickets": 15114932,
+        "fractionRemaining": 0.7138,
+        "ticketsRemaining": 10789393,
+        "remainingPrizeValue": 15744095,
+        "evPerTicket": 1.4592,
+        "roi": 0.7296,
+        "topPrizesRemaining": 11,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "543",
+      "name": "$100,000 DOUBLE DEUCES",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-double-deuces",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 997920,
+          "remaining": 751286
+        },
+        {
+          "amount": 4,
+          "originalCount": 831600,
+          "remaining": 622743
+        },
+        {
+          "amount": 5,
+          "originalCount": 221760,
+          "remaining": 165432
+        },
+        {
+          "amount": 10,
+          "originalCount": 166320,
+          "remaining": 123859
+        },
+        {
+          "amount": 20,
+          "originalCount": 110880,
+          "remaining": 82424
+        },
+        {
+          "amount": 40,
+          "originalCount": 52591,
+          "remaining": 39043
+        },
+        {
+          "amount": 100,
+          "originalCount": 29260,
+          "remaining": 21685
+        },
+        {
+          "amount": 1000,
+          "originalCount": 154,
+          "remaining": 117
+        },
+        {
+          "amount": 10000,
+          "originalCount": 7,
+          "remaining": 5
+        },
+        {
+          "amount": 100000,
+          "originalCount": 6,
+          "remaining": 5
+        }
+      ],
+      "overallOdds": 4.6,
+      "computed": {
+        "originalTickets": 11088291,
+        "fractionRemaining": 0.7495,
+        "ticketsRemaining": 8310356,
+        "remainingPrizeValue": 12104994,
+        "evPerTicket": 1.4566,
+        "roi": 0.7283,
+        "topPrizesRemaining": 5,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "452",
+      "name": "$10,000,000 BONANZA",
+      "price": 20,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000000-bonanza-2024",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 1693440,
+          "remaining": 324732
+        },
+        {
+          "amount": 25,
+          "originalCount": 967680,
+          "remaining": 187658
+        },
+        {
+          "amount": 30,
+          "originalCount": 483840,
+          "remaining": 93310
+        },
+        {
+          "amount": 40,
+          "originalCount": 241920,
+          "remaining": 45503
+        },
+        {
+          "amount": 50,
+          "originalCount": 241920,
+          "remaining": 45292
+        },
+        {
+          "amount": 100,
+          "originalCount": 429744,
+          "remaining": 79955
+        },
+        {
+          "amount": 200,
+          "originalCount": 24192,
+          "remaining": 4498
+        },
+        {
+          "amount": 500,
+          "originalCount": 15120,
+          "remaining": 2826
+        },
+        {
+          "amount": 1000,
+          "originalCount": 8820,
+          "remaining": 1722
+        },
+        {
+          "amount": 2000,
+          "originalCount": 1596,
+          "remaining": 300
+        },
+        {
+          "amount": 5000,
+          "originalCount": 1848,
+          "remaining": 358
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 1
+        },
+        {
+          "amount": 6500000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 2.94,
+      "computed": {
+        "originalTickets": 12083779,
+        "fractionRemaining": 0.1913,
+        "ticketsRemaining": 2311296,
+        "remainingPrizeValue": 33490210,
+        "evPerTicket": 14.4898,
+        "roi": 0.7245,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 6500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "557",
+      "name": "$100,000 DOUBLE PLAY",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-double-play-2026",
+      "tiers": [
+        {
+          "amount": 4,
+          "originalCount": 811440,
+          "remaining": 655330
+        },
+        {
+          "amount": 5,
+          "originalCount": 176400,
+          "remaining": 141275
+        },
+        {
+          "amount": 10,
+          "originalCount": 98784,
+          "remaining": 78340
+        },
+        {
+          "amount": 20,
+          "originalCount": 42336,
+          "remaining": 33508
+        },
+        {
+          "amount": 30,
+          "originalCount": 23765,
+          "remaining": 18927
+        },
+        {
+          "amount": 40,
+          "originalCount": 22099,
+          "remaining": 17465
+        },
+        {
+          "amount": 100,
+          "originalCount": 18620,
+          "remaining": 14879
+        },
+        {
+          "amount": 200,
+          "originalCount": 1960,
+          "remaining": 1554
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7,
+          "remaining": 6
+        },
+        {
+          "amount": 10000,
+          "originalCount": 7,
+          "remaining": 6
+        },
+        {
+          "amount": 100000,
+          "originalCount": 4,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 5.9,
+      "computed": {
+        "originalTickets": 7052990,
+        "fractionRemaining": 0.8041,
+        "ticketsRemaining": 5671629,
+        "remainingPrizeValue": 8212365,
+        "evPerTicket": 1.448,
+        "roi": 0.724,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "507",
+      "name": "$100,000 TWO FOR THE MONEY",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-two-for-the-money-2025",
+      "tiers": [
+        {
+          "amount": 4,
+          "originalCount": 1330560,
+          "remaining": 632314
+        },
+        {
+          "amount": 5,
+          "originalCount": 155232,
+          "remaining": 73227
+        },
+        {
+          "amount": 10,
+          "originalCount": 210672,
+          "remaining": 98725
+        },
+        {
+          "amount": 20,
+          "originalCount": 77616,
+          "remaining": 36141
+        },
+        {
+          "amount": 50,
+          "originalCount": 41580,
+          "remaining": 19267
+        },
+        {
+          "amount": 100,
+          "originalCount": 28105,
+          "remaining": 12941
+        },
+        {
+          "amount": 500,
+          "originalCount": 924,
+          "remaining": 417
+        },
+        {
+          "amount": 1000,
+          "originalCount": 462,
+          "remaining": 227
+        },
+        {
+          "amount": 100000,
+          "originalCount": 6,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 6.01,
+      "computed": {
+        "originalTickets": 11089394,
+        "fractionRemaining": 0.4733,
+        "ticketsRemaining": 5248305,
+        "remainingPrizeValue": 7598411,
+        "evPerTicket": 1.4478,
+        "roi": 0.7239,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "472",
+      "name": "BIG BLUE BONUS CASHWORD 2025",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/big-blue-bonus-cashword-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 2157120,
+          "remaining": 454464
+        },
+        {
+          "amount": 10,
+          "originalCount": 604800,
+          "remaining": 123410
+        },
+        {
+          "amount": 20,
+          "originalCount": 383040,
+          "remaining": 76939
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 20233
+        },
+        {
+          "amount": 40,
+          "originalCount": 80640,
+          "remaining": 16462
+        },
+        {
+          "amount": 50,
+          "originalCount": 120960,
+          "remaining": 24051
+        },
+        {
+          "amount": 100,
+          "originalCount": 181440,
+          "remaining": 36469
+        },
+        {
+          "amount": 200,
+          "originalCount": 1995,
+          "remaining": 405
+        },
+        {
+          "amount": 500,
+          "originalCount": 945,
+          "remaining": 191
+        },
+        {
+          "amount": 1000,
+          "originalCount": 130,
+          "remaining": 32
+        },
+        {
+          "amount": 10000,
+          "originalCount": 15,
+          "remaining": 5
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.16,
+      "computed": {
+        "originalTickets": 15108658,
+        "fractionRemaining": 0.2072,
+        "ticketsRemaining": 3131070,
+        "remainingPrizeValue": 11317455,
+        "evPerTicket": 3.6146,
+        "roi": 0.7229,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "469",
+      "name": "$4,000,000 GOLD 50X",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-gold-50x",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 2257920,
+          "remaining": 119493
+        },
+        {
+          "amount": 25,
+          "originalCount": 645120,
+          "remaining": 32976
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 8201
+        },
+        {
+          "amount": 100,
+          "originalCount": 273840,
+          "remaining": 14305
+        },
+        {
+          "amount": 500,
+          "originalCount": 20720,
+          "remaining": 991
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7616,
+          "remaining": 429
+        },
+        {
+          "amount": 10000,
+          "originalCount": 224,
+          "remaining": 12
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 7,
+          "remaining": 0
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.79,
+      "computed": {
+        "originalTickets": 16126637,
+        "fractionRemaining": 0.0524,
+        "ticketsRemaining": 844990,
+        "remainingPrizeValue": 6099310,
+        "evPerTicket": 7.2182,
+        "roi": 0.7218,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "368",
+      "name": "$4,000,000 PLATINUM JACKPOT",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-platinum-jackpot-2023",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 2257920,
+          "remaining": 212733
+        },
+        {
+          "amount": 25,
+          "originalCount": 645120,
+          "remaining": 58269
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 14842
+        },
+        {
+          "amount": 100,
+          "originalCount": 272384,
+          "remaining": 24905
+        },
+        {
+          "amount": 500,
+          "originalCount": 21392,
+          "remaining": 1818
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7728,
+          "remaining": 738
+        },
+        {
+          "amount": 10000,
+          "originalCount": 224,
+          "remaining": 24
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.79,
+      "computed": {
+        "originalTickets": 16123413,
+        "fractionRemaining": 0.0931,
+        "ticketsRemaining": 1500846,
+        "remainingPrizeValue": 10830985,
+        "evPerTicket": 7.2166,
+        "roi": 0.7217,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "546",
+      "name": "WINNER WINNER CHICKEN DINNER",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/winner-winner-chicken-dinner-2025-2",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 428400,
+          "remaining": 289650
+        },
+        {
+          "amount": 3,
+          "originalCount": 378000,
+          "remaining": 254413
+        },
+        {
+          "amount": 5,
+          "originalCount": 90720,
+          "remaining": 60553
+        },
+        {
+          "amount": 10,
+          "originalCount": 75600,
+          "remaining": 50346
+        },
+        {
+          "amount": 20,
+          "originalCount": 85680,
+          "remaining": 57360
+        },
+        {
+          "amount": 30,
+          "originalCount": 23660,
+          "remaining": 15587
+        },
+        {
+          "amount": 100,
+          "originalCount": 13650,
+          "remaining": 8978
+        },
+        {
+          "amount": 1000,
+          "originalCount": 40,
+          "remaining": 29
+        },
+        {
+          "amount": 10000,
+          "originalCount": 7,
+          "remaining": 5
+        },
+        {
+          "amount": 50000,
+          "originalCount": 5,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.6,
+      "computed": {
+        "originalTickets": 5040505,
+        "fractionRemaining": 0.6725,
+        "ticketsRemaining": 3389850,
+        "remainingPrizeValue": 4890374,
+        "evPerTicket": 1.4427,
+        "roi": 0.7213,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "550",
+      "name": "20X",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/20x-2026",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 907200,
+          "remaining": 579478
+        },
+        {
+          "amount": 4,
+          "originalCount": 680400,
+          "remaining": 429972
+        },
+        {
+          "amount": 5,
+          "originalCount": 181440,
+          "remaining": 114220
+        },
+        {
+          "amount": 10,
+          "originalCount": 117936,
+          "remaining": 74014
+        },
+        {
+          "amount": 20,
+          "originalCount": 63504,
+          "remaining": 39816
+        },
+        {
+          "amount": 30,
+          "originalCount": 28035,
+          "remaining": 17498
+        },
+        {
+          "amount": 40,
+          "originalCount": 25893,
+          "remaining": 16262
+        },
+        {
+          "amount": 100,
+          "originalCount": 22680,
+          "remaining": 14224
+        },
+        {
+          "amount": 400,
+          "originalCount": 1197,
+          "remaining": 744
+        },
+        {
+          "amount": 10000,
+          "originalCount": 9,
+          "remaining": 5
+        },
+        {
+          "amount": 20000,
+          "originalCount": 6,
+          "remaining": 3
+        },
+        {
+          "amount": 100000,
+          "originalCount": 5,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.47,
+      "computed": {
+        "originalTickets": 9066523,
+        "fractionRemaining": 0.6341,
+        "ticketsRemaining": 5749488,
+        "remainingPrizeValue": 8291824,
+        "evPerTicket": 1.4422,
+        "roi": 0.7211,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "479",
+      "name": "$200 A WEEK FOR LIFE",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/200-a-week-for-life-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 1209600,
+          "remaining": 201410
+        },
+        {
+          "amount": 4,
+          "originalCount": 967680,
+          "remaining": 149212
+        },
+        {
+          "amount": 5,
+          "originalCount": 181440,
+          "remaining": 27823
+        },
+        {
+          "amount": 10,
+          "originalCount": 241920,
+          "remaining": 35126
+        },
+        {
+          "amount": 20,
+          "originalCount": 60480,
+          "remaining": 8509
+        },
+        {
+          "amount": 25,
+          "originalCount": 40320,
+          "remaining": 5541
+        },
+        {
+          "amount": 30,
+          "originalCount": 6804,
+          "remaining": 1003
+        },
+        {
+          "amount": 40,
+          "originalCount": 23100,
+          "remaining": 3278
+        },
+        {
+          "amount": 100,
+          "originalCount": 15372,
+          "remaining": 2204
+        },
+        {
+          "amount": 200,
+          "originalCount": 3192,
+          "remaining": 445
+        },
+        {
+          "amount": 1000,
+          "originalCount": 672,
+          "remaining": 104
+        },
+        {
+          "amount": 5000,
+          "originalCount": 12,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "originalCount": 12,
+          "remaining": 2
+        },
+        {
+          "amount": 160000,
+          "originalCount": 10,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.4,
+      "computed": {
+        "originalTickets": 12102702,
+        "fractionRemaining": 0.158,
+        "ticketsRemaining": 1912513,
+        "remainingPrizeValue": 2728358,
+        "evPerTicket": 1.4266,
+        "roi": 0.7133,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 160000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "464",
+      "name": "NAUGHTY OR NICE CASHWORD",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/naughty-or-nice-cashword-2024",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 403200,
+          "remaining": 36538
+        },
+        {
+          "amount": 5,
+          "originalCount": 349440,
+          "remaining": 24524
+        },
+        {
+          "amount": 10,
+          "originalCount": 80640,
+          "remaining": 4920
+        },
+        {
+          "amount": 20,
+          "originalCount": 53760,
+          "remaining": 3167
+        },
+        {
+          "amount": 30,
+          "originalCount": 26880,
+          "remaining": 1901
+        },
+        {
+          "amount": 100,
+          "originalCount": 4312,
+          "remaining": 253
+        },
+        {
+          "amount": 400,
+          "originalCount": 56,
+          "remaining": 5
+        },
+        {
+          "amount": 2000,
+          "originalCount": 16,
+          "remaining": 2
+        },
+        {
+          "amount": 50000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.39,
+      "computed": {
+        "originalTickets": 4031368,
+        "fractionRemaining": 0.0777,
+        "ticketsRemaining": 313055,
+        "remainingPrizeValue": 446566,
+        "evPerTicket": 1.4265,
+        "roi": 0.7132,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "527",
+      "name": "$100,000 MULTIPLIER MANIA",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-multiplier-mania-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 725760,
+          "remaining": 204676
+        },
+        {
+          "amount": 4,
+          "originalCount": 604800,
+          "remaining": 163280
+        },
+        {
+          "amount": 5,
+          "originalCount": 129024,
+          "remaining": 34669
+        },
+        {
+          "amount": 10,
+          "originalCount": 137088,
+          "remaining": 36740
+        },
+        {
+          "amount": 20,
+          "originalCount": 56448,
+          "remaining": 14803
+        },
+        {
+          "amount": 25,
+          "originalCount": 29008,
+          "remaining": 7483
+        },
+        {
+          "amount": 40,
+          "originalCount": 25480,
+          "remaining": 6618
+        },
+        {
+          "amount": 100,
+          "originalCount": 21168,
+          "remaining": 5453
+        },
+        {
+          "amount": 400,
+          "originalCount": 952,
+          "remaining": 243
+        },
+        {
+          "amount": 10000,
+          "originalCount": 10,
+          "remaining": 4
+        },
+        {
+          "amount": 100000,
+          "originalCount": 4,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.66,
+      "computed": {
+        "originalTickets": 8060598,
+        "fractionRemaining": 0.274,
+        "ticketsRemaining": 2208700,
+        "remainingPrizeValue": 3133572,
+        "evPerTicket": 1.4187,
+        "roi": 0.7094,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "511",
+      "name": "$100,000 BONUS SCRATCH",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-bonus-scratch-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 725760,
+          "remaining": 206113
+        },
+        {
+          "amount": 4,
+          "originalCount": 564480,
+          "remaining": 155630
+        },
+        {
+          "amount": 5,
+          "originalCount": 201600,
+          "remaining": 55233
+        },
+        {
+          "amount": 10,
+          "originalCount": 112896,
+          "remaining": 30293
+        },
+        {
+          "amount": 20,
+          "originalCount": 48384,
+          "remaining": 12713
+        },
+        {
+          "amount": 25,
+          "originalCount": 30576,
+          "remaining": 8040
+        },
+        {
+          "amount": 40,
+          "originalCount": 26880,
+          "remaining": 6982
+        },
+        {
+          "amount": 100,
+          "originalCount": 21672,
+          "remaining": 5614
+        },
+        {
+          "amount": 400,
+          "originalCount": 1120,
+          "remaining": 285
+        },
+        {
+          "amount": 1000,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 100000,
+          "originalCount": 4,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.65,
+      "computed": {
+        "originalTickets": 8060254,
+        "fractionRemaining": 0.2774,
+        "ticketsRemaining": 2236231,
+        "remainingPrizeValue": 3165781,
+        "evPerTicket": 1.4157,
+        "roi": 0.7078,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "462",
+      "name": "$2,500,000 MERRY & BRIGHT",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/2500000-merry-and-bright-2024",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1108800,
+          "remaining": 129091
+        },
+        {
+          "amount": 15,
+          "originalCount": 604800,
+          "remaining": 67572
+        },
+        {
+          "amount": 20,
+          "originalCount": 806400,
+          "remaining": 89244
+        },
+        {
+          "amount": 25,
+          "originalCount": 100800,
+          "remaining": 11011
+        },
+        {
+          "amount": 50,
+          "originalCount": 100800,
+          "remaining": 10831
+        },
+        {
+          "amount": 100,
+          "originalCount": 150920,
+          "remaining": 16318
+        },
+        {
+          "amount": 200,
+          "originalCount": 10850,
+          "remaining": 1166
+        },
+        {
+          "amount": 500,
+          "originalCount": 10430,
+          "remaining": 1071
+        },
+        {
+          "amount": 1000,
+          "originalCount": 3290,
+          "remaining": 355
+        },
+        {
+          "amount": 10000,
+          "originalCount": 240,
+          "remaining": 29
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 2500000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 3.48,
+      "computed": {
+        "originalTickets": 10082740,
+        "fractionRemaining": 0.1128,
+        "ticketsRemaining": 1136874,
+        "remainingPrizeValue": 7951695,
+        "evPerTicket": 6.9944,
+        "roi": 0.6994,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 2500000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "495",
+      "name": "$100 STACKED",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100-stacked-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 907200,
+          "remaining": 196172
+        },
+        {
+          "amount": 4,
+          "originalCount": 756000,
+          "remaining": 157664
+        },
+        {
+          "amount": 5,
+          "originalCount": 201600,
+          "remaining": 41264
+        },
+        {
+          "amount": 10,
+          "originalCount": 161280,
+          "remaining": 32137
+        },
+        {
+          "amount": 20,
+          "originalCount": 90720,
+          "remaining": 17824
+        },
+        {
+          "amount": 40,
+          "originalCount": 45920,
+          "remaining": 8900
+        },
+        {
+          "amount": 100,
+          "originalCount": 28700,
+          "remaining": 5535
+        },
+        {
+          "amount": 1000,
+          "originalCount": 140,
+          "remaining": 29
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 100000,
+          "originalCount": 5,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.6,
+      "computed": {
+        "originalTickets": 10081236,
+        "fractionRemaining": 0.2097,
+        "ticketsRemaining": 2113824,
+        "remainingPrizeValue": 2955670,
+        "evPerTicket": 1.3983,
+        "roi": 0.6991,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "515",
+      "name": "$1,000,000 WINTER WINNINGS",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-winter-winnings-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 483840,
+          "remaining": 100298
+        },
+        {
+          "amount": 4,
+          "originalCount": 453600,
+          "remaining": 85841
+        },
+        {
+          "amount": 5,
+          "originalCount": 120960,
+          "remaining": 22023
+        },
+        {
+          "amount": 10,
+          "originalCount": 151200,
+          "remaining": 28845
+        },
+        {
+          "amount": 20,
+          "originalCount": 60480,
+          "remaining": 11107
+        },
+        {
+          "amount": 25,
+          "originalCount": 21966,
+          "remaining": 3460
+        },
+        {
+          "amount": 40,
+          "originalCount": 15792,
+          "remaining": 2332
+        },
+        {
+          "amount": 100,
+          "originalCount": 10080,
+          "remaining": 1516
+        },
+        {
+          "amount": 400,
+          "originalCount": 252,
+          "remaining": 33
+        },
+        {
+          "amount": 10000,
+          "originalCount": 6,
+          "remaining": 1
+        },
+        {
+          "amount": 20000,
+          "originalCount": 3,
+          "remaining": 1
+        },
+        {
+          "amount": 100000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.59,
+      "computed": {
+        "originalTickets": 6050455,
+        "fractionRemaining": 0.1938,
+        "ticketsRemaining": 1172552,
+        "remainingPrizeValue": 1639245,
+        "evPerTicket": 1.398,
+        "roi": 0.699,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "556",
+      "name": "$5,000 WIN IT ALL",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/5000-win-it-all-2026",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 658560,
+          "remaining": 538232
+        },
+        {
+          "amount": 2,
+          "originalCount": 489216,
+          "remaining": 395788
+        },
+        {
+          "amount": 3,
+          "originalCount": 75264,
+          "remaining": 60858
+        },
+        {
+          "amount": 4,
+          "originalCount": 75264,
+          "remaining": 60525
+        },
+        {
+          "amount": 5,
+          "originalCount": 47040,
+          "remaining": 37864
+        },
+        {
+          "amount": 10,
+          "originalCount": 103488,
+          "remaining": 83590
+        },
+        {
+          "amount": 20,
+          "originalCount": 9408,
+          "remaining": 7547
+        },
+        {
+          "amount": 25,
+          "originalCount": 7595,
+          "remaining": 6101
+        },
+        {
+          "amount": 50,
+          "originalCount": 7938,
+          "remaining": 6369
+        },
+        {
+          "amount": 100,
+          "originalCount": 6860,
+          "remaining": 5515
+        },
+        {
+          "amount": 500,
+          "originalCount": 14,
+          "remaining": 13
+        },
+        {
+          "amount": 5000,
+          "originalCount": 7,
+          "remaining": 5
+        }
+      ],
+      "overallOdds": 4.77,
+      "computed": {
+        "originalTickets": 7062720,
+        "fractionRemaining": 0.8121,
+        "ticketsRemaining": 5735482,
+        "remainingPrizeValue": 3984617,
+        "evPerTicket": 0.6947,
+        "roi": 0.6947,
+        "topPrizesRemaining": 5,
+        "topPrizeAmount": 5000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "549",
+      "name": "10X",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10x-2026",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 752640,
+          "remaining": 491422
+        },
+        {
+          "amount": 2,
+          "originalCount": 602112,
+          "remaining": 387757
+        },
+        {
+          "amount": 3,
+          "originalCount": 86016,
+          "remaining": 55080
+        },
+        {
+          "amount": 4,
+          "originalCount": 64512,
+          "remaining": 41093
+        },
+        {
+          "amount": 5,
+          "originalCount": 53760,
+          "remaining": 34230
+        },
+        {
+          "amount": 10,
+          "originalCount": 75264,
+          "remaining": 47614
+        },
+        {
+          "amount": 20,
+          "originalCount": 32256,
+          "remaining": 20444
+        },
+        {
+          "amount": 30,
+          "originalCount": 10976,
+          "remaining": 6870
+        },
+        {
+          "amount": 40,
+          "originalCount": 8008,
+          "remaining": 5026
+        },
+        {
+          "amount": 100,
+          "originalCount": 4368,
+          "remaining": 2720
+        },
+        {
+          "amount": 400,
+          "originalCount": 840,
+          "remaining": 529
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 7
+        }
+      ],
+      "overallOdds": 4.77,
+      "computed": {
+        "originalTickets": 8064925,
+        "fractionRemaining": 0.6463,
+        "ticketsRemaining": 5212618,
+        "remainingPrizeValue": 3613458,
+        "evPerTicket": 0.6932,
+        "roi": 0.6932,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "522",
+      "name": "$50 in a Flash",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/50-in-a-flash-2026",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 873600,
+          "remaining": 606172
+        },
+        {
+          "amount": 2,
+          "originalCount": 739200,
+          "remaining": 506763
+        },
+        {
+          "amount": 4,
+          "originalCount": 201600,
+          "remaining": 137369
+        },
+        {
+          "amount": 5,
+          "originalCount": 161280,
+          "remaining": 109704
+        },
+        {
+          "amount": 10,
+          "originalCount": 80640,
+          "remaining": 54603
+        },
+        {
+          "amount": 20,
+          "originalCount": 26880,
+          "remaining": 18218
+        },
+        {
+          "amount": 50,
+          "originalCount": 32480,
+          "remaining": 21927
+        },
+        {
+          "amount": 10000,
+          "originalCount": 12,
+          "remaining": 7
+        }
+      ],
+      "overallOdds": 4.76,
+      "computed": {
+        "originalTickets": 10070694,
+        "fractionRemaining": 0.6876,
+        "ticketsRemaining": 6924672,
+        "remainingPrizeValue": 4794434,
+        "evPerTicket": 0.6924,
+        "roi": 0.6924,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "497",
+      "name": "$1,000,000 BONUS WINS",
+      "price": 5,
+      "url": "https://www.masslottery.com/games/scratch-tickets/1000000-bonus-wins-2025",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 1008000,
+          "remaining": 266057
+        },
+        {
+          "amount": 10,
+          "originalCount": 1075200,
+          "remaining": 248778
+        },
+        {
+          "amount": 20,
+          "originalCount": 201600,
+          "remaining": 44987
+        },
+        {
+          "amount": 25,
+          "originalCount": 67200,
+          "remaining": 15102
+        },
+        {
+          "amount": 50,
+          "originalCount": 67200,
+          "remaining": 14939
+        },
+        {
+          "amount": 100,
+          "originalCount": 69160,
+          "remaining": 15196
+        },
+        {
+          "amount": 150,
+          "originalCount": 4620,
+          "remaining": 1028
+        },
+        {
+          "amount": 500,
+          "originalCount": 3780,
+          "remaining": 816
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1540,
+          "remaining": 358
+        },
+        {
+          "amount": 5000,
+          "originalCount": 140,
+          "remaining": 36
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.03,
+      "computed": {
+        "originalTickets": 10068725,
+        "fractionRemaining": 0.2431,
+        "ticketsRemaining": 2447407,
+        "remainingPrizeValue": 8462105,
+        "evPerTicket": 3.4576,
+        "roi": 0.6915,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "431",
+      "name": "$4,000,000 Monopoly Doubler",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-monopoly-doubler-2024",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1512000,
+          "remaining": 145349
+        },
+        {
+          "amount": 15,
+          "originalCount": 1058400,
+          "remaining": 98611
+        },
+        {
+          "amount": 20,
+          "originalCount": 1209600,
+          "remaining": 116911
+        },
+        {
+          "amount": 30,
+          "originalCount": 151200,
+          "remaining": 14731
+        },
+        {
+          "amount": 50,
+          "originalCount": 151200,
+          "remaining": 13685
+        },
+        {
+          "amount": 100,
+          "originalCount": 230370,
+          "remaining": 21480
+        },
+        {
+          "amount": 150,
+          "originalCount": 4305,
+          "remaining": 386
+        },
+        {
+          "amount": 200,
+          "originalCount": 3990,
+          "remaining": 376
+        },
+        {
+          "amount": 500,
+          "originalCount": 13125,
+          "remaining": 1154
+        },
+        {
+          "amount": 1000,
+          "originalCount": 4095,
+          "remaining": 434
+        },
+        {
+          "amount": 5000,
+          "originalCount": 315,
+          "remaining": 32
+        },
+        {
+          "amount": 10000,
+          "originalCount": 20,
+          "remaining": 2
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 10,
+          "remaining": 0
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 4,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 3.48,
+      "computed": {
+        "originalTickets": 15098446,
+        "fractionRemaining": 0.0952,
+        "ticketsRemaining": 1437765,
+        "remainingPrizeValue": 9869155,
+        "evPerTicket": 6.8642,
+        "roi": 0.6864,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "537",
+      "name": "$10,000 SILVER STRIKE",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000-silver-strike-2026",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 658560,
+          "remaining": 346950
+        },
+        {
+          "amount": 2,
+          "originalCount": 489216,
+          "remaining": 253160
+        },
+        {
+          "amount": 3,
+          "originalCount": 75264,
+          "remaining": 38733
+        },
+        {
+          "amount": 4,
+          "originalCount": 75264,
+          "remaining": 38349
+        },
+        {
+          "amount": 5,
+          "originalCount": 131712,
+          "remaining": 66889
+        },
+        {
+          "amount": 10,
+          "originalCount": 65856,
+          "remaining": 33194
+        },
+        {
+          "amount": 20,
+          "originalCount": 9408,
+          "remaining": 4743
+        },
+        {
+          "amount": 25,
+          "originalCount": 7350,
+          "remaining": 3715
+        },
+        {
+          "amount": 50,
+          "originalCount": 6811,
+          "remaining": 3415
+        },
+        {
+          "amount": 100,
+          "originalCount": 6664,
+          "remaining": 3290
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "originalCount": 7,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.62,
+      "computed": {
+        "originalTickets": 7050670,
+        "fractionRemaining": 0.5193,
+        "ticketsRemaining": 3661091,
+        "remainingPrizeValue": 2509735,
+        "evPerTicket": 0.6855,
+        "roi": 0.6855,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "531",
+      "name": "2 FOR $1",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/2-for-1-2026",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 658560,
+          "remaining": 299258
+        },
+        {
+          "amount": 2,
+          "originalCount": 489216,
+          "remaining": 215484
+        },
+        {
+          "amount": 3,
+          "originalCount": 75264,
+          "remaining": 33137
+        },
+        {
+          "amount": 4,
+          "originalCount": 75264,
+          "remaining": 32341
+        },
+        {
+          "amount": 5,
+          "originalCount": 56448,
+          "remaining": 24118
+        },
+        {
+          "amount": 10,
+          "originalCount": 94080,
+          "remaining": 39538
+        },
+        {
+          "amount": 20,
+          "originalCount": 9408,
+          "remaining": 4028
+        },
+        {
+          "amount": 25,
+          "originalCount": 7595,
+          "remaining": 3159
+        },
+        {
+          "amount": 50,
+          "originalCount": 8379,
+          "remaining": 3507
+        },
+        {
+          "amount": 100,
+          "originalCount": 6860,
+          "remaining": 2834
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "originalCount": 6,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 4.76,
+      "computed": {
+        "originalTickets": 7049974,
+        "fractionRemaining": 0.4439,
+        "ticketsRemaining": 3129272,
+        "remainingPrizeValue": 2126256,
+        "evPerTicket": 0.6795,
+        "roi": 0.6795,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "392",
+      "name": "$4,000,000 DIAMONDS",
+      "price": 10,
+      "url": "https://www.masslottery.com/games/scratch-tickets/4000000-diamonds-2023",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 1935360,
+          "remaining": 116161
+        },
+        {
+          "amount": 15,
+          "originalCount": 806400,
+          "remaining": 43381
+        },
+        {
+          "amount": 20,
+          "originalCount": 1290240,
+          "remaining": 63920
+        },
+        {
+          "amount": 25,
+          "originalCount": 161280,
+          "remaining": 8261
+        },
+        {
+          "amount": 50,
+          "originalCount": 161280,
+          "remaining": 7968
+        },
+        {
+          "amount": 100,
+          "originalCount": 238224,
+          "remaining": 11446
+        },
+        {
+          "amount": 150,
+          "originalCount": 14784,
+          "remaining": 648
+        },
+        {
+          "amount": 200,
+          "originalCount": 10880,
+          "remaining": 507
+        },
+        {
+          "amount": 500,
+          "originalCount": 11760,
+          "remaining": 511
+        },
+        {
+          "amount": 1000,
+          "originalCount": 7616,
+          "remaining": 432
+        },
+        {
+          "amount": 10000,
+          "originalCount": 192,
+          "remaining": 20
+        },
+        {
+          "amount": 1000000,
+          "originalCount": 9,
+          "remaining": 0
+        },
+        {
+          "amount": 4000000,
+          "originalCount": 4,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 3.48,
+      "computed": {
+        "originalTickets": 16140341,
+        "fractionRemaining": 0.0546,
+        "ticketsRemaining": 881327,
+        "remainingPrizeValue": 5926350,
+        "evPerTicket": 6.7243,
+        "roi": 0.6724,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 4000000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "493",
+      "name": "$10,000 DOUBLE WIN",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000-double-win-2025",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 752640,
+          "remaining": 284749
+        },
+        {
+          "amount": 2,
+          "originalCount": 537600,
+          "remaining": 198592
+        },
+        {
+          "amount": 3,
+          "originalCount": 86016,
+          "remaining": 30656
+        },
+        {
+          "amount": 4,
+          "originalCount": 86016,
+          "remaining": 30303
+        },
+        {
+          "amount": 5,
+          "originalCount": 86016,
+          "remaining": 30044
+        },
+        {
+          "amount": 9,
+          "originalCount": 64512,
+          "remaining": 22307
+        },
+        {
+          "amount": 10,
+          "originalCount": 53760,
+          "remaining": 18582
+        },
+        {
+          "amount": 20,
+          "originalCount": 21112,
+          "remaining": 7183
+        },
+        {
+          "amount": 30,
+          "originalCount": 9240,
+          "remaining": 3175
+        },
+        {
+          "amount": 100,
+          "originalCount": 8400,
+          "remaining": 2812
+        },
+        {
+          "amount": 500,
+          "originalCount": 88,
+          "remaining": 31
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 4.79,
+      "computed": {
+        "originalTickets": 8168904,
+        "fractionRemaining": 0.3685,
+        "ticketsRemaining": 3010218,
+        "remainingPrizeValue": 2007526,
+        "evPerTicket": 0.6669,
+        "roi": 0.6669,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "494",
+      "name": "$10,000 BONUS PLAY",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000-bonus-play-2025",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 913920,
+          "remaining": 167466
+        },
+        {
+          "amount": 3,
+          "originalCount": 118272,
+          "remaining": 20614
+        },
+        {
+          "amount": 4,
+          "originalCount": 86016,
+          "remaining": 14345
+        },
+        {
+          "amount": 5,
+          "originalCount": 86016,
+          "remaining": 13924
+        },
+        {
+          "amount": 10,
+          "originalCount": 86016,
+          "remaining": 14474
+        },
+        {
+          "amount": 20,
+          "originalCount": 53760,
+          "remaining": 8106
+        },
+        {
+          "amount": 25,
+          "originalCount": 8176,
+          "remaining": 1173
+        },
+        {
+          "amount": 40,
+          "originalCount": 4480,
+          "remaining": 619
+        },
+        {
+          "amount": 100,
+          "originalCount": 2856,
+          "remaining": 413
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 5.93,
+      "computed": {
+        "originalTickets": 8061954,
+        "fractionRemaining": 0.1774,
+        "ticketsRemaining": 1429931,
+        "remainingPrizeValue": 936019,
+        "evPerTicket": 0.6546,
+        "roi": 0.6546,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "481",
+      "name": "$100,000 DOUBLE MATCH",
+      "price": 2,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100000-double-match-2025",
+      "tiers": [
+        {
+          "amount": 4,
+          "originalCount": 927360,
+          "remaining": 181467
+        },
+        {
+          "amount": 5,
+          "originalCount": 201600,
+          "remaining": 34283
+        },
+        {
+          "amount": 10,
+          "originalCount": 112896,
+          "remaining": 16632
+        },
+        {
+          "amount": 20,
+          "originalCount": 48384,
+          "remaining": 7075
+        },
+        {
+          "amount": 30,
+          "originalCount": 27104,
+          "remaining": 4454
+        },
+        {
+          "amount": 40,
+          "originalCount": 25760,
+          "remaining": 3711
+        },
+        {
+          "amount": 100,
+          "originalCount": 21672,
+          "remaining": 3271
+        },
+        {
+          "amount": 200,
+          "originalCount": 2240,
+          "remaining": 336
+        },
+        {
+          "amount": 1000,
+          "originalCount": 8,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 3
+        },
+        {
+          "amount": 100000,
+          "originalCount": 4,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 5.9,
+      "computed": {
+        "originalTickets": 8065512,
+        "fractionRemaining": 0.1838,
+        "ticketsRemaining": 1482286,
+        "remainingPrizeValue": 1914463,
+        "evPerTicket": 1.2916,
+        "roi": 0.6458,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "447",
+      "name": "$10,000 WIN ALL",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000-win-all-2024",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 752640,
+          "remaining": 75170
+        },
+        {
+          "amount": 2,
+          "originalCount": 559104,
+          "remaining": 38597
+        },
+        {
+          "amount": 3,
+          "originalCount": 86016,
+          "remaining": 5551
+        },
+        {
+          "amount": 4,
+          "originalCount": 86016,
+          "remaining": 4411
+        },
+        {
+          "amount": 5,
+          "originalCount": 53760,
+          "remaining": 2792
+        },
+        {
+          "amount": 10,
+          "originalCount": 118272,
+          "remaining": 9750
+        },
+        {
+          "amount": 20,
+          "originalCount": 10752,
+          "remaining": 593
+        },
+        {
+          "amount": 25,
+          "originalCount": 8232,
+          "remaining": 619
+        },
+        {
+          "amount": 50,
+          "originalCount": 8904,
+          "remaining": 645
+        },
+        {
+          "amount": 100,
+          "originalCount": 7840,
+          "remaining": 619
+        },
+        {
+          "amount": 1000,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "originalCount": 6,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.77,
+      "computed": {
+        "originalTickets": 8068693,
+        "fractionRemaining": 0.082,
+        "ticketsRemaining": 661828,
+        "remainingPrizeValue": 420606,
+        "evPerTicket": 0.6355,
+        "roi": 0.6355,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "478",
+      "name": "$100 A WEEK FOR LIFE",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/100-a-week-for-life",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 940800,
+          "remaining": 119011
+        },
+        {
+          "amount": 2,
+          "originalCount": 672000,
+          "remaining": 71403
+        },
+        {
+          "amount": 4,
+          "originalCount": 201600,
+          "remaining": 18787
+        },
+        {
+          "amount": 5,
+          "originalCount": 188160,
+          "remaining": 15551
+        },
+        {
+          "amount": 10,
+          "originalCount": 80640,
+          "remaining": 6379
+        },
+        {
+          "amount": 20,
+          "originalCount": 16800,
+          "remaining": 1206
+        },
+        {
+          "amount": 40,
+          "originalCount": 6300,
+          "remaining": 430
+        },
+        {
+          "amount": 100,
+          "originalCount": 7630,
+          "remaining": 488
+        },
+        {
+          "amount": 1000,
+          "originalCount": 40,
+          "remaining": 8
+        },
+        {
+          "amount": 80000,
+          "originalCount": 10,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.77,
+      "computed": {
+        "originalTickets": 10083685,
+        "fractionRemaining": 0.1103,
+        "ticketsRemaining": 1112669,
+        "remainingPrizeValue": 656630,
+        "evPerTicket": 0.5901,
+        "roi": 0.5901,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 80000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "514",
+      "name": "$10,000 WINTER WINNINGS",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000-winter-winnings-2025",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 322560,
+          "remaining": 60343
+        },
+        {
+          "amount": 2,
+          "originalCount": 295680,
+          "remaining": 45538
+        },
+        {
+          "amount": 3,
+          "originalCount": 59136,
+          "remaining": 8513
+        },
+        {
+          "amount": 4,
+          "originalCount": 43008,
+          "remaining": 5725
+        },
+        {
+          "amount": 5,
+          "originalCount": 43008,
+          "remaining": 5335
+        },
+        {
+          "amount": 10,
+          "originalCount": 43008,
+          "remaining": 5201
+        },
+        {
+          "amount": 20,
+          "originalCount": 26880,
+          "remaining": 2562
+        },
+        {
+          "amount": 25,
+          "originalCount": 4088,
+          "remaining": 358
+        },
+        {
+          "amount": 40,
+          "originalCount": 2240,
+          "remaining": 172
+        },
+        {
+          "amount": 100,
+          "originalCount": 1428,
+          "remaining": 106
+        },
+        {
+          "amount": 10000,
+          "originalCount": 4,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.79,
+      "computed": {
+        "originalTickets": 4028582,
+        "fractionRemaining": 0.1592,
+        "ticketsRemaining": 641161,
+        "remainingPrizeValue": 366213,
+        "evPerTicket": 0.5712,
+        "roi": 0.5712,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "453",
+      "name": "$50 in a Flash",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/50-in-a-flash-2025",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 873600,
+          "remaining": 78399
+        },
+        {
+          "amount": 2,
+          "originalCount": 739200,
+          "remaining": 48842
+        },
+        {
+          "amount": 4,
+          "originalCount": 201600,
+          "remaining": 11314
+        },
+        {
+          "amount": 5,
+          "originalCount": 161280,
+          "remaining": 7815
+        },
+        {
+          "amount": 10,
+          "originalCount": 80640,
+          "remaining": 3717
+        },
+        {
+          "amount": 20,
+          "originalCount": 26880,
+          "remaining": 1295
+        },
+        {
+          "amount": 50,
+          "originalCount": 32480,
+          "remaining": 1207
+        },
+        {
+          "amount": 10000,
+          "originalCount": 12,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.76,
+      "computed": {
+        "originalTickets": 10070694,
+        "fractionRemaining": 0.0721,
+        "ticketsRemaining": 726324,
+        "remainingPrizeValue": 383834,
+        "evPerTicket": 0.5285,
+        "roi": 0.5285,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "459",
+      "name": "$10,000 MERRY & BRIGHT",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/10000-merry-and-bright-2024",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 376320,
+          "remaining": 41677
+        },
+        {
+          "amount": 2,
+          "originalCount": 295680,
+          "remaining": 27377
+        },
+        {
+          "amount": 3,
+          "originalCount": 43008,
+          "remaining": 3463
+        },
+        {
+          "amount": 4,
+          "originalCount": 21504,
+          "remaining": 1592
+        },
+        {
+          "amount": 5,
+          "originalCount": 53760,
+          "remaining": 3336
+        },
+        {
+          "amount": 10,
+          "originalCount": 43008,
+          "remaining": 2645
+        },
+        {
+          "amount": 20,
+          "originalCount": 13160,
+          "remaining": 645
+        },
+        {
+          "amount": 25,
+          "originalCount": 6300,
+          "remaining": 269
+        },
+        {
+          "amount": 30,
+          "originalCount": 5152,
+          "remaining": 214
+        },
+        {
+          "amount": 100,
+          "originalCount": 3080,
+          "remaining": 77
+        },
+        {
+          "amount": 1000,
+          "originalCount": 16,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "originalCount": 4,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.68,
+      "computed": {
+        "originalTickets": 4029443,
+        "fractionRemaining": 0.0944,
+        "ticketsRemaining": 380461,
+        "remainingPrizeValue": 190063,
+        "evPerTicket": 0.4996,
+        "roi": 0.4996,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "ma",
+      "gameId": "442",
+      "name": "BONUS 10X",
+      "price": 1,
+      "url": "https://www.masslottery.com/games/scratch-tickets/bonus-10x-2024",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 752640,
+          "remaining": 57591
+        },
+        {
+          "amount": 2,
+          "originalCount": 569856,
+          "remaining": 33103
+        },
+        {
+          "amount": 3,
+          "originalCount": 86016,
+          "remaining": 4127
+        },
+        {
+          "amount": 4,
+          "originalCount": 107520,
+          "remaining": 4777
+        },
+        {
+          "amount": 5,
+          "originalCount": 43008,
+          "remaining": 1840
+        },
+        {
+          "amount": 10,
+          "originalCount": 75264,
+          "remaining": 2473
+        },
+        {
+          "amount": 20,
+          "originalCount": 32256,
+          "remaining": 915
+        },
+        {
+          "amount": 25,
+          "originalCount": 9072,
+          "remaining": 230
+        },
+        {
+          "amount": 40,
+          "originalCount": 7672,
+          "remaining": 143
+        },
+        {
+          "amount": 100,
+          "originalCount": 8064,
+          "remaining": 143
+        },
+        {
+          "amount": 1000,
+          "originalCount": 48,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "originalCount": 6,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.77,
+      "computed": {
+        "originalTickets": 8068083,
+        "fractionRemaining": 0.0623,
+        "ticketsRemaining": 502496,
+        "remainingPrizeValue": 245286,
+        "evPerTicket": 0.4881,
+        "roi": 0.4881,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000
+      }
+    }
+  ]
+}
