@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T11:16:29.316Z",
-  "resultsAsOf": "2026-10-11",
+  "generatedAt": "2026-10-13T11:14:40.057Z",
+  "resultsAsOf": "2026-10-12",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/New_York",
   "excluded": [
@@ -48,7 +48,7 @@
   "validationVersion": "2026-10-05.1",
   "state": "oh",
   "source": "https://api-solutions.ohiolottery.com/1.0/Games/ScratchOffs/ScratchOffGame/GetFullPrizesRemainingList",
-  "gameCount": 58,
+  "gameCount": 59,
   "games": [
     {
       "state": "oh",
@@ -323,6 +323,66 @@
         "roi": 0.7508,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 200000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1106",
+      "name": "Holiday Cash",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 1389166,
+          "remaining": 1389166
+        },
+        {
+          "amount": 20,
+          "originalCount": 73114,
+          "remaining": 73114
+        },
+        {
+          "amount": 500,
+          "originalCount": 742,
+          "remaining": 742
+        },
+        {
+          "amount": 50,
+          "originalCount": 7314,
+          "remaining": 7314
+        },
+        {
+          "amount": 5,
+          "originalCount": 584912,
+          "remaining": 584912
+        },
+        {
+          "amount": 10,
+          "originalCount": 146228,
+          "remaining": 146228
+        },
+        {
+          "amount": 1,
+          "originalCount": 1462280,
+          "remaining": 1462280
+        },
+        {
+          "amount": 100,
+          "originalCount": 1470,
+          "remaining": 1470
+        }
+      ],
+      "overallOdds": 3.99,
+      "computed": {
+        "originalTickets": 14624252,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 14624252,
+        "remainingPrizeValue": 10973432,
+        "evPerTicket": 0.7504,
+        "roi": 0.7504,
+        "topPrizesRemaining": 742,
+        "topPrizeAmount": 500
       }
     },
     {
