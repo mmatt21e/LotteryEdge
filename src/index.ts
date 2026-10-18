@@ -1,9 +1,10 @@
+import { feedCoverage, collectionSummary, type FeedDiagnostics } from "../shared/feedDiagnostics.js";
+import { observeContent, validateFullRecords } from "./feedDiagnostics.js";
 import { assertSourceAccess, SOURCE_PAUSES } from "../shared/sourceAccess.js";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { reportingDate, QUALITY_VERSION } from "../shared/quality.js";
-import { computeStats } from "./ev.js";
 import { loadHistory, saveHistory, upsertHistory } from "./history.js";
 import { getSource, sourceKeys, type CliSource } from "./sources/registry.js";
 import { WINNER_SOURCES } from "./sources/winners/registry.js";
@@ -31,7 +32,7 @@ function assertSaneRois(state: string, games: Game[]): void {
   }
 }
 
-interface StateStatus {
+interface StateStatus extends FeedDiagnostics {
   state: string;
   kind: "full" | "lite";
   ok: boolean;
@@ -53,25 +54,21 @@ async function loadJson<T>(path: string): Promise<T | null> {
 
 async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> {
   const { source, games: raw, sourceAsOf } = await src.scrape();
-  const excluded: {gameId:string;name:string;reason:string}[] = [];
-  const games: Game[] = [];
-  for (const g of raw) {
-    try { games.push({...g, computed: computeStats(g)}); }
-    catch(e) { excluded.push({gameId:g.gameId,name:g.name,reason:(e as Error).message}); }
-  }
-  games.sort((a,b)=>b.computed.roi-a.computed.roi);
+  const { games, excluded, coverage } = validateFullRecords(raw);
   const importedAt = new Date().toISOString();
   const dates = reportingDate(importedAt,src.key,sourceAsOf);
+  const dataPath = resolve(DATA_DIR, `scratchers-${src.key}.json`);
+  const prevData = await loadJson<ScrapeResult>(dataPath);
+  const observation = observeContent(raw, importedAt, prevData?.observation);
   const observationDir = resolve(DATA_DIR,"observations-v1",src.key);
   await mkdir(observationDir,{recursive:true});
-  await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+".json"),JSON.stringify({importedAt,source,sourceAsOf,validationVersion:QUALITY_VERSION,raw,excluded},null,2),{flag:"wx"});
+  await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+".json"),JSON.stringify({importedAt,source,sourceAsOf,validationVersion:QUALITY_VERSION,raw,excluded,coverage,observation},null,2),{flag:"wx"});
 
+  if (coverage.validation === "empty") throw new Error("Empty source listing; previous snapshot retained");
   assertSaneRois(src.key, games);
 
-  const dataPath = resolve(DATA_DIR, `scratchers-${src.key}.json`);
   // Count how many games actually moved vs the last run — a state whose source
   // is stale will scrape fine but show 0 changed, which we want to surface.
-  const prevData = await loadJson<ScrapeResult>(dataPath);
   if(prevData) await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+"-previous-published.json"),await readFile(dataPath),{flag:"wx"});
   const prevTickets = new Map(
     (prevData?.games ?? []).map((g) => [g.gameId, g.computed?.ticketsRemaining]),
@@ -82,7 +79,7 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
 
   const result: ScrapeResult = {
     generatedAt: importedAt,
-    ...dates, sourceAsOf, excluded, validationVersion: QUALITY_VERSION,
+    ...dates, sourceAsOf, excluded, coverage, observation, validationVersion: QUALITY_VERSION,
     state: src.key,
     source,
     gameCount: games.length,
@@ -99,12 +96,13 @@ async function runFull(src: CliSource & { kind: "full" }): Promise<StateStatus> 
 
   console.log(
     `[${src.key.toUpperCase()}] ${games.length} games · ${changed} changed since last run` +
-      (prevData && changed === 0 ? " (source may be stale)" : ""),
+      (prevData && games.length > 0 && changed === 0 ? " (validated ticket estimates unchanged)" : ""),
   );
   return {
     state: src.key,
     kind: "full",
     ok: true,
+    coverage, observation,
     gameCount: games.length,
     changed,
     generatedAt: result.generatedAt,
@@ -115,18 +113,21 @@ async function runLite(src: CliSource & { kind: "lite" }): Promise<StateStatus> 
   const { source, games, sourceAsOf } = await src.scrape();
   if(!games.length) throw new Error("Empty source listing");
   const importedAt = new Date().toISOString();
+  const prior = await loadJson<LiteResult>(resolve(DATA_DIR,`scratchers-${src.key}.json`));
+  const coverage = feedCoverage(games.length, games.length, 0);
+  const observation = observeContent(games, importedAt, prior?.observation);
   const result: LiteResult = {
     generatedAt: importedAt,
     ...reportingDate(importedAt,src.key,sourceAsOf), sourceAsOf, validationVersion: QUALITY_VERSION,
     state: src.key,
     limited: true,
+    coverage, observation,
     source,
     gameCount: games.length,
     games,
   };
   const observationDir=resolve(DATA_DIR,"observations-v1",src.key);
   await mkdir(observationDir,{recursive:true});
-  const prior=await loadJson<LiteResult>(resolve(DATA_DIR,`scratchers-${src.key}.json`));
   if(prior) await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+"-previous-published.json"),await readFile(resolve(DATA_DIR,`scratchers-${src.key}.json`)),{flag:"wx"});
   await writeFile(resolve(observationDir,importedAt.replace(/:/g,"-")+".json"),JSON.stringify(result,null,2),{flag:"wx"});
   await writeFile(
@@ -138,6 +139,7 @@ async function runLite(src: CliSource & { kind: "lite" }): Promise<StateStatus> 
     state: src.key,
     kind: "lite",
     ok: true,
+    coverage, observation,
     gameCount: games.length,
     generatedAt: result.generatedAt,
   };
@@ -275,17 +277,18 @@ async function main() {
   const failed = statuses.filter((s) => !s.ok).map((s) => s.state);
   const total = targets.length;
   const okCount = total - failed.length;
+  const coverageSummary = collectionSummary(statuses);
 
   // Full states that scraped OK but whose source didn't move any game — worth
   // flagging so silent source staleness is visible in the logs.
   const stale = statuses
-    .filter((s) => s.ok && s.kind === "full" && s.changed === 0)
+    .filter((s) => s.ok && s.kind === "full" && s.gameCount > 0 && s.changed === 0)
     .map((s) => s.state);
 
   console.log(
-    `\n[scrape] ${okCount}/${total} states OK` +
+    `\n[scrape] ${okCount}/${total} collections completed; ${coverageSummary.usableCount} with usable records; ${coverageSummary.zeroUsableCount} with none (dates checked separately)` +
       (failed.length ? ` · failed: ${failed.join(", ")}` : "") +
-      (stale.length ? ` · no changes (stale source?): ${stale.join(", ")}` : ""),
+      (stale.length ? ` · unchanged validated ticket estimates: ${stale.join(", ")}` : ""),
   );
 
   // Per-run summary table so degradation is readable at a glance in the log.
@@ -296,6 +299,10 @@ async function main() {
         s.kind === "full" ? String(s.changed ?? "-").padStart(7) : "   lite"
       }`,
     );
+  }
+
+  for (const s of statuses) {
+    if (s.ok && s.coverage) console.log(`[${s.state.toUpperCase()}] coverage: ${s.coverage.sourceRecordCount} collected, ${s.coverage.validatedCount} validated, ${s.coverage.excludedCount} excluded (${s.coverage.validation})`);
   }
 
   // Count consecutive no-change runs per state (carried through status.json)
@@ -309,10 +316,14 @@ async function main() {
   if (process.env.GITHUB_ACTIONS) {
     for (const f of failed)
       console.log(`::warning::${f.toUpperCase()} scrape failed — serving last-good data`);
+    for (const s of statuses) {
+      if (s.ok && s.coverage?.validatedCount === 0) console.log(`::warning::${s.state.toUpperCase()} collection completed but no usable records (${s.coverage.validation}); inspect exclusions`);
+      if (s.observation && s.observation.unchangedRuns >= 3) console.log(`::warning::${s.state.toUpperCase()} collected content unchanged for ${s.observation.unchangedRuns} comparisons; import time does not confirm a provider update`);
+    }
     for (const [st, runs] of Object.entries(staleRuns))
-      if (runs >= 3)
+      if (runs >= 3 && !statuses.find(s => s.state === st)?.observation && (statuses.find(s => s.state === st)?.coverage?.validatedCount ?? 0) > 0)
         console.log(
-          `::warning::${st.toUpperCase()} data unchanged for ${runs} runs — source may have stopped updating`,
+          `::warning::${st.toUpperCase()} validated ticket estimates unchanged for ${runs} runs - provider freshness unconfirmed`,
         );
   }
 
@@ -320,7 +331,8 @@ async function main() {
   if (arg === "all") {
     const report = {
       generatedAt: new Date().toISOString(),
-      okCount,
+      okCount, // legacy collection-completion count; not usable/fresh coverage
+      ...coverageSummary,
       total,
       failed,
       stale,

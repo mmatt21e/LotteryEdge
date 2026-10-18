@@ -1,13 +1,16 @@
 import type { AnyResult } from "../types.js";
-import type { FeedHealth } from "../../../shared/quality.js";
+import { feedHealthLabel, type FeedHealth } from "../../../shared/quality.js";
 import { relativeTime } from "../format.js";
 export function FeedDates({ feed }: {
     feed: FeedHealth;
 }) {
     return <div className="feed-dates">
- <strong>{feed.state.toUpperCase()}: {feed.eligible ? "Source meets freshness rules" : "Current comparison unavailable"}</strong>
+ <strong>{feed.state.toUpperCase()}: {feedHealthLabel(feed)}</strong>
  <div>{feed.dateBasis === "source" ? "Official results as of" : "Assumed reporting date"}: {feed.resultsAsOf} ({feed.timeZone})</div>
  <div>Imported: {feed.importedAt} ({relativeTime(feed.importedAt)})</div>
+ {feed.collectionStatus && <div>Collection: {feed.collectionStatus === "collected" ? "completed (usability checked separately)" : feed.collectionStatus}</div>}
+ {feed.coverage && <div>{feed.coverage.sourceRecordCount} source records; {feed.coverage.validatedCount} passed validation; {feed.coverage.excludedCount} excluded by validation.</div>}
+ {feed.warnings?.map(w => <p key={w}>{w}</p>)}
  {feed.lastAttemptAt && <div>Last attempted collection: {feed.lastAttemptAt}</div>}
  {feed.dateBasis !== "source" && <div>Previous local calendar day is assumed; the provider has not confirmed that results date.</div>}
  {feed.reasons.length > 0 && <p>{feed.reasons.join(". ")}. Historical facts are retained; rankings, model odds and change alerts are withheld.</p>}

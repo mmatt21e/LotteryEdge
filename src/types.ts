@@ -1,3 +1,4 @@
+import type { FeedDiagnostics } from "../shared/feedDiagnostics.js";
 import type {ReportingDate,FeedHealth} from "../shared/quality.js";
 /** A single prize tier within a scratch-off game, as published by the lottery. */
 export interface PrizeTier {
@@ -73,7 +74,7 @@ export interface Game extends RawGame {
   feed?: FeedHealth;
 }
 
-export interface ScrapeResult extends Partial<ReportingDate> {
+export interface ScrapeResult extends Partial<ReportingDate>, FeedDiagnostics {
   sourceAsOf?: string;
   validationVersion?: string;
   health?: FeedHealth;
@@ -85,7 +86,7 @@ export interface ScrapeResult extends Partial<ReportingDate> {
   games: Game[];
 }
 
-export interface LiteResult extends Partial<ReportingDate> {
+export interface LiteResult extends Partial<ReportingDate>, FeedDiagnostics {
   sourceAsOf?: string;
   validationVersion?: string;
   health?: FeedHealth;

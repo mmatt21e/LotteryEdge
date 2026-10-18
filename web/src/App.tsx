@@ -152,7 +152,7 @@ export default function App() {
         )}
         {!isAll && data && (
           <span className="freshness" title={shortDateTime(data.generatedAt)}>
-            {data.gameCount} source records · imported {relativeTime(data.generatedAt)}
+            {data.coverage?.sourceRecordCount ?? data.gameCount} source records · imported {relativeTime(data.generatedAt)}
           </span>
         )}
       </div>

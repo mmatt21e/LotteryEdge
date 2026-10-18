@@ -1,3 +1,4 @@
+import type { FeedDiagnostics, FeedCoverage } from "./feedDiagnostics.js";
 import { SOURCE_PAUSES } from "./sourceAccess.js";
 export const QUALITY_VERSION = "2026-10-05.1";
 export const SOURCE_ZONES: Record<string, string> = Object.fromEntries([
@@ -124,11 +125,12 @@ export function computedIssues(g: Raw & {
 }
 export interface FeedStatus {
     generatedAt: string;
-    states?: {
+    staleRuns?: Record<string, number>;
+    states?: (FeedDiagnostics & {
         state: string;
         ok: boolean;
         error?: string;
-    }[];
+    })[];
 }
 export interface FeedHealth extends ReportingDate {
     state: string;
@@ -138,8 +140,11 @@ export interface FeedHealth extends ReportingDate {
     eligible: boolean;
     reasons: string[];
     correction?: string;
+    coverage?: FeedCoverage;
+    collectionStatus?: "collected" | "failed" | "paused" | "unknown";
+    warnings?: string[];
 }
-export function feedHealth(data: SnapshotDates & {
+export function feedHealth(data: SnapshotDates & FeedDiagnostics & {
     source: string;
 }, status: FeedStatus | null, now = Date.now()): FeedHealth {
     const reasons: string[] = SOURCE_PAUSES[data.state] ? [SOURCE_PAUSES[data.state]!] : [];
@@ -161,9 +166,29 @@ export function feedHealth(data: SnapshotDates & {
         reasons.push("Latest collection failed; retained snapshot: " + (latest.error ?? "see collection log"));
     if (validDate(dates.resultsAsOf) && Date.parse(calendarDay(new Date(now).toISOString(), dates.timeZone)) - Date.parse(dates.resultsAsOf) > 2 * 86400000)
         reasons.push("Results date is older than two calendar days");
-    return { ...dates, state: data.state, source: data.source, importedAt: data.generatedAt, lastAttemptAt: latest ? status?.generatedAt : undefined, eligible: reasons.length === 0, reasons };
+    const coverage = data.coverage;
+    if (coverage?.validation === "empty") reasons.push("No source records collected; usable coverage unavailable");
+    else if (coverage?.validation === "all-excluded") reasons.push("All collected records excluded by validation; no supported estimates available");
+    const warnings: string[] = [];
+    // Use metadata belonging to this snapshot; a failed newer attempt cannot
+    // lend an old retained payload a fresh observation sequence.
+    const observation = data.observation;
+    if (observation && observation.unchangedRuns >= 3) {
+        warnings.push("Collected content unchanged for " + observation.unchangedRuns + " consecutive comparisons (observed since " + observation.contentObservedSince + "). " + (dates.dateBasis === "source" ? "Use the official results date separately." : "Provider freshness unconfirmed; a new import is not a confirmed results update."));
+    } else if (latest?.ok && (coverage?.validatedCount ?? 0) > 0 && (status?.staleRuns?.[data.state] ?? 0) >= 3) {
+        warnings.push("Validated ticket estimates unchanged for " + status!.staleRuns![data.state] + " runs (legacy comparison, not a raw-content check). " + (dates.dateBasis === "source" ? "Use the official results date separately." : "Provider freshness unconfirmed; a new import is not a confirmed results update."));
+    }
+    return { ...dates, state: data.state, source: data.source, importedAt: data.generatedAt, lastAttemptAt: latest ? status?.generatedAt : undefined, eligible: reasons.length === 0, reasons, coverage, warnings,
+        collectionStatus: SOURCE_PAUSES[data.state] ? "paused" : latest ? latest.ok ? "collected" : "failed" : "unknown" };
 }
 export function freshnessRange(feeds: FeedHealth[]): {
     oldest: string | null;
     newest: string | null;
 } { const dates = feeds.filter(f => f.eligible).map(f => f.resultsAsOf).filter(validDate).sort(); return { oldest: dates[0] ?? null, newest: dates.at(-1) ?? null }; }
+
+/** Shared text also used by server-rendered regression tests. */
+export function feedHealthLabel(feed: FeedHealth): string {
+    if (!feed.eligible) return "Current comparison unavailable";
+    if (feed.warnings?.length) return feed.dateBasis === "source" ? "Review unchanged observations and official date" : "Data unchanged; provider freshness unconfirmed";
+    return feed.dateBasis === "source" ? "Official date meets freshness rules" : "Recent import; results date assumed";
+}

@@ -1,3 +1,4 @@
+import type { FeedDiagnostics } from "../../shared/feedDiagnostics.js";
 import type {ReportingDate,FeedHealth} from "../../shared/quality.js";
 // Mirrors the scraper's output shape (see ../../src/types.ts).
 
@@ -32,7 +33,7 @@ export interface Game {
   feed?: FeedHealth;
 }
 
-export interface ScrapeResult extends Partial<ReportingDate> {
+export interface ScrapeResult extends Partial<ReportingDate>, FeedDiagnostics {
   sourceAsOf?: string;
   validationVersion?: string;
   health?: FeedHealth;
@@ -85,7 +86,7 @@ export interface LiteGame {
   url?: string;
 }
 
-export interface LiteResult extends Partial<ReportingDate> {
+export interface LiteResult extends Partial<ReportingDate>, FeedDiagnostics {
   sourceAsOf?: string;
   validationVersion?: string;
   health?: FeedHealth;
