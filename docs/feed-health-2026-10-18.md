@@ -1,4 +1,12 @@
-# Feed-health reporting correction (local, October 18, 2026)
+# Feed-health reporting correction (October 18, 2026)
+
+## Release 0.6.2
+
+Publication was authorized after the local validation described below. The release preserves the latest completed scheduled data refresh. The existing deployment workflow now accepts a boolean `refresh_data` input: `false` builds and deploys committed data without invoking collectors, Python parser setup, or data commits. The daily schedule and the default manual refresh behavior remain unchanged. No source-access guard or workflow permission is changed.
+
+For this release, use deterministic branch CI and a normal non-force default-branch update, then dispatch `update.yml` with `refresh_data=false`. The existing Nebraska pull-request workflow fetches a live provider PDF, so creating a PR would conflict with this release's no-new-collection constraint. No repository protection is bypassed; if the default branch requires a PR, stop for owner review instead.
+
+The remainder records the local implementation and its validation before publication; subsequent deployment evidence belongs in the release execution report.
 
 The October 17 refresh collected 50 Iowa and 75 Rhode Island records but rejected all of them. Both feeds still reported successful collection and a recent assumed date. Idaho had five unchanged comparisons while its assumed date advanced with each import. This change separates collection completion, usable coverage and date/content observations without changing EV validation or source permissions.
 
