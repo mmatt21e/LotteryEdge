@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T11:12:20.132Z",
-  "resultsAsOf": "2026-10-17",
+  "generatedAt": "2026-10-19T11:13:37.263Z",
+  "resultsAsOf": "2026-10-18",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/New_York",
   "excluded": [
@@ -30,6 +30,17 @@
       "reason": "Conflicting ticket-count anchors require source review"
     }
   ],
+  "coverage": {
+    "sourceRecordCount": 89,
+    "validatedCount": 84,
+    "excludedCount": 5,
+    "validation": "partial"
+  },
+  "observation": {
+    "contentHash": "559fa3283bc7309964cded2c66fde0b6b6b6cc30952a13c08c3c405ab7f51c86",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-19T11:13:37.263Z"
+  },
   "validationVersion": "2026-10-05.1",
   "state": "fl",
   "source": "https://apim-website-prod-eastus.azure-api.net/scratchgamesapp/getscratchinfo",
@@ -76,7 +87,7 @@
           "amount": 200,
           "odds": 601,
           "originalCount": 26998,
-          "remaining": 715
+          "remaining": 714
         },
         {
           "amount": 100,
@@ -88,7 +99,7 @@
           "amount": 50,
           "odds": 60,
           "originalCount": 270355,
-          "remaining": 7301
+          "remaining": 7300
         },
         {
           "amount": 30,
@@ -100,34 +111,34 @@
           "amount": 25,
           "odds": 60,
           "originalCount": 270610,
-          "remaining": 7366
+          "remaining": 7364
         },
         {
           "amount": 20,
           "odds": 15,
           "originalCount": 1082160,
-          "remaining": 33056
+          "remaining": 33054
         },
         {
           "amount": 15,
           "odds": 20,
           "originalCount": 811662,
-          "remaining": 26671
+          "remaining": 26668
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 1893793,
-          "remaining": 68085
+          "remaining": 68080
         }
       ],
       "overallOdds": 3.39,
       "computed": {
         "originalTickets": 16232340,
         "fractionRemaining": 0.0323,
-        "ticketsRemaining": 523595,
-        "remainingPrizeValue": 5444275,
-        "evPerTicket": 10.3979,
+        "ticketsRemaining": 523547,
+        "remainingPrizeValue": 5443840,
+        "evPerTicket": 10.398,
         "roi": 1.0398,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 2000000
@@ -186,40 +197,40 @@
           "amount": 500,
           "odds": 240,
           "originalCount": 195140,
-          "remaining": 11150
+          "remaining": 11149
         },
         {
           "amount": 200,
           "odds": 120,
           "originalCount": 389787,
-          "remaining": 23246
+          "remaining": 23244
         },
         {
           "amount": 100,
           "odds": 30,
           "originalCount": 1560140,
-          "remaining": 91094
+          "remaining": 91088
         },
         {
           "amount": 50,
           "odds": 6,
           "originalCount": 7488631,
-          "remaining": 412431
+          "remaining": 412400
         },
         {
           "amount": 30,
           "odds": 8,
           "originalCount": 6240221,
-          "remaining": 378868
+          "remaining": 378835
         }
       ],
       "overallOdds": 2.93,
       "computed": {
         "originalTickets": 46804200,
         "fractionRemaining": 0.0577,
-        "ticketsRemaining": 2702926,
-        "remainingPrizeValue": 75587190,
-        "evPerTicket": 27.9649,
+        "ticketsRemaining": 2702712,
+        "remainingPrizeValue": 75583150,
+        "evPerTicket": 27.9657,
         "roi": 0.9322,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 15000000
@@ -278,7 +289,7 @@
           "amount": 100,
           "odds": 120,
           "originalCount": 251649,
-          "remaining": 10964
+          "remaining": 10963
         },
         {
           "amount": 50,
@@ -302,23 +313,23 @@
           "amount": 15,
           "odds": 12,
           "originalCount": 2517374,
-          "remaining": 69014
+          "remaining": 69008
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 3020403,
-          "remaining": 123302
+          "remaining": 123293
         }
       ],
       "overallOdds": 3.41,
       "computed": {
         "originalTickets": 30208140,
         "fractionRemaining": 0.0329,
-        "ticketsRemaining": 993381,
-        "remainingPrizeValue": 8923890,
-        "evPerTicket": 8.9834,
-        "roi": 0.8983,
+        "ticketsRemaining": 993326,
+        "remainingPrizeValue": 8923610,
+        "evPerTicket": 8.9836,
+        "roi": 0.8984,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 2000000
       }
@@ -376,23 +387,23 @@
           "amount": 500,
           "odds": 46,
           "originalCount": 950241,
-          "remaining": 136849
+          "remaining": 136677
         },
         {
           "amount": 100,
           "odds": 5,
           "originalCount": 9351500,
-          "remaining": 1350437
+          "remaining": 1348812
         }
       ],
       "overallOdds": 4.23,
       "computed": {
         "originalTickets": 43840606,
-        "fractionRemaining": 0.1444,
-        "ticketsRemaining": 6330941,
-        "remainingPrizeValue": 281621200,
-        "evPerTicket": 44.4833,
-        "roi": 0.8897,
+        "fractionRemaining": 0.1442,
+        "ticketsRemaining": 6323334,
+        "remainingPrizeValue": 281372700,
+        "evPerTicket": 44.4975,
+        "roi": 0.89,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 25000000
       }
@@ -450,7 +461,7 @@
           "amount": 30,
           "odds": 300,
           "originalCount": 47554,
-          "remaining": 1757
+          "remaining": 1756
         },
         {
           "amount": 25,
@@ -462,37 +473,141 @@
           "amount": 20,
           "odds": 60,
           "originalCount": 237900,
-          "remaining": 9488
+          "remaining": 9487
         },
         {
           "amount": 15,
           "odds": 43,
           "originalCount": 333437,
-          "remaining": 13895
+          "remaining": 13894
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1429256,
-          "remaining": 65832
+          "remaining": 65815
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 1428652,
-          "remaining": 94288
+          "remaining": 94268
         }
       ],
       "overallOdds": 3.94,
       "computed": {
         "originalTickets": 14286110,
         "fractionRemaining": 0.0524,
-        "ticketsRemaining": 749165,
-        "remainingPrizeValue": 3052780,
-        "evPerTicket": 4.0749,
-        "roi": 0.815,
+        "ticketsRemaining": 749007,
+        "remainingPrizeValue": 3052445,
+        "evPerTicket": 4.0753,
+        "roi": 0.8151,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1646",
+      "name": "$2,000,000 SPECTACULAR",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1646",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 2233700,
+          "originalCount": 6,
+          "remaining": 6
+        },
+        {
+          "amount": 20000,
+          "odds": 418819,
+          "originalCount": 32,
+          "remaining": 27
+        },
+        {
+          "amount": 5000,
+          "odds": 134022,
+          "originalCount": 100,
+          "remaining": 85
+        },
+        {
+          "amount": 1000,
+          "odds": 10994,
+          "originalCount": 1219,
+          "remaining": 1018
+        },
+        {
+          "amount": 500,
+          "odds": 1263,
+          "originalCount": 10610,
+          "remaining": 8321
+        },
+        {
+          "amount": 200,
+          "odds": 481,
+          "originalCount": 27843,
+          "remaining": 21833
+        },
+        {
+          "amount": 100,
+          "odds": 126,
+          "originalCount": 106058,
+          "remaining": 83335
+        },
+        {
+          "amount": 50,
+          "odds": 133,
+          "originalCount": 100491,
+          "remaining": 79089
+        },
+        {
+          "amount": 40,
+          "odds": 71,
+          "originalCount": 189621,
+          "remaining": 149104
+        },
+        {
+          "amount": 30,
+          "odds": 75,
+          "originalCount": 178855,
+          "remaining": 141100
+        },
+        {
+          "amount": 25,
+          "odds": 60,
+          "originalCount": 223358,
+          "remaining": 176086
+        },
+        {
+          "amount": 20,
+          "odds": 15,
+          "originalCount": 893664,
+          "remaining": 705270
+        },
+        {
+          "amount": 15,
+          "odds": 12,
+          "originalCount": 1116666,
+          "remaining": 882769
+        },
+        {
+          "amount": 10,
+          "odds": 12,
+          "originalCount": 1116763,
+          "remaining": 884861
+        }
+      ],
+      "overallOdds": 3.38,
+      "computed": {
+        "originalTickets": 13401686,
+        "fractionRemaining": 0.7901,
+        "ticketsRemaining": 10588441,
+        "remainingPrizeValue": 85592905,
+        "evPerTicket": 8.0836,
+        "roi": 0.8084,
+        "topPrizesRemaining": 6,
+        "topPrizeAmount": 2000000
       }
     },
     {
@@ -548,153 +663,49 @@
           "amount": 500,
           "odds": 120,
           "originalCount": 132528,
-          "remaining": 120472
+          "remaining": 120136
         },
         {
           "amount": 200,
           "odds": 120,
           "originalCount": 132580,
-          "remaining": 120526
+          "remaining": 120176
         },
         {
           "amount": 100,
           "odds": 30,
           "originalCount": 530123,
-          "remaining": 482175
+          "remaining": 480800
         },
         {
           "amount": 50,
           "odds": 15,
           "originalCount": 1060408,
-          "remaining": 963347
+          "remaining": 960597
         },
         {
           "amount": 40,
           "odds": 10,
           "originalCount": 1590578,
-          "remaining": 1444750
+          "remaining": 1440554
         },
         {
           "amount": 30,
           "odds": 8,
           "originalCount": 2120867,
-          "remaining": 1928136
+          "remaining": 1922586
         }
       ],
       "overallOdds": 2.85,
       "computed": {
         "originalTickets": 15906120,
-        "fractionRemaining": 0.9089,
-        "ticketsRemaining": 14456480,
-        "remainingPrizeValue": 350232130,
-        "evPerTicket": 24.2267,
-        "roi": 0.8076,
+        "fractionRemaining": 0.9063,
+        "ticketsRemaining": 14414995,
+        "remainingPrizeValue": 349384790,
+        "evPerTicket": 24.2376,
+        "roi": 0.8079,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 15000000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1646",
-      "name": "$2,000,000 SPECTACULAR",
-      "price": 10,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1646",
-      "tiers": [
-        {
-          "amount": 2000000,
-          "odds": 2233700,
-          "originalCount": 6,
-          "remaining": 6
-        },
-        {
-          "amount": 20000,
-          "odds": 418819,
-          "originalCount": 32,
-          "remaining": 27
-        },
-        {
-          "amount": 5000,
-          "odds": 134022,
-          "originalCount": 100,
-          "remaining": 85
-        },
-        {
-          "amount": 1000,
-          "odds": 10994,
-          "originalCount": 1219,
-          "remaining": 1018
-        },
-        {
-          "amount": 500,
-          "odds": 1263,
-          "originalCount": 10610,
-          "remaining": 8395
-        },
-        {
-          "amount": 200,
-          "odds": 481,
-          "originalCount": 27843,
-          "remaining": 22012
-        },
-        {
-          "amount": 100,
-          "odds": 126,
-          "originalCount": 106058,
-          "remaining": 83976
-        },
-        {
-          "amount": 50,
-          "odds": 133,
-          "originalCount": 100491,
-          "remaining": 79749
-        },
-        {
-          "amount": 40,
-          "odds": 71,
-          "originalCount": 189621,
-          "remaining": 150215
-        },
-        {
-          "amount": 30,
-          "odds": 75,
-          "originalCount": 178855,
-          "remaining": 142162
-        },
-        {
-          "amount": 25,
-          "odds": 60,
-          "originalCount": 223358,
-          "remaining": 177364
-        },
-        {
-          "amount": 20,
-          "odds": 15,
-          "originalCount": 893664,
-          "remaining": 710570
-        },
-        {
-          "amount": 15,
-          "odds": 12,
-          "originalCount": 1116666,
-          "remaining": 889402
-        },
-        {
-          "amount": 10,
-          "odds": 12,
-          "originalCount": 1116763,
-          "remaining": 891346
-        }
-      ],
-      "overallOdds": 3.38,
-      "computed": {
-        "originalTickets": 13401686,
-        "fractionRemaining": 0.796,
-        "ticketsRemaining": 10667605,
-        "remainingPrizeValue": 86141400,
-        "evPerTicket": 8.075,
-        "roi": 0.8075,
-        "topPrizesRemaining": 6,
-        "topPrizeAmount": 2000000
       }
     },
     {
@@ -738,77 +749,77 @@
           "amount": 500,
           "odds": 3075,
           "originalCount": 10774,
-          "remaining": 403
+          "remaining": 400
         },
         {
           "amount": 250,
           "odds": 3422,
           "originalCount": 9681,
-          "remaining": 395
+          "remaining": 394
         },
         {
           "amount": 150,
           "odds": 1991,
           "originalCount": 16641,
-          "remaining": 645
+          "remaining": 642
         },
         {
           "amount": 100,
           "odds": 71,
           "originalCount": 465662,
-          "remaining": 19028
+          "remaining": 18951
         },
         {
           "amount": 50,
           "odds": 160,
           "originalCount": 207202,
-          "remaining": 8847
+          "remaining": 8822
         },
         {
           "amount": 40,
           "odds": 171,
           "originalCount": 193444,
-          "remaining": 8182
+          "remaining": 8152
         },
         {
           "amount": 30,
           "odds": 78,
           "originalCount": 422524,
-          "remaining": 18530
+          "remaining": 18466
         },
         {
           "amount": 25,
           "odds": 80,
           "originalCount": 413997,
-          "remaining": 18439
+          "remaining": 18372
         },
         {
           "amount": 20,
           "odds": 15,
           "originalCount": 2208876,
-          "remaining": 104805
+          "remaining": 104456
         },
         {
           "amount": 15,
           "odds": 12,
           "originalCount": 2760994,
-          "remaining": 130558
+          "remaining": 130132
         },
         {
           "amount": 10,
           "odds": 12,
           "originalCount": 2761046,
-          "remaining": 159386
+          "remaining": 158944
         }
       ],
       "overallOdds": 3.49,
       "computed": {
         "originalTickets": 33131928,
-        "fractionRemaining": 0.0495,
-        "ticketsRemaining": 1641417,
-        "remainingPrizeValue": 13055635,
-        "evPerTicket": 7.9539,
-        "roi": 0.7954,
+        "fractionRemaining": 0.0494,
+        "ticketsRemaining": 1636222,
+        "remainingPrizeValue": 13021900,
+        "evPerTicket": 7.9585,
+        "roi": 0.7959,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 2000000
       }
@@ -854,59 +865,59 @@
           "amount": 100,
           "odds": 240,
           "originalCount": 59292,
-          "remaining": 3161
+          "remaining": 3143
         },
         {
           "amount": 50,
           "odds": 231,
           "originalCount": 61669,
-          "remaining": 3506
+          "remaining": 3496
         },
         {
           "amount": 30,
           "odds": 240,
           "originalCount": 59366,
-          "remaining": 3314
+          "remaining": 3303
         },
         {
           "amount": 25,
           "odds": 241,
           "originalCount": 59153,
-          "remaining": 3386
+          "remaining": 3376
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 237126,
-          "remaining": 14305
+          "remaining": 14243
         },
         {
           "amount": 15,
           "odds": 60,
           "originalCount": 237126,
-          "remaining": 14545
+          "remaining": 14471
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1422570,
-          "remaining": 92124
+          "remaining": 91722
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 1422904,
-          "remaining": 121775
+          "remaining": 121347
         }
       ],
       "overallOdds": 3.99,
       "computed": {
         "originalTickets": 14227580,
-        "fractionRemaining": 0.0719,
-        "ticketsRemaining": 1022976,
-        "remainingPrizeValue": 4050360,
-        "evPerTicket": 3.9594,
-        "roi": 0.7919,
+        "fractionRemaining": 0.0716,
+        "ticketsRemaining": 1018930,
+        "remainingPrizeValue": 4038970,
+        "evPerTicket": 3.9639,
+        "roi": 0.7928,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
       }
@@ -970,21 +981,21 @@
           "amount": 30,
           "odds": 8,
           "originalCount": 1632489,
-          "remaining": 808851
+          "remaining": 808849
         },
         {
           "amount": 20,
           "odds": 8,
           "originalCount": 1631834,
-          "remaining": 816681
+          "remaining": 816680
         }
       ],
       "overallOdds": 2.79,
       "computed": {
         "originalTickets": 12236580,
         "fractionRemaining": 0.497,
-        "ticketsRemaining": 6082101,
-        "remainingPrizeValue": 96077560,
+        "ticketsRemaining": 6082093,
+        "remainingPrizeValue": 96077480,
         "evPerTicket": 15.7968,
         "roi": 0.7898,
         "topPrizesRemaining": 2,
@@ -1020,29 +1031,29 @@
           "amount": 500,
           "odds": 60,
           "originalCount": 441817,
-          "remaining": 185972
+          "remaining": 185688
         },
         {
           "amount": 200,
           "odds": 30,
           "originalCount": 882698,
-          "remaining": 371532
+          "remaining": 370981
         },
         {
           "amount": 100,
           "odds": 5,
           "originalCount": 5120278,
-          "remaining": 2155662
+          "remaining": 2152359
         }
       ],
       "overallOdds": 4.08,
       "computed": {
         "originalTickets": 26485800,
-        "fractionRemaining": 0.4211,
-        "ticketsRemaining": 11153478,
-        "remainingPrizeValue": 440356600,
-        "evPerTicket": 39.4816,
-        "roi": 0.7896,
+        "fractionRemaining": 0.4205,
+        "ticketsRemaining": 11136607,
+        "remainingPrizeValue": 439774100,
+        "evPerTicket": 39.4891,
+        "roi": 0.7898,
         "topPrizesRemaining": 46,
         "topPrizeAmount": 500000
       }
@@ -1076,29 +1087,29 @@
           "amount": 500,
           "odds": 60,
           "originalCount": 321311,
-          "remaining": 275208
+          "remaining": 274783
         },
         {
           "amount": 200,
           "odds": 30,
           "originalCount": 643137,
-          "remaining": 550669
+          "remaining": 549837
         },
         {
           "amount": 100,
           "odds": 5,
           "originalCount": 3730283,
-          "remaining": 3194028
+          "remaining": 3189158
         }
       ],
       "overallOdds": 4.08,
       "computed": {
         "originalTickets": 19294110,
-        "fractionRemaining": 0.8564,
-        "ticketsRemaining": 16523922,
-        "remainingPrizeValue": 651031600,
-        "evPerTicket": 39.3993,
-        "roi": 0.788,
+        "fractionRemaining": 0.8551,
+        "ticketsRemaining": 16498948,
+        "remainingPrizeValue": 650165700,
+        "evPerTicket": 39.4065,
+        "roi": 0.7881,
         "topPrizesRemaining": 55,
         "topPrizeAmount": 500000
       }
@@ -1144,47 +1155,47 @@
           "amount": 500,
           "odds": 200,
           "originalCount": 89576,
-          "remaining": 44865
+          "remaining": 44670
         },
         {
           "amount": 200,
           "odds": 120,
           "originalCount": 149221,
-          "remaining": 74744
+          "remaining": 74455
         },
         {
           "amount": 100,
           "odds": 30,
           "originalCount": 596994,
-          "remaining": 299924
+          "remaining": 298822
         },
         {
           "amount": 50,
           "odds": 30,
           "originalCount": 596994,
-          "remaining": 300506
+          "remaining": 299384
         },
         {
           "amount": 30,
           "odds": 14,
           "originalCount": 1313364,
-          "remaining": 659411
+          "remaining": 657009
         },
         {
           "amount": 20,
           "odds": 7,
           "originalCount": 2626864,
-          "remaining": 1321469
+          "remaining": 1316634
         }
       ],
       "overallOdds": 3.33,
       "computed": {
         "originalTickets": 17909822,
-        "fractionRemaining": 0.5027,
-        "ticketsRemaining": 9003106,
-        "remainingPrizeValue": 140790710,
-        "evPerTicket": 15.638,
-        "roi": 0.7819,
+        "fractionRemaining": 0.5008,
+        "ticketsRemaining": 8969965,
+        "remainingPrizeValue": 140300350,
+        "evPerTicket": 15.6411,
+        "roi": 0.7821,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 5000000
       }
@@ -1230,59 +1241,59 @@
           "amount": 150,
           "odds": 2999,
           "originalCount": 14115,
-          "remaining": 1041
+          "remaining": 1040
         },
         {
           "amount": 100,
           "odds": 235,
           "originalCount": 179966,
-          "remaining": 13814
+          "remaining": 13793
         },
         {
           "amount": 50,
           "odds": 240,
           "originalCount": 176483,
-          "remaining": 13431
+          "remaining": 13417
         },
         {
           "amount": 40,
           "odds": 209,
           "originalCount": 203036,
-          "remaining": 15271
+          "remaining": 15248
         },
         {
           "amount": 25,
           "odds": 119,
           "originalCount": 356227,
-          "remaining": 27819
+          "remaining": 27772
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 705579,
-          "remaining": 55559
+          "remaining": 55472
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 4092265,
-          "remaining": 361486
+          "remaining": 360997
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 4939160,
-          "remaining": 557857
+          "remaining": 557286
         }
       ],
       "overallOdds": 3.96,
       "computed": {
         "originalTickets": 42334740,
-        "fractionRemaining": 0.0981,
-        "ticketsRemaining": 4151190,
-        "remainingPrizeValue": 16201340,
-        "evPerTicket": 3.9028,
-        "roi": 0.7806,
+        "fractionRemaining": 0.0979,
+        "ticketsRemaining": 4146224,
+        "remainingPrizeValue": 16186810,
+        "evPerTicket": 3.904,
+        "roi": 0.7808,
         "topPrizesRemaining": 4,
         "topPrizeAmount": 1000000
       }
@@ -1334,59 +1345,59 @@
           "amount": 500,
           "odds": 300,
           "originalCount": 141374,
-          "remaining": 77692
+          "remaining": 77556
         },
         {
           "amount": 300,
           "odds": 240,
           "originalCount": 176691,
-          "remaining": 97318
+          "remaining": 97156
         },
         {
           "amount": 200,
           "odds": 120,
           "originalCount": 352943,
-          "remaining": 193633
+          "remaining": 193268
         },
         {
           "amount": 100,
           "odds": 120,
           "originalCount": 353222,
-          "remaining": 194674
+          "remaining": 194348
         },
         {
           "amount": 50,
           "odds": 30,
           "originalCount": 1412523,
-          "remaining": 776237
+          "remaining": 774932
         },
         {
           "amount": 40,
           "odds": 30,
           "originalCount": 1413019,
-          "remaining": 776779
+          "remaining": 775493
         },
         {
           "amount": 30,
           "odds": 13,
           "originalCount": 3390259,
-          "remaining": 1861103
+          "remaining": 1857984
         },
         {
           "amount": 20,
           "odds": 6,
           "originalCount": 7061220,
-          "remaining": 3893325
+          "remaining": 3886939
         }
       ],
       "overallOdds": 2.96,
       "computed": {
         "originalTickets": 42367320,
-        "fractionRemaining": 0.5504,
-        "ticketsRemaining": 23317288,
-        "remainingPrizeValue": 362659000,
-        "evPerTicket": 15.5532,
-        "roi": 0.7777,
+        "fractionRemaining": 0.5494,
+        "ticketsRemaining": 23278544,
+        "remainingPrizeValue": 362098820,
+        "evPerTicket": 15.555,
+        "roi": 0.7778,
         "topPrizesRemaining": 4,
         "topPrizeAmount": 5000000
       }
@@ -1432,46 +1443,46 @@
           "amount": 500,
           "odds": 200,
           "originalCount": 112232,
-          "remaining": 25581
+          "remaining": 25538
         },
         {
           "amount": 200,
           "odds": 197,
           "originalCount": 113959,
-          "remaining": 26068
+          "remaining": 26025
         },
         {
           "amount": 100,
           "odds": 40,
           "originalCount": 555797,
-          "remaining": 127937
+          "remaining": 127777
         },
         {
           "amount": 50,
           "odds": 19,
           "originalCount": 1195900,
-          "remaining": 275161
+          "remaining": 274780
         },
         {
           "amount": 30,
           "odds": 14,
           "originalCount": 1644343,
-          "remaining": 377947
+          "remaining": 377438
         },
         {
           "amount": 20,
           "odds": 6,
           "originalCount": 4035867,
-          "remaining": 933684
+          "remaining": 932450
         }
       ],
       "overallOdds": 2.93,
       "computed": {
         "originalTickets": 22431552,
-        "fractionRemaining": 0.2307,
-        "ticketsRemaining": 5173940,
-        "remainingPrizeValue": 80461940,
-        "evPerTicket": 15.5514,
+        "fractionRemaining": 0.2303,
+        "ticketsRemaining": 5166999,
+        "remainingPrizeValue": 80356840,
+        "evPerTicket": 15.5519,
         "roi": 0.7776,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 5000000
@@ -1518,65 +1529,65 @@
           "amount": 500,
           "odds": 930,
           "originalCount": 15392,
-          "remaining": 10726
+          "remaining": 10689
         },
         {
           "amount": 200,
           "odds": 452,
           "originalCount": 31653,
-          "remaining": 21766
+          "remaining": 21669
         },
         {
           "amount": 100,
           "odds": 120,
           "originalCount": 119379,
-          "remaining": 82804
+          "remaining": 82509
         },
         {
           "amount": 50,
           "odds": 60,
           "originalCount": 238567,
-          "remaining": 166328
+          "remaining": 165709
         },
         {
           "amount": 30,
           "odds": 60,
           "originalCount": 238567,
-          "remaining": 165138
+          "remaining": 164550
         },
         {
           "amount": 25,
           "odds": 60,
           "originalCount": 238567,
-          "remaining": 165129
+          "remaining": 164540
         },
         {
           "amount": 20,
           "odds": 15,
           "originalCount": 954268,
-          "remaining": 662217
+          "remaining": 659840
         },
         {
           "amount": 15,
           "odds": 20,
           "originalCount": 715701,
-          "remaining": 499944
+          "remaining": 498150
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 1574557,
-          "remaining": 1101127
+          "remaining": 1097133
         }
       ],
       "overallOdds": 3.47,
       "computed": {
         "originalTickets": 14314020,
-        "fractionRemaining": 0.6968,
-        "ticketsRemaining": 9973456,
-        "remainingPrizeValue": 77172135,
-        "evPerTicket": 7.7378,
-        "roi": 0.7738,
+        "fractionRemaining": 0.6942,
+        "ticketsRemaining": 9937450,
+        "remainingPrizeValue": 76927030,
+        "evPerTicket": 7.7411,
+        "roi": 0.7741,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 2000000
       }
@@ -1628,59 +1639,59 @@
           "amount": 500,
           "odds": 375,
           "originalCount": 40615,
-          "remaining": 25573
+          "remaining": 25495
         },
         {
           "amount": 300,
           "odds": 240,
           "originalCount": 63430,
-          "remaining": 39961
+          "remaining": 39844
         },
         {
           "amount": 200,
           "odds": 150,
           "originalCount": 101562,
-          "remaining": 63784
+          "remaining": 63613
         },
         {
           "amount": 100,
           "odds": 120,
           "originalCount": 127015,
-          "remaining": 79950
+          "remaining": 79707
         },
         {
           "amount": 50,
           "odds": 21,
           "originalCount": 710926,
-          "remaining": 449110
+          "remaining": 447805
         },
         {
           "amount": 40,
           "odds": 30,
           "originalCount": 507946,
-          "remaining": 320761
+          "remaining": 319783
         },
         {
           "amount": 30,
           "odds": 15,
           "originalCount": 1015538,
-          "remaining": 641452
+          "remaining": 639608
         },
         {
           "amount": 20,
           "odds": 6,
           "originalCount": 2539036,
-          "remaining": 1608266
+          "remaining": 1603678
         }
       ],
       "overallOdds": 2.98,
       "computed": {
         "originalTickets": 15234300,
-        "fractionRemaining": 0.6324,
-        "ticketsRemaining": 9633742,
-        "remainingPrizeValue": 148710420,
-        "evPerTicket": 15.4364,
-        "roi": 0.7718,
+        "fractionRemaining": 0.6305,
+        "ticketsRemaining": 9605942,
+        "remainingPrizeValue": 148326370,
+        "evPerTicket": 15.4411,
+        "roi": 0.7721,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 5000000
       }
@@ -1726,53 +1737,53 @@
           "amount": 500,
           "odds": 500,
           "originalCount": 43717,
-          "remaining": 29447
+          "remaining": 29396
         },
         {
           "amount": 250,
           "odds": 480,
           "originalCount": 45511,
-          "remaining": 30652
+          "remaining": 30572
         },
         {
           "amount": 100,
           "odds": 150,
           "originalCount": 145710,
-          "remaining": 98352
+          "remaining": 98101
         },
         {
           "amount": 50,
           "odds": 120,
           "originalCount": 182258,
-          "remaining": 123270
+          "remaining": 122965
         },
         {
           "amount": 25,
           "odds": 12,
           "originalCount": 1820730,
-          "remaining": 1235451
+          "remaining": 1232756
         },
         {
           "amount": 15,
           "odds": 12,
           "originalCount": 1820991,
-          "remaining": 1236671
+          "remaining": 1233822
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 2184498,
-          "remaining": 1486336
+          "remaining": 1482906
         }
       ],
       "overallOdds": 3.5,
       "computed": {
         "originalTickets": 21848760,
-        "fractionRemaining": 0.6792,
-        "ticketsRemaining": 14838702,
-        "remainingPrizeValue": 113916900,
-        "evPerTicket": 7.677,
-        "roi": 0.7677,
+        "fractionRemaining": 0.6776,
+        "ticketsRemaining": 14804915,
+        "remainingPrizeValue": 113686640,
+        "evPerTicket": 7.679,
+        "roi": 0.7679,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 2000000
       }
@@ -1812,65 +1823,65 @@
           "amount": 500,
           "odds": 1200,
           "originalCount": 13565,
-          "remaining": 3095
+          "remaining": 3085
         },
         {
           "amount": 200,
           "odds": 1202,
           "originalCount": 13547,
-          "remaining": 3007
+          "remaining": 2998
         },
         {
           "amount": 100,
           "odds": 57,
           "originalCount": 287493,
-          "remaining": 65329
+          "remaining": 65108
         },
         {
           "amount": 50,
           "odds": 231,
           "originalCount": 70536,
-          "remaining": 16270
+          "remaining": 16196
         },
         {
           "amount": 30,
           "odds": 60,
           "originalCount": 271334,
-          "remaining": 62097
+          "remaining": 61898
         },
         {
           "amount": 25,
           "odds": 60,
           "originalCount": 271352,
-          "remaining": 62601
+          "remaining": 62393
         },
         {
           "amount": 20,
           "odds": 15,
           "originalCount": 1085437,
-          "remaining": 252234
+          "remaining": 251280
         },
         {
           "amount": 15,
           "odds": 20,
           "originalCount": 814080,
-          "remaining": 192039
+          "remaining": 191336
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 1899514,
-          "remaining": 454458
+          "remaining": 452780
         }
       ],
       "overallOdds": 3.44,
       "computed": {
         "originalTickets": 16281600,
-        "fractionRemaining": 0.2351,
-        "ticketsRemaining": 3827417,
-        "remainingPrizeValue": 29281080,
-        "evPerTicket": 7.6504,
-        "roi": 0.765,
+        "fractionRemaining": 0.2342,
+        "ticketsRemaining": 3813459,
+        "remainingPrizeValue": 29190905,
+        "evPerTicket": 7.6547,
+        "roi": 0.7655,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 2000000
       }
@@ -1922,58 +1933,58 @@
           "amount": 500,
           "odds": 315,
           "originalCount": 27031,
-          "remaining": 5877
+          "remaining": 5871
         },
         {
           "amount": 200,
           "odds": 300,
           "originalCount": 28392,
-          "remaining": 6232
+          "remaining": 6226
         },
         {
           "amount": 100,
           "odds": 30,
           "originalCount": 284157,
-          "remaining": 62031
+          "remaining": 61968
         },
         {
           "amount": 50,
           "odds": 30,
           "originalCount": 284087,
-          "remaining": 64131
+          "remaining": 64051
         },
         {
           "amount": 40,
           "odds": 30,
           "originalCount": 283982,
-          "remaining": 64623
+          "remaining": 64570
         },
         {
           "amount": 30,
           "odds": 30,
           "originalCount": 283845,
-          "remaining": 64939
+          "remaining": 64876
         },
         {
           "amount": 25,
           "odds": 30,
           "originalCount": 284186,
-          "remaining": 64718
+          "remaining": 64637
         },
         {
           "amount": 20,
           "odds": 5,
           "originalCount": 1704131,
-          "remaining": 393570
+          "remaining": 393183
         }
       ],
       "overallOdds": 2.68,
       "computed": {
         "originalTickets": 8520752,
-        "fractionRemaining": 0.2284,
-        "ticketsRemaining": 1945751,
-        "remainingPrizeValue": 29705990,
-        "evPerTicket": 15.2671,
+        "fractionRemaining": 0.2281,
+        "ticketsRemaining": 1943771,
+        "remainingPrizeValue": 29677715,
+        "evPerTicket": 15.2681,
         "roi": 0.7634,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
@@ -2020,99 +2031,61 @@
           "amount": 500,
           "odds": 462,
           "originalCount": 90153,
-          "remaining": 41917
+          "remaining": 41822
         },
         {
           "amount": 200,
           "odds": 600,
           "originalCount": 69416,
-          "remaining": 32346
+          "remaining": 32281
         },
         {
           "amount": 100,
           "odds": 150,
           "originalCount": 277752,
-          "remaining": 130453
+          "remaining": 130180
         },
         {
           "amount": 50,
           "odds": 120,
           "originalCount": 347106,
-          "remaining": 165617
+          "remaining": 165302
         },
         {
           "amount": 40,
           "odds": 120,
           "originalCount": 346900,
-          "remaining": 160453
+          "remaining": 160093
         },
         {
           "amount": 20,
           "odds": 12,
           "originalCount": 3470703,
-          "remaining": 1623325
+          "remaining": 1619841
         },
         {
           "amount": 15,
           "odds": 12,
           "originalCount": 3471065,
-          "remaining": 1628168
+          "remaining": 1624684
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 4164959,
-          "remaining": 1962895
+          "remaining": 1958735
         }
       ],
       "overallOdds": 3.4,
       "computed": {
         "originalTickets": 41649013,
-        "fractionRemaining": 0.4695,
-        "ticketsRemaining": 19552389,
-        "remainingPrizeValue": 148771940,
-        "evPerTicket": 7.6089,
-        "roi": 0.7609,
+        "fractionRemaining": 0.4685,
+        "ticketsRemaining": 19510799,
+        "remainingPrizeValue": 148490450,
+        "evPerTicket": 7.6107,
+        "roi": 0.7611,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 2000000
-      }
-    },
-    {
-      "state": "fl",
-      "gameId": "1607",
-      "name": "$50, $100 & $500 BLOWOUT",
-      "price": 10,
-      "url": "https://floridalottery.com/games/scratch-offs/view?id=1607",
-      "tiers": [
-        {
-          "amount": 500,
-          "odds": 958,
-          "originalCount": 33725,
-          "remaining": 4646
-        },
-        {
-          "amount": 100,
-          "odds": 36,
-          "originalCount": 909920,
-          "remaining": 124282
-        },
-        {
-          "amount": 50,
-          "odds": 12,
-          "originalCount": 2696214,
-          "remaining": 370011
-        }
-      ],
-      "overallOdds": 8.89,
-      "computed": {
-        "originalTickets": 32356457,
-        "fractionRemaining": 0.1371,
-        "ticketsRemaining": 4435309,
-        "remainingPrizeValue": 33251750,
-        "evPerTicket": 7.4971,
-        "roi": 0.7497,
-        "topPrizesRemaining": 4646,
-        "topPrizeAmount": 500
       }
     },
     {
@@ -2168,49 +2141,87 @@
           "amount": 500,
           "odds": 150,
           "originalCount": 129706,
-          "remaining": 44951
+          "remaining": 44859
         },
         {
           "amount": 200,
           "odds": 120,
           "originalCount": 162087,
-          "remaining": 56296
+          "remaining": 56186
         },
         {
           "amount": 100,
           "odds": 30,
           "originalCount": 648935,
-          "remaining": 225291
+          "remaining": 224802
         },
         {
           "amount": 50,
           "odds": 15,
           "originalCount": 1297657,
-          "remaining": 451930
+          "remaining": 450950
         },
         {
           "amount": 40,
           "odds": 10,
           "originalCount": 1946205,
-          "remaining": 678028
+          "remaining": 676557
         },
         {
           "amount": 30,
           "odds": 6,
           "originalCount": 3243356,
-          "remaining": 1134822
+          "remaining": 1132362
         }
       ],
       "overallOdds": 2.61,
       "computed": {
         "originalTickets": 19462051,
-        "fractionRemaining": 0.3489,
-        "ticketsRemaining": 6790268,
-        "remainingPrizeValue": 152666080,
-        "evPerTicket": 22.4831,
-        "roi": 0.7494,
+        "fractionRemaining": 0.3481,
+        "ticketsRemaining": 6775625,
+        "remainingPrizeValue": 152367540,
+        "evPerTicket": 22.4876,
+        "roi": 0.7496,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1607",
+      "name": "$50, $100 & $500 BLOWOUT",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1607",
+      "tiers": [
+        {
+          "amount": 500,
+          "odds": 958,
+          "originalCount": 33725,
+          "remaining": 4585
+        },
+        {
+          "amount": 100,
+          "odds": 36,
+          "originalCount": 909920,
+          "remaining": 122776
+        },
+        {
+          "amount": 50,
+          "odds": 12,
+          "originalCount": 2696214,
+          "remaining": 365557
+        }
+      ],
+      "overallOdds": 8.89,
+      "computed": {
+        "originalTickets": 32356457,
+        "fractionRemaining": 0.1354,
+        "ticketsRemaining": 4381785,
+        "remainingPrizeValue": 32847950,
+        "evPerTicket": 7.4965,
+        "roi": 0.7496,
+        "topPrizesRemaining": 4585,
+        "topPrizeAmount": 500
       }
     },
     {
@@ -2254,53 +2265,53 @@
           "amount": 500,
           "odds": 198,
           "originalCount": 303164,
-          "remaining": 21122
+          "remaining": 20954
         },
         {
           "amount": 200,
           "odds": 160,
           "originalCount": 375789,
-          "remaining": 27993
+          "remaining": 27795
         },
         {
           "amount": 100,
           "odds": 40,
           "originalCount": 1492002,
-          "remaining": 112160
+          "remaining": 111433
         },
         {
           "amount": 50,
           "odds": 30,
           "originalCount": 2005710,
-          "remaining": 153289
+          "remaining": 152300
         },
         {
           "amount": 40,
           "odds": 30,
           "originalCount": 2005432,
-          "remaining": 152979
+          "remaining": 151958
         },
         {
           "amount": 30,
           "odds": 19,
           "originalCount": 3208771,
-          "remaining": 251570
+          "remaining": 249965
         },
         {
           "amount": 20,
           "odds": 6,
           "originalCount": 10832023,
-          "remaining": 832503
+          "remaining": 827089
         }
       ],
       "overallOdds": 2.97,
       "computed": {
         "originalTickets": 60171300,
-        "fractionRemaining": 0.0767,
-        "ticketsRemaining": 4616716,
-        "remainingPrizeValue": 69093370,
-        "evPerTicket": 14.9659,
-        "roi": 0.7483,
+        "fractionRemaining": 0.0762,
+        "ticketsRemaining": 4586604,
+        "remainingPrizeValue": 68650350,
+        "evPerTicket": 14.9676,
+        "roi": 0.7484,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 10000000
       }
@@ -2370,29 +2381,29 @@
           "amount": 5,
           "odds": 75,
           "originalCount": 164110,
-          "remaining": 28550
+          "remaining": 28547
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 984674,
-          "remaining": 160958
+          "remaining": 160945
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 1230831,
-          "remaining": 230414
+          "remaining": 230395
         }
       ],
       "overallOdds": 4.41,
       "computed": {
         "originalTickets": 12308250,
         "fractionRemaining": 0.1785,
-        "ticketsRemaining": 2196633,
-        "remainingPrizeValue": 3284130,
+        "ticketsRemaining": 2196479,
+        "remainingPrizeValue": 3284025,
         "evPerTicket": 1.4951,
-        "roi": 0.7475,
+        "roi": 0.7476,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 50000
       }
@@ -2444,58 +2455,58 @@
           "amount": 200,
           "odds": 2005,
           "originalCount": 11432,
-          "remaining": 4392
+          "remaining": 4391
         },
         {
           "amount": 100,
           "odds": 324,
           "originalCount": 70719,
-          "remaining": 27277
+          "remaining": 27269
         },
         {
           "amount": 50,
           "odds": 280,
           "originalCount": 81712,
-          "remaining": 31627
+          "remaining": 31620
         },
         {
           "amount": 30,
           "odds": 333,
           "originalCount": 68725,
-          "remaining": 26582
+          "remaining": 26578
         },
         {
           "amount": 25,
           "odds": 173,
           "originalCount": 132462,
-          "remaining": 51133
+          "remaining": 51121
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 382043,
-          "remaining": 148340
+          "remaining": 148319
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 2673799,
-          "remaining": 1058507
+          "remaining": 1058352
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 2292135,
-          "remaining": 941789
+          "remaining": 941618
         }
       ],
       "overallOdds": 4,
       "computed": {
         "originalTickets": 22919268,
         "fractionRemaining": 0.4007,
-        "ticketsRemaining": 9184827,
-        "remainingPrizeValue": 34244550,
-        "evPerTicket": 3.7284,
+        "ticketsRemaining": 9183310,
+        "remainingPrizeValue": 34239955,
+        "evPerTicket": 3.7285,
         "roi": 0.7457,
         "topPrizesRemaining": 4,
         "topPrizeAmount": 1000000
@@ -2536,59 +2547,59 @@
           "amount": 500,
           "odds": 930,
           "originalCount": 26116,
-          "remaining": 10199
+          "remaining": 10182
         },
         {
           "amount": 200,
           "odds": 480,
           "originalCount": 50566,
-          "remaining": 19484
+          "remaining": 19443
         },
         {
           "amount": 100,
           "odds": 120,
           "originalCount": 202298,
-          "remaining": 78120
+          "remaining": 77946
         },
         {
           "amount": 50,
           "odds": 120,
           "originalCount": 202417,
-          "remaining": 78216
+          "remaining": 78049
         },
         {
           "amount": 40,
           "odds": 120,
           "originalCount": 202522,
-          "remaining": 78737
+          "remaining": 78560
         },
         {
           "amount": 30,
           "odds": 75,
           "originalCount": 323694,
-          "remaining": 125765
+          "remaining": 125476
         },
         {
           "amount": 20,
           "odds": 10,
           "originalCount": 2428304,
-          "remaining": 964167
+          "remaining": 962125
         },
         {
           "amount": 10,
           "odds": 6,
           "originalCount": 4047198,
-          "remaining": 1634401
+          "remaining": 1631011
         }
       ],
       "overallOdds": 3.24,
       "computed": {
         "originalTickets": 24283136,
-        "fractionRemaining": 0.3994,
-        "ticketsRemaining": 9699705,
-        "remainingPrizeValue": 71636880,
-        "evPerTicket": 7.3855,
-        "roi": 0.7385,
+        "fractionRemaining": 0.3986,
+        "ticketsRemaining": 9679291,
+        "remainingPrizeValue": 71503940,
+        "evPerTicket": 7.3873,
+        "roi": 0.7387,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 2000000
       }
@@ -2634,64 +2645,64 @@
           "amount": 200,
           "odds": 690,
           "originalCount": 25752,
-          "remaining": 7922
+          "remaining": 7918
         },
         {
           "amount": 100,
           "odds": 339,
           "originalCount": 52380,
-          "remaining": 16212
+          "remaining": 16206
         },
         {
           "amount": 50,
           "odds": 375,
           "originalCount": 47376,
-          "remaining": 14635
+          "remaining": 14633
         },
         {
           "amount": 40,
           "odds": 360,
           "originalCount": 49390,
-          "remaining": 15376
+          "remaining": 15369
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 59241,
-          "remaining": 18545
+          "remaining": 18540
         },
         {
           "amount": 20,
           "odds": 50,
           "originalCount": 355546,
-          "remaining": 111560
+          "remaining": 111531
         },
         {
           "amount": 15,
           "odds": 50,
           "originalCount": 355471,
-          "remaining": 112664
+          "remaining": 112632
         },
         {
           "amount": 10,
           "odds": 17,
           "originalCount": 1067207,
-          "remaining": 341414
+          "remaining": 341310
         },
         {
           "amount": 6,
           "odds": 8,
           "originalCount": 2370223,
-          "remaining": 770358
+          "remaining": 770117
         }
       ],
       "overallOdds": 4.05,
       "computed": {
         "originalTickets": 17778200,
-        "fractionRemaining": 0.3214,
-        "ticketsRemaining": 5714367,
-        "remainingPrizeValue": 20882688,
-        "evPerTicket": 3.6544,
+        "fractionRemaining": 0.3213,
+        "ticketsRemaining": 5712625,
+        "remainingPrizeValue": 20877212,
+        "evPerTicket": 3.6546,
         "roi": 0.7309,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 1000000
@@ -2726,65 +2737,65 @@
           "amount": 500,
           "odds": 2007,
           "originalCount": 6765,
-          "remaining": 2728
+          "remaining": 2691
         },
         {
           "amount": 200,
           "odds": 748,
           "originalCount": 18152,
-          "remaining": 7339
+          "remaining": 7227
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 56491,
-          "remaining": 22878
+          "remaining": 22609
         },
         {
           "amount": 50,
           "odds": 239,
           "originalCount": 56733,
-          "remaining": 23136
+          "remaining": 22869
         },
         {
           "amount": 40,
           "odds": 240,
           "originalCount": 56587,
-          "remaining": 23109
+          "remaining": 22833
         },
         {
           "amount": 20,
           "odds": 120,
           "originalCount": 113173,
-          "remaining": 47995
+          "remaining": 47480
         },
         {
           "amount": 15,
           "odds": 60,
           "originalCount": 226279,
-          "remaining": 93463
+          "remaining": 92328
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1357644,
-          "remaining": 582134
+          "remaining": 575830
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 1583973,
-          "remaining": 683430
+          "remaining": 675967
         }
       ],
       "overallOdds": 3.91,
       "computed": {
         "originalTickets": 13576740,
-        "fractionRemaining": 0.4276,
-        "ticketsRemaining": 5805337,
-        "remainingPrizeValue": 21096095,
-        "evPerTicket": 3.6339,
-        "roi": 0.7268,
+        "fractionRemaining": 0.4229,
+        "ticketsRemaining": 5741373,
+        "remainingPrizeValue": 20876225,
+        "evPerTicket": 3.6361,
+        "roi": 0.7272,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 1000000
       }
@@ -2824,65 +2835,65 @@
           "amount": 500,
           "odds": 1207,
           "originalCount": 11608,
-          "remaining": 8720
+          "remaining": 8648
         },
         {
           "amount": 100,
           "odds": 601,
           "originalCount": 23296,
-          "remaining": 17455
+          "remaining": 17299
         },
         {
           "amount": 50,
           "odds": 120,
           "originalCount": 116621,
-          "remaining": 87874
+          "remaining": 87102
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 46641,
-          "remaining": 35195
+          "remaining": 34891
         },
         {
           "amount": 25,
           "odds": 300,
           "originalCount": 46740,
-          "remaining": 35312
+          "remaining": 35007
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 233392,
-          "remaining": 176514
+          "remaining": 174960
         },
         {
           "amount": 15,
           "odds": 50,
           "originalCount": 280133,
-          "remaining": 212242
+          "remaining": 210415
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1400618,
-          "remaining": 1064714
+          "remaining": 1055478
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 1400619,
-          "remaining": 1077202
+          "remaining": 1068349
         }
       ],
       "overallOdds": 3.93,
       "computed": {
         "originalTickets": 14005862,
-        "fractionRemaining": 0.7628,
-        "ticketsRemaining": 10683370,
-        "remainingPrizeValue": 38769910,
-        "evPerTicket": 3.629,
-        "roi": 0.7258,
+        "fractionRemaining": 0.7563,
+        "ticketsRemaining": 10592579,
+        "remainingPrizeValue": 38467855,
+        "evPerTicket": 3.6316,
+        "roi": 0.7263,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 1000000
       }
@@ -2958,21 +2969,21 @@
           "amount": 10,
           "odds": 15,
           "originalCount": 1272712,
-          "remaining": 500447
+          "remaining": 500446
         },
         {
           "amount": 5,
           "odds": 8,
           "originalCount": 2418139,
-          "remaining": 988843
+          "remaining": 988838
         }
       ],
       "overallOdds": 3.86,
       "computed": {
         "originalTickets": 19091700,
         "fractionRemaining": 0.3991,
-        "ticketsRemaining": 7619560,
-        "remainingPrizeValue": 27624420,
+        "ticketsRemaining": 7619536,
+        "remainingPrizeValue": 27624385,
         "evPerTicket": 3.6255,
         "roi": 0.7251,
         "topPrizesRemaining": 4,
@@ -3032,7 +3043,7 @@
           "amount": 50,
           "odds": 60,
           "originalCount": 178193,
-          "remaining": 17340
+          "remaining": 17338
         },
         {
           "amount": 40,
@@ -3044,28 +3055,28 @@
           "amount": 20,
           "odds": 15,
           "originalCount": 713120,
-          "remaining": 82893
+          "remaining": 82883
         },
         {
           "amount": 15,
           "odds": 12,
           "originalCount": 891348,
-          "remaining": 96316
+          "remaining": 96304
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1069826,
-          "remaining": 134732
+          "remaining": 134723
         }
       ],
       "overallOdds": 3.46,
       "computed": {
         "originalTickets": 10696800,
         "fractionRemaining": 0.1146,
-        "ticketsRemaining": 1226309,
-        "remainingPrizeValue": 8807080,
-        "evPerTicket": 7.1818,
+        "ticketsRemaining": 1226195,
+        "remainingPrizeValue": 8806510,
+        "evPerTicket": 7.182,
         "roi": 0.7182,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 500000
@@ -3106,64 +3117,64 @@
           "amount": 500,
           "odds": 3753,
           "originalCount": 16666,
-          "remaining": 9287
+          "remaining": 9279
         },
         {
           "amount": 200,
           "odds": 5992,
           "originalCount": 10422,
-          "remaining": 5832
+          "remaining": 5822
         },
         {
           "amount": 100,
           "odds": 200,
           "originalCount": 313207,
-          "remaining": 176345
+          "remaining": 176099
         },
         {
           "amount": 50,
           "odds": 200,
           "originalCount": 313084,
-          "remaining": 177494
+          "remaining": 177245
         },
         {
           "amount": 40,
           "odds": 200,
           "originalCount": 313035,
-          "remaining": 175404
+          "remaining": 175194
         },
         {
           "amount": 25,
           "odds": 96,
           "originalCount": 652166,
-          "remaining": 373686
+          "remaining": 373224
         },
         {
           "amount": 15,
           "odds": 60,
           "originalCount": 1043645,
-          "remaining": 591426
+          "remaining": 590696
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 6470579,
-          "remaining": 3688716
+          "remaining": 3683929
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 7305248,
-          "remaining": 4281472
+          "remaining": 4276183
         }
       ],
       "overallOdds": 3.81,
       "computed": {
         "originalTickets": 62612368,
-        "fractionRemaining": 0.5767,
-        "ticketsRemaining": 36107636,
-        "remainingPrizeValue": 129149320,
-        "evPerTicket": 3.5768,
+        "fractionRemaining": 0.576,
+        "ticketsRemaining": 36061985,
+        "remainingPrizeValue": 129001055,
+        "evPerTicket": 3.5772,
         "roi": 0.7154,
         "topPrizesRemaining": 7,
         "topPrizeAmount": 1000000
@@ -3204,65 +3215,65 @@
           "amount": 500,
           "odds": 3021,
           "originalCount": 7490,
-          "remaining": 448
+          "remaining": 447
         },
         {
           "amount": 250,
           "odds": 2006,
           "originalCount": 11282,
-          "remaining": 704
+          "remaining": 703
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 94384,
-          "remaining": 6287
+          "remaining": 6277
         },
         {
           "amount": 50,
           "odds": 238,
           "originalCount": 95162,
-          "remaining": 7344
+          "remaining": 7333
         },
         {
           "amount": 40,
           "odds": 238,
           "originalCount": 95214,
-          "remaining": 5508
+          "remaining": 5497
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 75376,
-          "remaining": 4395
+          "remaining": 4390
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 377171,
-          "remaining": 31947
+          "remaining": 31907
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 2640197,
-          "remaining": 169748
+          "remaining": 169522
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 2263092,
-          "remaining": 171850
+          "remaining": 171644
         }
       ],
       "overallOdds": 4,
       "computed": {
         "originalTickets": 22631065,
-        "fractionRemaining": 0.0704,
-        "ticketsRemaining": 1592520,
-        "remainingPrizeValue": 5676740,
-        "evPerTicket": 3.5646,
-        "roi": 0.7129,
+        "fractionRemaining": 0.0703,
+        "ticketsRemaining": 1590478,
+        "remainingPrizeValue": 5669760,
+        "evPerTicket": 3.5648,
+        "roi": 0.713,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 500000
       }
@@ -3302,65 +3313,65 @@
           "amount": 500,
           "odds": 3080,
           "originalCount": 10036,
-          "remaining": 6830
+          "remaining": 6821
         },
         {
           "amount": 250,
           "odds": 4806,
           "originalCount": 6432,
-          "remaining": 4409
+          "remaining": 4401
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 128794,
-          "remaining": 87905
+          "remaining": 87692
         },
         {
           "amount": 50,
           "odds": 240,
           "originalCount": 128867,
-          "remaining": 88008
+          "remaining": 87804
         },
         {
           "amount": 40,
           "odds": 240,
           "originalCount": 128760,
-          "remaining": 87798
+          "remaining": 87597
         },
         {
           "amount": 25,
           "odds": 60,
           "originalCount": 515227,
-          "remaining": 354398
+          "remaining": 353598
         },
         {
           "amount": 15,
           "odds": 60,
           "originalCount": 515185,
-          "remaining": 354016
+          "remaining": 353181
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 3193868,
-          "remaining": 2199919
+          "remaining": 2194967
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 3606661,
-          "remaining": 2524954
+          "remaining": 2519584
         }
       ],
       "overallOdds": 3.75,
       "computed": {
         "originalTickets": 30911106,
-        "fractionRemaining": 0.6933,
-        "ticketsRemaining": 21429651,
-        "remainingPrizeValue": 76382220,
-        "evPerTicket": 3.5643,
-        "roi": 0.7129,
+        "fractionRemaining": 0.6917,
+        "ticketsRemaining": 21382398,
+        "remainingPrizeValue": 76227285,
+        "evPerTicket": 3.565,
+        "roi": 0.713,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 1000000
       }
@@ -3400,64 +3411,64 @@
           "amount": 400,
           "odds": 3004,
           "originalCount": 18742,
-          "remaining": 3184
+          "remaining": 3180
         },
         {
           "amount": 150,
           "odds": 1239,
           "originalCount": 45452,
-          "remaining": 7654
+          "remaining": 7650
         },
         {
           "amount": 100,
           "odds": 348,
           "originalCount": 161963,
-          "remaining": 26719
+          "remaining": 26705
         },
         {
           "amount": 50,
           "odds": 705,
           "originalCount": 79804,
-          "remaining": 13398
+          "remaining": 13390
         },
         {
           "amount": 40,
           "odds": 160,
           "originalCount": 352820,
-          "remaining": 61664
+          "remaining": 61625
         },
         {
           "amount": 25,
           "odds": 160,
           "originalCount": 352062,
-          "remaining": 55591
+          "remaining": 55561
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 938241,
-          "remaining": 152751
+          "remaining": 152670
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 5629446,
-          "remaining": 943768
+          "remaining": 943308
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 6567817,
-          "remaining": 1256256
+          "remaining": 1255738
         }
       ],
       "overallOdds": 3.98,
       "computed": {
         "originalTickets": 56297811,
-        "fractionRemaining": 0.1782,
-        "ticketsRemaining": 10032697,
-        "remainingPrizeValue": 35729815,
-        "evPerTicket": 3.5613,
+        "fractionRemaining": 0.1781,
+        "ticketsRemaining": 10028091,
+        "remainingPrizeValue": 35714695,
+        "evPerTicket": 3.5615,
         "roi": 0.7123,
         "topPrizesRemaining": 5,
         "topPrizeAmount": 1000000
@@ -3498,70 +3509,70 @@
           "amount": 500,
           "odds": 1500,
           "originalCount": 10828,
-          "remaining": 6046
+          "remaining": 6036
         },
         {
           "amount": 250,
           "odds": 1500,
           "originalCount": 10807,
-          "remaining": 6015
+          "remaining": 6008
         },
         {
           "amount": 100,
           "odds": 480,
           "originalCount": 33754,
-          "remaining": 18796
+          "remaining": 18775
         },
         {
           "amount": 50,
           "odds": 240,
           "originalCount": 67402,
-          "remaining": 37558
+          "remaining": 37503
         },
         {
           "amount": 30,
           "odds": 240,
           "originalCount": 67430,
-          "remaining": 37704
+          "remaining": 37653
         },
         {
           "amount": 25,
           "odds": 240,
           "originalCount": 67374,
-          "remaining": 37732
+          "remaining": 37686
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 269562,
-          "remaining": 151519
+          "remaining": 151309
         },
         {
           "amount": 15,
           "odds": 60,
           "originalCount": 269562,
-          "remaining": 151668
+          "remaining": 151486
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1617327,
-          "remaining": 912345
+          "remaining": 911110
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 1617447,
-          "remaining": 929585
+          "remaining": 928430
         }
       ],
       "overallOdds": 4.01,
       "computed": {
         "originalTickets": 16173720,
-        "fractionRemaining": 0.5678,
-        "ticketsRemaining": 9182967,
-        "remainingPrizeValue": 32653445,
-        "evPerTicket": 3.5559,
+        "fractionRemaining": 0.567,
+        "ticketsRemaining": 9171047,
+        "remainingPrizeValue": 32614110,
+        "evPerTicket": 3.5562,
         "roi": 0.7112,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 1000000
@@ -3626,40 +3637,40 @@
           "amount": 30,
           "odds": 80,
           "originalCount": 303587,
-          "remaining": 35509
+          "remaining": 35507
         },
         {
           "amount": 25,
           "odds": 80,
           "originalCount": 303548,
-          "remaining": 35812
+          "remaining": 35810
         },
         {
           "amount": 20,
           "odds": 14,
           "originalCount": 1780611,
-          "remaining": 219239
+          "remaining": 219226
         },
         {
           "amount": 15,
           "odds": 20,
           "originalCount": 1213967,
-          "remaining": 149379
+          "remaining": 149373
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 2832959,
-          "remaining": 381317
+          "remaining": 381297
         }
       ],
       "overallOdds": 3.41,
       "computed": {
         "originalTickets": 24283920,
         "fractionRemaining": 0.1269,
-        "ticketsRemaining": 3082160,
-        "remainingPrizeValue": 21789405,
-        "evPerTicket": 7.0695,
+        "ticketsRemaining": 3082013,
+        "remainingPrizeValue": 21788745,
+        "evPerTicket": 7.0696,
         "roi": 0.707,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 2000000
@@ -3676,36 +3687,36 @@
           "amount": 500,
           "odds": 3002,
           "originalCount": 6116,
-          "remaining": 677
+          "remaining": 669
         },
         {
           "amount": 100,
           "odds": 189,
           "originalCount": 97116,
-          "remaining": 10778
+          "remaining": 10667
         },
         {
           "amount": 50,
           "odds": 60,
           "originalCount": 306000,
-          "remaining": 34318
+          "remaining": 33968
         },
         {
           "amount": 25,
           "odds": 13,
           "originalCount": 1468665,
-          "remaining": 166101
+          "remaining": 164398
         }
       ],
       "overallOdds": 9.78,
       "computed": {
         "originalTickets": 18360232,
-        "fractionRemaining": 0.1128,
-        "ticketsRemaining": 2071496,
-        "remainingPrizeValue": 7284725,
-        "evPerTicket": 3.5166,
+        "fractionRemaining": 0.1117,
+        "ticketsRemaining": 2050260,
+        "remainingPrizeValue": 7209550,
+        "evPerTicket": 3.5164,
         "roi": 0.7033,
-        "topPrizesRemaining": 677,
+        "topPrizesRemaining": 669,
         "topPrizeAmount": 500
       }
     },
@@ -3744,65 +3755,65 @@
           "amount": 500,
           "odds": 960,
           "originalCount": 14779,
-          "remaining": 3869
+          "remaining": 3838
         },
         {
           "amount": 100,
           "odds": 419,
           "originalCount": 33831,
-          "remaining": 8946
+          "remaining": 8846
         },
         {
           "amount": 50,
           "odds": 300,
           "originalCount": 47341,
-          "remaining": 12624
+          "remaining": 12503
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 47248,
-          "remaining": 12638
+          "remaining": 12513
         },
         {
           "amount": 25,
           "odds": 300,
           "originalCount": 47315,
-          "remaining": 12793
+          "remaining": 12691
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 236455,
-          "remaining": 64462
+          "remaining": 63859
         },
         {
           "amount": 15,
           "odds": 43,
           "originalCount": 331132,
-          "remaining": 90721
+          "remaining": 89853
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1418684,
-          "remaining": 393936
+          "remaining": 390204
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 1418808,
-          "remaining": 415192
+          "remaining": 411536
         }
       ],
       "overallOdds": 3.95,
       "computed": {
         "originalTickets": 14188080,
-        "fractionRemaining": 0.2823,
-        "ticketsRemaining": 4005923,
-        "remainingPrizeValue": 14063640,
-        "evPerTicket": 3.5107,
-        "roi": 0.7021,
+        "fractionRemaining": 0.2797,
+        "ticketsRemaining": 3969082,
+        "remainingPrizeValue": 13945110,
+        "evPerTicket": 3.5134,
+        "roi": 0.7027,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
       }
@@ -3830,57 +3841,57 @@
           "amount": 400,
           "odds": 14890,
           "originalCount": 4555,
-          "remaining": 1883
+          "remaining": 1882
         },
         {
           "amount": 100,
           "odds": 601,
           "originalCount": 112850,
-          "remaining": 45815
+          "remaining": 45810
         },
         {
           "amount": 50,
           "odds": 200,
           "originalCount": 339230,
-          "remaining": 136152
+          "remaining": 136131
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 452166,
-          "remaining": 178168
+          "remaining": 178146
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 1356371,
-          "remaining": 511865
+          "remaining": 511822
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 904332,
-          "remaining": 343790
+          "remaining": 343757
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 4974128,
-          "remaining": 1920561
+          "remaining": 1920336
         },
         {
           "amount": 2,
           "odds": 11,
           "originalCount": 6330530,
-          "remaining": 2544316
+          "remaining": 2544057
         }
       ],
       "overallOdds": 4.69,
       "computed": {
         "originalTickets": 67824900,
         "fractionRemaining": 0.3926,
-        "ticketsRemaining": 26628209,
-        "remainingPrizeValue": 36987136,
+        "ticketsRemaining": 26625355,
+        "remainingPrizeValue": 36982733,
         "evPerTicket": 1.389,
         "roi": 0.6945,
         "topPrizesRemaining": 6,
@@ -3934,7 +3945,7 @@
           "amount": 300,
           "odds": 30058,
           "originalCount": 670,
-          "remaining": 283
+          "remaining": 282
         },
         {
           "amount": 225,
@@ -3946,101 +3957,101 @@
           "amount": 200,
           "odds": 17901,
           "originalCount": 1125,
-          "remaining": 461
+          "remaining": 458
         },
         {
           "amount": 150,
           "odds": 9011,
           "originalCount": 2235,
-          "remaining": 1096
+          "remaining": 1091
         },
         {
           "amount": 100,
           "odds": 900,
           "originalCount": 22378,
-          "remaining": 9158
+          "remaining": 9140
         },
         {
           "amount": 75,
           "odds": 898,
           "originalCount": 22420,
-          "remaining": 9631
+          "remaining": 9603
         },
         {
           "amount": 50,
           "odds": 899,
           "originalCount": 22406,
-          "remaining": 9301
+          "remaining": 9272
         },
         {
           "amount": 40,
           "odds": 450,
           "originalCount": 44776,
-          "remaining": 18736
+          "remaining": 18693
         },
         {
           "amount": 30,
           "odds": 125,
           "originalCount": 161085,
-          "remaining": 72210
+          "remaining": 72034
         },
         {
           "amount": 25,
           "odds": 100,
           "originalCount": 201333,
-          "remaining": 84330
+          "remaining": 84085
         },
         {
           "amount": 20,
           "odds": 500,
           "originalCount": 40302,
-          "remaining": 16470
+          "remaining": 16414
         },
         {
           "amount": 15,
           "odds": 100,
           "originalCount": 201398,
-          "remaining": 92045
+          "remaining": 91835
         },
         {
           "amount": 10,
           "odds": 250,
           "originalCount": 80604,
-          "remaining": 35119
+          "remaining": 35025
         },
         {
           "amount": 9,
           "odds": 100,
           "originalCount": 201430,
-          "remaining": 98147
+          "remaining": 97957
         },
         {
           "amount": 8,
           "odds": 33,
           "originalCount": 604199,
-          "remaining": 252748
+          "remaining": 251988
         },
         {
           "amount": 5,
           "odds": 25,
           "originalCount": 805527,
-          "remaining": 351659
+          "remaining": 350721
         },
         {
           "amount": 3,
           "odds": 8,
           "originalCount": 2416647,
-          "remaining": 1062808
+          "remaining": 1059985
         }
       ],
       "overallOdds": 4.17,
       "computed": {
         "originalTickets": 20138704,
-        "fractionRemaining": 0.4379,
-        "ticketsRemaining": 8817831,
-        "remainingPrizeValue": 18276431,
-        "evPerTicket": 2.0727,
-        "roi": 0.6909,
+        "fractionRemaining": 0.4367,
+        "ticketsRemaining": 8794403,
+        "remainingPrizeValue": 18230147,
+        "evPerTicket": 2.0729,
+        "roi": 0.691,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 150000
       }
@@ -4068,59 +4079,59 @@
           "amount": 500,
           "odds": 1201,
           "originalCount": 11701,
-          "remaining": 4420
+          "remaining": 4391
         },
         {
           "amount": 125,
           "odds": 1203,
           "originalCount": 11685,
-          "remaining": 4441
+          "remaining": 4431
         },
         {
           "amount": 100,
           "odds": 602,
           "originalCount": 23367,
-          "remaining": 8885
+          "remaining": 8847
         },
         {
           "amount": 75,
           "odds": 480,
           "originalCount": 29300,
-          "remaining": 11071
+          "remaining": 11030
         },
         {
           "amount": 50,
           "odds": 120,
           "originalCount": 117173,
-          "remaining": 44742
+          "remaining": 44559
         },
         {
           "amount": 25,
           "odds": 60,
           "originalCount": 234267,
-          "remaining": 90983
+          "remaining": 90616
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1405488,
-          "remaining": 568689
+          "remaining": 566462
         },
         {
           "amount": 5,
           "odds": 8,
           "originalCount": 1780668,
-          "remaining": 744612
+          "remaining": 741824
         }
       ],
       "overallOdds": 3.89,
       "computed": {
         "originalTickets": 14057055,
-        "fractionRemaining": 0.409,
-        "ticketsRemaining": 5748728,
-        "remainingPrizeValue": 19826575,
-        "evPerTicket": 3.4489,
-        "roi": 0.6898,
+        "fractionRemaining": 0.4074,
+        "ticketsRemaining": 5726628,
+        "remainingPrizeValue": 19749415,
+        "evPerTicket": 3.4487,
+        "roi": 0.6897,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 500000
       }
@@ -4154,71 +4165,71 @@
           "amount": 400,
           "odds": 8946,
           "originalCount": 1226,
-          "remaining": 944
+          "remaining": 936
         },
         {
           "amount": 100,
           "odds": 899,
           "originalCount": 12196,
-          "remaining": 9340
+          "remaining": 9265
         },
         {
           "amount": 40,
           "odds": 598,
           "originalCount": 18328,
-          "remaining": 14066
+          "remaining": 13946
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 36614,
-          "remaining": 28031
+          "remaining": 27780
         },
         {
           "amount": 25,
           "odds": 301,
           "originalCount": 36487,
-          "remaining": 28097
+          "remaining": 27821
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 73119,
-          "remaining": 56398
+          "remaining": 55917
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 219395,
-          "remaining": 170274
+          "remaining": 168775
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 146111,
-          "remaining": 113856
+          "remaining": 112870
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 877538,
-          "remaining": 686837
+          "remaining": 680870
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 1096726,
-          "remaining": 866674
+          "remaining": 859731
         }
       ],
       "overallOdds": 4.36,
       "computed": {
         "originalTickets": 10967853,
-        "fractionRemaining": 0.7842,
-        "ticketsRemaining": 8601429,
-        "remainingPrizeValue": 11839271,
-        "evPerTicket": 1.3764,
-        "roi": 0.6882,
+        "fractionRemaining": 0.7776,
+        "ticketsRemaining": 8529097,
+        "remainingPrizeValue": 11742047,
+        "evPerTicket": 1.3767,
+        "roi": 0.6884,
         "topPrizesRemaining": 5,
         "topPrizeAmount": 50000
       }
@@ -4246,58 +4257,58 @@
           "amount": 500,
           "odds": 9003,
           "originalCount": 2485,
-          "remaining": 1519
+          "remaining": 1517
         },
         {
           "amount": 100,
           "odds": 898,
           "originalCount": 24920,
-          "remaining": 15327
+          "remaining": 15258
         },
         {
           "amount": 50,
           "odds": 150,
           "originalCount": 149051,
-          "remaining": 91218
+          "remaining": 90879
         },
         {
           "amount": 25,
           "odds": 150,
           "originalCount": 149144,
-          "remaining": 92260
+          "remaining": 91923
         },
         {
           "amount": 10,
           "odds": 75,
           "originalCount": 298289,
-          "remaining": 185024
+          "remaining": 184354
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 298263,
-          "remaining": 187124
+          "remaining": 186463
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 1640666,
-          "remaining": 1033154
+          "remaining": 1029601
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 2237067,
-          "remaining": 1442290
+          "remaining": 1437676
         }
       ],
       "overallOdds": 4.66,
       "computed": {
         "originalTickets": 22371600,
-        "fractionRemaining": 0.635,
-        "ticketsRemaining": 14205911,
-        "remainingPrizeValue": 19388656,
-        "evPerTicket": 1.3648,
+        "fractionRemaining": 0.6329,
+        "ticketsRemaining": 14158162,
+        "remainingPrizeValue": 19321936,
+        "evPerTicket": 1.3647,
         "roi": 0.6824,
         "topPrizesRemaining": 7,
         "topPrizeAmount": 50000
@@ -4320,47 +4331,47 @@
           "amount": 500,
           "odds": 29582,
           "originalCount": 469,
-          "remaining": 60
+          "remaining": 59
         },
         {
           "amount": 100,
           "odds": 333,
           "originalCount": 41661,
-          "remaining": 4955
+          "remaining": 4940
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 92493,
-          "remaining": 11025
+          "remaining": 10999
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 277479,
-          "remaining": 34694
+          "remaining": 34606
         },
         {
           "amount": 5,
           "odds": 44,
           "originalCount": 314497,
-          "remaining": 40356
+          "remaining": 40241
         },
         {
           "amount": 4,
           "odds": 7,
           "originalCount": 2127287,
-          "remaining": 281285
+          "remaining": 280498
         }
       ],
       "overallOdds": 4.86,
       "computed": {
         "originalTickets": 13873950,
-        "fractionRemaining": 0.1305,
-        "ticketsRemaining": 1810275,
-        "remainingPrizeValue": 2469860,
-        "evPerTicket": 1.3644,
-        "roi": 0.6822,
+        "fractionRemaining": 0.1301,
+        "ticketsRemaining": 1805258,
+        "remainingPrizeValue": 2462737,
+        "evPerTicket": 1.3642,
+        "roi": 0.6821,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
       }
@@ -4400,59 +4411,59 @@
           "amount": 100,
           "odds": 2406,
           "originalCount": 5895,
-          "remaining": 1420
+          "remaining": 1418
         },
         {
           "amount": 50,
           "odds": 750,
           "originalCount": 18921,
-          "remaining": 4720
+          "remaining": 4718
         },
         {
           "amount": 25,
           "odds": 300,
           "originalCount": 47328,
-          "remaining": 13902
+          "remaining": 13893
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 94549,
-          "remaining": 21696
+          "remaining": 21677
         },
         {
           "amount": 10,
           "odds": 38,
           "originalCount": 378161,
-          "remaining": 88398
+          "remaining": 88336
         },
         {
           "amount": 5,
           "odds": 30,
           "originalCount": 472783,
-          "remaining": 113588
+          "remaining": 113455
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 1134588,
-          "remaining": 277833
+          "remaining": 277561
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 1418264,
-          "remaining": 370203
+          "remaining": 369922
         }
       ],
       "overallOdds": 3.97,
       "computed": {
         "originalTickets": 14183298,
-        "fractionRemaining": 0.2497,
-        "ticketsRemaining": 3542161,
-        "remainingPrizeValue": 4826628,
-        "evPerTicket": 1.3626,
-        "roi": 0.6813,
+        "fractionRemaining": 0.2495,
+        "ticketsRemaining": 3539065,
+        "remainingPrizeValue": 4822788,
+        "evPerTicket": 1.3627,
+        "roi": 0.6814,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 50000
       }
@@ -4492,64 +4503,64 @@
           "amount": 500,
           "odds": 5015,
           "originalCount": 3258,
-          "remaining": 413
+          "remaining": 412
         },
         {
           "amount": 150,
           "odds": 4117,
           "originalCount": 3968,
-          "remaining": 503
+          "remaining": 502
         },
         {
           "amount": 100,
           "odds": 207,
           "originalCount": 79045,
-          "remaining": 10230
+          "remaining": 10213
         },
         {
           "amount": 50,
           "odds": 250,
           "originalCount": 65343,
-          "remaining": 8418
+          "remaining": 8408
         },
         {
           "amount": 40,
           "odds": 192,
           "originalCount": 84984,
-          "remaining": 11378
+          "remaining": 11361
         },
         {
           "amount": 25,
           "odds": 123,
           "originalCount": 132678,
-          "remaining": 17846
+          "remaining": 17825
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 272289,
-          "remaining": 37202
+          "remaining": 37158
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1688159,
-          "remaining": 241287
+          "remaining": 241001
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 1906187,
-          "remaining": 354273
+          "remaining": 353934
         }
       ],
       "overallOdds": 3.85,
       "computed": {
         "originalTickets": 16337340,
-        "fractionRemaining": 0.1609,
-        "ticketsRemaining": 2628384,
-        "remainingPrizeValue": 8952395,
-        "evPerTicket": 3.406,
+        "fractionRemaining": 0.1607,
+        "ticketsRemaining": 2625547,
+        "remainingPrizeValue": 8942905,
+        "evPerTicket": 3.4061,
         "roi": 0.6812,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
@@ -4578,94 +4589,94 @@
           "amount": 500,
           "odds": 8251,
           "originalCount": 4916,
-          "remaining": 2383
+          "remaining": 2375
         },
         {
           "amount": 250,
           "odds": 9007,
           "originalCount": 4512,
-          "remaining": 2164
+          "remaining": 2158
         },
         {
           "amount": 200,
           "odds": 6018,
           "originalCount": 6728,
-          "remaining": 3245
+          "remaining": 3236
         },
         {
           "amount": 150,
           "odds": 5172,
           "originalCount": 7832,
-          "remaining": 3816
+          "remaining": 3808
         },
         {
           "amount": 100,
           "odds": 2243,
           "originalCount": 18046,
-          "remaining": 8656
+          "remaining": 8628
         },
         {
           "amount": 50,
           "odds": 1894,
           "originalCount": 21394,
-          "remaining": 10280
+          "remaining": 10260
         },
         {
           "amount": 40,
           "odds": 1289,
           "originalCount": 31452,
-          "remaining": 15407
+          "remaining": 15359
         },
         {
           "amount": 30,
           "odds": 949,
           "originalCount": 42738,
-          "remaining": 20621
+          "remaining": 20565
         },
         {
           "amount": 25,
           "odds": 100,
           "originalCount": 405253,
-          "remaining": 196160
+          "remaining": 195630
         },
         {
           "amount": 20,
           "odds": 83,
           "originalCount": 486437,
-          "remaining": 237860
+          "remaining": 237188
         },
         {
           "amount": 15,
           "odds": 63,
           "originalCount": 648388,
-          "remaining": 320503
+          "remaining": 319637
         },
         {
           "amount": 10,
           "odds": 25,
           "originalCount": 1620555,
-          "remaining": 800539
+          "remaining": 798377
         },
         {
           "amount": 5,
           "odds": 17,
           "originalCount": 2432311,
-          "remaining": 1235614
+          "remaining": 1232481
         },
         {
           "amount": 3,
           "odds": 9,
           "originalCount": 4456947,
-          "remaining": 2301474
+          "remaining": 2296024
         }
       ],
       "overallOdds": 3.98,
       "computed": {
         "originalTickets": 40530897,
-        "fractionRemaining": 0.5064,
-        "ticketsRemaining": 20523914,
-        "remainingPrizeValue": 41865037,
-        "evPerTicket": 2.0398,
+        "fractionRemaining": 0.5051,
+        "ticketsRemaining": 20472210,
+        "remainingPrizeValue": 41755822,
+        "evPerTicket": 2.0396,
         "roi": 0.6799,
         "topPrizesRemaining": 4,
         "topPrizeAmount": 150000
@@ -4718,40 +4729,40 @@
           "amount": 50,
           "odds": 200,
           "originalCount": 63248,
-          "remaining": 1995
+          "remaining": 1994
         },
         {
           "amount": 30,
           "odds": 200,
           "originalCount": 63085,
-          "remaining": 2231
+          "remaining": 2229
         },
         {
           "amount": 20,
           "odds": 50,
           "originalCount": 252326,
-          "remaining": 12219
+          "remaining": 12217
         },
         {
           "amount": 10,
           "odds": 8,
           "originalCount": 1682458,
-          "remaining": 92387
+          "remaining": 92367
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 1303904,
-          "remaining": 107811
+          "remaining": 107791
         }
       ],
       "overallOdds": 3.67,
       "computed": {
         "originalTickets": 12618240,
         "fractionRemaining": 0.0638,
-        "ticketsRemaining": 805180,
-        "remainingPrizeValue": 2719485,
-        "evPerTicket": 3.3775,
+        "ticketsRemaining": 805015,
+        "remainingPrizeValue": 2719035,
+        "evPerTicket": 3.3776,
         "roi": 0.6755,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 250000
@@ -4780,83 +4791,83 @@
           "amount": 200,
           "odds": 5025,
           "originalCount": 4604,
-          "remaining": 1774
+          "remaining": 1773
         },
         {
           "amount": 100,
           "odds": 601,
           "originalCount": 38486,
-          "remaining": 14715
+          "remaining": 14686
         },
         {
           "amount": 60,
           "odds": 900,
           "originalCount": 25695,
-          "remaining": 9905
+          "remaining": 9876
         },
         {
           "amount": 50,
           "odds": 600,
           "originalCount": 38556,
-          "remaining": 14718
+          "remaining": 14693
         },
         {
           "amount": 40,
           "odds": 600,
           "originalCount": 38574,
-          "remaining": 14655
+          "remaining": 14614
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 77179,
-          "remaining": 29579
+          "remaining": 29529
         },
         {
           "amount": 20,
           "odds": 100,
           "originalCount": 231344,
-          "remaining": 88966
+          "remaining": 88783
         },
         {
           "amount": 15,
           "odds": 50,
           "originalCount": 462772,
-          "remaining": 177832
+          "remaining": 177462
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 462744,
-          "remaining": 179868
+          "remaining": 179469
         },
         {
           "amount": 6,
           "odds": 62,
           "originalCount": 370253,
-          "remaining": 144513
+          "remaining": 144192
         },
         {
           "amount": 5,
           "odds": 13,
           "originalCount": 1850980,
-          "remaining": 731985
+          "remaining": 730462
         },
         {
           "amount": 3,
           "odds": 10,
           "originalCount": 2313590,
-          "remaining": 954648
+          "remaining": 952728
         }
       ],
       "overallOdds": 3.91,
       "computed": {
         "originalTickets": 23135900,
-        "fractionRemaining": 0.3995,
-        "ticketsRemaining": 9243598,
-        "remainingPrizeValue": 18721497,
-        "evPerTicket": 2.0253,
-        "roi": 0.6751,
+        "fractionRemaining": 0.3987,
+        "ticketsRemaining": 9224468,
+        "remainingPrizeValue": 18683766,
+        "evPerTicket": 2.0255,
+        "roi": 0.6752,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 150000
       }
@@ -4896,64 +4907,64 @@
           "amount": 500,
           "odds": 3238,
           "originalCount": 7445,
-          "remaining": 640
+          "remaining": 636
         },
         {
           "amount": 250,
           "odds": 1494,
           "originalCount": 16135,
-          "remaining": 1382
+          "remaining": 1374
         },
         {
           "amount": 200,
           "odds": 414,
           "originalCount": 58248,
-          "remaining": 5144
+          "remaining": 5110
         },
         {
           "amount": 150,
           "odds": 297,
           "originalCount": 81297,
-          "remaining": 7121
+          "remaining": 7069
         },
         {
           "amount": 100,
           "odds": 26,
           "originalCount": 913942,
-          "remaining": 81534
+          "remaining": 80985
         },
         {
           "amount": 50,
           "odds": 30,
           "originalCount": 803627,
-          "remaining": 73809
+          "remaining": 73342
         },
         {
           "amount": 40,
           "odds": 30,
           "originalCount": 803718,
-          "remaining": 73090
+          "remaining": 72612
         },
         {
           "amount": 30,
           "odds": 15,
           "originalCount": 1607560,
-          "remaining": 154189
+          "remaining": 153235
         },
         {
           "amount": 20,
           "odds": 6,
           "originalCount": 4017771,
-          "remaining": 453392
+          "remaining": 451186
         }
       ],
       "overallOdds": 2.9,
       "computed": {
         "originalTickets": 24108810,
-        "fractionRemaining": 0.1023,
-        "ticketsRemaining": 2466910,
-        "remainingPrizeValue": 33300410,
-        "evPerTicket": 13.4988,
+        "fractionRemaining": 0.1018,
+        "ticketsRemaining": 2453139,
+        "remainingPrizeValue": 33111700,
+        "evPerTicket": 13.4977,
         "roi": 0.6749,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 5000000
@@ -4994,58 +5005,58 @@
           "amount": 250,
           "odds": 1198,
           "originalCount": 16197,
-          "remaining": 3240
+          "remaining": 3236
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 80911,
-          "remaining": 16541
+          "remaining": 16530
         },
         {
           "amount": 50,
           "odds": 240,
           "originalCount": 80813,
-          "remaining": 17223
+          "remaining": 17207
         },
         {
           "amount": 40,
           "odds": 240,
           "originalCount": 80826,
-          "remaining": 15924
+          "remaining": 15905
         },
         {
           "amount": 30,
           "odds": 240,
           "originalCount": 80771,
-          "remaining": 15820
+          "remaining": 15806
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 323429,
-          "remaining": 70867
+          "remaining": 70806
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 2264003,
-          "remaining": 460103
+          "remaining": 459718
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 2005650,
-          "remaining": 429158
+          "remaining": 428784
         }
       ],
       "overallOdds": 3.93,
       "computed": {
         "originalTickets": 19405740,
-        "fractionRemaining": 0.2086,
-        "ticketsRemaining": 4047379,
-        "remainingPrizeValue": 13608970,
-        "evPerTicket": 3.3624,
+        "fractionRemaining": 0.2084,
+        "ticketsRemaining": 4043907,
+        "remainingPrizeValue": 13597950,
+        "evPerTicket": 3.3626,
         "roi": 0.6725,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 1000000
@@ -5092,53 +5103,53 @@
           "amount": 100,
           "odds": 286,
           "originalCount": 78309,
-          "remaining": 6637
+          "remaining": 6632
         },
         {
           "amount": 50,
           "odds": 572,
           "originalCount": 39152,
-          "remaining": 3298
+          "remaining": 3295
         },
         {
           "amount": 40,
           "odds": 160,
           "originalCount": 139959,
-          "remaining": 12283
+          "remaining": 12275
         },
         {
           "amount": 25,
           "odds": 160,
           "originalCount": 139953,
-          "remaining": 12131
+          "remaining": 12114
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 372941,
-          "remaining": 33130
+          "remaining": 33102
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 2237499,
-          "remaining": 209489
+          "remaining": 209282
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 2610769,
-          "remaining": 296156
+          "remaining": 295915
         }
       ],
       "overallOdds": 3.98,
       "computed": {
         "originalTickets": 22376950,
-        "fractionRemaining": 0.102,
-        "ticketsRemaining": 2282232,
-        "remainingPrizeValue": 7670965,
-        "evPerTicket": 3.3612,
-        "roi": 0.6722,
+        "fractionRemaining": 0.1019,
+        "ticketsRemaining": 2280207,
+        "remainingPrizeValue": 7665735,
+        "evPerTicket": 3.3619,
+        "roi": 0.6724,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 500000
       }
@@ -5178,57 +5189,57 @@
           "amount": 100,
           "odds": 749,
           "originalCount": 19965,
-          "remaining": 4738
+          "remaining": 4734
         },
         {
           "amount": 50,
           "odds": 277,
           "originalCount": 54059,
-          "remaining": 13007
+          "remaining": 13004
         },
         {
           "amount": 40,
           "odds": 579,
           "originalCount": 25827,
-          "remaining": 6153
+          "remaining": 6147
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 99723,
-          "remaining": 24267
+          "remaining": 24248
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 299228,
-          "remaining": 74259
+          "remaining": 74223
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 199446,
-          "remaining": 50238
+          "remaining": 50212
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 1196499,
-          "remaining": 307056
+          "remaining": 306876
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 1495904,
-          "remaining": 417893
+          "remaining": 417669
         }
       ],
       "overallOdds": 4.41,
       "computed": {
         "originalTickets": 14958450,
-        "fractionRemaining": 0.2647,
-        "ticketsRemaining": 3959837,
-        "remainingPrizeValue": 5279900,
+        "fractionRemaining": 0.2646,
+        "ticketsRemaining": 3957641,
+        "remainingPrizeValue": 5277072,
         "evPerTicket": 1.3334,
         "roi": 0.6667,
         "topPrizesRemaining": 3,
@@ -5276,59 +5287,59 @@
           "amount": 500,
           "odds": 857,
           "originalCount": 25999,
-          "remaining": 546
+          "remaining": 544
         },
         {
           "amount": 200,
           "odds": 96,
           "originalCount": 232883,
-          "remaining": 4696
+          "remaining": 4682
         },
         {
           "amount": 100,
           "odds": 29,
           "originalCount": 761094,
-          "remaining": 16998
+          "remaining": 16935
         },
         {
           "amount": 50,
           "odds": 30,
           "originalCount": 742578,
-          "remaining": 18950
+          "remaining": 18904
         },
         {
           "amount": 40,
           "odds": 30,
           "originalCount": 742406,
-          "remaining": 17112
+          "remaining": 17062
         },
         {
           "amount": 30,
           "odds": 30,
           "originalCount": 742313,
-          "remaining": 17873
+          "remaining": 17814
         },
         {
           "amount": 25,
           "odds": 38,
           "originalCount": 593836,
-          "remaining": 15632
+          "remaining": 15598
         },
         {
           "amount": 20,
           "odds": 6,
           "originalCount": 3711766,
-          "remaining": 121698
+          "remaining": 121424
         }
       ],
       "overallOdds": 2.95,
       "computed": {
         "originalTickets": 22272165,
-        "fractionRemaining": 0.0283,
-        "ticketsRemaining": 629602,
-        "remainingPrizeValue": 8325930,
-        "evPerTicket": 13.2241,
-        "roi": 0.6612,
+        "fractionRemaining": 0.0282,
+        "ticketsRemaining": 628004,
+        "remainingPrizeValue": 8303430,
+        "evPerTicket": 13.2219,
+        "roi": 0.6611,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 5000000
       }
@@ -5368,71 +5379,71 @@
           "amount": 500,
           "odds": 7473,
           "originalCount": 1894,
-          "remaining": 352
+          "remaining": 344
         },
         {
           "amount": 200,
           "odds": 4966,
           "originalCount": 2850,
-          "remaining": 537
+          "remaining": 521
         },
         {
           "amount": 100,
           "odds": 502,
           "originalCount": 28210,
-          "remaining": 5402
+          "remaining": 5282
         },
         {
           "amount": 50,
           "odds": 400,
           "originalCount": 35372,
-          "remaining": 6635
+          "remaining": 6489
         },
         {
           "amount": 30,
           "odds": 125,
           "originalCount": 113227,
-          "remaining": 22102
+          "remaining": 21626
         },
         {
           "amount": 20,
           "odds": 125,
           "originalCount": 113256,
-          "remaining": 22444
+          "remaining": 21973
         },
         {
           "amount": 15,
           "odds": 100,
           "originalCount": 141500,
-          "remaining": 27983
+          "remaining": 27406
         },
         {
           "amount": 10,
           "odds": 33,
           "originalCount": 424570,
-          "remaining": 85761
+          "remaining": 84045
         },
         {
           "amount": 5,
           "odds": 14,
           "originalCount": 990842,
-          "remaining": 218510
+          "remaining": 214584
         },
         {
           "amount": 3,
           "odds": 8,
           "originalCount": 1698453,
-          "remaining": 386453
+          "remaining": 379883
         }
       ],
       "overallOdds": 3.99,
       "computed": {
         "originalTickets": 14153447,
-        "fractionRemaining": 0.2186,
-        "ticketsRemaining": 3094422,
-        "remainingPrizeValue": 6129554,
-        "evPerTicket": 1.9808,
-        "roi": 0.6603,
+        "fractionRemaining": 0.2147,
+        "ticketsRemaining": 3038512,
+        "remainingPrizeValue": 6014199,
+        "evPerTicket": 1.9793,
+        "roi": 0.6598,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 150000
       }
@@ -5496,7 +5507,7 @@
           "amount": 100,
           "odds": 31,
           "originalCount": 968738,
-          "remaining": 38947
+          "remaining": 38945
         },
         {
           "amount": 50,
@@ -5526,15 +5537,15 @@
           "amount": 20,
           "odds": 6,
           "originalCount": 5032489,
-          "remaining": 379000
+          "remaining": 378996
         }
       ],
       "overallOdds": 2.85,
       "computed": {
         "originalTickets": 30197340,
         "fractionRemaining": 0.0656,
-        "ticketsRemaining": 1981125,
-        "remainingPrizeValue": 25998595,
+        "ticketsRemaining": 1981108,
+        "remainingPrizeValue": 25998315,
         "evPerTicket": 13.1231,
         "roi": 0.6562,
         "topPrizesRemaining": 0,
@@ -5570,52 +5581,52 @@
           "amount": 100,
           "odds": 811,
           "originalCount": 62307,
-          "remaining": 8050
+          "remaining": 8030
         },
         {
           "amount": 50,
           "odds": 189,
           "originalCount": 266839,
-          "remaining": 28517
+          "remaining": 28442
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 336965,
-          "remaining": 47466
+          "remaining": 47375
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 1010895,
-          "remaining": 125844
+          "remaining": 125631
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 673930,
-          "remaining": 85943
+          "remaining": 85777
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 3706615,
-          "remaining": 530514
+          "remaining": 529546
         },
         {
           "amount": 2,
           "odds": 11,
           "originalCount": 4717362,
-          "remaining": 761423
+          "remaining": 760304
         }
       ],
       "overallOdds": 4.69,
       "computed": {
         "originalTickets": 50544750,
-        "fractionRemaining": 0.1474,
-        "ticketsRemaining": 7447832,
-        "remainingPrizeValue": 9558627,
-        "evPerTicket": 1.2834,
+        "fractionRemaining": 0.1471,
+        "ticketsRemaining": 7435396,
+        "remainingPrizeValue": 9541987,
+        "evPerTicket": 1.2833,
         "roi": 0.6417,
         "topPrizesRemaining": 7,
         "topPrizeAmount": 100000
@@ -5668,41 +5679,41 @@
           "amount": 25,
           "odds": 161,
           "originalCount": 61282,
-          "remaining": 10565
+          "remaining": 10563
         },
         {
           "amount": 10,
           "odds": 75,
           "originalCount": 131379,
-          "remaining": 24097
+          "remaining": 24094
         },
         {
           "amount": 5,
           "odds": 25,
           "originalCount": 394010,
-          "remaining": 76239
+          "remaining": 76223
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 788291,
-          "remaining": 156283
+          "remaining": 156246
         },
         {
           "amount": 2,
           "odds": 11,
           "originalCount": 919570,
-          "remaining": 206075
+          "remaining": 206027
         }
       ],
       "overallOdds": 4.2,
       "computed": {
         "originalTickets": 9852750,
         "fractionRemaining": 0.2054,
-        "ticketsRemaining": 2024202,
-        "remainingPrizeValue": 2586972,
-        "evPerTicket": 1.278,
-        "roi": 0.639,
+        "ticketsRemaining": 2023756,
+        "remainingPrizeValue": 2586568,
+        "evPerTicket": 1.2781,
+        "roi": 0.6391,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
       }
@@ -5742,65 +5753,65 @@
           "amount": 100,
           "odds": 748,
           "originalCount": 14656,
-          "remaining": 3282
+          "remaining": 3260
         },
         {
           "amount": 40,
           "odds": 599,
           "originalCount": 18303,
-          "remaining": 4143
+          "remaining": 4129
         },
         {
           "amount": 30,
           "odds": 451,
           "originalCount": 24293,
-          "remaining": 5494
+          "remaining": 5477
         },
         {
           "amount": 25,
           "odds": 240,
           "originalCount": 45729,
-          "remaining": 10266
+          "remaining": 10219
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 73063,
-          "remaining": 17089
+          "remaining": 17017
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 219221,
-          "remaining": 52632
+          "remaining": 52429
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 146034,
-          "remaining": 36412
+          "remaining": 36251
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 876822,
-          "remaining": 225501
+          "remaining": 224566
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 1096016,
-          "remaining": 312254
+          "remaining": 311116
         }
       ],
       "overallOdds": 4.36,
       "computed": {
         "originalTickets": 10959928,
-        "fractionRemaining": 0.2653,
-        "ticketsRemaining": 2907619,
-        "remainingPrizeValue": 3677462,
-        "evPerTicket": 1.2648,
-        "roi": 0.6324,
+        "fractionRemaining": 0.2643,
+        "ticketsRemaining": 2896252,
+        "remainingPrizeValue": 3662726,
+        "evPerTicket": 1.2646,
+        "roi": 0.6323,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 50000
       }
@@ -5858,47 +5869,47 @@
           "amount": 40,
           "odds": 650,
           "originalCount": 34504,
-          "remaining": 869
+          "remaining": 867
         },
         {
           "amount": 30,
           "odds": 100,
           "originalCount": 224034,
-          "remaining": 6325
+          "remaining": 6317
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 373567,
-          "remaining": 11551
+          "remaining": 11540
         },
         {
           "amount": 15,
           "odds": 60,
           "originalCount": 373653,
-          "remaining": 11878
+          "remaining": 11872
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 2241679,
-          "remaining": 90496
+          "remaining": 90448
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 2241828,
-          "remaining": 193295
+          "remaining": 193252
         }
       ],
       "overallOdds": 4,
       "computed": {
         "originalTickets": 22416588,
-        "fractionRemaining": 0.0567,
-        "ticketsRemaining": 1270241,
-        "remainingPrizeValue": 4014185,
-        "evPerTicket": 3.1602,
-        "roi": 0.632,
+        "fractionRemaining": 0.0566,
+        "ticketsRemaining": 1269770,
+        "remainingPrizeValue": 4012860,
+        "evPerTicket": 3.1603,
+        "roi": 0.6321,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 1000000
       }
@@ -5932,65 +5943,65 @@
           "amount": 200,
           "odds": 2857,
           "originalCount": 9766,
-          "remaining": 904
+          "remaining": 901
         },
         {
           "amount": 100,
           "odds": 856,
           "originalCount": 32586,
-          "remaining": 3134
+          "remaining": 3121
         },
         {
           "amount": 50,
           "odds": 414,
           "originalCount": 67480,
-          "remaining": 6492
+          "remaining": 6471
         },
         {
           "amount": 25,
           "odds": 238,
           "originalCount": 117024,
-          "remaining": 11636
+          "remaining": 11603
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 186031,
-          "remaining": 21935
+          "remaining": 21882
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 558093,
-          "remaining": 67730
+          "remaining": 67542
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 372062,
-          "remaining": 42605
+          "remaining": 42483
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 2046185,
-          "remaining": 257386
+          "remaining": 256781
         },
         {
           "amount": 2,
           "odds": 9,
           "originalCount": 2976157,
-          "remaining": 428471
+          "remaining": 427632
         }
       ],
       "overallOdds": 4.38,
       "computed": {
         "originalTickets": 27904648,
-        "fractionRemaining": 0.132,
-        "ticketsRemaining": 3683596,
-        "remainingPrizeValue": 4651211,
-        "evPerTicket": 1.2627,
-        "roi": 0.6313,
+        "fractionRemaining": 0.1317,
+        "ticketsRemaining": 3675369,
+        "remainingPrizeValue": 4639788,
+        "evPerTicket": 1.2624,
+        "roi": 0.6312,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 100000
       }
@@ -6024,57 +6035,57 @@
           "amount": 100,
           "odds": 998,
           "originalCount": 14259,
-          "remaining": 1295
+          "remaining": 1294
         },
         {
           "amount": 50,
           "odds": 257,
           "originalCount": 55354,
-          "remaining": 5090
+          "remaining": 5086
         },
         {
           "amount": 25,
           "odds": 212,
           "originalCount": 67262,
-          "remaining": 10446
+          "remaining": 10440
         },
         {
           "amount": 20,
           "odds": 250,
           "originalCount": 56972,
-          "remaining": 5499
+          "remaining": 5496
         },
         {
           "amount": 10,
           "odds": 54,
           "originalCount": 265642,
-          "remaining": 26672
+          "remaining": 26656
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 189928,
-          "remaining": 20485
+          "remaining": 20471
         },
         {
           "amount": 4,
           "odds": 12,
           "originalCount": 1233888,
-          "remaining": 140767
+          "remaining": 140660
         },
         {
           "amount": 2,
           "odds": 9,
           "originalCount": 1613354,
-          "remaining": 215715
+          "remaining": 215590
         }
       ],
       "overallOdds": 4.07,
       "computed": {
         "originalTickets": 14239756,
-        "fractionRemaining": 0.1218,
-        "ticketsRemaining": 1734690,
-        "remainingPrizeValue": 2162273,
+        "fractionRemaining": 0.1217,
+        "ticketsRemaining": 1733566,
+        "remainingPrizeValue": 2160855,
         "evPerTicket": 1.2465,
         "roi": 0.6232,
         "topPrizesRemaining": 0,
@@ -6116,59 +6127,59 @@
           "amount": 500,
           "odds": 2397,
           "originalCount": 12948,
-          "remaining": 1793
+          "remaining": 1792
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 129282,
-          "remaining": 18761
+          "remaining": 18727
         },
         {
           "amount": 50,
           "odds": 240,
           "originalCount": 129535,
-          "remaining": 18629
+          "remaining": 18605
         },
         {
           "amount": 30,
           "odds": 193,
           "originalCount": 160431,
-          "remaining": 22835
+          "remaining": 22797
         },
         {
           "amount": 25,
           "odds": 195,
           "originalCount": 159145,
-          "remaining": 22586
+          "remaining": 22556
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 517373,
-          "remaining": 76376
+          "remaining": 76247
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 3621610,
-          "remaining": 556164
+          "remaining": 555104
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 3104292,
-          "remaining": 543790
+          "remaining": 542968
         }
       ],
       "overallOdds": 3.96,
       "computed": {
         "originalTickets": 31042380,
-        "fractionRemaining": 0.1609,
-        "ticketsRemaining": 4995864,
-        "remainingPrizeValue": 15490360,
-        "evPerTicket": 3.1006,
-        "roi": 0.6201,
+        "fractionRemaining": 0.1607,
+        "ticketsRemaining": 4987397,
+        "remainingPrizeValue": 15466080,
+        "evPerTicket": 3.101,
+        "roi": 0.6202,
         "topPrizesRemaining": 12,
         "topPrizeAmount": 10000
       }
@@ -6208,65 +6219,65 @@
           "amount": 100,
           "odds": 901,
           "originalCount": 13577,
-          "remaining": 1867
+          "remaining": 1863
         },
         {
           "amount": 40,
           "odds": 749,
           "originalCount": 16334,
-          "remaining": 2415
+          "remaining": 2411
         },
         {
           "amount": 30,
           "odds": 300,
           "originalCount": 40763,
-          "remaining": 6069
+          "remaining": 6057
         },
         {
           "amount": 25,
           "odds": 300,
           "originalCount": 40786,
-          "remaining": 6850
+          "remaining": 6834
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 81571,
-          "remaining": 13384
+          "remaining": 13350
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 244713,
-          "remaining": 41806
+          "remaining": 41723
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 163118,
-          "remaining": 29097
+          "remaining": 29045
         },
         {
           "amount": 4,
           "odds": 13,
           "originalCount": 978833,
-          "remaining": 184968
+          "remaining": 184646
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 1223630,
-          "remaining": 261334
+          "remaining": 260957
         }
       ],
       "overallOdds": 4.36,
       "computed": {
         "originalTickets": 12235613,
-        "fractionRemaining": 0.1954,
-        "ticketsRemaining": 2390472,
-        "remainingPrizeValue": 2953185,
-        "evPerTicket": 1.2354,
-        "roi": 0.6177,
+        "fractionRemaining": 0.195,
+        "ticketsRemaining": 2386529,
+        "remainingPrizeValue": 2948053,
+        "evPerTicket": 1.2353,
+        "roi": 0.6176,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
       }
@@ -6288,65 +6299,65 @@
           "amount": 200,
           "odds": 11895,
           "originalCount": 1209,
-          "remaining": 910
+          "remaining": 896
         },
         {
           "amount": 100,
           "odds": 6052,
           "originalCount": 2376,
-          "remaining": 1771
+          "remaining": 1743
         },
         {
           "amount": 50,
           "odds": 600,
           "originalCount": 23965,
-          "remaining": 18101
+          "remaining": 17940
         },
         {
           "amount": 20,
           "odds": 300,
           "originalCount": 47935,
-          "remaining": 36528
+          "remaining": 36199
         },
         {
           "amount": 10,
           "odds": 125,
           "originalCount": 115056,
-          "remaining": 87934
+          "remaining": 87131
         },
         {
           "amount": 5,
           "odds": 100,
           "originalCount": 143724,
-          "remaining": 110309
+          "remaining": 109292
         },
         {
           "amount": 4,
           "odds": 60,
           "originalCount": 239729,
-          "remaining": 185030
+          "remaining": 183276
         },
         {
           "amount": 2,
           "odds": 15,
           "originalCount": 958754,
-          "remaining": 745596
+          "remaining": 738909
         },
         {
           "amount": 1,
           "odds": 10,
           "originalCount": 1438032,
-          "remaining": 1134399
+          "remaining": 1124944
         }
       ],
       "overallOdds": 4.84,
       "computed": {
         "originalTickets": 14380500,
-        "fractionRemaining": 0.7811,
-        "ticketsRemaining": 11233106,
-        "remainingPrizeValue": 6926306,
-        "evPerTicket": 0.6166,
-        "roi": 0.6166,
+        "fractionRemaining": 0.7743,
+        "ticketsRemaining": 11135093,
+        "remainingPrizeValue": 6863116,
+        "evPerTicket": 0.6164,
+        "roi": 0.6164,
         "topPrizesRemaining": 15,
         "topPrizeAmount": 9000
       }
@@ -6368,63 +6379,63 @@
           "amount": 200,
           "odds": 23909,
           "originalCount": 2212,
-          "remaining": 1308
+          "remaining": 1306
         },
         {
           "amount": 100,
           "odds": 4726,
           "originalCount": 11255,
-          "remaining": 6623
+          "remaining": 6615
         },
         {
           "amount": 50,
           "odds": 1199,
           "originalCount": 44185,
-          "remaining": 25864
+          "remaining": 25850
         },
         {
           "amount": 25,
           "odds": 300,
           "originalCount": 176676,
-          "remaining": 104672
+          "remaining": 104588
         },
         {
           "amount": 10,
           "odds": 100,
           "originalCount": 530063,
-          "remaining": 316080
+          "remaining": 315825
         },
         {
           "amount": 5,
           "odds": 150,
           "originalCount": 353284,
-          "remaining": 212344
+          "remaining": 212193
         },
         {
           "amount": 4,
           "odds": 50,
           "originalCount": 1060035,
-          "remaining": 638104
+          "remaining": 637571
         },
         {
           "amount": 2,
           "odds": 14,
           "originalCount": 3886823,
-          "remaining": 2409577
+          "remaining": 2407659
         },
         {
           "amount": 1,
           "odds": 10,
           "originalCount": 5300374,
-          "remaining": 3306792
+          "remaining": 3304224
         }
       ],
       "overallOdds": 4.66,
       "computed": {
         "originalTickets": 53001750,
-        "fractionRemaining": 0.6178,
-        "ticketsRemaining": 32745054,
-        "remainingPrizeValue": 20064782,
+        "fractionRemaining": 0.6173,
+        "ticketsRemaining": 32719250,
+        "remainingPrizeValue": 20048941,
         "evPerTicket": 0.6128,
         "roi": 0.6128,
         "topPrizesRemaining": 33,
@@ -6448,63 +6459,63 @@
           "amount": 200,
           "odds": 15018,
           "originalCount": 1662,
-          "remaining": 1073
+          "remaining": 1071
         },
         {
           "amount": 100,
           "odds": 3998,
           "originalCount": 6243,
-          "remaining": 4048
+          "remaining": 4043
         },
         {
           "amount": 50,
           "odds": 750,
           "originalCount": 33302,
-          "remaining": 22043
+          "remaining": 21985
         },
         {
           "amount": 25,
           "odds": 300,
           "originalCount": 83202,
-          "remaining": 55649
+          "remaining": 55508
         },
         {
           "amount": 10,
           "odds": 150,
           "originalCount": 166468,
-          "remaining": 111896
+          "remaining": 111644
         },
         {
           "amount": 5,
           "odds": 150,
           "originalCount": 166320,
-          "remaining": 113125
+          "remaining": 112834
         },
         {
           "amount": 4,
           "odds": 50,
           "originalCount": 499204,
-          "remaining": 340673
+          "remaining": 339882
         },
         {
           "amount": 2,
           "odds": 14,
           "originalCount": 1830274,
-          "remaining": 1264853
+          "remaining": 1261890
         },
         {
           "amount": 1,
           "odds": 10,
           "originalCount": 2496230,
-          "remaining": 1753044
+          "remaining": 1749094
         }
       ],
       "overallOdds": 4.72,
       "computed": {
         "originalTickets": 24960600,
-        "fractionRemaining": 0.694,
-        "ticketsRemaining": 17322970,
-        "remainingPrizeValue": 10592802,
+        "fractionRemaining": 0.6924,
+        "ticketsRemaining": 17283031,
+        "remainingPrizeValue": 10568462,
         "evPerTicket": 0.6115,
         "roi": 0.6115,
         "topPrizesRemaining": 15,
@@ -6540,65 +6551,65 @@
           "amount": 500,
           "odds": 2035,
           "originalCount": 19102,
-          "remaining": 1125
+          "remaining": 1121
         },
         {
           "amount": 200,
           "odds": 959,
           "originalCount": 40519,
-          "remaining": 2433
+          "remaining": 2421
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 161903,
-          "remaining": 10626
+          "remaining": 10595
         },
         {
           "amount": 50,
           "odds": 267,
           "originalCount": 145743,
-          "remaining": 10671
+          "remaining": 10637
         },
         {
           "amount": 30,
           "odds": 218,
           "originalCount": 178102,
-          "remaining": 11116
+          "remaining": 11088
         },
         {
           "amount": 25,
           "odds": 171,
           "originalCount": 226702,
-          "remaining": 15070
+          "remaining": 15028
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 647797,
-          "remaining": 46975
+          "remaining": 46843
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 4534669,
-          "remaining": 401674
+          "remaining": 400708
         },
         {
           "amount": 5,
           "odds": 10,
           "originalCount": 3886882,
-          "remaining": 366567
+          "remaining": 365683
         }
       ],
       "overallOdds": 3.95,
       "computed": {
         "originalTickets": 38867820,
-        "fractionRemaining": 0.088,
-        "ticketsRemaining": 3420963,
-        "remainingPrizeValue": 10422555,
-        "evPerTicket": 3.0467,
-        "roi": 0.6093,
+        "fractionRemaining": 0.0878,
+        "ticketsRemaining": 3412541,
+        "remainingPrizeValue": 10394745,
+        "evPerTicket": 3.046,
+        "roi": 0.6092,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 1000000
       }
@@ -6632,51 +6643,51 @@
           "amount": 100,
           "odds": 683,
           "originalCount": 47336,
-          "remaining": 6377
+          "remaining": 6374
         },
         {
           "amount": 50,
           "odds": 186,
           "originalCount": 173949,
-          "remaining": 23370
+          "remaining": 23355
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 215582,
-          "remaining": 29240
+          "remaining": 29225
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 646746,
-          "remaining": 94449
+          "remaining": 94389
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 431151,
-          "remaining": 62897
+          "remaining": 62852
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 2371530,
-          "remaining": 376083
+          "remaining": 375864
         },
         {
           "amount": 2,
           "odds": 11,
           "originalCount": 3018159,
-          "remaining": 588381
+          "remaining": 588108
         }
       ],
       "overallOdds": 4.68,
       "computed": {
         "originalTickets": 32337300,
-        "fractionRemaining": 0.171,
-        "ticketsRemaining": 5529954,
-        "remainingPrizeValue": 6664469,
+        "fractionRemaining": 0.1709,
+        "ticketsRemaining": 5527005,
+        "remainingPrizeValue": 6660872,
         "evPerTicket": 1.2052,
         "roi": 0.6026,
         "topPrizesRemaining": 1,
@@ -6718,46 +6729,46 @@
           "amount": 500,
           "odds": 1195,
           "originalCount": 13546,
-          "remaining": 1181
+          "remaining": 1169
         },
         {
           "amount": 100,
           "odds": 240,
           "originalCount": 67496,
-          "remaining": 6087
+          "remaining": 6000
         },
         {
           "amount": 50,
           "odds": 120,
           "originalCount": 134726,
-          "remaining": 13431
+          "remaining": 13246
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 269723,
-          "remaining": 26320
+          "remaining": 25918
         },
         {
           "amount": 10,
           "odds": 9,
           "originalCount": 1780216,
-          "remaining": 183924
+          "remaining": 181319
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 1887918,
-          "remaining": 256831
+          "remaining": 254021
         }
       ],
       "overallOdds": 3.9,
       "computed": {
         "originalTickets": 16183440,
-        "fractionRemaining": 0.1174,
-        "ticketsRemaining": 1900476,
-        "remainingPrizeValue": 5725545,
-        "evPerTicket": 3.0127,
+        "fractionRemaining": 0.116,
+        "ticketsRemaining": 1876712,
+        "remainingPrizeValue": 5653455,
+        "evPerTicket": 3.0124,
         "roi": 0.6025,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 1000000
@@ -6822,34 +6833,34 @@
           "amount": 25,
           "odds": 126,
           "originalCount": 129802,
-          "remaining": 7047
+          "remaining": 7046
         },
         {
           "amount": 20,
           "odds": 60,
           "originalCount": 273318,
-          "remaining": 12712
+          "remaining": 12710
         },
         {
           "amount": 10,
           "odds": 10,
           "originalCount": 1639696,
-          "remaining": 90484
+          "remaining": 90471
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 1913685,
-          "remaining": 133100
+          "remaining": 133086
         }
       ],
       "overallOdds": 3.9,
       "computed": {
         "originalTickets": 16399080,
         "fractionRemaining": 0.0607,
-        "ticketsRemaining": 995365,
-        "remainingPrizeValue": 2993035,
-        "evPerTicket": 3.007,
+        "ticketsRemaining": 995248,
+        "remainingPrizeValue": 2992770,
+        "evPerTicket": 3.0071,
         "roi": 0.6014,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 1000000
@@ -6872,69 +6883,69 @@
           "amount": 200,
           "odds": 23990,
           "originalCount": 2303,
-          "remaining": 591
+          "remaining": 589
         },
         {
           "amount": 100,
           "odds": 4784,
           "originalCount": 11544,
-          "remaining": 3022
+          "remaining": 3020
         },
         {
           "amount": 40,
           "odds": 1198,
           "originalCount": 46059,
-          "remaining": 11930
+          "remaining": 11916
         },
         {
           "amount": 30,
           "odds": 1200,
           "originalCount": 45945,
-          "remaining": 12369
+          "remaining": 12362
         },
         {
           "amount": 20,
           "odds": 300,
           "originalCount": 184017,
-          "remaining": 53036
+          "remaining": 52988
         },
         {
           "amount": 10,
           "odds": 100,
           "originalCount": 552158,
-          "remaining": 159505
+          "remaining": 159365
         },
         {
           "amount": 5,
           "odds": 150,
           "originalCount": 368071,
-          "remaining": 107665
+          "remaining": 107563
         },
         {
           "amount": 4,
           "odds": 50,
           "originalCount": 1103709,
-          "remaining": 321496
+          "remaining": 321216
         },
         {
           "amount": 2,
           "odds": 14,
           "originalCount": 4048553,
-          "remaining": 1353465
+          "remaining": 1352405
         },
         {
           "amount": 1,
           "odds": 10,
           "originalCount": 5520080,
-          "remaining": 1828934
+          "remaining": 1827443
         }
       ],
       "overallOdds": 4.65,
       "computed": {
         "originalTickets": 55213225,
-        "fractionRemaining": 0.3242,
-        "ticketsRemaining": 17898861,
-        "remainingPrizeValue": 10504613,
+        "fractionRemaining": 0.3239,
+        "ticketsRemaining": 17884243,
+        "remainingPrizeValue": 10495642,
         "evPerTicket": 0.5869,
         "roi": 0.5869,
         "topPrizesRemaining": 22,
@@ -6976,59 +6987,59 @@
           "amount": 500,
           "odds": 1503,
           "originalCount": 16871,
-          "remaining": 532
+          "remaining": 531
         },
         {
           "amount": 200,
           "odds": 1200,
           "originalCount": 21134,
-          "remaining": 733
+          "remaining": 726
         },
         {
           "amount": 100,
           "odds": 71,
           "originalCount": 354999,
-          "remaining": 12254
+          "remaining": 12156
         },
         {
           "amount": 50,
           "odds": 171,
           "originalCount": 147826,
-          "remaining": 6211
+          "remaining": 6167
         },
         {
           "amount": 40,
           "odds": 109,
           "originalCount": 232232,
-          "remaining": 7758
+          "remaining": 7693
         },
         {
           "amount": 30,
           "odds": 63,
           "originalCount": 401361,
-          "remaining": 14049
+          "remaining": 13946
         },
         {
           "amount": 20,
           "odds": 12,
           "originalCount": 2112405,
-          "remaining": 88880
+          "remaining": 88330
         },
         {
           "amount": 10,
           "odds": 6,
           "originalCount": 4225612,
-          "remaining": 263387
+          "remaining": 262365
         }
       ],
       "overallOdds": 3.37,
       "computed": {
         "originalTickets": 25350144,
-        "fractionRemaining": 0.0524,
-        "ticketsRemaining": 1328571,
-        "remainingPrizeValue": 7789810,
-        "evPerTicket": 5.8633,
-        "roi": 0.5863,
+        "fractionRemaining": 0.0522,
+        "ticketsRemaining": 1322200,
+        "remainingPrizeValue": 7749000,
+        "evPerTicket": 5.8607,
+        "roi": 0.5861,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 2000000
       }
@@ -7056,59 +7067,59 @@
           "amount": 400,
           "odds": 16409,
           "originalCount": 1361,
-          "remaining": 124
+          "remaining": 123
         },
         {
           "amount": 100,
           "odds": 749,
           "originalCount": 29810,
-          "remaining": 2505
+          "remaining": 2474
         },
         {
           "amount": 50,
           "odds": 190,
           "originalCount": 117377,
-          "remaining": 10848
+          "remaining": 10735
         },
         {
           "amount": 25,
           "odds": 150,
           "originalCount": 148900,
-          "remaining": 15033
+          "remaining": 14908
         },
         {
           "amount": 10,
           "odds": 54,
           "originalCount": 416891,
-          "remaining": 43535
+          "remaining": 43142
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 297834,
-          "remaining": 31997
+          "remaining": 31734
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 1637489,
-          "remaining": 193100
+          "remaining": 191695
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 2233330,
-          "remaining": 339140
+          "remaining": 337222
         }
       ],
       "overallOdds": 4.57,
       "computed": {
         "originalTickets": 22332750,
-        "fractionRemaining": 0.1303,
-        "ticketsRemaining": 2910043,
-        "remainingPrizeValue": 3392340,
-        "evPerTicket": 1.1657,
-        "roi": 0.5829,
+        "fractionRemaining": 0.1294,
+        "ticketsRemaining": 2890611,
+        "remainingPrizeValue": 3365364,
+        "evPerTicket": 1.1642,
+        "roi": 0.5821,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 100000
       }
@@ -7154,41 +7165,41 @@
           "amount": 10,
           "odds": 150,
           "originalCount": 76133,
-          "remaining": 18551
+          "remaining": 18548
         },
         {
           "amount": 5,
           "odds": 125,
           "originalCount": 91330,
-          "remaining": 23223
+          "remaining": 23215
         },
         {
           "amount": 4,
           "odds": 50,
           "originalCount": 228344,
-          "remaining": 59067
+          "remaining": 59059
         },
         {
           "amount": 2,
           "odds": 13,
           "originalCount": 875378,
-          "remaining": 240961
+          "remaining": 240898
         },
         {
           "amount": 1,
           "odds": 11,
           "originalCount": 1027612,
-          "remaining": 303019
+          "remaining": 302960
         }
       ],
       "overallOdds": 4.84,
       "computed": {
         "originalTickets": 11417980,
-        "fractionRemaining": 0.2794,
-        "ticketsRemaining": 3190279,
-        "remainingPrizeValue": 1850764,
-        "evPerTicket": 0.5801,
-        "roi": 0.5801,
+        "fractionRemaining": 0.2793,
+        "ticketsRemaining": 3189597,
+        "remainingPrizeValue": 1850477,
+        "evPerTicket": 0.5802,
+        "roi": 0.5802,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 5000
       }
@@ -7228,45 +7239,45 @@
           "amount": 25,
           "odds": 188,
           "originalCount": 103169,
-          "remaining": 23738
+          "remaining": 23737
         },
         {
           "amount": 10,
           "odds": 88,
           "originalCount": 219545,
-          "remaining": 56518
+          "remaining": 56517
         },
         {
           "amount": 5,
           "odds": 150,
           "originalCount": 129288,
-          "remaining": 33081
+          "remaining": 33080
         },
         {
           "amount": 4,
           "odds": 60,
           "originalCount": 322702,
-          "remaining": 89616
+          "remaining": 89613
         },
         {
           "amount": 2,
           "odds": 14,
           "originalCount": 1355434,
-          "remaining": 400668
+          "remaining": 400654
         },
         {
           "amount": 1,
           "odds": 11,
           "originalCount": 1806602,
-          "remaining": 551321
+          "remaining": 551286
         }
       ],
       "overallOdds": 4.91,
       "computed": {
         "originalTickets": 19361589,
         "fractionRemaining": 0.2932,
-        "ticketsRemaining": 5677076,
-        "remainingPrizeValue": 3233606,
+        "ticketsRemaining": 5676806,
+        "remainingPrizeValue": 3233491,
         "evPerTicket": 0.5696,
         "roi": 0.5696,
         "topPrizesRemaining": 3,
@@ -7308,45 +7319,45 @@
           "amount": 50,
           "odds": 180,
           "originalCount": 153408,
-          "remaining": 11339
+          "remaining": 11338
         },
         {
           "amount": 20,
           "odds": 150,
           "originalCount": 184106,
-          "remaining": 16197
+          "remaining": 16195
         },
         {
           "amount": 10,
           "odds": 50,
           "originalCount": 552597,
-          "remaining": 49439
+          "remaining": 49434
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 368589,
-          "remaining": 33115
+          "remaining": 33111
         },
         {
           "amount": 4,
           "odds": 14,
           "originalCount": 2026201,
-          "remaining": 210985
+          "remaining": 210967
         },
         {
           "amount": 2,
           "odds": 10,
           "originalCount": 2762972,
-          "remaining": 372457
+          "remaining": 372429
         }
       ],
       "overallOdds": 4.54,
       "computed": {
         "originalTickets": 27629850,
         "fractionRemaining": 0.1144,
-        "ticketsRemaining": 3160398,
-        "remainingPrizeValue": 3489509,
+        "ticketsRemaining": 3160135,
+        "remainingPrizeValue": 3489221,
         "evPerTicket": 1.1041,
         "roi": 0.5521,
         "topPrizesRemaining": 0,
@@ -7388,45 +7399,45 @@
           "amount": 25,
           "odds": 300,
           "originalCount": 43793,
-          "remaining": 6271
+          "remaining": 6270
         },
         {
           "amount": 10,
           "odds": 60,
           "originalCount": 218702,
-          "remaining": 38133
+          "remaining": 38128
         },
         {
           "amount": 5,
           "odds": 150,
           "originalCount": 87535,
-          "remaining": 16552
+          "remaining": 16549
         },
         {
           "amount": 4,
           "odds": 60,
           "originalCount": 219112,
-          "remaining": 41823
+          "remaining": 41813
         },
         {
           "amount": 2,
           "odds": 14,
           "originalCount": 918737,
-          "remaining": 203944
+          "remaining": 203918
         },
         {
           "amount": 1,
           "odds": 11,
           "originalCount": 1225483,
-          "remaining": 300015
+          "remaining": 299974
         }
       ],
       "overallOdds": 4.83,
       "computed": {
         "originalTickets": 13128960,
         "fractionRemaining": 0.2234,
-        "ticketsRemaining": 2933156,
-        "remainingPrizeValue": 1576910,
+        "ticketsRemaining": 2932741,
+        "remainingPrizeValue": 1576687,
         "evPerTicket": 0.5376,
         "roi": 0.5376,
         "topPrizesRemaining": 1,
@@ -7480,39 +7491,39 @@
           "amount": 10,
           "odds": 150,
           "originalCount": 129252,
-          "remaining": 21002
+          "remaining": 21001
         },
         {
           "amount": 5,
           "odds": 75,
           "originalCount": 258680,
-          "remaining": 43212
+          "remaining": 43206
         },
         {
           "amount": 4,
           "odds": 60,
           "originalCount": 323624,
-          "remaining": 53700
+          "remaining": 53698
         },
         {
           "amount": 2,
           "odds": 14,
           "originalCount": 1422841,
-          "remaining": 279803
+          "remaining": 279771
         },
         {
           "amount": 1,
           "odds": 11,
           "originalCount": 1810926,
-          "remaining": 356823
+          "remaining": 356762
         }
       ],
       "overallOdds": 4.83,
       "computed": {
         "originalTickets": 19402260,
         "fractionRemaining": 0.1905,
-        "ticketsRemaining": 3696901,
-        "remainingPrizeValue": 1860709,
+        "ticketsRemaining": 3696409,
+        "remainingPrizeValue": 1860536,
         "evPerTicket": 0.5033,
         "roi": 0.5033,
         "topPrizesRemaining": 4,
@@ -7584,22 +7595,22 @@
           "amount": 10,
           "odds": 10,
           "originalCount": 2223965,
-          "remaining": 103176
+          "remaining": 103173
         },
         {
           "amount": 5,
           "odds": 9,
           "originalCount": 2684281,
-          "remaining": 187156
+          "remaining": 187148
         }
       ],
       "overallOdds": 3.99,
       "computed": {
         "originalTickets": 23007775,
         "fractionRemaining": 0.055,
-        "ticketsRemaining": 1264482,
-        "remainingPrizeValue": 3179340,
-        "evPerTicket": 2.5143,
+        "ticketsRemaining": 1264439,
+        "remainingPrizeValue": 3179270,
+        "evPerTicket": 2.5144,
         "roi": 0.5029,
         "topPrizesRemaining": 0,
         "topPrizeAmount": 1000000
@@ -7670,7 +7681,7 @@
           "amount": 60,
           "odds": 1803,
           "originalCount": 32130,
-          "remaining": 726
+          "remaining": 725
         },
         {
           "amount": 50,
@@ -7694,13 +7705,13 @@
           "amount": 12,
           "odds": 50,
           "originalCount": 1159188,
-          "remaining": 43389
+          "remaining": 43388
         },
         {
           "amount": 10,
           "odds": 33,
           "originalCount": 1738782,
-          "remaining": 51484
+          "remaining": 51483
         },
         {
           "amount": 9,
@@ -7712,21 +7723,21 @@
           "amount": 4,
           "odds": 22,
           "originalCount": 2665852,
-          "remaining": 116262
+          "remaining": 116259
         },
         {
           "amount": 3,
           "odds": 10,
           "originalCount": 5796384,
-          "remaining": 529536
+          "remaining": 529534
         }
       ],
       "overallOdds": 4.092,
       "computed": {
         "originalTickets": 57950286,
         "fractionRemaining": 0.0641,
-        "ticketsRemaining": 3715100,
-        "remainingPrizeValue": 5275038,
+        "ticketsRemaining": 3715067,
+        "remainingPrizeValue": 5274938,
         "evPerTicket": 1.4199,
         "roi": 0.4733,
         "topPrizesRemaining": 0,

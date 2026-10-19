@@ -1,84 +1,25 @@
 {
-  "generatedAt": "2026-10-18T11:12:32.275Z",
-  "resultsAsOf": "2026-10-17",
+  "generatedAt": "2026-10-19T11:13:43.062Z",
+  "resultsAsOf": "2026-10-18",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/New_York",
   "excluded": [],
+  "coverage": {
+    "sourceRecordCount": 131,
+    "validatedCount": 131,
+    "excludedCount": 0,
+    "validation": "usable"
+  },
+  "observation": {
+    "contentHash": "96de50c170eef4ade2d3921ce0916f6d6adc1716d0bbf4e506598ec2a15dbd0f",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-19T11:13:43.062Z"
+  },
   "validationVersion": "2026-10-05.1",
   "state": "wv",
   "source": "https://wvlottery.com/games/scratch-offs",
   "gameCount": 131,
   "games": [
-    {
-      "state": "wv",
-      "gameId": "1251",
-      "name": "$$300 GRAND",
-      "price": 30,
-      "url": "https://wvlottery.com/games/scratch-offs/1251-300-grand",
-      "tiers": [
-        {
-          "amount": 30,
-          "originalCount": 81494,
-          "remaining": 48103
-        },
-        {
-          "amount": 50,
-          "originalCount": 72417,
-          "remaining": 42572
-        },
-        {
-          "amount": 80,
-          "originalCount": 36214,
-          "remaining": 21363
-        },
-        {
-          "amount": 100,
-          "originalCount": 18099,
-          "remaining": 10620
-        },
-        {
-          "amount": 150,
-          "originalCount": 18115,
-          "remaining": 10707
-        },
-        {
-          "amount": 300,
-          "originalCount": 5064,
-          "remaining": 2963
-        },
-        {
-          "amount": 500,
-          "originalCount": 390,
-          "remaining": 225
-        },
-        {
-          "amount": 3000,
-          "originalCount": 12,
-          "remaining": 7
-        },
-        {
-          "amount": 30000,
-          "originalCount": 4,
-          "remaining": 3
-        },
-        {
-          "amount": 300000,
-          "originalCount": 3,
-          "remaining": 3
-        }
-      ],
-      "overallOdds": 3.12,
-      "computed": {
-        "originalTickets": 723253,
-        "fractionRemaining": 0.5891,
-        "ticketsRemaining": 426086,
-        "remainingPrizeValue": 9961180,
-        "evPerTicket": 23.3783,
-        "roi": 0.7793,
-        "topPrizesRemaining": 3,
-        "topPrizeAmount": 300000
-      }
-    },
     {
       "state": "wv",
       "gameId": "1211",
@@ -132,76 +73,6 @@
         "roi": 0.7495,
         "topPrizesRemaining": 6,
         "topPrizeAmount": 10000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1184",
-      "name": "XXXXX",
-      "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1184-xxxxx",
-      "tiers": [
-        {
-          "amount": 20,
-          "originalCount": 61350,
-          "remaining": 13439
-        },
-        {
-          "amount": 30,
-          "originalCount": 23628,
-          "remaining": 5306
-        },
-        {
-          "amount": 40,
-          "originalCount": 9451,
-          "remaining": 2059
-        },
-        {
-          "amount": 50,
-          "originalCount": 28323,
-          "remaining": 6076
-        },
-        {
-          "amount": 100,
-          "originalCount": 18887,
-          "remaining": 3955
-        },
-        {
-          "amount": 200,
-          "originalCount": 9473,
-          "remaining": 1975
-        },
-        {
-          "amount": 400,
-          "originalCount": 795,
-          "remaining": 173
-        },
-        {
-          "amount": 1000,
-          "originalCount": 48,
-          "remaining": 14
-        },
-        {
-          "amount": 20000,
-          "originalCount": 6,
-          "remaining": 2
-        },
-        {
-          "amount": 100000,
-          "originalCount": 3,
-          "remaining": 1
-        }
-      ],
-      "overallOdds": 3.73,
-      "computed": {
-        "originalTickets": 566826,
-        "fractionRemaining": 0.2172,
-        "ticketsRemaining": 123090,
-        "remainingPrizeValue": 1827820,
-        "evPerTicket": 14.8495,
-        "roi": 0.7425,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 100000
       }
     },
     {
@@ -346,6 +217,71 @@
     },
     {
       "state": "wv",
+      "gameId": "1252",
+      "name": "KICKIN AX - BIG TRUCKIN CW",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1252-KICKIN-AX-BIG-TRUCKIN-CW",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 57789,
+          "remaining": 21942
+        },
+        {
+          "amount": 20,
+          "originalCount": 40180,
+          "remaining": 15038
+        },
+        {
+          "amount": 30,
+          "originalCount": 27603,
+          "remaining": 10454
+        },
+        {
+          "amount": 50,
+          "originalCount": 10073,
+          "remaining": 3741
+        },
+        {
+          "amount": 100,
+          "originalCount": 4637,
+          "remaining": 1695
+        },
+        {
+          "amount": 200,
+          "originalCount": 386,
+          "remaining": 153
+        },
+        {
+          "amount": 500,
+          "originalCount": 68,
+          "remaining": 33
+        },
+        {
+          "amount": 2500,
+          "originalCount": 5,
+          "remaining": 2
+        },
+        {
+          "amount": 75000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.57,
+      "computed": {
+        "originalTickets": 502456,
+        "fractionRemaining": 0.377,
+        "ticketsRemaining": 189424,
+        "remainingPrizeValue": 1392450,
+        "evPerTicket": 7.351,
+        "roi": 0.7351,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 75000
+      }
+    },
+    {
+      "state": "wv",
       "gameId": "1266",
       "name": "POWER-CAKE-VIBES-SPIN",
       "price": 30,
@@ -354,22 +290,22 @@
         {
           "amount": 50,
           "originalCount": 59900,
-          "remaining": 39375
+          "remaining": 39325
         },
         {
           "amount": 100,
           "originalCount": 22967,
-          "remaining": 15160
+          "remaining": 15134
         },
         {
           "amount": 200,
           "originalCount": 9238,
-          "remaining": 5938
+          "remaining": 5930
         },
         {
           "amount": 300,
           "originalCount": 2215,
-          "remaining": 1459
+          "remaining": 1458
         },
         {
           "amount": 500,
@@ -385,10 +321,10 @@
       "overallOdds": 3.89,
       "computed": {
         "originalTickets": 368807,
-        "fractionRemaining": 0.6568,
-        "ticketsRemaining": 242215,
-        "remainingPrizeValue": 5340550,
-        "evPerTicket": 22.0488,
+        "fractionRemaining": 0.6559,
+        "ticketsRemaining": 241884,
+        "remainingPrizeValue": 5333550,
+        "evPerTicket": 22.05,
         "roi": 0.735,
         "topPrizesRemaining": 127,
         "topPrizeAmount": 1000
@@ -461,115 +397,50 @@
     },
     {
       "state": "wv",
-      "gameId": "1197",
-      "name": "UNTAPPED FORTUNE – ROLL FOR RICHES",
-      "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1197-untapped-fortune-roll-for-riches",
-      "tiers": [
-        {
-          "amount": 40,
-          "originalCount": 25164,
-          "remaining": 5041
-        },
-        {
-          "amount": 50,
-          "originalCount": 29415,
-          "remaining": 5824
-        },
-        {
-          "amount": 100,
-          "originalCount": 25148,
-          "remaining": 4950
-        },
-        {
-          "amount": 200,
-          "originalCount": 6308,
-          "remaining": 1255
-        },
-        {
-          "amount": 400,
-          "originalCount": 998,
-          "remaining": 219
-        },
-        {
-          "amount": 500,
-          "originalCount": 633,
-          "remaining": 123
-        },
-        {
-          "amount": 1000,
-          "originalCount": 33,
-          "remaining": 8
-        },
-        {
-          "amount": 10000,
-          "originalCount": 17,
-          "remaining": 4
-        }
-      ],
-      "overallOdds": 5.74,
-      "computed": {
-        "originalTickets": 503490,
-        "fractionRemaining": 0.1986,
-        "ticketsRemaining": 100014,
-        "remainingPrizeValue": 1435940,
-        "evPerTicket": 14.3574,
-        "roi": 0.7179,
-        "topPrizesRemaining": 4,
-        "topPrizeAmount": 10000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1145",
-      "name": "LUCKY GEM - OVERLOAD KENO",
+      "gameId": "1185",
+      "name": "XXXX",
       "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1145-lucky-gem-overload-keno",
+      "url": "https://wvlottery.com/games/scratch-offs/1185-xxxx",
       "tiers": [
         {
           "amount": 10,
-          "originalCount": 105698,
-          "remaining": 20647
+          "originalCount": 90086,
+          "remaining": 24026
         },
         {
           "amount": 20,
-          "originalCount": 70531,
-          "remaining": 13261
+          "originalCount": 51552,
+          "remaining": 13288
         },
         {
           "amount": 30,
-          "originalCount": 40352,
-          "remaining": 7308
+          "originalCount": 38634,
+          "remaining": 9751
         },
         {
           "amount": 50,
-          "originalCount": 25147,
-          "remaining": 4619
+          "originalCount": 21436,
+          "remaining": 5374
         },
         {
           "amount": 100,
-          "originalCount": 14483,
-          "remaining": 2586
+          "originalCount": 14299,
+          "remaining": 3607
         },
         {
           "amount": 200,
-          "originalCount": 1357,
-          "remaining": 280
+          "originalCount": 1078,
+          "remaining": 276
         },
         {
           "amount": 500,
-          "originalCount": 345,
-          "remaining": 76
+          "originalCount": 175,
+          "remaining": 44
         },
         {
-          "amount": 2000,
-          "originalCount": 16,
-          "remaining": 3
-        },
-        {
-          "amount": 10000,
-          "originalCount": 4,
-          "remaining": 1
+          "amount": 5000,
+          "originalCount": 10,
+          "remaining": 4
         },
         {
           "amount": 75000,
@@ -577,16 +448,71 @@
           "remaining": 1
         }
       ],
-      "overallOdds": 3.9,
+      "overallOdds": 3.95,
       "computed": {
-        "originalTickets": 1005950,
-        "fractionRemaining": 0.1891,
-        "ticketsRemaining": 190250,
-        "remainingPrizeValue": 1365480,
-        "evPerTicket": 7.1773,
-        "roi": 0.7177,
+        "originalTickets": 858228,
+        "fractionRemaining": 0.2594,
+        "ticketsRemaining": 222665,
+        "remainingPrizeValue": 1600150,
+        "evPerTicket": 7.1864,
+        "roi": 0.7186,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 75000
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1234",
+      "name": "GIMME $50K",
+      "price": 20,
+      "url": "https://wvlottery.com/games/scratch-offs/1234-gimme-usd50k",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 39855,
+          "remaining": 11793
+        },
+        {
+          "amount": 50,
+          "originalCount": 36886,
+          "remaining": 10909
+        },
+        {
+          "amount": 100,
+          "originalCount": 15345,
+          "remaining": 4530
+        },
+        {
+          "amount": 200,
+          "originalCount": 3323,
+          "remaining": 979
+        },
+        {
+          "amount": 500,
+          "originalCount": 504,
+          "remaining": 145
+        },
+        {
+          "amount": 2000,
+          "originalCount": 8,
+          "remaining": 5
+        },
+        {
+          "amount": 50000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 3.84,
+      "computed": {
+        "originalTickets": 368348,
+        "fractionRemaining": 0.2957,
+        "ticketsRemaining": 108910,
+        "remainingPrizeValue": 1562610,
+        "evPerTicket": 14.3477,
+        "roi": 0.7174,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 50000
       }
     },
     {
@@ -599,32 +525,32 @@
         {
           "amount": 20,
           "originalCount": 60305,
-          "remaining": 19417
+          "remaining": 19328
         },
         {
           "amount": 40,
           "originalCount": 37117,
-          "remaining": 11428
+          "remaining": 11377
         },
         {
           "amount": 50,
           "originalCount": 23185,
-          "remaining": 7039
+          "remaining": 6999
         },
         {
           "amount": 100,
           "originalCount": 18554,
-          "remaining": 5645
+          "remaining": 5608
         },
         {
           "amount": 200,
           "originalCount": 8733,
-          "remaining": 2612
+          "remaining": 2597
         },
         {
           "amount": 400,
           "originalCount": 550,
-          "remaining": 177
+          "remaining": 176
         },
         {
           "amount": 2000,
@@ -645,11 +571,11 @@
       "overallOdds": 3.75,
       "computed": {
         "originalTickets": 556774,
-        "fractionRemaining": 0.312,
-        "ticketsRemaining": 173730,
-        "remainingPrizeValue": 2489110,
-        "evPerTicket": 14.3275,
-        "roi": 0.7164,
+        "fractionRemaining": 0.3105,
+        "ticketsRemaining": 172856,
+        "remainingPrizeValue": 2476190,
+        "evPerTicket": 14.3252,
+        "roi": 0.7163,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 100000
       }
@@ -664,27 +590,27 @@
         {
           "amount": 10,
           "originalCount": 100488,
-          "remaining": 42100
+          "remaining": 41984
         },
         {
           "amount": 20,
           "originalCount": 65381,
-          "remaining": 26689
+          "remaining": 26627
         },
         {
           "amount": 30,
           "originalCount": 40208,
-          "remaining": 16289
+          "remaining": 16246
         },
         {
           "amount": 50,
           "originalCount": 35178,
-          "remaining": 14053
+          "remaining": 14024
         },
         {
           "amount": 100,
           "originalCount": 12553,
-          "remaining": 5049
+          "remaining": 5036
         },
         {
           "amount": 200,
@@ -710,68 +636,83 @@
       "overallOdds": 3.94,
       "computed": {
         "originalTickets": 1004834,
-        "fractionRemaining": 0.4104,
-        "ticketsRemaining": 412392,
-        "remainingPrizeValue": 2951300,
-        "evPerTicket": 7.1565,
-        "roi": 0.7157,
+        "fractionRemaining": 0.4094,
+        "ticketsRemaining": 411356,
+        "remainingPrizeValue": 2944860,
+        "evPerTicket": 7.1589,
+        "roi": 0.7159,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 75000
       }
     },
     {
       "state": "wv",
-      "gameId": "1136",
-      "name": "HIGH HAND",
+      "gameId": "1218",
+      "name": "$$100,000 JUMBO CASH",
       "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1136-high-hand",
+      "url": "https://wvlottery.com/games/scratch-offs/1218-usd100-000-jumbo-cash",
       "tiers": [
         {
+          "amount": 20,
+          "originalCount": 67720,
+          "remaining": 28375
+        },
+        {
+          "amount": 30,
+          "originalCount": 20815,
+          "remaining": 8692
+        },
+        {
           "amount": 40,
-          "originalCount": 15713,
-          "remaining": 4842
+          "originalCount": 15600,
+          "remaining": 6458
         },
         {
           "amount": 50,
-          "originalCount": 15727,
-          "remaining": 4697
-        },
-        {
-          "amount": 75,
-          "originalCount": 12583,
-          "remaining": 3888
+          "originalCount": 31243,
+          "remaining": 12921
         },
         {
           "amount": 100,
-          "originalCount": 18867,
-          "remaining": 5533
+          "originalCount": 20825,
+          "remaining": 8603
         },
         {
-          "amount": 250,
-          "originalCount": 1479,
-          "remaining": 433
+          "amount": 200,
+          "originalCount": 11244,
+          "remaining": 4657
         },
         {
-          "amount": 500,
-          "originalCount": 795,
-          "remaining": 239
+          "amount": 400,
+          "originalCount": 230,
+          "remaining": 102
         },
         {
-          "amount": 5000,
-          "originalCount": 75,
-          "remaining": 24
+          "amount": 1000,
+          "originalCount": 31,
+          "remaining": 11
+        },
+        {
+          "amount": 20000,
+          "originalCount": 6,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "originalCount": 3,
+          "remaining": 1
         }
       ],
-      "overallOdds": 5.78,
+      "overallOdds": 3.73,
       "computed": {
-        "originalTickets": 377081,
-        "fractionRemaining": 0.3013,
-        "ticketsRemaining": 113612,
-        "remainingPrizeValue": 1621180,
-        "evPerTicket": 14.2694,
-        "roi": 0.7135,
-        "topPrizesRemaining": 24,
-        "topPrizeAmount": 5000
+        "originalTickets": 625584,
+        "fractionRemaining": 0.4163,
+        "ticketsRemaining": 260436,
+        "remainingPrizeValue": 3716130,
+        "evPerTicket": 14.2689,
+        "roi": 0.7134,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
       }
     },
     {
@@ -784,27 +725,27 @@
         {
           "amount": 20,
           "originalCount": 44355,
-          "remaining": 26535
+          "remaining": 26403
         },
         {
           "amount": 40,
           "originalCount": 30675,
-          "remaining": 18227
+          "remaining": 18134
         },
         {
           "amount": 70,
           "originalCount": 13641,
-          "remaining": 8096
+          "remaining": 8049
         },
         {
           "amount": 100,
           "originalCount": 13639,
-          "remaining": 8119
+          "remaining": 8069
         },
         {
           "amount": 150,
           "originalCount": 6061,
-          "remaining": 3633
+          "remaining": 3616
         },
         {
           "amount": 500,
@@ -825,138 +766,68 @@
       "overallOdds": 3.76,
       "computed": {
         "originalTickets": 409050,
-        "fractionRemaining": 0.5962,
-        "ticketsRemaining": 243873,
-        "remainingPrizeValue": 3466850,
-        "evPerTicket": 14.2158,
-        "roi": 0.7108,
+        "fractionRemaining": 0.5931,
+        "ticketsRemaining": 242599,
+        "remainingPrizeValue": 3449650,
+        "evPerTicket": 14.2196,
+        "roi": 0.711,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 70000
       }
     },
     {
       "state": "wv",
-      "gameId": "1201",
-      "name": "DRAGON’S HOARD",
-      "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1201-dragons-hoard",
+      "gameId": "1268",
+      "name": "LUCKY WITCH-LUCKY ELF",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1268-lucky-witch-lucky-elf",
       "tiers": [
         {
           "amount": 20,
-          "originalCount": 44220,
-          "remaining": 13615
+          "originalCount": 38218,
+          "remaining": 23946
         },
         {
-          "amount": 40,
-          "originalCount": 30645,
-          "remaining": 9265
-        },
-        {
-          "amount": 50,
-          "originalCount": 17016,
-          "remaining": 5205
-        },
-        {
-          "amount": 100,
-          "originalCount": 13612,
-          "remaining": 4093
-        },
-        {
-          "amount": 200,
-          "originalCount": 4087,
-          "remaining": 1223
-        },
-        {
-          "amount": 500,
-          "originalCount": 621,
-          "remaining": 183
-        },
-        {
-          "amount": 1000,
-          "originalCount": 81,
-          "remaining": 30
-        },
-        {
-          "amount": 10000,
-          "originalCount": 7,
-          "remaining": 1
-        },
-        {
-          "amount": 75000,
-          "originalCount": 3,
-          "remaining": 1
-        }
-      ],
-      "overallOdds": 3.7,
-      "computed": {
-        "originalTickets": 408080,
-        "fractionRemaining": 0.3048,
-        "ticketsRemaining": 124379,
-        "remainingPrizeValue": 1763550,
-        "evPerTicket": 14.1788,
-        "roi": 0.7089,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 75000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1257",
-      "name": "COOL CASH- WINNING ERA",
-      "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1257-cool-cash-winning-era",
-      "tiers": [
-        {
-          "amount": 20,
-          "originalCount": 40779,
-          "remaining": 28182
-        },
-        {
-          "amount": 40,
-          "originalCount": 23808,
-          "remaining": 16417
+          "amount": 30,
+          "originalCount": 12070,
+          "remaining": 7515
         },
         {
           "amount": 50,
-          "originalCount": 20453,
-          "remaining": 14054
+          "originalCount": 18104,
+          "remaining": 11309
         },
         {
           "amount": 100,
-          "originalCount": 13614,
-          "remaining": 9364
+          "originalCount": 6034,
+          "remaining": 3732
         },
         {
           "amount": 200,
-          "originalCount": 6267,
-          "remaining": 4305
+          "originalCount": 477,
+          "remaining": 295
         },
         {
           "amount": 500,
-          "originalCount": 415,
-          "remaining": 286
+          "originalCount": 175,
+          "remaining": 109
         },
         {
           "amount": 5000,
-          "originalCount": 6,
+          "originalCount": 8,
           "remaining": 5
-        },
-        {
-          "amount": 50000,
-          "originalCount": 3,
-          "remaining": 2
         }
       ],
-      "overallOdds": 3.88,
+      "overallOdds": 5.36,
       "computed": {
-        "originalTickets": 408739,
-        "fractionRemaining": 0.6893,
-        "ticketsRemaining": 281746,
-        "remainingPrizeValue": 3988420,
-        "evPerTicket": 14.1561,
-        "roi": 0.7078,
-        "topPrizesRemaining": 2,
-        "topPrizeAmount": 50000
+        "originalTickets": 402461,
+        "fractionRemaining": 0.6248,
+        "ticketsRemaining": 251443,
+        "remainingPrizeValue": 1781520,
+        "evPerTicket": 7.0852,
+        "roi": 0.7085,
+        "topPrizesRemaining": 5,
+        "topPrizeAmount": 5000
       }
     },
     {
@@ -1114,12 +985,12 @@
         {
           "amount": 50,
           "originalCount": 50316,
-          "remaining": 19547
+          "remaining": 19546
         },
         {
           "amount": 100,
           "originalCount": 16772,
-          "remaining": 6516
+          "remaining": 6514
         },
         {
           "amount": 150,
@@ -1156,9 +1027,9 @@
       "computed": {
         "originalTickets": 502601,
         "fractionRemaining": 0.3907,
-        "ticketsRemaining": 196383,
-        "remainingPrizeValue": 2775740,
-        "evPerTicket": 14.1343,
+        "ticketsRemaining": 196372,
+        "remainingPrizeValue": 2775490,
+        "evPerTicket": 14.1338,
         "roi": 0.7067,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
@@ -1166,117 +1037,187 @@
     },
     {
       "state": "wv",
-      "gameId": "1254",
-      "name": "LADY LUCK",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1254-lady-luck",
+      "gameId": "1198",
+      "name": "HIGH ROLLER- JACKPOT",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1198-high-roller-jackpot",
       "tiers": [
         {
-          "amount": 20,
-          "originalCount": 81848,
-          "remaining": 45635
+          "amount": 5,
+          "originalCount": 83738,
+          "remaining": 21669
         },
         {
-          "amount": 30,
-          "originalCount": 28874,
-          "remaining": 16100
+          "amount": 10,
+          "originalCount": 62807,
+          "remaining": 15215
+        },
+        {
+          "amount": 20,
+          "originalCount": 26200,
+          "remaining": 6156
+        },
+        {
+          "amount": 25,
+          "originalCount": 23580,
+          "remaining": 5438
         },
         {
           "amount": 50,
-          "originalCount": 43329,
-          "remaining": 24093
+          "originalCount": 10460,
+          "remaining": 2335
         },
         {
           "amount": 100,
-          "originalCount": 14448,
-          "remaining": 7989
-        },
-        {
-          "amount": 200,
-          "originalCount": 1365,
-          "remaining": 762
+          "originalCount": 214,
+          "remaining": 56
         },
         {
           "amount": 500,
-          "originalCount": 416,
-          "remaining": 232
+          "originalCount": 53,
+          "remaining": 16
         },
         {
-          "amount": 5000,
-          "originalCount": 36,
-          "remaining": 20
+          "amount": 25000,
+          "originalCount": 4,
+          "remaining": 3
         }
       ],
-      "overallOdds": 5.65,
+      "overallOdds": 4.05,
       "computed": {
-        "originalTickets": 962285,
-        "fractionRemaining": 0.5568,
-        "ticketsRemaining": 535795,
-        "remainingPrizeValue": 3767650,
-        "evPerTicket": 7.0319,
-        "roi": 0.7032,
-        "topPrizesRemaining": 20,
-        "topPrizeAmount": 5000
+        "originalTickets": 838577,
+        "fractionRemaining": 0.2458,
+        "ticketsRemaining": 206096,
+        "remainingPrizeValue": 724915,
+        "evPerTicket": 3.5174,
+        "roi": 0.7035,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 25000
       }
     },
     {
       "state": "wv",
-      "gameId": "1255",
-      "name": "LION'S SHARE",
+      "gameId": "1273",
+      "name": "DOGGIE-POOL-CAT-CASH",
       "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1255-lions-share",
+      "url": "https://wvlottery.com/games/scratch-offs/1273-DOGGIE-POOL-CAT-CASH",
       "tiers": [
         {
           "amount": 10,
-          "originalCount": 58663,
-          "remaining": 32536
+          "originalCount": 71258,
+          "remaining": 43944
         },
         {
           "amount": 20,
-          "originalCount": 34692,
-          "remaining": 18938
+          "originalCount": 82108,
+          "remaining": 50136
         },
         {
           "amount": 30,
-          "originalCount": 21328,
-          "remaining": 11497
+          "originalCount": 3569,
+          "remaining": 2211
         },
         {
           "amount": 50,
-          "originalCount": 15995,
-          "remaining": 8586
+          "originalCount": 10702,
+          "remaining": 6517
         },
         {
           "amount": 100,
-          "originalCount": 7161,
-          "remaining": 3854
+          "originalCount": 3571,
+          "remaining": 2166
+        },
+        {
+          "amount": 200,
+          "originalCount": 726,
+          "remaining": 441
         },
         {
           "amount": 500,
-          "originalCount": 175,
-          "remaining": 96
-        },
-        {
-          "amount": 5000,
-          "originalCount": 10,
-          "remaining": 5
-        },
-        {
-          "amount": 50000,
-          "originalCount": 3,
-          "remaining": 2
+          "originalCount": 3016,
+          "remaining": 1837
         }
       ],
-      "overallOdds": 3.86,
+      "overallOdds": 4.08,
       "computed": {
-        "originalTickets": 532784,
-        "fractionRemaining": 0.5471,
-        "ticketsRemaining": 291484,
-        "remainingPrizeValue": 2036730,
+        "originalTickets": 713796,
+        "fractionRemaining": 0.613,
+        "ticketsRemaining": 437588,
+        "remainingPrizeValue": 3057640,
         "evPerTicket": 6.9875,
         "roi": 0.6987,
-        "topPrizesRemaining": 2,
-        "topPrizeAmount": 50000
+        "topPrizesRemaining": 1837,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1130",
+      "name": "SUPREME CASH – GOLDEN",
+      "price": 30,
+      "url": "https://wvlottery.com/games/scratch-offs/1130-supreme-cash-golden",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 91248,
+          "remaining": 10310
+        },
+        {
+          "amount": 40,
+          "originalCount": 18257,
+          "remaining": 1948
+        },
+        {
+          "amount": 50,
+          "originalCount": 18226,
+          "remaining": 1900
+        },
+        {
+          "amount": 100,
+          "originalCount": 27362,
+          "remaining": 2760
+        },
+        {
+          "amount": 150,
+          "originalCount": 27374,
+          "remaining": 2719
+        },
+        {
+          "amount": 200,
+          "originalCount": 18258,
+          "remaining": 1900
+        },
+        {
+          "amount": 300,
+          "originalCount": 1533,
+          "remaining": 153
+        },
+        {
+          "amount": 500,
+          "originalCount": 247,
+          "remaining": 32
+        },
+        {
+          "amount": 30000,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 300000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 3.6,
+      "computed": {
+        "originalTickets": 729043,
+        "fractionRemaining": 0.1073,
+        "ticketsRemaining": 78203,
+        "remainingPrizeValue": 1637970,
+        "evPerTicket": 20.9451,
+        "roi": 0.6982,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 300000
       }
     },
     {
@@ -1331,117 +1272,67 @@
     },
     {
       "state": "wv",
-      "gameId": "1234",
-      "name": "GIMME $50K",
-      "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1234-gimme-usd50k",
-      "tiers": [
-        {
-          "amount": 20,
-          "originalCount": 39855,
-          "remaining": 11793
-        },
-        {
-          "amount": 50,
-          "originalCount": 36886,
-          "remaining": 10909
-        },
-        {
-          "amount": 100,
-          "originalCount": 15345,
-          "remaining": 4531
-        },
-        {
-          "amount": 200,
-          "originalCount": 3323,
-          "remaining": 979
-        },
-        {
-          "amount": 500,
-          "originalCount": 504,
-          "remaining": 145
-        },
-        {
-          "amount": 2000,
-          "originalCount": 8,
-          "remaining": 5
-        }
-      ],
-      "overallOdds": 3.84,
-      "computed": {
-        "originalTickets": 368337,
-        "fractionRemaining": 0.2957,
-        "ticketsRemaining": 108910,
-        "remainingPrizeValue": 1512710,
-        "evPerTicket": 13.8895,
-        "roi": 0.6945,
-        "topPrizesRemaining": 5,
-        "topPrizeAmount": 2000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1194",
-      "name": "HIT THE JACKPOT",
+      "gameId": "1157",
+      "name": "SLOTS OF CASH",
       "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1194-hit-the-jackpot",
+      "url": "https://wvlottery.com/games/scratch-offs/1157-slots-of-cash",
       "tiers": [
         {
           "amount": 10,
-          "originalCount": 62192,
-          "remaining": 18335
+          "originalCount": 50430,
+          "remaining": 6809
+        },
+        {
+          "amount": 15,
+          "originalCount": 25178,
+          "remaining": 3312
         },
         {
           "amount": 20,
-          "originalCount": 34228,
-          "remaining": 9563
+          "originalCount": 30254,
+          "remaining": 3875
+        },
+        {
+          "amount": 25,
+          "originalCount": 5042,
+          "remaining": 632
         },
         {
           "amount": 30,
-          "originalCount": 40451,
-          "remaining": 11353
+          "originalCount": 5062,
+          "remaining": 660
         },
         {
           "amount": 50,
-          "originalCount": 9331,
-          "remaining": 2576
+          "originalCount": 5018,
+          "remaining": 589
         },
         {
           "amount": 100,
-          "originalCount": 8934,
-          "remaining": 2464
+          "originalCount": 1892,
+          "remaining": 241
         },
         {
-          "amount": 200,
-          "originalCount": 819,
-          "remaining": 232
+          "amount": 150,
+          "originalCount": 504,
+          "remaining": 66
         },
         {
           "amount": 500,
-          "originalCount": 214,
-          "remaining": 61
-        },
-        {
-          "amount": 5000,
-          "originalCount": 10,
-          "remaining": 3
-        },
-        {
-          "amount": 50000,
-          "originalCount": 3,
-          "remaining": 1
+          "originalCount": 2512,
+          "remaining": 320
         }
       ],
-      "overallOdds": 3.98,
+      "overallOdds": 4,
       "computed": {
-        "originalTickets": 621604,
-        "fractionRemaining": 0.2855,
-        "ticketsRemaining": 177460,
-        "remainingPrizeValue": 1232300,
-        "evPerTicket": 6.9441,
-        "roi": 0.6944,
-        "topPrizesRemaining": 1,
-        "topPrizeAmount": 50000
+        "originalTickets": 503568,
+        "fractionRemaining": 0.1311,
+        "ticketsRemaining": 66016,
+        "remainingPrizeValue": 454320,
+        "evPerTicket": 6.882,
+        "roi": 0.6882,
+        "topPrizesRemaining": 320,
+        "topPrizeAmount": 500
       }
     },
     {
@@ -1519,47 +1410,47 @@
         {
           "amount": 5,
           "originalCount": 75441,
-          "remaining": 27901
+          "remaining": 27704
         },
         {
           "amount": 10,
           "originalCount": 47185,
-          "remaining": 16935
+          "remaining": 16793
         },
         {
           "amount": 15,
           "originalCount": 14111,
-          "remaining": 4954
+          "remaining": 4930
         },
         {
           "amount": 20,
           "originalCount": 14128,
-          "remaining": 4950
+          "remaining": 4919
         },
         {
           "amount": 25,
           "originalCount": 11792,
-          "remaining": 4216
+          "remaining": 4183
         },
         {
           "amount": 50,
           "originalCount": 7566,
-          "remaining": 2744
+          "remaining": 2728
         },
         {
           "amount": 75,
           "originalCount": 2268,
-          "remaining": 825
+          "remaining": 821
         },
         {
           "amount": 100,
           "originalCount": 1893,
-          "remaining": 682
+          "remaining": 673
         },
         {
           "amount": 150,
           "originalCount": 267,
-          "remaining": 100
+          "remaining": 99
         },
         {
           "amount": 200,
@@ -1585,11 +1476,11 @@
       "overallOdds": 4.31,
       "computed": {
         "originalTickets": 753780,
-        "fractionRemaining": 0.3625,
-        "ticketsRemaining": 273237,
-        "remainingPrizeValue": 935740,
-        "evPerTicket": 3.4246,
-        "roi": 0.6849,
+        "fractionRemaining": 0.3599,
+        "ticketsRemaining": 271267,
+        "remainingPrizeValue": 929380,
+        "evPerTicket": 3.4261,
+        "roi": 0.6852,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 20000
       }
@@ -1724,32 +1615,32 @@
         {
           "amount": 5,
           "originalCount": 125966,
-          "remaining": 100541
+          "remaining": 100515
         },
         {
           "amount": 10,
           "originalCount": 51166,
-          "remaining": 40624
+          "remaining": 40618
         },
         {
           "amount": 15,
           "originalCount": 51169,
-          "remaining": 40637
+          "remaining": 40624
         },
         {
           "amount": 20,
           "originalCount": 35428,
-          "remaining": 28070
+          "remaining": 28066
         },
         {
           "amount": 25,
           "originalCount": 27554,
-          "remaining": 21912
+          "remaining": 21909
         },
         {
           "amount": 50,
           "originalCount": 12763,
-          "remaining": 10116
+          "remaining": 10115
         },
         {
           "amount": 100,
@@ -1775,10 +1666,10 @@
       "overallOdds": 4.12,
       "computed": {
         "originalTickets": 1259076,
-        "fractionRemaining": 0.7956,
-        "ticketsRemaining": 1001708,
-        "remainingPrizeValue": 3420900,
-        "evPerTicket": 3.4151,
+        "fractionRemaining": 0.7954,
+        "ticketsRemaining": 1001490,
+        "remainingPrizeValue": 3420310,
+        "evPerTicket": 3.4152,
         "roi": 0.683,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 50000
@@ -1847,6 +1738,86 @@
         "roi": 0.6825,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 30000
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1186",
+      "name": "XXX",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1186-xxx",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 111670,
+          "remaining": 44625
+        },
+        {
+          "amount": 10,
+          "originalCount": 69262,
+          "remaining": 26615
+        },
+        {
+          "amount": 15,
+          "originalCount": 19269,
+          "remaining": 7360
+        },
+        {
+          "amount": 20,
+          "originalCount": 42366,
+          "remaining": 16214
+        },
+        {
+          "amount": 25,
+          "originalCount": 34633,
+          "remaining": 13169
+        },
+        {
+          "amount": 50,
+          "originalCount": 12344,
+          "remaining": 4637
+        },
+        {
+          "amount": 75,
+          "originalCount": 1217,
+          "remaining": 447
+        },
+        {
+          "amount": 100,
+          "originalCount": 1084,
+          "remaining": 418
+        },
+        {
+          "amount": 250,
+          "originalCount": 109,
+          "remaining": 41
+        },
+        {
+          "amount": 500,
+          "originalCount": 47,
+          "remaining": 17
+        },
+        {
+          "amount": 1000,
+          "originalCount": 16,
+          "remaining": 5
+        },
+        {
+          "amount": 50000,
+          "originalCount": 3,
+          "remaining": 1
+        }
+      ],
+      "overallOdds": 4.22,
+      "computed": {
+        "originalTickets": 1232324,
+        "fractionRemaining": 0.3888,
+        "ticketsRemaining": 479177,
+        "remainingPrizeValue": 1634105,
+        "evPerTicket": 3.4102,
+        "roi": 0.682,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 50000
       }
     },
     {
@@ -1931,6 +1902,66 @@
     },
     {
       "state": "wv",
+      "gameId": "1269",
+      "name": "MOTHMAN FORTUNE-MERRY LITTLE CRYPTIDS",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1269-mothman-fortune-merry-little-cryptids",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 64057,
+          "remaining": 44687
+        },
+        {
+          "amount": 10,
+          "originalCount": 35625,
+          "remaining": 24369
+        },
+        {
+          "amount": 15,
+          "originalCount": 10640,
+          "remaining": 7265
+        },
+        {
+          "amount": 20,
+          "originalCount": 32077,
+          "remaining": 21789
+        },
+        {
+          "amount": 50,
+          "originalCount": 7122,
+          "remaining": 4766
+        },
+        {
+          "amount": 100,
+          "originalCount": 740,
+          "remaining": 507
+        },
+        {
+          "amount": 500,
+          "originalCount": 84,
+          "remaining": 55
+        },
+        {
+          "amount": 2000,
+          "originalCount": 4,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 3.79,
+      "computed": {
+        "originalTickets": 569823,
+        "fractionRemaining": 0.688,
+        "ticketsRemaining": 392042,
+        "remainingPrizeValue": 1334380,
+        "evPerTicket": 3.4037,
+        "roi": 0.6807,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 2000
+      }
+    },
+    {
+      "state": "wv",
       "gameId": "1242",
       "name": "1242-boo",
       "price": 10,
@@ -1994,37 +2025,37 @@
         {
           "amount": 5,
           "originalCount": 62653,
-          "remaining": 43031
+          "remaining": 42964
         },
         {
           "amount": 10,
           "originalCount": 43183,
-          "remaining": 29427
+          "remaining": 29376
         },
         {
           "amount": 15,
           "originalCount": 12937,
-          "remaining": 8783
+          "remaining": 8766
         },
         {
           "amount": 25,
           "originalCount": 21604,
-          "remaining": 14660
+          "remaining": 14637
         },
         {
           "amount": 50,
           "originalCount": 8361,
-          "remaining": 5643
+          "remaining": 5634
         },
         {
           "amount": 100,
           "originalCount": 1731,
-          "remaining": 1156
+          "remaining": 1153
         },
         {
           "amount": 500,
           "originalCount": 417,
-          "remaining": 291
+          "remaining": 290
         },
         {
           "amount": 25000,
@@ -2035,73 +2066,13 @@
       "overallOdds": 4.58,
       "computed": {
         "originalTickets": 691072,
-        "fractionRemaining": 0.6826,
-        "ticketsRemaining": 471708,
-        "remainingPrizeValue": 1600920,
-        "evPerTicket": 3.3939,
-        "roi": 0.6788,
+        "fractionRemaining": 0.6814,
+        "ticketsRemaining": 470925,
+        "remainingPrizeValue": 1597995,
+        "evPerTicket": 3.3933,
+        "roi": 0.6787,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 25000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1263",
-      "name": "I CAN'T EVEN 5",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1263-i-cant-even-5",
-      "tiers": [
-        {
-          "amount": 5,
-          "originalCount": 57269,
-          "remaining": 35524
-        },
-        {
-          "amount": 10,
-          "originalCount": 35805,
-          "remaining": 22036
-        },
-        {
-          "amount": 20,
-          "originalCount": 17948,
-          "remaining": 11034
-        },
-        {
-          "amount": 25,
-          "originalCount": 14297,
-          "remaining": 8725
-        },
-        {
-          "amount": 50,
-          "originalCount": 8460,
-          "remaining": 5144
-        },
-        {
-          "amount": 100,
-          "originalCount": 1144,
-          "remaining": 712
-        },
-        {
-          "amount": 500,
-          "originalCount": 57,
-          "remaining": 34
-        },
-        {
-          "amount": 5000,
-          "originalCount": 4,
-          "remaining": 3
-        }
-      ],
-      "overallOdds": 4.24,
-      "computed": {
-        "originalTickets": 572332,
-        "fractionRemaining": 0.6165,
-        "ticketsRemaining": 352819,
-        "remainingPrizeValue": 1197185,
-        "evPerTicket": 3.3932,
-        "roi": 0.6786,
-        "topPrizesRemaining": 3,
-        "topPrizeAmount": 5000
       }
     },
     {
@@ -2114,27 +2085,27 @@
         {
           "amount": 5,
           "originalCount": 113047,
-          "remaining": 28294
+          "remaining": 28141
         },
         {
           "amount": 10,
           "originalCount": 58246,
-          "remaining": 13519
+          "remaining": 13425
         },
         {
           "amount": 20,
           "originalCount": 43747,
-          "remaining": 9655
+          "remaining": 9586
         },
         {
           "amount": 25,
           "originalCount": 43648,
-          "remaining": 9889
+          "remaining": 9825
         },
         {
           "amount": 50,
           "originalCount": 12058,
-          "remaining": 2600
+          "remaining": 2580
         },
         {
           "amount": 100,
@@ -2160,11 +2131,11 @@
       "overallOdds": 4.29,
       "computed": {
         "originalTickets": 1166790,
-        "fractionRemaining": 0.2362,
-        "ticketsRemaining": 275568,
-        "remainingPrizeValue": 932635,
-        "evPerTicket": 3.3844,
-        "roi": 0.6769,
+        "fractionRemaining": 0.2347,
+        "ticketsRemaining": 273852,
+        "remainingPrizeValue": 926950,
+        "evPerTicket": 3.3849,
+        "roi": 0.677,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
       }
@@ -2179,47 +2150,47 @@
         {
           "amount": 5,
           "originalCount": 137433,
-          "remaining": 107580
+          "remaining": 107381
         },
         {
           "amount": 10,
           "originalCount": 54984,
-          "remaining": 42731
+          "remaining": 42635
         },
         {
           "amount": 15,
           "originalCount": 51039,
-          "remaining": 39451
+          "remaining": 39376
         },
         {
           "amount": 20,
           "originalCount": 15765,
-          "remaining": 12102
+          "remaining": 12079
         },
         {
           "amount": 25,
           "originalCount": 11766,
-          "remaining": 9111
+          "remaining": 9089
         },
         {
           "amount": 30,
           "originalCount": 13030,
-          "remaining": 10079
+          "remaining": 10057
         },
         {
           "amount": 50,
           "originalCount": 5037,
-          "remaining": 3858
+          "remaining": 3843
         },
         {
           "amount": 100,
           "originalCount": 6265,
-          "remaining": 4834
+          "remaining": 4827
         },
         {
           "amount": 200,
           "originalCount": 603,
-          "remaining": 459
+          "remaining": 458
         },
         {
           "amount": 500,
@@ -2245,11 +2216,11 @@
       "overallOdds": 4.24,
       "computed": {
         "originalTickets": 1255417,
-        "fractionRemaining": 0.7779,
-        "ticketsRemaining": 976612,
-        "remainingPrizeValue": 3293760,
-        "evPerTicket": 3.3726,
-        "roi": 0.6745,
+        "fractionRemaining": 0.7764,
+        "ticketsRemaining": 974661,
+        "remainingPrizeValue": 3287360,
+        "evPerTicket": 3.3728,
+        "roi": 0.6746,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 50000
       }
@@ -2314,27 +2285,27 @@
         {
           "amount": 5,
           "originalCount": 60618,
-          "remaining": 26133
+          "remaining": 26009
         },
         {
           "amount": 10,
           "originalCount": 55571,
-          "remaining": 23374
+          "remaining": 23244
         },
         {
           "amount": 20,
           "originalCount": 40412,
-          "remaining": 16750
+          "remaining": 16645
         },
         {
           "amount": 30,
           "originalCount": 15153,
-          "remaining": 6252
+          "remaining": 6213
         },
         {
           "amount": 50,
           "originalCount": 8784,
-          "remaining": 3616
+          "remaining": 3589
         },
         {
           "amount": 100,
@@ -2355,10 +2326,10 @@
       "overallOdds": 4.46,
       "computed": {
         "originalTickets": 808112,
-        "fractionRemaining": 0.4216,
-        "ticketsRemaining": 340664,
-        "remainingPrizeValue": 1145565,
-        "evPerTicket": 3.3627,
+        "fractionRemaining": 0.4192,
+        "ticketsRemaining": 338768,
+        "remainingPrizeValue": 1139025,
+        "evPerTicket": 3.3623,
         "roi": 0.6725,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 10000
@@ -2374,37 +2345,37 @@
         {
           "amount": 5,
           "originalCount": 151063,
-          "remaining": 99379
+          "remaining": 99147
         },
         {
           "amount": 7,
           "originalCount": 89763,
-          "remaining": 58413
+          "remaining": 58274
         },
         {
           "amount": 14,
           "originalCount": 18883,
-          "remaining": 12187
+          "remaining": 12155
         },
         {
           "amount": 21,
           "originalCount": 14155,
-          "remaining": 9116
+          "remaining": 9093
         },
         {
           "amount": 25,
           "originalCount": 47196,
-          "remaining": 30494
+          "remaining": 30425
         },
         {
           "amount": 50,
           "originalCount": 26995,
-          "remaining": 17427
+          "remaining": 17394
         },
         {
           "amount": 70,
           "originalCount": 3131,
-          "remaining": 2017
+          "remaining": 2011
         },
         {
           "amount": 177,
@@ -2414,7 +2385,7 @@
         {
           "amount": 500,
           "originalCount": 322,
-          "remaining": 214
+          "remaining": 213
         },
         {
           "amount": 2100,
@@ -2430,11 +2401,11 @@
       "overallOdds": 4.29,
       "computed": {
         "originalTickets": 1509376,
-        "fractionRemaining": 0.6522,
-        "ticketsRemaining": 984362,
-        "remainingPrizeValue": 3306399,
-        "evPerTicket": 3.3589,
-        "roi": 0.6718,
+        "fractionRemaining": 0.6506,
+        "ticketsRemaining": 982067,
+        "remainingPrizeValue": 3299040,
+        "evPerTicket": 3.3593,
+        "roi": 0.6719,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 35000
       }
@@ -2449,17 +2420,17 @@
         {
           "amount": 5,
           "originalCount": 150811,
-          "remaining": 42324
+          "remaining": 42323
         },
         {
           "amount": 7,
           "originalCount": 89551,
-          "remaining": 23932
+          "remaining": 23931
         },
         {
           "amount": 14,
           "originalCount": 18852,
-          "remaining": 4905
+          "remaining": 4904
         },
         {
           "amount": 21,
@@ -2506,8 +2477,8 @@
       "computed": {
         "originalTickets": 1506549,
         "fractionRemaining": 0.2702,
-        "ticketsRemaining": 407022,
-        "remainingPrizeValue": 1360870,
+        "ticketsRemaining": 407009,
+        "remainingPrizeValue": 1360844,
         "evPerTicket": 3.3435,
         "roi": 0.6687,
         "topPrizesRemaining": 2,
@@ -2516,107 +2487,52 @@
     },
     {
       "state": "wv",
-      "gameId": "1265",
-      "name": "WILD SIDE - POWER $500",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1265-wild-side-power-500",
+      "gameId": "1201",
+      "name": "DRAGON’S HOARD",
+      "price": 20,
+      "url": "https://wvlottery.com/games/scratch-offs/1201-dragons-hoard",
       "tiers": [
-        {
-          "amount": 5,
-          "originalCount": 59548,
-          "remaining": 17653
-        },
-        {
-          "amount": 10,
-          "originalCount": 45798,
-          "remaining": 12923
-        },
-        {
-          "amount": 15,
-          "originalCount": 13748,
-          "remaining": 3826
-        },
-        {
-          "amount": 25,
-          "originalCount": 22862,
-          "remaining": 6546
-        },
-        {
-          "amount": 50,
-          "originalCount": 9888,
-          "remaining": 2663
-        },
-        {
-          "amount": 100,
-          "originalCount": 2015,
-          "remaining": 558
-        },
-        {
-          "amount": 500,
-          "originalCount": 508,
-          "remaining": 149
-        }
-      ],
-      "overallOdds": 4.75,
-      "computed": {
-        "originalTickets": 733243,
-        "fractionRemaining": 0.2871,
-        "ticketsRemaining": 210510,
-        "remainingPrizeValue": 701985,
-        "evPerTicket": 3.3347,
-        "roi": 0.6669,
-        "topPrizesRemaining": 149,
-        "topPrizeAmount": 500
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1185",
-      "name": "XXXX",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1185-xxxx",
-      "tiers": [
-        {
-          "amount": 10,
-          "originalCount": 90086,
-          "remaining": 24026
-        },
         {
           "amount": 20,
-          "originalCount": 51552,
-          "remaining": 13288
+          "originalCount": 44220,
+          "remaining": 13615
         },
         {
-          "amount": 30,
-          "originalCount": 38634,
-          "remaining": 9751
+          "amount": 40,
+          "originalCount": 30645,
+          "remaining": 9265
         },
         {
           "amount": 50,
-          "originalCount": 21436,
-          "remaining": 5374
+          "originalCount": 17016,
+          "remaining": 5205
         },
         {
           "amount": 100,
-          "originalCount": 14299,
-          "remaining": 3607
+          "originalCount": 13612,
+          "remaining": 4093
         },
         {
           "amount": 200,
-          "originalCount": 1078,
-          "remaining": 276
+          "originalCount": 4087,
+          "remaining": 1223
+        },
+        {
+          "amount": 500,
+          "originalCount": 621,
+          "remaining": 183
         }
       ],
-      "overallOdds": 3.95,
+      "overallOdds": 3.7,
       "computed": {
-        "originalTickets": 857486,
-        "fractionRemaining": 0.2594,
-        "ticketsRemaining": 222472,
-        "remainingPrizeValue": 1483150,
-        "evPerTicket": 6.6667,
-        "roi": 0.6667,
-        "topPrizesRemaining": 276,
-        "topPrizeAmount": 200
+        "originalTickets": 407744,
+        "fractionRemaining": 0.3048,
+        "ticketsRemaining": 124261,
+        "remainingPrizeValue": 1648550,
+        "evPerTicket": 13.2668,
+        "roi": 0.6633,
+        "topPrizesRemaining": 183,
+        "topPrizeAmount": 500
       }
     },
     {
@@ -2629,37 +2545,37 @@
         {
           "amount": 2,
           "originalCount": 249012,
-          "remaining": 240591
+          "remaining": 240192
         },
         {
           "amount": 4,
           "originalCount": 76074,
-          "remaining": 73369
+          "remaining": 73254
         },
         {
           "amount": 5,
           "originalCount": 138281,
-          "remaining": 133322
+          "remaining": 133075
         },
         {
           "amount": 10,
           "originalCount": 55388,
-          "remaining": 53382
+          "remaining": 53274
         },
         {
           "amount": 20,
           "originalCount": 27690,
-          "remaining": 26661
+          "remaining": 26606
         },
         {
           "amount": 25,
           "originalCount": 6893,
-          "remaining": 6655
+          "remaining": 6643
         },
         {
           "amount": 50,
           "originalCount": 13396,
-          "remaining": 12899
+          "remaining": 12877
         },
         {
           "amount": 100,
@@ -2669,7 +2585,7 @@
         {
           "amount": 200,
           "originalCount": 279,
-          "remaining": 270
+          "remaining": 269
         },
         {
           "amount": 500,
@@ -2690,53 +2606,13 @@
       "overallOdds": 4.88,
       "computed": {
         "originalTickets": 2769629,
-        "fractionRemaining": 0.965,
-        "ticketsRemaining": 2672605,
-        "remainingPrizeValue": 3537633,
-        "evPerTicket": 1.3237,
+        "fractionRemaining": 0.9633,
+        "ticketsRemaining": 2667925,
+        "remainingPrizeValue": 3531360,
+        "evPerTicket": 1.3236,
         "roi": 0.6618,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 20000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1268",
-      "name": "LUCKY WITCH-LUCKY ELF",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1268-lucky-witch-lucky-elf",
-      "tiers": [
-        {
-          "amount": 20,
-          "originalCount": 38218,
-          "remaining": 24080
-        },
-        {
-          "amount": 30,
-          "originalCount": 12070,
-          "remaining": 7561
-        },
-        {
-          "amount": 50,
-          "originalCount": 18104,
-          "remaining": 11370
-        },
-        {
-          "amount": 100,
-          "originalCount": 6034,
-          "remaining": 3755
-        }
-      ],
-      "overallOdds": 5.36,
-      "computed": {
-        "originalTickets": 398923,
-        "fractionRemaining": 0.6284,
-        "ticketsRemaining": 250666,
-        "remainingPrizeValue": 1652430,
-        "evPerTicket": 6.5922,
-        "roi": 0.6592,
-        "topPrizesRemaining": 3755,
-        "topPrizeAmount": 100
       }
     },
     {
@@ -2909,12 +2785,12 @@
         {
           "amount": 5,
           "originalCount": 137769,
-          "remaining": 38715
+          "remaining": 38713
         },
         {
           "amount": 10,
           "originalCount": 55053,
-          "remaining": 14373
+          "remaining": 14371
         },
         {
           "amount": 15,
@@ -2976,12 +2852,62 @@
       "computed": {
         "originalTickets": 1257923,
         "fractionRemaining": 0.2653,
-        "ticketsRemaining": 333739,
-        "remainingPrizeValue": 1094330,
-        "evPerTicket": 3.279,
+        "ticketsRemaining": 333722,
+        "remainingPrizeValue": 1094300,
+        "evPerTicket": 3.2791,
         "roi": 0.6558,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1184",
+      "name": "XXXXX",
+      "price": 20,
+      "url": "https://wvlottery.com/games/scratch-offs/1184-xxxxx",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 61350,
+          "remaining": 13439
+        },
+        {
+          "amount": 30,
+          "originalCount": 23628,
+          "remaining": 5306
+        },
+        {
+          "amount": 40,
+          "originalCount": 9451,
+          "remaining": 2059
+        },
+        {
+          "amount": 50,
+          "originalCount": 28323,
+          "remaining": 6076
+        },
+        {
+          "amount": 100,
+          "originalCount": 18887,
+          "remaining": 3955
+        },
+        {
+          "amount": 200,
+          "originalCount": 9473,
+          "remaining": 1975
+        }
+      ],
+      "overallOdds": 3.73,
+      "computed": {
+        "originalTickets": 563648,
+        "fractionRemaining": 0.2171,
+        "ticketsRemaining": 122381,
+        "remainingPrizeValue": 1604620,
+        "evPerTicket": 13.1117,
+        "roi": 0.6556,
+        "topPrizesRemaining": 1975,
+        "topPrizeAmount": 200
       }
     },
     {
@@ -2994,22 +2920,22 @@
         {
           "amount": 10,
           "originalCount": 65414,
-          "remaining": 45162
+          "remaining": 45040
         },
         {
           "amount": 25,
           "originalCount": 65420,
-          "remaining": 45044
+          "remaining": 44939
         },
         {
           "amount": 50,
           "originalCount": 15567,
-          "remaining": 10585
+          "remaining": 10563
         },
         {
           "amount": 100,
           "originalCount": 8997,
-          "remaining": 6125
+          "remaining": 6102
         },
         {
           "amount": 200,
@@ -3020,11 +2946,11 @@
       "overallOdds": 3.99,
       "computed": {
         "originalTickets": 622568,
-        "fractionRemaining": 0.6879,
-        "ticketsRemaining": 428287,
-        "remainingPrizeValue": 2804270,
-        "evPerTicket": 6.5476,
-        "roi": 0.6548,
+        "fractionRemaining": 0.6862,
+        "ticketsRemaining": 427202,
+        "remainingPrizeValue": 2797025,
+        "evPerTicket": 6.5473,
+        "roi": 0.6547,
         "topPrizesRemaining": 424,
         "topPrizeAmount": 200
       }
@@ -3076,6 +3002,76 @@
     },
     {
       "state": "wv",
+      "gameId": "1221",
+      "name": "$$25,000 JUMBO CASH",
+      "price": 2,
+      "url": "https://wvlottery.com/games/scratch-offs/1221-usd25-000-jumbo-cash",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 163080,
+          "remaining": 51067
+        },
+        {
+          "amount": 4,
+          "originalCount": 77008,
+          "remaining": 23072
+        },
+        {
+          "amount": 5,
+          "originalCount": 86044,
+          "remaining": 25325
+        },
+        {
+          "amount": 10,
+          "originalCount": 18155,
+          "remaining": 5347
+        },
+        {
+          "amount": 15,
+          "originalCount": 18102,
+          "remaining": 5142
+        },
+        {
+          "amount": 20,
+          "originalCount": 31713,
+          "remaining": 9208
+        },
+        {
+          "amount": 30,
+          "originalCount": 1199,
+          "remaining": 349
+        },
+        {
+          "amount": 40,
+          "originalCount": 1044,
+          "remaining": 290
+        },
+        {
+          "amount": 100,
+          "originalCount": 245,
+          "remaining": 66
+        },
+        {
+          "amount": 25000,
+          "originalCount": 4,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.57,
+      "computed": {
+        "originalTickets": 1812435,
+        "fractionRemaining": 0.3022,
+        "ticketsRemaining": 547797,
+        "remainingPrizeValue": 714477,
+        "evPerTicket": 1.3043,
+        "roi": 0.6521,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 25000
+      }
+    },
+    {
+      "state": "wv",
       "gameId": "1250",
       "name": "YO MONEY - CA$H",
       "price": 5,
@@ -3084,12 +3080,12 @@
         {
           "amount": 5,
           "originalCount": 62354,
-          "remaining": 17054
+          "remaining": 17052
         },
         {
           "amount": 10,
           "originalCount": 86184,
-          "remaining": 22149
+          "remaining": 22148
         },
         {
           "amount": 20,
@@ -3121,12 +3117,97 @@
       "computed": {
         "originalTickets": 767370,
         "fractionRemaining": 0.2594,
-        "ticketsRemaining": 199080,
-        "remainingPrizeValue": 647380,
-        "evPerTicket": 3.2519,
+        "ticketsRemaining": 199068,
+        "remainingPrizeValue": 647360,
+        "evPerTicket": 3.252,
         "roi": 0.6504,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 20000
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1270",
+      "name": "SALEM-WINTER GREEN SEVENS",
+      "price": 2,
+      "url": "https://wvlottery.com/games/scratch-offs/1270-salem-winter-green-sevens",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 51451,
+          "remaining": 35256
+        },
+        {
+          "amount": 3,
+          "originalCount": 57380,
+          "remaining": 39054
+        },
+        {
+          "amount": 4,
+          "originalCount": 34390,
+          "remaining": 23282
+        },
+        {
+          "amount": 6,
+          "originalCount": 17222,
+          "remaining": 11551
+        },
+        {
+          "amount": 7,
+          "originalCount": 17228,
+          "remaining": 11500
+        },
+        {
+          "amount": 10,
+          "originalCount": 37264,
+          "remaining": 24691
+        },
+        {
+          "amount": 12,
+          "originalCount": 14289,
+          "remaining": 9535
+        },
+        {
+          "amount": 14,
+          "originalCount": 5707,
+          "remaining": 3784
+        },
+        {
+          "amount": 21,
+          "originalCount": 5760,
+          "remaining": 3782
+        },
+        {
+          "amount": 70,
+          "originalCount": 965,
+          "remaining": 640
+        },
+        {
+          "amount": 177,
+          "originalCount": 43,
+          "remaining": 31
+        },
+        {
+          "amount": 777,
+          "originalCount": 19,
+          "remaining": 12
+        },
+        {
+          "amount": 7000,
+          "originalCount": 3,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.74,
+      "computed": {
+        "originalTickets": 1145758,
+        "fractionRemaining": 0.6748,
+        "ticketsRemaining": 773189,
+        "remainingPrizeValue": 997947,
+        "evPerTicket": 1.2907,
+        "roi": 0.6453,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 7000
       }
     },
     {
@@ -3139,7 +3220,7 @@
         {
           "amount": 3,
           "originalCount": 179670,
-          "remaining": 25964
+          "remaining": 25963
         },
         {
           "amount": 5,
@@ -3149,7 +3230,7 @@
         {
           "amount": 10,
           "originalCount": 69915,
-          "remaining": 7565
+          "remaining": 7564
         },
         {
           "amount": 15,
@@ -3164,7 +3245,7 @@
         {
           "amount": 30,
           "originalCount": 8393,
-          "remaining": 834
+          "remaining": 833
         },
         {
           "amount": 50,
@@ -3196,9 +3277,9 @@
       "computed": {
         "originalTickets": 1596906,
         "fractionRemaining": 0.1296,
-        "ticketsRemaining": 207032,
-        "remainingPrizeValue": 399327,
-        "evPerTicket": 1.9288,
+        "ticketsRemaining": 207020,
+        "remainingPrizeValue": 399284,
+        "evPerTicket": 1.9287,
         "roi": 0.6429,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 20000
@@ -3256,6 +3337,46 @@
     },
     {
       "state": "wv",
+      "gameId": "1254",
+      "name": "LADY LUCK",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1254-lady-luck",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 81848,
+          "remaining": 45625
+        },
+        {
+          "amount": 30,
+          "originalCount": 28874,
+          "remaining": 16098
+        },
+        {
+          "amount": 50,
+          "originalCount": 43329,
+          "remaining": 24089
+        },
+        {
+          "amount": 100,
+          "originalCount": 14448,
+          "remaining": 7988
+        }
+      ],
+      "overallOdds": 5.65,
+      "computed": {
+        "originalTickets": 952019,
+        "fractionRemaining": 0.5567,
+        "ticketsRemaining": 529970,
+        "remainingPrizeValue": 3398690,
+        "evPerTicket": 6.413,
+        "roi": 0.6413,
+        "topPrizesRemaining": 7988,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "wv",
       "gameId": "1230",
       "name": "KENO - Truck-Scoops-Green-Primo",
       "price": 2,
@@ -3264,37 +3385,37 @@
         {
           "amount": 2,
           "originalCount": 248571,
-          "remaining": 92088
+          "remaining": 92011
         },
         {
           "amount": 4,
           "originalCount": 75962,
-          "remaining": 27445
+          "remaining": 27423
         },
         {
           "amount": 5,
           "originalCount": 138005,
-          "remaining": 48912
+          "remaining": 48879
         },
         {
           "amount": 10,
           "originalCount": 55289,
-          "remaining": 18839
+          "remaining": 18831
         },
         {
           "amount": 20,
           "originalCount": 27647,
-          "remaining": 9260
+          "remaining": 9251
         },
         {
           "amount": 25,
           "originalCount": 6878,
-          "remaining": 2396
+          "remaining": 2393
         },
         {
           "amount": 50,
           "originalCount": 13380,
-          "remaining": 4373
+          "remaining": 4368
         },
         {
           "amount": 100,
@@ -3325,13 +3446,103 @@
       "overallOdds": 4.88,
       "computed": {
         "originalTickets": 2764725,
-        "fractionRemaining": 0.3594,
-        "ticketsRemaining": 993583,
-        "remainingPrizeValue": 1274356,
+        "fractionRemaining": 0.3591,
+        "ticketsRemaining": 992816,
+        "remainingPrizeValue": 1273364,
         "evPerTicket": 1.2826,
         "roi": 0.6413,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 20000
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1255",
+      "name": "LION'S SHARE",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1255-lions-share",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 58663,
+          "remaining": 32459
+        },
+        {
+          "amount": 20,
+          "originalCount": 34692,
+          "remaining": 18889
+        },
+        {
+          "amount": 30,
+          "originalCount": 21328,
+          "remaining": 11468
+        },
+        {
+          "amount": 50,
+          "originalCount": 15995,
+          "remaining": 8565
+        },
+        {
+          "amount": 100,
+          "originalCount": 7161,
+          "remaining": 3847
+        }
+      ],
+      "overallOdds": 3.86,
+      "computed": {
+        "originalTickets": 532059,
+        "fractionRemaining": 0.5458,
+        "ticketsRemaining": 290380,
+        "remainingPrizeValue": 1859360,
+        "evPerTicket": 6.4032,
+        "roi": 0.6403,
+        "topPrizesRemaining": 3847,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1251",
+      "name": "$$300 GRAND",
+      "price": 30,
+      "url": "https://wvlottery.com/games/scratch-offs/1251-300-grand",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 81494,
+          "remaining": 48033
+        },
+        {
+          "amount": 50,
+          "originalCount": 72417,
+          "remaining": 42513
+        },
+        {
+          "amount": 80,
+          "originalCount": 36214,
+          "remaining": 21312
+        },
+        {
+          "amount": 100,
+          "originalCount": 18099,
+          "remaining": 10603
+        },
+        {
+          "amount": 150,
+          "originalCount": 18115,
+          "remaining": 10693
+        }
+      ],
+      "overallOdds": 3.12,
+      "computed": {
+        "originalTickets": 706178,
+        "fractionRemaining": 0.5883,
+        "ticketsRemaining": 415441,
+        "remainingPrizeValue": 7935850,
+        "evPerTicket": 19.1022,
+        "roi": 0.6367,
+        "topPrizesRemaining": 10693,
+        "topPrizeAmount": 150
       }
     },
     {
@@ -3384,47 +3595,47 @@
         {
           "amount": 2,
           "originalCount": 110847,
-          "remaining": 82883
+          "remaining": 82864
         },
         {
           "amount": 3,
           "originalCount": 145431,
-          "remaining": 108191
+          "remaining": 108174
         },
         {
           "amount": 4,
           "originalCount": 83138,
-          "remaining": 61651
+          "remaining": 61636
         },
         {
           "amount": 6,
           "originalCount": 41563,
-          "remaining": 30719
+          "remaining": 30716
         },
         {
           "amount": 7,
           "originalCount": 41543,
-          "remaining": 30640
+          "remaining": 30633
         },
         {
           "amount": 10,
           "originalCount": 76194,
-          "remaining": 55880
+          "remaining": 55873
         },
         {
           "amount": 12,
           "originalCount": 34621,
-          "remaining": 25425
+          "remaining": 25418
         },
         {
           "amount": 14,
           "originalCount": 13860,
-          "remaining": 10204
+          "remaining": 10202
         },
         {
           "amount": 21,
           "originalCount": 20776,
-          "remaining": 15236
+          "remaining": 15235
         },
         {
           "amount": 70,
@@ -3450,11 +3661,11 @@
       "overallOdds": 4.87,
       "computed": {
         "originalTickets": 2773358,
-        "fractionRemaining": 0.7409,
-        "ticketsRemaining": 2054804,
-        "remainingPrizeValue": 2608977,
+        "fractionRemaining": 0.7408,
+        "ticketsRemaining": 2054424,
+        "remainingPrizeValue": 2608558,
         "evPerTicket": 1.2697,
-        "roi": 0.6348,
+        "roi": 0.6349,
         "topPrizesRemaining": 5,
         "topPrizeAmount": 7000
       }
@@ -3536,66 +3747,6 @@
     },
     {
       "state": "wv",
-      "gameId": "1237",
-      "name": "SPOOKY KITTY - SANTA SPINS",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1237-spooky-kitty",
-      "tiers": [
-        {
-          "amount": 5,
-          "originalCount": 64481,
-          "remaining": 8560
-        },
-        {
-          "amount": 10,
-          "originalCount": 35828,
-          "remaining": 4100
-        },
-        {
-          "amount": 15,
-          "originalCount": 10743,
-          "remaining": 1680
-        },
-        {
-          "amount": 20,
-          "originalCount": 32216,
-          "remaining": 3339
-        },
-        {
-          "amount": 50,
-          "originalCount": 7162,
-          "remaining": 680
-        },
-        {
-          "amount": 100,
-          "originalCount": 787,
-          "remaining": 67
-        },
-        {
-          "amount": 500,
-          "originalCount": 87,
-          "remaining": 8
-        },
-        {
-          "amount": 1000,
-          "originalCount": 4,
-          "remaining": 0
-        }
-      ],
-      "overallOdds": 3.79,
-      "computed": {
-        "originalTickets": 573457,
-        "fractionRemaining": 0.1218,
-        "ticketsRemaining": 69865,
-        "remainingPrizeValue": 220480,
-        "evPerTicket": 3.1558,
-        "roi": 0.6312,
-        "topPrizesRemaining": 0,
-        "topPrizeAmount": 1000
-      }
-    },
-    {
-      "state": "wv",
       "gameId": "1202",
       "name": "WIZARDS KEEP",
       "price": 10,
@@ -3642,6 +3793,51 @@
         "roi": 0.631,
         "topPrizesRemaining": 106,
         "topPrizeAmount": 200
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1263",
+      "name": "I CAN'T EVEN 5",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1263-i-cant-even-5",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 57269,
+          "remaining": 35368
+        },
+        {
+          "amount": 10,
+          "originalCount": 35805,
+          "remaining": 21954
+        },
+        {
+          "amount": 20,
+          "originalCount": 17948,
+          "remaining": 10983
+        },
+        {
+          "amount": 25,
+          "originalCount": 14297,
+          "remaining": 8689
+        },
+        {
+          "amount": 50,
+          "originalCount": 8460,
+          "remaining": 5122
+        }
+      ],
+      "overallOdds": 4.24,
+      "computed": {
+        "originalTickets": 567223,
+        "fractionRemaining": 0.6138,
+        "ticketsRemaining": 348172,
+        "remainingPrizeValue": 1089365,
+        "evPerTicket": 3.1288,
+        "roi": 0.6258,
+        "topPrizesRemaining": 5122,
+        "topPrizeAmount": 50
       }
     },
     {
@@ -3704,7 +3900,7 @@
         {
           "amount": 2,
           "originalCount": 100648,
-          "remaining": 12118
+          "remaining": 12117
         },
         {
           "amount": 4,
@@ -3719,12 +3915,12 @@
         {
           "amount": 10,
           "originalCount": 44753,
-          "remaining": 4798
+          "remaining": 4797
         },
         {
           "amount": 20,
           "originalCount": 11179,
-          "remaining": 964
+          "remaining": 963
         },
         {
           "amount": 40,
@@ -3746,62 +3942,12 @@
       "computed": {
         "originalTickets": 1116787,
         "fractionRemaining": 0.1124,
-        "ticketsRemaining": 125510,
-        "remainingPrizeValue": 156991,
-        "evPerTicket": 1.2508,
-        "roi": 0.6254,
+        "ticketsRemaining": 125497,
+        "remainingPrizeValue": 156959,
+        "evPerTicket": 1.2507,
+        "roi": 0.6253,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 5000
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1186",
-      "name": "XXX",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1186-xxx",
-      "tiers": [
-        {
-          "amount": 5,
-          "originalCount": 111670,
-          "remaining": 44625
-        },
-        {
-          "amount": 10,
-          "originalCount": 69262,
-          "remaining": 26615
-        },
-        {
-          "amount": 15,
-          "originalCount": 19269,
-          "remaining": 7360
-        },
-        {
-          "amount": 20,
-          "originalCount": 42366,
-          "remaining": 16214
-        },
-        {
-          "amount": 25,
-          "originalCount": 34633,
-          "remaining": 13169
-        },
-        {
-          "amount": 50,
-          "originalCount": 12344,
-          "remaining": 4637
-        }
-      ],
-      "overallOdds": 4.22,
-      "computed": {
-        "originalTickets": 1221876,
-        "fractionRemaining": 0.389,
-        "ticketsRemaining": 475257,
-        "remainingPrizeValue": 1485030,
-        "evPerTicket": 3.1247,
-        "roi": 0.6249,
-        "topPrizesRemaining": 4637,
-        "topPrizeAmount": 50
       }
     },
     {
@@ -3841,6 +3987,56 @@
         "evPerTicket": 3.1097,
         "roi": 0.6219,
         "topPrizesRemaining": 300,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1237",
+      "name": "SPOOKY KITTY - SANTA SPINS",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1237-spooky-kitty",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 64481,
+          "remaining": 8560
+        },
+        {
+          "amount": 10,
+          "originalCount": 35828,
+          "remaining": 4100
+        },
+        {
+          "amount": 15,
+          "originalCount": 10743,
+          "remaining": 1680
+        },
+        {
+          "amount": 20,
+          "originalCount": 32216,
+          "remaining": 3339
+        },
+        {
+          "amount": 50,
+          "originalCount": 7162,
+          "remaining": 680
+        },
+        {
+          "amount": 100,
+          "originalCount": 787,
+          "remaining": 67
+        }
+      ],
+      "overallOdds": 3.79,
+      "computed": {
+        "originalTickets": 573112,
+        "fractionRemaining": 0.1219,
+        "ticketsRemaining": 69834,
+        "remainingPrizeValue": 216480,
+        "evPerTicket": 3.0999,
+        "roi": 0.62,
+        "topPrizesRemaining": 67,
         "topPrizeAmount": 100
       }
     },
@@ -3904,12 +4100,12 @@
         {
           "amount": 5,
           "originalCount": 62927,
-          "remaining": 9356
+          "remaining": 9355
         },
         {
           "amount": 10,
           "originalCount": 57642,
-          "remaining": 7830
+          "remaining": 7829
         },
         {
           "amount": 20,
@@ -3935,12 +4131,57 @@
       "overallOdds": 4.46,
       "computed": {
         "originalTickets": 838181,
-        "fractionRemaining": 0.1372,
-        "ticketsRemaining": 114961,
-        "remainingPrizeValue": 355900,
-        "evPerTicket": 3.0958,
+        "fractionRemaining": 0.1371,
+        "ticketsRemaining": 114952,
+        "remainingPrizeValue": 355885,
+        "evPerTicket": 3.0959,
         "roi": 0.6192,
         "topPrizesRemaining": 66,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1194",
+      "name": "HIT THE JACKPOT",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1194-hit-the-jackpot",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 62192,
+          "remaining": 18335
+        },
+        {
+          "amount": 20,
+          "originalCount": 34228,
+          "remaining": 9563
+        },
+        {
+          "amount": 30,
+          "originalCount": 40451,
+          "remaining": 11353
+        },
+        {
+          "amount": 50,
+          "originalCount": 9331,
+          "remaining": 2576
+        },
+        {
+          "amount": 100,
+          "originalCount": 8934,
+          "remaining": 2464
+        }
+      ],
+      "overallOdds": 3.98,
+      "computed": {
+        "originalTickets": 617441,
+        "fractionRemaining": 0.2855,
+        "ticketsRemaining": 176278,
+        "remainingPrizeValue": 1090400,
+        "evPerTicket": 6.1857,
+        "roi": 0.6186,
+        "topPrizesRemaining": 2464,
         "topPrizeAmount": 100
       }
     },
@@ -4009,47 +4250,47 @@
         {
           "amount": 2,
           "originalCount": 141192,
-          "remaining": 38078
+          "remaining": 37865
         },
         {
           "amount": 4,
           "originalCount": 58814,
-          "remaining": 14759
+          "remaining": 14655
         },
         {
           "amount": 5,
           "originalCount": 62630,
-          "remaining": 15317
+          "remaining": 15198
         },
         {
           "amount": 10,
           "originalCount": 31398,
-          "remaining": 7464
+          "remaining": 7411
         },
         {
           "amount": 15,
           "originalCount": 11872,
-          "remaining": 2665
+          "remaining": 2645
         },
         {
           "amount": 20,
           "originalCount": 27398,
-          "remaining": 6100
+          "remaining": 6051
         },
         {
           "amount": 30,
           "originalCount": 1496,
-          "remaining": 346
+          "remaining": 343
         },
         {
           "amount": 40,
           "originalCount": 606,
-          "remaining": 130
+          "remaining": 129
         },
         {
           "amount": 100,
           "originalCount": 209,
-          "remaining": 44
+          "remaining": 41
         },
         {
           "amount": 20000,
@@ -4060,11 +4301,11 @@
       "overallOdds": 4.67,
       "computed": {
         "originalTickets": 1567341,
-        "fractionRemaining": 0.253,
-        "ticketsRemaining": 396502,
-        "remainingPrizeValue": 488372,
-        "evPerTicket": 1.2317,
-        "roi": 0.6159,
+        "fractionRemaining": 0.2513,
+        "ticketsRemaining": 393863,
+        "remainingPrizeValue": 484695,
+        "evPerTicket": 1.2306,
+        "roi": 0.6153,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 20000
       }
@@ -4166,6 +4407,66 @@
     },
     {
       "state": "wv",
+      "gameId": "1169",
+      "name": "FAT 5",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1169-fat-5",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 53007,
+          "remaining": 14393
+        },
+        {
+          "amount": 10,
+          "originalCount": 36749,
+          "remaining": 9689
+        },
+        {
+          "amount": 15,
+          "originalCount": 24457,
+          "remaining": 6303
+        },
+        {
+          "amount": 25,
+          "originalCount": 18346,
+          "remaining": 4707
+        },
+        {
+          "amount": 50,
+          "originalCount": 5410,
+          "remaining": 1361
+        },
+        {
+          "amount": 100,
+          "originalCount": 904,
+          "remaining": 233
+        },
+        {
+          "amount": 500,
+          "originalCount": 492,
+          "remaining": 112
+        },
+        {
+          "amount": 50000,
+          "originalCount": 3,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.68,
+      "computed": {
+        "originalTickets": 652242,
+        "fractionRemaining": 0.264,
+        "ticketsRemaining": 172215,
+        "remainingPrizeValue": 528425,
+        "evPerTicket": 3.0684,
+        "roi": 0.6137,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "wv",
       "gameId": "1212",
       "name": "MONEY MAKER",
       "price": 5,
@@ -4261,152 +4562,62 @@
     },
     {
       "state": "wv",
-      "gameId": "1264",
-      "name": "SHARK-CLUCK-WILD-HOPPY",
-      "price": 1,
-      "url": "https://wvlottery.com/games/scratch-offs/1264-shark-cluck-wild-hoppy",
+      "gameId": "1223",
+      "name": "FIESTA-PIZZA-BBQ-PARTY CW",
+      "price": 3,
+      "url": "https://wvlottery.com/games/scratch-offs/1223-fiesta-pizza-bbq-party-cw",
       "tiers": [
         {
-          "amount": 1,
-          "originalCount": 161188,
-          "remaining": 110234
-        },
-        {
-          "amount": 2,
-          "originalCount": 95651,
-          "remaining": 64546
-        },
-        {
-          "amount": 4,
-          "originalCount": 40334,
-          "remaining": 26912
+          "amount": 3,
+          "originalCount": 160298,
+          "remaining": 28524
         },
         {
           "amount": 5,
-          "originalCount": 55431,
-          "remaining": 36616
+          "originalCount": 110240,
+          "remaining": 15844
         },
         {
           "amount": 10,
-          "originalCount": 20152,
-          "remaining": 13181
+          "originalCount": 70214,
+          "remaining": 9100
         },
         {
-          "amount": 20,
-          "originalCount": 10076,
-          "remaining": 6554
-        },
-        {
-          "amount": 40,
-          "originalCount": 335,
-          "remaining": 221
+          "amount": 30,
+          "originalCount": 25035,
+          "remaining": 3275
         },
         {
           "amount": 50,
-          "originalCount": 326,
-          "remaining": 212
+          "originalCount": 8441,
+          "remaining": 1030
+        },
+        {
+          "amount": 100,
+          "originalCount": 797,
+          "remaining": 99
         },
         {
           "amount": 500,
-          "originalCount": 21,
-          "remaining": 12
-        }
-      ],
-      "overallOdds": 5.25,
-      "computed": {
-        "originalTickets": 2013449,
-        "fractionRemaining": 0.674,
-        "ticketsRemaining": 1357062,
-        "remainingPrizeValue": 818384,
-        "evPerTicket": 0.6031,
-        "roi": 0.6031,
-        "topPrizesRemaining": 12,
-        "topPrizeAmount": 500
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1207",
-      "name": "SWAMP MONEY – HOLIDAY SEVENS",
-      "price": 2,
-      "url": "https://wvlottery.com/games/scratch-offs/1207-swamp-money-holiday-sevens",
-      "tiers": [
-        {
-          "amount": 2,
-          "originalCount": 50844,
-          "remaining": 6443
+          "originalCount": 196,
+          "remaining": 25
         },
         {
-          "amount": 3,
-          "originalCount": 56579,
-          "remaining": 6540
-        },
-        {
-          "amount": 4,
-          "originalCount": 34043,
-          "remaining": 3644
-        },
-        {
-          "amount": 6,
-          "originalCount": 17042,
-          "remaining": 1680
-        },
-        {
-          "amount": 7,
-          "originalCount": 16970,
-          "remaining": 1610
-        },
-        {
-          "amount": 10,
-          "originalCount": 36857,
-          "remaining": 3202
-        },
-        {
-          "amount": 12,
-          "originalCount": 14141,
-          "remaining": 1232
-        },
-        {
-          "amount": 14,
-          "originalCount": 5643,
-          "remaining": 516
-        },
-        {
-          "amount": 21,
-          "originalCount": 5643,
-          "remaining": 455
-        },
-        {
-          "amount": 70,
-          "originalCount": 983,
-          "remaining": 63
-        },
-        {
-          "amount": 177,
-          "originalCount": 19,
-          "remaining": 1
-        },
-        {
-          "amount": 777,
-          "originalCount": 19,
-          "remaining": 2
-        },
-        {
-          "amount": 7000,
-          "originalCount": 3,
+          "amount": 20000,
+          "originalCount": 4,
           "remaining": 1
         }
       ],
-      "overallOdds": 4.74,
+      "overallOdds": 4.27,
       "computed": {
-        "originalTickets": 1131846,
-        "fractionRemaining": 0.1063,
-        "ticketsRemaining": 120344,
-        "remainingPrizeValue": 145156,
-        "evPerTicket": 1.2062,
-        "roi": 0.6031,
+        "originalTickets": 1602211,
+        "fractionRemaining": 0.1543,
+        "ticketsRemaining": 247224,
+        "remainingPrizeValue": 447942,
+        "evPerTicket": 1.8119,
+        "roi": 0.604,
         "topPrizesRemaining": 1,
-        "topPrizeAmount": 7000
+        "topPrizeAmount": 20000
       }
     },
     {
@@ -4794,39 +5005,139 @@
         {
           "amount": 1,
           "originalCount": 125705,
-          "remaining": 93785
+          "remaining": 93296
         },
         {
           "amount": 2,
           "originalCount": 113178,
-          "remaining": 83247
+          "remaining": 82823
         },
         {
           "amount": 3,
           "originalCount": 12557,
-          "remaining": 9180
+          "remaining": 9131
         },
         {
           "amount": 5,
           "originalCount": 37746,
-          "remaining": 27334
+          "remaining": 27202
         },
         {
           "amount": 10,
           "originalCount": 12557,
-          "remaining": 8979
+          "remaining": 8924
         }
       ],
       "overallOdds": 4.12,
       "computed": {
         "originalTickets": 1243181,
-        "fractionRemaining": 0.7375,
-        "ticketsRemaining": 916803,
-        "remainingPrizeValue": 514279,
+        "fractionRemaining": 0.7337,
+        "ticketsRemaining": 912069,
+        "remainingPrizeValue": 511585,
         "evPerTicket": 0.5609,
         "roi": 0.5609,
-        "topPrizesRemaining": 8979,
+        "topPrizesRemaining": 8924,
         "topPrizeAmount": 10
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1208",
+      "name": "NEFERKITTY – HOLIDAY GREETINGS",
+      "price": 1,
+      "url": "https://wvlottery.com/games/scratch-offs/1208-neferkitty-holiday-greetings",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 126856,
+          "remaining": 27285
+        },
+        {
+          "amount": 2,
+          "originalCount": 114124,
+          "remaining": 22329
+        },
+        {
+          "amount": 3,
+          "originalCount": 12700,
+          "remaining": 2290
+        },
+        {
+          "amount": 5,
+          "originalCount": 38088,
+          "remaining": 6291
+        },
+        {
+          "amount": 10,
+          "originalCount": 12694,
+          "remaining": 1858
+        },
+        {
+          "amount": 20,
+          "originalCount": 3157,
+          "remaining": 415
+        },
+        {
+          "amount": 50,
+          "originalCount": 259,
+          "remaining": 31
+        },
+        {
+          "amount": 100,
+          "originalCount": 42,
+          "remaining": 7
+        }
+      ],
+      "overallOdds": 4.12,
+      "computed": {
+        "originalTickets": 1268630,
+        "fractionRemaining": 0.1965,
+        "ticketsRemaining": 249285,
+        "remainingPrizeValue": 139398,
+        "evPerTicket": 0.5592,
+        "roi": 0.5592,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1197",
+      "name": "UNTAPPED FORTUNE – ROLL FOR RICHES",
+      "price": 20,
+      "url": "https://wvlottery.com/games/scratch-offs/1197-untapped-fortune-roll-for-riches",
+      "tiers": [
+        {
+          "amount": 40,
+          "originalCount": 25164,
+          "remaining": 5041
+        },
+        {
+          "amount": 50,
+          "originalCount": 29415,
+          "remaining": 5824
+        },
+        {
+          "amount": 100,
+          "originalCount": 25148,
+          "remaining": 4950
+        },
+        {
+          "amount": 200,
+          "originalCount": 6308,
+          "remaining": 125
+        }
+      ],
+      "overallOdds": 5.74,
+      "computed": {
+        "originalTickets": 493841,
+        "fractionRemaining": 0.1853,
+        "ticketsRemaining": 91496,
+        "remainingPrizeValue": 1012840,
+        "evPerTicket": 11.0698,
+        "roi": 0.5535,
+        "topPrizesRemaining": 125,
+        "topPrizeAmount": 200
       }
     },
     {
@@ -4936,151 +5247,6 @@
     },
     {
       "state": "wv",
-      "gameId": "1208",
-      "name": "NEFERKITTY – HOLIDAY GREETINGS",
-      "price": 1,
-      "url": "https://wvlottery.com/games/scratch-offs/1208-neferkitty-holiday-greetings",
-      "tiers": [
-        {
-          "amount": 1,
-          "originalCount": 126856,
-          "remaining": 27285
-        },
-        {
-          "amount": 2,
-          "originalCount": 114124,
-          "remaining": 22329
-        },
-        {
-          "amount": 3,
-          "originalCount": 12700,
-          "remaining": 2290
-        },
-        {
-          "amount": 5,
-          "originalCount": 38088,
-          "remaining": 6291
-        },
-        {
-          "amount": 10,
-          "originalCount": 12694,
-          "remaining": 1858
-        },
-        {
-          "amount": 20,
-          "originalCount": 3157,
-          "remaining": 415
-        }
-      ],
-      "overallOdds": 4.12,
-      "computed": {
-        "originalTickets": 1267390,
-        "fractionRemaining": 0.1966,
-        "ticketsRemaining": 249128,
-        "remainingPrizeValue": 137148,
-        "evPerTicket": 0.5505,
-        "roi": 0.5505,
-        "topPrizesRemaining": 415,
-        "topPrizeAmount": 20
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1169",
-      "name": "FAT 5",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1169-fat-5",
-      "tiers": [
-        {
-          "amount": 5,
-          "originalCount": 53007,
-          "remaining": 14393
-        },
-        {
-          "amount": 10,
-          "originalCount": 36749,
-          "remaining": 9689
-        },
-        {
-          "amount": 15,
-          "originalCount": 24457,
-          "remaining": 6303
-        },
-        {
-          "amount": 25,
-          "originalCount": 18346,
-          "remaining": 4707
-        },
-        {
-          "amount": 50,
-          "originalCount": 5410,
-          "remaining": 1361
-        },
-        {
-          "amount": 100,
-          "originalCount": 904,
-          "remaining": 233
-        }
-      ],
-      "overallOdds": 4.68,
-      "computed": {
-        "originalTickets": 649926,
-        "fractionRemaining": 0.2642,
-        "ticketsRemaining": 171691,
-        "remainingPrizeValue": 472425,
-        "evPerTicket": 2.7516,
-        "roi": 0.5503,
-        "topPrizesRemaining": 233,
-        "topPrizeAmount": 100
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1130",
-      "name": "SUPREME CASH – GOLDEN",
-      "price": 30,
-      "url": "https://wvlottery.com/games/scratch-offs/1130-supreme-cash-golden",
-      "tiers": [
-        {
-          "amount": 30,
-          "originalCount": 91248,
-          "remaining": 10310
-        },
-        {
-          "amount": 40,
-          "originalCount": 18257,
-          "remaining": 1948
-        },
-        {
-          "amount": 50,
-          "originalCount": 18226,
-          "remaining": 1900
-        },
-        {
-          "amount": 100,
-          "originalCount": 27362,
-          "remaining": 2760
-        },
-        {
-          "amount": 150,
-          "originalCount": 27374,
-          "remaining": 2719
-        }
-      ],
-      "overallOdds": 3.6,
-      "computed": {
-        "originalTickets": 656881,
-        "fractionRemaining": 0.1076,
-        "ticketsRemaining": 70693,
-        "remainingPrizeValue": 1166070,
-        "evPerTicket": 16.4948,
-        "roi": 0.5498,
-        "topPrizesRemaining": 2719,
-        "topPrizeAmount": 150
-      }
-    },
-    {
-      "state": "wv",
       "gameId": "1232",
       "name": "FRUIT LOOT SPINS - FABULOUS FORTUNE",
       "price": 20,
@@ -5089,28 +5255,28 @@
         {
           "amount": 40,
           "originalCount": 37741,
-          "remaining": 13167
+          "remaining": 13144
         },
         {
           "amount": 50,
           "originalCount": 44003,
-          "remaining": 15372
+          "remaining": 15351
         },
         {
           "amount": 100,
           "originalCount": 37756,
-          "remaining": 13090
+          "remaining": 13069
         }
       ],
       "overallOdds": 5.74,
       "computed": {
         "originalTickets": 685930,
-        "fractionRemaining": 0.3484,
-        "ticketsRemaining": 238950,
-        "remainingPrizeValue": 2604280,
+        "fractionRemaining": 0.3478,
+        "ticketsRemaining": 238577,
+        "remainingPrizeValue": 2600210,
         "evPerTicket": 10.8988,
         "roi": 0.5449,
-        "topPrizesRemaining": 13090,
+        "topPrizesRemaining": 13069,
         "topPrizeAmount": 100
       }
     },
@@ -5124,32 +5290,32 @@
         {
           "amount": 1,
           "originalCount": 141681,
-          "remaining": 30012
+          "remaining": 29866
         },
         {
           "amount": 2,
           "originalCount": 75051,
-          "remaining": 13856
+          "remaining": 13781
         },
         {
           "amount": 3,
           "originalCount": 37502,
-          "remaining": 5709
+          "remaining": 5667
         },
         {
           "amount": 5,
           "originalCount": 54140,
-          "remaining": 7082
+          "remaining": 7016
         },
         {
           "amount": 10,
           "originalCount": 25000,
-          "remaining": 3408
+          "remaining": 3385
         },
         {
           "amount": 20,
           "originalCount": 4178,
-          "remaining": 502
+          "remaining": 494
         },
         {
           "amount": 50,
@@ -5165,13 +5331,68 @@
       "overallOdds": 4.94,
       "computed": {
         "originalTickets": 1668357,
-        "fractionRemaining": 0.1794,
-        "ticketsRemaining": 299295,
-        "remainingPrizeValue": 160181,
-        "evPerTicket": 0.5352,
-        "roi": 0.5352,
+        "fractionRemaining": 0.1783,
+        "ticketsRemaining": 297517,
+        "remainingPrizeValue": 159039,
+        "evPerTicket": 0.5346,
+        "roi": 0.5346,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 5000
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1165",
+      "name": "HOT-RAINS-SMORE-SALSA",
+      "price": 1,
+      "url": "https://wvlottery.com/games/scratch-offs/1165-hot-rains-smore-salsa",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 255152,
+          "remaining": 62463
+        },
+        {
+          "amount": 2,
+          "originalCount": 180194,
+          "remaining": 38826
+        },
+        {
+          "amount": 3,
+          "originalCount": 45056,
+          "remaining": 9095
+        },
+        {
+          "amount": 5,
+          "originalCount": 82530,
+          "remaining": 15205
+        },
+        {
+          "amount": 10,
+          "originalCount": 37570,
+          "remaining": 6252
+        },
+        {
+          "amount": 20,
+          "originalCount": 7484,
+          "remaining": 1277
+        },
+        {
+          "amount": 100,
+          "originalCount": 1300,
+          "remaining": 198
+        }
+      ],
+      "overallOdds": 4.93,
+      "computed": {
+        "originalTickets": 3003780,
+        "fractionRemaining": 0.2188,
+        "ticketsRemaining": 657248,
+        "remainingPrizeValue": 351285,
+        "evPerTicket": 0.5345,
+        "roi": 0.5345,
+        "topPrizesRemaining": 198,
+        "topPrizeAmount": 100
       }
     },
     {
@@ -5251,61 +5472,6 @@
     },
     {
       "state": "wv",
-      "gameId": "1222",
-      "name": "$$5,000 JUMBO CASH",
-      "price": 1,
-      "url": "https://wvlottery.com/games/scratch-offs/1222-usd5-000-jumbo-cash",
-      "tiers": [
-        {
-          "amount": 1,
-          "originalCount": 128348,
-          "remaining": 17921
-        },
-        {
-          "amount": 2,
-          "originalCount": 71746,
-          "remaining": 9186
-        },
-        {
-          "amount": 3,
-          "originalCount": 18882,
-          "remaining": 1937
-        },
-        {
-          "amount": 5,
-          "originalCount": 60400,
-          "remaining": 5748
-        },
-        {
-          "amount": 10,
-          "originalCount": 26418,
-          "remaining": 2185
-        },
-        {
-          "amount": 50,
-          "originalCount": 497,
-          "remaining": 28
-        },
-        {
-          "amount": 5000,
-          "originalCount": 4,
-          "remaining": 0
-        }
-      ],
-      "overallOdds": 4.93,
-      "computed": {
-        "originalTickets": 1510034,
-        "fractionRemaining": 0.1208,
-        "ticketsRemaining": 182435,
-        "remainingPrizeValue": 94094,
-        "evPerTicket": 0.5158,
-        "roi": 0.5158,
-        "topPrizesRemaining": 0,
-        "topPrizeAmount": 5000
-      }
-    },
-    {
-      "state": "wv",
       "gameId": "1191",
       "name": "HONEY-CORGI-CAP-BANANA",
       "price": 1,
@@ -5356,52 +5522,42 @@
     },
     {
       "state": "wv",
-      "gameId": "1165",
-      "name": "HOT-RAINS-SMORE-SALSA",
-      "price": 1,
-      "url": "https://wvlottery.com/games/scratch-offs/1165-hot-rains-smore-salsa",
+      "gameId": "1229",
+      "name": "JURASSIC WORLD",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1229-jurassic-world",
       "tiers": [
         {
-          "amount": 1,
-          "originalCount": 255152,
-          "remaining": 62463
-        },
-        {
-          "amount": 2,
-          "originalCount": 180194,
-          "remaining": 38826
-        },
-        {
-          "amount": 3,
-          "originalCount": 45056,
-          "remaining": 9095
-        },
-        {
-          "amount": 5,
-          "originalCount": 82530,
-          "remaining": 15205
-        },
-        {
           "amount": 10,
-          "originalCount": 37570,
-          "remaining": 6252
+          "originalCount": 36739,
+          "remaining": 3492
         },
         {
           "amount": 20,
-          "originalCount": 7484,
-          "remaining": 1277
+          "originalCount": 28647,
+          "remaining": 2453
+        },
+        {
+          "amount": 30,
+          "originalCount": 20443,
+          "remaining": 1781
+        },
+        {
+          "amount": 50,
+          "originalCount": 8158,
+          "remaining": 655
         }
       ],
-      "overallOdds": 4.93,
+      "overallOdds": 4,
       "computed": {
-        "originalTickets": 2997371,
-        "fractionRemaining": 0.2189,
-        "ticketsRemaining": 656272,
-        "remainingPrizeValue": 331485,
-        "evPerTicket": 0.5051,
-        "roi": 0.5051,
-        "topPrizesRemaining": 1277,
-        "topPrizeAmount": 20
+        "originalTickets": 375948,
+        "fractionRemaining": 0.0892,
+        "ticketsRemaining": 33524,
+        "remainingPrizeValue": 170160,
+        "evPerTicket": 5.0758,
+        "roi": 0.5076,
+        "topPrizesRemaining": 655,
+        "topPrizeAmount": 50
       }
     },
     {
@@ -5464,33 +5620,33 @@
         {
           "amount": 10,
           "originalCount": 62925,
-          "remaining": 46639
+          "remaining": 46529
         },
         {
           "amount": 20,
           "originalCount": 47195,
-          "remaining": 34838
+          "remaining": 34752
         },
         {
           "amount": 30,
           "originalCount": 18874,
-          "remaining": 13905
+          "remaining": 13873
         },
         {
           "amount": 50,
           "originalCount": 15735,
-          "remaining": 11605
+          "remaining": 11574
         }
       ],
       "overallOdds": 4.01,
       "computed": {
         "originalTickets": 580363,
-        "fractionRemaining": 0.7392,
-        "ticketsRemaining": 429018,
-        "remainingPrizeValue": 2160550,
-        "evPerTicket": 5.036,
+        "fractionRemaining": 0.7374,
+        "ticketsRemaining": 427979,
+        "remainingPrizeValue": 2155220,
+        "evPerTicket": 5.0358,
         "roi": 0.5036,
-        "topPrizesRemaining": 11605,
+        "topPrizesRemaining": 11574,
         "topPrizeAmount": 50
       }
     },
@@ -5504,28 +5660,28 @@
         {
           "amount": 10,
           "originalCount": 65522,
-          "remaining": 29688
+          "remaining": 29604
         },
         {
           "amount": 15,
           "originalCount": 32721,
-          "remaining": 14648
+          "remaining": 14607
         },
         {
           "amount": 25,
           "originalCount": 25735,
-          "remaining": 11310
+          "remaining": 11277
         }
       ],
       "overallOdds": 5.72,
       "computed": {
         "originalTickets": 709154,
-        "fractionRemaining": 0.4488,
-        "ticketsRemaining": 318295,
-        "remainingPrizeValue": 799350,
+        "fractionRemaining": 0.4476,
+        "ticketsRemaining": 317391,
+        "remainingPrizeValue": 797070,
         "evPerTicket": 2.5113,
         "roi": 0.5023,
-        "topPrizesRemaining": 11310,
+        "topPrizesRemaining": 11277,
         "topPrizeAmount": 25
       }
     },
@@ -5719,12 +5875,12 @@
         {
           "amount": 2,
           "originalCount": 108461,
-          "remaining": 39441
+          "remaining": 39440
         },
         {
           "amount": 3,
           "originalCount": 142526,
-          "remaining": 50991
+          "remaining": 50988
         },
         {
           "amount": 4,
@@ -5734,7 +5890,7 @@
         {
           "amount": 6,
           "originalCount": 40824,
-          "remaining": 14163
+          "remaining": 14161
         },
         {
           "amount": 7,
@@ -5750,9 +5906,9 @@
       "overallOdds": 4.87,
       "computed": {
         "originalTickets": 2381060,
-        "fractionRemaining": 0.3535,
-        "ticketsRemaining": 841609,
-        "remainingPrizeValue": 784164,
+        "fractionRemaining": 0.3534,
+        "ticketsRemaining": 841580,
+        "remainingPrizeValue": 784141,
         "evPerTicket": 0.9317,
         "roi": 0.4659,
         "topPrizesRemaining": 25398,
@@ -5866,96 +6022,6 @@
     },
     {
       "state": "wv",
-      "gameId": "1157",
-      "name": "SLOTS OF CASH",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1157-slots-of-cash",
-      "tiers": [
-        {
-          "amount": 10,
-          "originalCount": 50430,
-          "remaining": 6809
-        },
-        {
-          "amount": 15,
-          "originalCount": 25178,
-          "remaining": 3313
-        },
-        {
-          "amount": 20,
-          "originalCount": 30254,
-          "remaining": 3875
-        },
-        {
-          "amount": 25,
-          "originalCount": 5042,
-          "remaining": 632
-        },
-        {
-          "amount": 30,
-          "originalCount": 5062,
-          "remaining": 660
-        },
-        {
-          "amount": 50,
-          "originalCount": 5018,
-          "remaining": 589
-        },
-        {
-          "amount": 100,
-          "originalCount": 1892,
-          "remaining": 241
-        }
-      ],
-      "overallOdds": 4,
-      "computed": {
-        "originalTickets": 491504,
-        "fractionRemaining": 0.1312,
-        "ticketsRemaining": 64476,
-        "remainingPrizeValue": 284435,
-        "evPerTicket": 4.4115,
-        "roi": 0.4411,
-        "topPrizesRemaining": 241,
-        "topPrizeAmount": 100
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1198",
-      "name": "HIGH ROLLER- JACKPOT",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1198-high-roller-jackpot",
-      "tiers": [
-        {
-          "amount": 5,
-          "originalCount": 83738,
-          "remaining": 21669
-        },
-        {
-          "amount": 10,
-          "originalCount": 62807,
-          "remaining": 15215
-        },
-        {
-          "amount": 20,
-          "originalCount": 26200,
-          "remaining": 6156
-        }
-      ],
-      "overallOdds": 4.05,
-      "computed": {
-        "originalTickets": 699617,
-        "fractionRemaining": 0.2492,
-        "ticketsRemaining": 174312,
-        "remainingPrizeValue": 383615,
-        "evPerTicket": 2.2007,
-        "roi": 0.4401,
-        "topPrizesRemaining": 6156,
-        "topPrizeAmount": 20
-      }
-    },
-    {
-      "state": "wv",
       "gameId": "1278",
       "name": "RETRO-BLACK-DUCK-ELECTRIC KENO",
       "price": 10,
@@ -5964,63 +6030,28 @@
         {
           "amount": 10,
           "originalCount": 105471,
-          "remaining": 102203
+          "remaining": 102053
         },
         {
           "amount": 20,
           "originalCount": 70341,
-          "remaining": 68111
+          "remaining": 68015
         },
         {
           "amount": 30,
           "originalCount": 40130,
-          "remaining": 38812
+          "remaining": 38766
         }
       ],
       "overallOdds": 3.91,
       "computed": {
         "originalTickets": 844333,
-        "fractionRemaining": 0.9684,
-        "ticketsRemaining": 817682,
-        "remainingPrizeValue": 3548610,
-        "evPerTicket": 4.3398,
+        "fractionRemaining": 0.9671,
+        "ticketsRemaining": 816541,
+        "remainingPrizeValue": 3543810,
+        "evPerTicket": 4.34,
         "roi": 0.434,
-        "topPrizesRemaining": 38812,
-        "topPrizeAmount": 30
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1240",
-      "name": "DRAGON BLAST - UNDERWATER KENO",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1240-dragon-blast-underwater-keno",
-      "tiers": [
-        {
-          "amount": 10,
-          "originalCount": 91486,
-          "remaining": 41267
-        },
-        {
-          "amount": 20,
-          "originalCount": 61020,
-          "remaining": 27229
-        },
-        {
-          "amount": 30,
-          "originalCount": 34848,
-          "remaining": 15400
-        }
-      ],
-      "overallOdds": 3.91,
-      "computed": {
-        "originalTickets": 732554,
-        "fractionRemaining": 0.4478,
-        "ticketsRemaining": 328033,
-        "remainingPrizeValue": 1419250,
-        "evPerTicket": 4.3265,
-        "roi": 0.4327,
-        "topPrizesRemaining": 15400,
+        "topPrizesRemaining": 38766,
         "topPrizeAmount": 30
       }
     },
@@ -6061,6 +6092,76 @@
     },
     {
       "state": "wv",
+      "gameId": "1240",
+      "name": "DRAGON BLAST - UNDERWATER KENO",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1240-dragon-blast-underwater-keno",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 91486,
+          "remaining": 41262
+        },
+        {
+          "amount": 20,
+          "originalCount": 61020,
+          "remaining": 27226
+        },
+        {
+          "amount": 30,
+          "originalCount": 34848,
+          "remaining": 15396
+        }
+      ],
+      "overallOdds": 3.91,
+      "computed": {
+        "originalTickets": 732554,
+        "fractionRemaining": 0.4477,
+        "ticketsRemaining": 327986,
+        "remainingPrizeValue": 1419020,
+        "evPerTicket": 4.3265,
+        "roi": 0.4326,
+        "topPrizesRemaining": 15396,
+        "topPrizeAmount": 30
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1145",
+      "name": "LUCKY GEM - OVERLOAD KENO",
+      "price": 10,
+      "url": "https://wvlottery.com/games/scratch-offs/1145-lucky-gem-overload-keno",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 105698,
+          "remaining": 20647
+        },
+        {
+          "amount": 20,
+          "originalCount": 70531,
+          "remaining": 13261
+        },
+        {
+          "amount": 30,
+          "originalCount": 40352,
+          "remaining": 7308
+        }
+      ],
+      "overallOdds": 3.9,
+      "computed": {
+        "originalTickets": 844666,
+        "fractionRemaining": 0.1903,
+        "ticketsRemaining": 160742,
+        "remainingPrizeValue": 690930,
+        "evPerTicket": 4.2984,
+        "roi": 0.4298,
+        "topPrizesRemaining": 7308,
+        "topPrizeAmount": 30
+      }
+    },
+    {
+      "state": "wv",
       "gameId": "1277",
       "name": "CASH-BEE-HOT-BEN",
       "price": 1,
@@ -6069,69 +6170,74 @@
         {
           "amount": 1,
           "originalCount": 166113,
-          "remaining": 131101
+          "remaining": 130870
         },
         {
           "amount": 2,
           "originalCount": 98629,
-          "remaining": 76575
+          "remaining": 76416
         },
         {
           "amount": 4,
           "originalCount": 41544,
-          "remaining": 32241
+          "remaining": 32193
         },
         {
           "amount": 5,
           "originalCount": 57221,
-          "remaining": 44237
+          "remaining": 44160
         }
       ],
       "overallOdds": 5.25,
       "computed": {
         "originalTickets": 1908412,
-        "fractionRemaining": 0.7817,
-        "ticketsRemaining": 1491809,
-        "remainingPrizeValue": 634400,
+        "fractionRemaining": 0.7803,
+        "ticketsRemaining": 1489105,
+        "remainingPrizeValue": 633274,
         "evPerTicket": 0.4253,
         "roi": 0.4253,
-        "topPrizesRemaining": 44237,
+        "topPrizesRemaining": 44160,
         "topPrizeAmount": 5
       }
     },
     {
       "state": "wv",
-      "gameId": "1269",
-      "name": "MOTHMAN FORTUNE-MERRY LITTLE CRYPTIDS",
-      "price": 5,
-      "url": "https://wvlottery.com/games/scratch-offs/1269-mothman-fortune-merry-little-cryptids",
+      "gameId": "1222",
+      "name": "$$5,000 JUMBO CASH",
+      "price": 1,
+      "url": "https://wvlottery.com/games/scratch-offs/1222-usd5-000-jumbo-cash",
       "tiers": [
         {
+          "amount": 1,
+          "originalCount": 128348,
+          "remaining": 17921
+        },
+        {
+          "amount": 2,
+          "originalCount": 71746,
+          "remaining": 9186
+        },
+        {
+          "amount": 3,
+          "originalCount": 18882,
+          "remaining": 1937
+        },
+        {
           "amount": 5,
-          "originalCount": 64057,
-          "remaining": 44963
-        },
-        {
-          "amount": 10,
-          "originalCount": 35625,
-          "remaining": 24507
-        },
-        {
-          "amount": 15,
-          "originalCount": 10640,
-          "remaining": 7312
+          "originalCount": 60400,
+          "remaining": 5748
         }
       ],
-      "overallOdds": 3.79,
+      "overallOdds": 4.93,
       "computed": {
-        "originalTickets": 418120,
-        "fractionRemaining": 0.696,
-        "ticketsRemaining": 291004,
-        "remainingPrizeValue": 579565,
-        "evPerTicket": 1.9916,
-        "roi": 0.3983,
-        "topPrizesRemaining": 7312,
-        "topPrizeAmount": 15
+        "originalTickets": 1377324,
+        "fractionRemaining": 0.1245,
+        "ticketsRemaining": 171525,
+        "remainingPrizeValue": 70844,
+        "evPerTicket": 0.413,
+        "roi": 0.413,
+        "topPrizesRemaining": 5748,
+        "topPrizeAmount": 5
       }
     },
     {
@@ -6171,67 +6277,32 @@
     },
     {
       "state": "wv",
-      "gameId": "1252",
-      "name": "KICKIN AX - BIG TRUCKIN CW",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1252-KICKIN-AX-BIG-TRUCKIN-CW",
+      "gameId": "1136",
+      "name": "HIGH HAND",
+      "price": 20,
+      "url": "https://wvlottery.com/games/scratch-offs/1136-high-hand",
       "tiers": [
         {
-          "amount": 10,
-          "originalCount": 57789,
-          "remaining": 22078
+          "amount": 40,
+          "originalCount": 15713,
+          "remaining": 4842
         },
         {
-          "amount": 20,
-          "originalCount": 40180,
-          "remaining": 15128
+          "amount": 50,
+          "originalCount": 15727,
+          "remaining": 4697
         }
       ],
-      "overallOdds": 3.57,
+      "overallOdds": 5.78,
       "computed": {
-        "originalTickets": 349749,
-        "fractionRemaining": 0.3798,
-        "ticketsRemaining": 132825,
-        "remainingPrizeValue": 523340,
-        "evPerTicket": 3.9401,
-        "roi": 0.394,
-        "topPrizesRemaining": 15128,
-        "topPrizeAmount": 20
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1273",
-      "name": "DOGGIE-POOL-CAT-CASH",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1273-DOGGIE-POOL-CAT-CASH",
-      "tiers": [
-        {
-          "amount": 10,
-          "originalCount": 71258,
-          "remaining": 43959
-        },
-        {
-          "amount": 20,
-          "originalCount": 82108,
-          "remaining": 50148
-        },
-        {
-          "amount": 30,
-          "originalCount": 3569,
-          "remaining": 2213
-        }
-      ],
-      "overallOdds": 4.08,
-      "computed": {
-        "originalTickets": 640295,
-        "fractionRemaining": 0.6138,
-        "ticketsRemaining": 392986,
-        "remainingPrizeValue": 1508940,
-        "evPerTicket": 3.8397,
-        "roi": 0.384,
-        "topPrizesRemaining": 2213,
-        "topPrizeAmount": 30
+        "originalTickets": 181723,
+        "fractionRemaining": 0.3034,
+        "ticketsRemaining": 55135,
+        "remainingPrizeValue": 428530,
+        "evPerTicket": 7.7724,
+        "roi": 0.3886,
+        "topPrizesRemaining": 4697,
+        "topPrizeAmount": 50
       }
     },
     {
@@ -6301,46 +6372,46 @@
     },
     {
       "state": "wv",
-      "gameId": "1270",
-      "name": "SALEM-WINTER GREEN SEVENS",
+      "gameId": "1207",
+      "name": "SWAMP MONEY – HOLIDAY SEVENS",
       "price": 2,
-      "url": "https://wvlottery.com/games/scratch-offs/1270-salem-winter-green-sevens",
+      "url": "https://wvlottery.com/games/scratch-offs/1207-swamp-money-holiday-sevens",
       "tiers": [
         {
           "amount": 2,
-          "originalCount": 51451,
-          "remaining": 35504
+          "originalCount": 50844,
+          "remaining": 6443
         },
         {
           "amount": 3,
-          "originalCount": 57380,
-          "remaining": 39293
+          "originalCount": 56579,
+          "remaining": 6540
         },
         {
           "amount": 4,
-          "originalCount": 34390,
-          "remaining": 23447
+          "originalCount": 34043,
+          "remaining": 3644
         },
         {
           "amount": 6,
-          "originalCount": 17222,
-          "remaining": 11636
+          "originalCount": 17042,
+          "remaining": 1680
         },
         {
           "amount": 7,
-          "originalCount": 17228,
-          "remaining": 11582
+          "originalCount": 16970,
+          "remaining": 1610
         }
       ],
       "overallOdds": 4.74,
       "computed": {
-        "originalTickets": 842161,
-        "fractionRemaining": 0.6836,
-        "ticketsRemaining": 575730,
-        "remainingPrizeValue": 433565,
-        "evPerTicket": 0.7531,
-        "roi": 0.3765,
-        "topPrizesRemaining": 11582,
+        "originalTickets": 831766,
+        "fractionRemaining": 0.1135,
+        "ticketsRemaining": 94407,
+        "remainingPrizeValue": 68432,
+        "evPerTicket": 0.7249,
+        "roi": 0.3624,
+        "topPrizesRemaining": 1610,
         "topPrizeAmount": 7
       }
     },
@@ -6367,41 +6438,6 @@
         "roi": 0.3565,
         "topPrizesRemaining": 4393,
         "topPrizeAmount": 40
-      }
-    },
-    {
-      "state": "wv",
-      "gameId": "1221",
-      "name": "$$25,000 JUMBO CASH",
-      "price": 2,
-      "url": "https://wvlottery.com/games/scratch-offs/1221-usd25-000-jumbo-cash",
-      "tiers": [
-        {
-          "amount": 2,
-          "originalCount": 163080,
-          "remaining": 51067
-        },
-        {
-          "amount": 4,
-          "originalCount": 77008,
-          "remaining": 23073
-        },
-        {
-          "amount": 5,
-          "originalCount": 86044,
-          "remaining": 25325
-        }
-      ],
-      "overallOdds": 4.57,
-      "computed": {
-        "originalTickets": 1490423,
-        "fractionRemaining": 0.305,
-        "ticketsRemaining": 454555,
-        "remainingPrizeValue": 321051,
-        "evPerTicket": 0.7063,
-        "roi": 0.3531,
-        "topPrizesRemaining": 25325,
-        "topPrizeAmount": 5
       }
     },
     {
@@ -6451,41 +6487,6 @@
     },
     {
       "state": "wv",
-      "gameId": "1218",
-      "name": "$$100,000 JUMBO CASH",
-      "price": 20,
-      "url": "https://wvlottery.com/games/scratch-offs/1218-usd100-000-jumbo-cash",
-      "tiers": [
-        {
-          "amount": 20,
-          "originalCount": 67720,
-          "remaining": 28378
-        },
-        {
-          "amount": 30,
-          "originalCount": 20815,
-          "remaining": 8693
-        },
-        {
-          "amount": 40,
-          "originalCount": 15600,
-          "remaining": 6458
-        }
-      ],
-      "overallOdds": 3.73,
-      "computed": {
-        "originalTickets": 388424,
-        "fractionRemaining": 0.418,
-        "ticketsRemaining": 162363,
-        "remainingPrizeValue": 1086670,
-        "evPerTicket": 6.6928,
-        "roi": 0.3346,
-        "topPrizesRemaining": 6458,
-        "topPrizeAmount": 40
-      }
-    },
-    {
-      "state": "wv",
       "gameId": "1172",
       "name": "SUDDEN VICTORY",
       "price": 1,
@@ -6517,6 +6518,41 @@
         "roi": 0.3294,
         "topPrizesRemaining": 6213,
         "topPrizeAmount": 5
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1264",
+      "name": "SHARK-CLUCK-WILD-HOPPY",
+      "price": 1,
+      "url": "https://wvlottery.com/games/scratch-offs/1264-shark-cluck-wild-hoppy",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 161188,
+          "remaining": 110137
+        },
+        {
+          "amount": 2,
+          "originalCount": 95651,
+          "remaining": 64505
+        },
+        {
+          "amount": 4,
+          "originalCount": 40334,
+          "remaining": 26894
+        }
+      ],
+      "overallOdds": 5.25,
+      "computed": {
+        "originalTickets": 1560158,
+        "fractionRemaining": 0.6782,
+        "ticketsRemaining": 1058064,
+        "remainingPrizeValue": 346723,
+        "evPerTicket": 0.3277,
+        "roi": 0.3277,
+        "topPrizesRemaining": 26894,
+        "topPrizeAmount": 4
       }
     },
     {
@@ -6636,36 +6672,31 @@
     },
     {
       "state": "wv",
-      "gameId": "1223",
-      "name": "FIESTA-PIZZA-BBQ-PARTY CW",
-      "price": 3,
-      "url": "https://wvlottery.com/games/scratch-offs/1223-fiesta-pizza-bbq-party-cw",
+      "gameId": "1265",
+      "name": "WILD SIDE - POWER $500",
+      "price": 5,
+      "url": "https://wvlottery.com/games/scratch-offs/1265-wild-side-power-500",
       "tiers": [
         {
-          "amount": 3,
-          "originalCount": 160298,
-          "remaining": 28524
-        },
-        {
           "amount": 5,
-          "originalCount": 110240,
-          "remaining": 15844
+          "originalCount": 59548,
+          "remaining": 17643
         },
         {
           "amount": 10,
-          "originalCount": 70214,
-          "remaining": 9
+          "originalCount": 45798,
+          "remaining": 12920
         }
       ],
-      "overallOdds": 4.27,
+      "overallOdds": 4.75,
       "computed": {
-        "originalTickets": 1455011,
-        "fractionRemaining": 0.1302,
-        "ticketsRemaining": 189490,
-        "remainingPrizeValue": 164882,
-        "evPerTicket": 0.8701,
-        "roi": 0.29,
-        "topPrizesRemaining": 9,
+        "originalTickets": 500394,
+        "fractionRemaining": 0.2901,
+        "ticketsRemaining": 145174,
+        "remainingPrizeValue": 217415,
+        "evPerTicket": 1.4976,
+        "roi": 0.2995,
+        "topPrizesRemaining": 12920,
         "topPrizeAmount": 10
       }
     },
@@ -6714,18 +6745,18 @@
         {
           "amount": 10,
           "originalCount": 66029,
-          "remaining": 41151
+          "remaining": 41069
         }
       ],
       "overallOdds": 3.7,
       "computed": {
         "originalTickets": 244307,
-        "fractionRemaining": 0.6232,
-        "ticketsRemaining": 152259,
-        "remainingPrizeValue": 411510,
+        "fractionRemaining": 0.622,
+        "ticketsRemaining": 151955,
+        "remainingPrizeValue": 410690,
         "evPerTicket": 2.7027,
         "roi": 0.2703,
-        "topPrizesRemaining": 41151,
+        "topPrizesRemaining": 41069,
         "topPrizeAmount": 10
       }
     },
@@ -6739,19 +6770,44 @@
         {
           "amount": 10,
           "originalCount": 75445,
-          "remaining": 14376
+          "remaining": 14375
         }
       ],
       "overallOdds": 3.7,
       "computed": {
         "originalTickets": 279147,
         "fractionRemaining": 0.1905,
-        "ticketsRemaining": 53191,
-        "remainingPrizeValue": 143760,
+        "ticketsRemaining": 53188,
+        "remainingPrizeValue": 143750,
         "evPerTicket": 2.7027,
         "roi": 0.2703,
-        "topPrizesRemaining": 14376,
+        "topPrizesRemaining": 14375,
         "topPrizeAmount": 10
+      }
+    },
+    {
+      "state": "wv",
+      "gameId": "1257",
+      "name": "COOL CASH- WINNING ERA",
+      "price": 20,
+      "url": "https://wvlottery.com/games/scratch-offs/1257-cool-cash-winning-era",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 40779,
+          "remaining": 28122
+        }
+      ],
+      "overallOdds": 3.88,
+      "computed": {
+        "originalTickets": 158223,
+        "fractionRemaining": 0.6896,
+        "ticketsRemaining": 109114,
+        "remainingPrizeValue": 562440,
+        "evPerTicket": 5.1546,
+        "roi": 0.2577,
+        "topPrizesRemaining": 28122,
+        "topPrizeAmount": 20
       }
     },
     {
@@ -6786,31 +6842,6 @@
     },
     {
       "state": "wv",
-      "gameId": "1229",
-      "name": "JURASSIC WORLD",
-      "price": 10,
-      "url": "https://wvlottery.com/games/scratch-offs/1229-jurassic-world",
-      "tiers": [
-        {
-          "amount": 10,
-          "originalCount": 36739,
-          "remaining": 3492
-        }
-      ],
-      "overallOdds": 4,
-      "computed": {
-        "originalTickets": 146956,
-        "fractionRemaining": 0.095,
-        "ticketsRemaining": 13968,
-        "remainingPrizeValue": 34920,
-        "evPerTicket": 2.5,
-        "roi": 0.25,
-        "topPrizesRemaining": 3492,
-        "topPrizeAmount": 10
-      }
-    },
-    {
-      "state": "wv",
       "gameId": "1243",
       "name": "SPIN-LUCKY-CHERRIES-HAND",
       "price": 1,
@@ -6819,23 +6850,23 @@
         {
           "amount": 1,
           "originalCount": 136128,
-          "remaining": 77669
+          "remaining": 77654
         },
         {
           "amount": 2,
           "originalCount": 63798,
-          "remaining": 36278
+          "remaining": 36272
         }
       ],
       "overallOdds": 5.32,
       "computed": {
         "originalTickets": 1063606,
-        "fractionRemaining": 0.5699,
-        "ticketsRemaining": 606198,
-        "remainingPrizeValue": 150225,
+        "fractionRemaining": 0.5698,
+        "ticketsRemaining": 606086,
+        "remainingPrizeValue": 150198,
         "evPerTicket": 0.2478,
         "roi": 0.2478,
-        "topPrizesRemaining": 36278,
+        "topPrizesRemaining": 36272,
         "topPrizeAmount": 2
       }
     },

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T11:12:34.560Z",
-  "resultsAsOf": "2026-10-17",
+  "generatedAt": "2026-10-19T11:13:43.959Z",
+  "resultsAsOf": "2026-10-18",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/New_York",
   "excluded": [
@@ -380,6 +380,17 @@
       "reason": "Duplicate prize tiers need reconciliation"
     }
   ],
+  "coverage": {
+    "sourceRecordCount": 75,
+    "validatedCount": 0,
+    "excludedCount": 75,
+    "validation": "all-excluded"
+  },
+  "observation": {
+    "contentHash": "6722d117e2f90e4e895c3bc685aab6e810cd87bbf843a3c985c9e34e6965f396",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-19T11:13:43.959Z"
+  },
   "validationVersion": "2026-10-05.1",
   "state": "ri",
   "source": "https://ris.p1.awc.lotteryservices.net/api/v1/instant-games/games/",

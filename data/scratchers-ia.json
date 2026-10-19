@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T11:11:27.626Z",
-  "resultsAsOf": "2026-10-17",
+  "generatedAt": "2026-10-19T11:12:53.706Z",
+  "resultsAsOf": "2026-10-18",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Chicago",
   "excluded": [
@@ -255,6 +255,17 @@
       "reason": "Source adapter includes only prizes of $50 or more; complete-ladder EV unavailable"
     }
   ],
+  "coverage": {
+    "sourceRecordCount": 50,
+    "validatedCount": 0,
+    "excludedCount": 50,
+    "validation": "all-excluded"
+  },
+  "observation": {
+    "contentHash": "9076e97106e4fbd467f63a2f89ccf071d2e2fbf7112748cb2aece374f06b3745",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-19T11:12:53.706Z"
+  },
   "validationVersion": "2026-10-05.1",
   "state": "ia",
   "source": "https://ialottery.com/Pages/Games/RemainingPrizes.aspx",
