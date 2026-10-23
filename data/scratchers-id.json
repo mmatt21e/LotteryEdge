@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-22T11:13:31.715Z",
-  "resultsAsOf": "2026-10-21",
+  "generatedAt": "2026-10-23T11:12:57.521Z",
+  "resultsAsOf": "2026-10-22",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "excluded": [
@@ -16,20 +16,20 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 32,
-    "validatedCount": 30,
+    "sourceRecordCount": 33,
+    "validatedCount": 31,
     "excludedCount": 2,
     "validation": "partial"
   },
   "observation": {
-    "contentHash": "3311a00acbf39218662f2734533c11866bcd140d53a6021b3a1a8e84ec08e398",
-    "unchangedRuns": 3,
-    "contentObservedSince": "2026-10-19T11:12:56.078Z"
+    "contentHash": "ca8887c1ed214454654c70415f02ba135549769eded69af92d82b9dc7a80134a",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-23T11:12:57.521Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "id",
   "source": "https://www.idaholottery.com/games/scratch?view=remaining_prizes",
-  "gameCount": 30,
+  "gameCount": 31,
   "games": [
     {
       "state": "id",
@@ -1705,6 +1705,91 @@
         "remainingPrizeValue": 1394995,
         "evPerTicket": 3.5004,
         "roi": 0.7001,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "id",
+      "gameId": "1933",
+      "name": "Mistletoe Mystery",
+      "price": 5,
+      "url": "https://www.idaholottery.com/games/scratch/mistletoe-mystery",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 274800,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 137400,
+          "originalCount": 4,
+          "remaining": 4
+        },
+        {
+          "amount": 100,
+          "odds": 1844,
+          "originalCount": 298,
+          "remaining": 298
+        },
+        {
+          "amount": 60,
+          "odds": 1489,
+          "originalCount": 369,
+          "remaining": 369
+        },
+        {
+          "amount": 50,
+          "odds": 149,
+          "originalCount": 3683,
+          "remaining": 3683
+        },
+        {
+          "amount": 30,
+          "odds": 110,
+          "originalCount": 5014,
+          "remaining": 5014
+        },
+        {
+          "amount": 25,
+          "odds": 270,
+          "originalCount": 2035,
+          "remaining": 2035
+        },
+        {
+          "amount": 20,
+          "odds": 75,
+          "originalCount": 7323,
+          "remaining": 7323
+        },
+        {
+          "amount": 15,
+          "odds": 30,
+          "originalCount": 18323,
+          "remaining": 18323
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 54954,
+          "remaining": 54954
+        },
+        {
+          "amount": 5,
+          "odds": 7,
+          "originalCount": 76967,
+          "remaining": 76967
+        }
+      ],
+      "computed": {
+        "originalTickets": 549512,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 549512,
+        "remainingPrizeValue": 1897065,
+        "evPerTicket": 3.4523,
+        "roi": 0.6905,
         "topPrizesRemaining": 2,
         "topPrizeAmount": 50000
       }
