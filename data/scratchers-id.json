@@ -1,9 +1,14 @@
 {
-  "generatedAt": "2026-10-26T11:14:09.909Z",
-  "resultsAsOf": "2026-10-25",
+  "generatedAt": "2026-10-27T11:13:57.750Z",
+  "resultsAsOf": "2026-10-26",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "excluded": [
+    {
+      "gameId": "1932",
+      "name": "Snow Way!",
+      "reason": "Conflicting ticket-count anchors require source review"
+    },
     {
       "gameId": "1919",
       "name": "Mega Cash",
@@ -16,15 +21,15 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 33,
+    "sourceRecordCount": 34,
     "validatedCount": 31,
-    "excludedCount": 2,
+    "excludedCount": 3,
     "validation": "partial"
   },
   "observation": {
-    "contentHash": "ca8887c1ed214454654c70415f02ba135549769eded69af92d82b9dc7a80134a",
-    "unchangedRuns": 3,
-    "contentObservedSince": "2026-10-23T11:12:57.521Z"
+    "contentHash": "142046b9460b1ca7b8826e3501605e57a7b328f12ff9e53a9aa4a1060cda5236",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-27T11:13:57.750Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "id",
