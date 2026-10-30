@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-29T11:10:33.813Z",
-  "resultsAsOf": "2026-10-28",
+  "generatedAt": "2026-10-30T11:09:53.071Z",
+  "resultsAsOf": "2026-10-29",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "excluded": [
@@ -21,20 +21,20 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 33,
-    "validatedCount": 30,
+    "sourceRecordCount": 35,
+    "validatedCount": 32,
     "excludedCount": 3,
     "validation": "partial"
   },
   "observation": {
-    "contentHash": "095843a16698dd85f9ebe5df16c0b165dc805c435068e02a0448db126913f227",
-    "unchangedRuns": 1,
-    "contentObservedSince": "2026-10-28T11:11:05.602Z"
+    "contentHash": "3a0f4bfad4b236c4cd5142ff589e495043b9d8fa89e97343c8584274f5a912cf",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-10-30T11:09:53.071Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "id",
   "source": "https://www.idaholottery.com/games/scratch?view=remaining_prizes",
-  "gameCount": 30,
+  "gameCount": 32,
   "games": [
     {
       "state": "id",
@@ -519,7 +519,7 @@
     {
       "state": "id",
       "gameId": "1894",
-      "name": "Lucky No. 7",
+      "name": "Lucky No. 7 (purple)",
       "price": 2,
       "url": "https://www.idaholottery.com/games/scratch/lucky-no-7-1",
       "tiers": [
@@ -1274,6 +1274,37 @@
         "roi": 0.7127,
         "topPrizesRemaining": 3,
         "topPrizeAmount": 77777
+      }
+    },
+    {
+      "state": "id",
+      "gameId": "1:8.58",
+      "name": "Limited 19th Edition",
+      "price": 10,
+      "url": "https://www.idaholottery.com/games/scratch/limited-19th-edition",
+      "tiers": [
+        {
+          "amount": 100,
+          "odds": 39,
+          "originalCount": 10454,
+          "remaining": 10454
+        },
+        {
+          "amount": 50,
+          "odds": 11,
+          "originalCount": 37080,
+          "remaining": 37080
+        }
+      ],
+      "computed": {
+        "originalTickets": 407793,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 407793,
+        "remainingPrizeValue": 2899400,
+        "evPerTicket": 7.11,
+        "roi": 0.711,
+        "topPrizesRemaining": 10454,
+        "topPrizeAmount": 100
       }
     },
     {
@@ -2210,6 +2241,91 @@
         "roi": 0.669,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "id",
+      "gameId": "1928",
+      "name": "Lucky No. 7",
+      "price": 2,
+      "url": "https://www.idaholottery.com/games/scratch/lucky-no-7",
+      "tiers": [
+        {
+          "amount": 7000,
+          "odds": 164800,
+          "originalCount": 3,
+          "remaining": 3
+        },
+        {
+          "amount": 1000,
+          "odds": 123600,
+          "originalCount": 4,
+          "remaining": 4
+        },
+        {
+          "amount": 77,
+          "odds": 2996,
+          "originalCount": 165,
+          "remaining": 165
+        },
+        {
+          "amount": 27,
+          "odds": 500,
+          "originalCount": 989,
+          "remaining": 989
+        },
+        {
+          "amount": 21,
+          "odds": 200,
+          "originalCount": 2472,
+          "remaining": 2472
+        },
+        {
+          "amount": 12,
+          "odds": 80,
+          "originalCount": 6180,
+          "remaining": 6180
+        },
+        {
+          "amount": 7,
+          "odds": 25,
+          "originalCount": 19776,
+          "remaining": 19776
+        },
+        {
+          "amount": 6,
+          "odds": 57,
+          "originalCount": 8652,
+          "remaining": 8652
+        },
+        {
+          "amount": 4,
+          "odds": 36,
+          "originalCount": 13596,
+          "remaining": 13596
+        },
+        {
+          "amount": 3,
+          "odds": 40,
+          "originalCount": 12360,
+          "remaining": 12360
+        },
+        {
+          "amount": 2,
+          "odds": 7,
+          "originalCount": 70452,
+          "remaining": 70452
+        }
+      ],
+      "computed": {
+        "originalTickets": 494400,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 494400,
+        "remainingPrizeValue": 613192,
+        "evPerTicket": 1.2403,
+        "roi": 0.6201,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 7000
       }
     },
     {
