@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-01T11:09:10.214Z",
-  "resultsAsOf": "2026-10-31",
+  "generatedAt": "2026-11-02T11:11:15.048Z",
+  "resultsAsOf": "2026-11-01",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "validationVersion": "2026-10-05.1",
@@ -14,12 +14,20 @@
   },
   "observation": {
     "contentHash": "324c5ea36b06c7e7ec9bb5ec0d571ee7361b5353831d8a7fe651300a06aef8f2",
-    "unchangedRuns": 1,
+    "unchangedRuns": 2,
     "contentObservedSince": "2026-10-31T11:08:15.176Z"
   },
   "source": "https://www.coloradolottery.com/en/games/scratch/",
   "gameCount": 89,
   "games": [
+    {
+      "gameId": "2891",
+      "name": "SET FOR LIFE",
+      "price": 50,
+      "topPrize": "$3,780,000",
+      "topPrizeValue": 3780000,
+      "closingSoon": false
+    },
     {
       "gameId": "2912",
       "name": "$3,000,000 EXTREME FORTUNE",
@@ -45,30 +53,6 @@
       "closingSoon": false
     },
     {
-      "gameId": "2891",
-      "name": "SET FOR LIFE",
-      "price": 50,
-      "topPrize": "$3,780,000",
-      "topPrizeValue": 3780000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2927",
-      "name": "EXTREME CASH",
-      "price": 20,
-      "topPrize": "$1,000,000",
-      "topPrizeValue": 1000000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2917",
-      "name": "$500,000 Crossword",
-      "price": 20,
-      "topPrize": "$500,000",
-      "topPrizeValue": 500000,
-      "closingSoon": false
-    },
-    {
       "gameId": "2883",
       "name": "PLATINUM 8s",
       "price": 20,
@@ -77,12 +61,28 @@
       "closingSoon": false
     },
     {
-      "gameId": "2924",
-      "name": "200X",
+      "gameId": "2948",
+      "name": "$500,000 HOLIDAY BONUS",
+      "price": 20,
+      "topPrize": "$500,000",
+      "topPrizeValue": 500000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2900",
+      "name": "$20,000 FRENZY",
+      "price": 20,
+      "topPrize": "$20,000",
+      "topPrizeValue": 20000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2815",
+      "name": "Monopoly™ Secret Vault 200X",
       "price": 20,
       "topPrize": "$1,000,000",
       "topPrizeValue": 1000000,
-      "closingSoon": false
+      "closingSoon": true
     },
     {
       "gameId": "2939",
@@ -101,8 +101,8 @@
       "closingSoon": false
     },
     {
-      "gameId": "2775",
-      "name": "Casino Ca$h Chips",
+      "gameId": "2913",
+      "name": "TRIPLE RED 777",
       "price": 20,
       "topPrize": "$1,000,000",
       "topPrizeValue": 1000000,
@@ -149,40 +149,40 @@
       "closingSoon": false
     },
     {
-      "gameId": "2948",
-      "name": "$500,000 HOLIDAY BONUS",
+      "gameId": "2924",
+      "name": "200X",
+      "price": 20,
+      "topPrize": "$1,000,000",
+      "topPrizeValue": 1000000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2927",
+      "name": "EXTREME CASH",
+      "price": 20,
+      "topPrize": "$1,000,000",
+      "topPrizeValue": 1000000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2775",
+      "name": "Casino Ca$h Chips",
+      "price": 20,
+      "topPrize": "$1,000,000",
+      "topPrizeValue": 1000000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2917",
+      "name": "$500,000 Crossword",
       "price": 20,
       "topPrize": "$500,000",
       "topPrizeValue": 500000,
       "closingSoon": false
     },
     {
-      "gameId": "2913",
-      "name": "TRIPLE RED 777",
-      "price": 20,
-      "topPrize": "$1,000,000",
-      "topPrizeValue": 1000000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2815",
-      "name": "Monopoly™ Secret Vault 200X",
-      "price": 20,
-      "topPrize": "$1,000,000",
-      "topPrizeValue": 1000000,
-      "closingSoon": true
-    },
-    {
-      "gameId": "2900",
-      "name": "$20,000 FRENZY",
-      "price": 20,
-      "topPrize": "$20,000",
-      "topPrizeValue": 20000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2908",
-      "name": "EMERALD 9s",
+      "gameId": "2925",
+      "name": "UNO™",
       "price": 10,
       "topPrize": "$250,000",
       "topPrizeValue": 250000,
@@ -223,14 +223,6 @@
     {
       "gameId": "2931",
       "name": "COLORADO GOLD RUSH",
-      "price": 10,
-      "topPrize": "$250,000",
-      "topPrizeValue": 250000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2925",
-      "name": "UNO™",
       "price": 10,
       "topPrize": "$250,000",
       "topPrizeValue": 250000,
@@ -317,6 +309,14 @@
       "closingSoon": true
     },
     {
+      "gameId": "2908",
+      "name": "EMERALD 9s",
+      "price": 10,
+      "topPrize": "$250,000",
+      "topPrizeValue": 250000,
+      "closingSoon": false
+    },
+    {
       "gameId": "2890",
       "name": "$250,000 DEUCE$ WILD POKER",
       "price": 10,
@@ -365,8 +365,24 @@
       "closingSoon": true
     },
     {
-      "gameId": "2922",
-      "name": "50X",
+      "gameId": "2930",
+      "name": "150th BIRTHDAY!",
+      "price": 5,
+      "topPrize": "$150",
+      "topPrizeValue": 150,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2940",
+      "name": "DOUBLE YOUR MONEY",
+      "price": 5,
+      "topPrize": "$100,000",
+      "topPrizeValue": 100000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2915",
+      "name": "LADY LUCK",
       "price": 5,
       "topPrize": "$100,000",
       "topPrizeValue": 100000,
@@ -381,14 +397,6 @@
       "closingSoon": false
     },
     {
-      "gameId": "2930",
-      "name": "150th BIRTHDAY!",
-      "price": 5,
-      "topPrize": "$150",
-      "topPrizeValue": 150,
-      "closingSoon": false
-    },
-    {
       "gameId": "2887",
       "name": "$100,000 Blackjack Tripler",
       "price": 5,
@@ -399,22 +407,6 @@
     {
       "gameId": "2934",
       "name": "BRONCOS BLITZ",
-      "price": 5,
-      "topPrize": "$100,000",
-      "topPrizeValue": 100000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2926",
-      "name": "UNO™",
-      "price": 5,
-      "topPrize": "$100,000",
-      "topPrizeValue": 100000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2940",
-      "name": "DOUBLE YOUR MONEY",
       "price": 5,
       "topPrize": "$100,000",
       "topPrizeValue": 100000,
@@ -461,14 +453,6 @@
       "closingSoon": true
     },
     {
-      "gameId": "2854",
-      "name": "Dynamite Crossword",
-      "price": 5,
-      "topPrize": "$100,000",
-      "topPrizeValue": 100000,
-      "closingSoon": true
-    },
-    {
       "gameId": "2880",
       "name": "Rocky Mountain Cube Bingo",
       "price": 5,
@@ -477,16 +461,16 @@
       "closingSoon": false
     },
     {
-      "gameId": "2907",
-      "name": "RUBY 8s",
+      "gameId": "2854",
+      "name": "Dynamite Crossword",
       "price": 5,
       "topPrize": "$100,000",
       "topPrizeValue": 100000,
-      "closingSoon": false
+      "closingSoon": true
     },
     {
-      "gameId": "2873",
-      "name": "MONOPOLY™",
+      "gameId": "2907",
+      "name": "RUBY 8s",
       "price": 5,
       "topPrize": "$100,000",
       "topPrizeValue": 100000,
@@ -501,19 +485,43 @@
       "closingSoon": true
     },
     {
-      "gameId": "2915",
-      "name": "LADY LUCK",
+      "gameId": "2922",
+      "name": "50X",
       "price": 5,
       "topPrize": "$100,000",
       "topPrizeValue": 100000,
       "closingSoon": true
     },
     {
-      "gameId": "2945",
-      "name": "SEASON'S GREETINGS",
+      "gameId": "2873",
+      "name": "MONOPOLY™",
+      "price": 5,
+      "topPrize": "$100,000",
+      "topPrizeValue": 100000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2926",
+      "name": "UNO™",
+      "price": 5,
+      "topPrize": "$100,000",
+      "topPrizeValue": 100000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2929",
+      "name": "WINNING COUNTRY",
       "price": 3,
-      "topPrize": "$15,000",
-      "topPrizeValue": 15000,
+      "topPrize": "$30,000",
+      "topPrizeValue": 30000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2921",
+      "name": "30X",
+      "price": 3,
+      "topPrize": "$50,000",
+      "topPrizeValue": 50000,
       "closingSoon": false
     },
     {
@@ -533,14 +541,6 @@
       "closingSoon": false
     },
     {
-      "gameId": "2921",
-      "name": "30X",
-      "price": 3,
-      "topPrize": "$50,000",
-      "topPrizeValue": 50000,
-      "closingSoon": false
-    },
-    {
       "gameId": "2856",
       "name": "Loteria™",
       "price": 3,
@@ -557,15 +557,15 @@
       "closingSoon": false
     },
     {
-      "gameId": "2929",
-      "name": "WINNING COUNTRY",
+      "gameId": "2826",
+      "name": "Crossword Multiplier",
       "price": 3,
-      "topPrize": "$30,000",
-      "topPrizeValue": 30000,
-      "closingSoon": false
+      "topPrize": "$40,000",
+      "topPrizeValue": 40000,
+      "closingSoon": true
     },
     {
-      "gameId": "2826",
+      "gameId": "2827",
       "name": "Crossword Multiplier",
       "price": 3,
       "topPrize": "$40,000",
@@ -581,12 +581,12 @@
       "closingSoon": true
     },
     {
-      "gameId": "2827",
-      "name": "Crossword Multiplier",
+      "gameId": "2945",
+      "name": "SEASON'S GREETINGS",
       "price": 3,
-      "topPrize": "$40,000",
-      "topPrizeValue": 40000,
-      "closingSoon": true
+      "topPrize": "$15,000",
+      "topPrizeValue": 15000,
+      "closingSoon": false
     },
     {
       "gameId": "2918",
@@ -605,12 +605,12 @@
       "closingSoon": true
     },
     {
-      "gameId": "2861",
-      "name": "Decade of Dollars",
+      "gameId": "2871",
+      "name": "MONOPOLY™",
       "price": 2,
-      "topPrize": "$120,000",
-      "topPrizeValue": 120000,
-      "closingSoon": true
+      "topPrize": "$20,000",
+      "topPrizeValue": 20000,
+      "closingSoon": false
     },
     {
       "gameId": "2942",
@@ -653,12 +653,12 @@
       "closingSoon": false
     },
     {
-      "gameId": "2871",
-      "name": "MONOPOLY™",
+      "gameId": "2861",
+      "name": "Decade of Dollars",
       "price": 2,
-      "topPrize": "$20,000",
-      "topPrizeValue": 20000,
-      "closingSoon": false
+      "topPrize": "$120,000",
+      "topPrizeValue": 120000,
+      "closingSoon": true
     },
     {
       "gameId": "2884",
@@ -677,6 +677,22 @@
       "closingSoon": false
     },
     {
+      "gameId": "2870",
+      "name": "MONOPOLY™",
+      "price": 1,
+      "topPrize": "$10,000",
+      "topPrizeValue": 10000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2932",
+      "name": "MAD MONEY",
+      "price": 1,
+      "topPrize": "$1,000",
+      "topPrizeValue": 1000,
+      "closingSoon": false
+    },
+    {
       "gameId": "2943",
       "name": "REINDEER RICHES",
       "price": 1,
@@ -685,16 +701,8 @@
       "closingSoon": false
     },
     {
-      "gameId": "2860",
-      "name": "Decade of Dollars",
-      "price": 1,
-      "topPrize": "$60,000",
-      "topPrizeValue": 60000,
-      "closingSoon": true
-    },
-    {
-      "gameId": "2870",
-      "name": "MONOPOLY™",
+      "gameId": "2919",
+      "name": "10X®",
       "price": 1,
       "topPrize": "$10,000",
       "topPrizeValue": 10000,
@@ -717,20 +725,12 @@
       "closingSoon": false
     },
     {
-      "gameId": "2932",
-      "name": "MAD MONEY",
+      "gameId": "2860",
+      "name": "Decade of Dollars",
       "price": 1,
-      "topPrize": "$1,000",
-      "topPrizeValue": 1000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "2919",
-      "name": "10X®",
-      "price": 1,
-      "topPrize": "$10,000",
-      "topPrizeValue": 10000,
-      "closingSoon": false
+      "topPrize": "$60,000",
+      "topPrizeValue": 60000,
+      "closingSoon": true
     }
   ]
 }
