@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-02T11:10:03.713Z",
-  "resultsAsOf": "2026-11-01",
+  "generatedAt": "2026-11-03T11:10:37.677Z",
+  "resultsAsOf": "2026-11-02",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Chicago",
   "excluded": [
@@ -12,6 +12,11 @@
     {
       "gameId": "797",
       "name": "$100,000 CASH BONUS",
+      "reason": "Source adapter includes only prizes of $50 or more; complete-ladder EV unavailable"
+    },
+    {
+      "gameId": "815",
+      "name": "$100,000 CROSSWORD",
       "reason": "Source adapter includes only prizes of $50 or more; complete-ladder EV unavailable"
     },
     {
@@ -112,6 +117,16 @@
     {
       "gameId": "808",
       "name": "CROSSWORD GOLD",
+      "reason": "Source adapter includes only prizes of $50 or more; complete-ladder EV unavailable"
+    },
+    {
+      "gameId": "814",
+      "name": "CROSSWORD MULTIPLIER",
+      "reason": "Source adapter includes only prizes of $50 or more; complete-ladder EV unavailable"
+    },
+    {
+      "gameId": "812",
+      "name": "CROSSWORD TRIPLER",
       "reason": "Source adapter includes only prizes of $50 or more; complete-ladder EV unavailable"
     },
     {
@@ -256,15 +271,15 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 50,
+    "sourceRecordCount": 53,
     "validatedCount": 0,
-    "excludedCount": 50,
+    "excludedCount": 53,
     "validation": "all-excluded"
   },
   "observation": {
-    "contentHash": "8421542df53854843460d20de7307aa11f11c03b9c90a0cfb310a81651f45ee6",
+    "contentHash": "aa2c59e8fe4f705ce4f645760a9ebd00ae9203266be97809a94d57389a7dcf06",
     "unchangedRuns": 0,
-    "contentObservedSince": "2026-11-02T11:10:03.713Z"
+    "contentObservedSince": "2026-11-03T11:10:37.677Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "ia",

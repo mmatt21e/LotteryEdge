@@ -1,25 +1,41 @@
 {
-  "generatedAt": "2026-11-02T11:11:22.883Z",
-  "resultsAsOf": "2026-11-01",
+  "generatedAt": "2026-11-03T11:11:59.979Z",
+  "resultsAsOf": "2026-11-02",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Chicago",
   "validationVersion": "2026-10-05.1",
   "state": "mn",
   "limited": true,
   "coverage": {
-    "sourceRecordCount": 39,
-    "validatedCount": 39,
+    "sourceRecordCount": 40,
+    "validatedCount": 40,
     "excludedCount": 0,
     "validation": "usable"
   },
   "observation": {
-    "contentHash": "029b0741db79cf79f31d8899e60f21201010bccd25668668baa8f516a752558e",
-    "unchangedRuns": 3,
-    "contentObservedSince": "2026-10-30T11:11:03.694Z"
+    "contentHash": "9d986ba564d386cbb3501a45c4b6ee85ef46c2a454bdff637523566abbcae93a",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-03T11:11:59.979Z"
   },
   "source": "https://gateway.gameon.mnlottery.com/services/game/api/published-games",
-  "gameCount": 39,
+  "gameCount": 40,
   "games": [
+    {
+      "gameId": "2114",
+      "name": "$500 Cash Flurries",
+      "price": 5,
+      "topPrize": "$500",
+      "topPrizeValue": 500,
+      "closingSoon": false
+    },
+    {
+      "gameId": "2113",
+      "name": "2 Games for $1",
+      "price": 1,
+      "topPrize": "$5,000",
+      "topPrizeValue": 5000,
+      "closingSoon": false
+    },
     {
       "gameId": "2115",
       "name": "Mystery Prize Crossword",
@@ -179,14 +195,6 @@
       "topPrize": "$100,000",
       "topPrizeValue": 100000,
       "closingSoon": false
-    },
-    {
-      "gameId": "2093",
-      "name": "Red, White & Blue $250s",
-      "price": 1,
-      "topPrize": "$250",
-      "topPrizeValue": 250,
-      "closingSoon": true
     },
     {
       "gameId": "2090",
