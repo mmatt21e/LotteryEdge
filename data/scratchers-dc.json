@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T11:11:48.121Z",
-  "resultsAsOf": "2026-11-02",
+  "generatedAt": "2026-11-04T11:11:53.312Z",
+  "resultsAsOf": "2026-11-03",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/New_York",
   "validationVersion": "2026-10-05.1",
@@ -13,13 +13,29 @@
     "validation": "usable"
   },
   "observation": {
-    "contentHash": "a5cb2f59dc9165f349206757535ebcd55727365155509624756854827f63a526",
-    "unchangedRuns": 15,
-    "contentObservedSince": "2026-10-19T11:13:45.208Z"
+    "contentHash": "12cb62db8b8173eca1b2d3fba5080ded77f5307070bd2dc99887b78af988bd0c",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-04T11:11:53.312Z"
   },
   "source": "https://dclottery.com/dc-scratchers",
   "gameCount": 20,
   "games": [
+    {
+      "gameId": "1676",
+      "name": "Holiday Cash",
+      "price": 1,
+      "topPrize": "$1,000",
+      "topPrizeValue": 1000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "1663",
+      "name": "Game Show Experience",
+      "price": 5,
+      "topPrize": "$50,000",
+      "topPrizeValue": 50000,
+      "closingSoon": false
+    },
     {
       "gameId": "1674",
       "name": "VIP Club",
@@ -162,22 +178,6 @@
       "price": 5,
       "topPrize": "$250",
       "topPrizeValue": 250,
-      "closingSoon": false
-    },
-    {
-      "gameId": "1656",
-      "name": "Black Pearls",
-      "price": 5,
-      "topPrize": "$50,000",
-      "topPrizeValue": 50000,
-      "closingSoon": false
-    },
-    {
-      "gameId": "1655",
-      "name": "Lady Luck",
-      "price": 5,
-      "topPrize": "$50,000",
-      "topPrizeValue": 50000,
       "closingSoon": false
     }
   ]

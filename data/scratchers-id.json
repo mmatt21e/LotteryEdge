@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T11:10:38.929Z",
-  "resultsAsOf": "2026-11-02",
+  "generatedAt": "2026-11-04T11:10:38.755Z",
+  "resultsAsOf": "2026-11-03",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "excluded": [
@@ -21,20 +21,20 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 34,
-    "validatedCount": 31,
+    "sourceRecordCount": 33,
+    "validatedCount": 30,
     "excludedCount": 3,
     "validation": "partial"
   },
   "observation": {
-    "contentHash": "580e59039e693bcd61e21b588d2e84c0ed473fb9a3e938ae8bffba080225e6b7",
-    "unchangedRuns": 2,
-    "contentObservedSince": "2026-11-01T11:08:14.632Z"
+    "contentHash": "1f2091794b117a83aaf65b8bd711e5842e34fb1ea059790755af3f1390e2ed58",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-04T11:10:38.755Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "id",
   "source": "https://www.idaholottery.com/games/scratch?view=remaining_prizes",
-  "gameCount": 31,
+  "gameCount": 30,
   "games": [
     {
       "state": "id",
@@ -1225,37 +1225,6 @@
         "evPerTicket": 7.11,
         "roi": 0.711,
         "topPrizesRemaining": 10454,
-        "topPrizeAmount": 100
-      }
-    },
-    {
-      "state": "id",
-      "gameId": "1912",
-      "name": "Limited 18th Edition",
-      "price": 10,
-      "url": "https://www.idaholottery.com/games/scratch/limited-18th-edition",
-      "tiers": [
-        {
-          "amount": 100,
-          "odds": 39,
-          "originalCount": 10464,
-          "remaining": 481
-        },
-        {
-          "amount": 50,
-          "odds": 11,
-          "originalCount": 37080,
-          "remaining": 1808
-        }
-      ],
-      "computed": {
-        "originalTickets": 407988,
-        "fractionRemaining": 0.0481,
-        "ticketsRemaining": 19643,
-        "remainingPrizeValue": 138500,
-        "evPerTicket": 7.0509,
-        "roi": 0.7051,
-        "topPrizesRemaining": 481,
         "topPrizeAmount": 100
       }
     },
