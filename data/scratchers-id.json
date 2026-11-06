@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-05T11:09:54.033Z",
-  "resultsAsOf": "2026-11-04",
+  "generatedAt": "2026-11-06T11:09:57.633Z",
+  "resultsAsOf": "2026-11-05",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "excluded": [
     {
-      "gameId": "1932",
+      "gameId": "1931",
       "name": "Snow Way!",
       "reason": "Conflicting ticket-count anchors require source review"
     },
@@ -21,20 +21,20 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 33,
-    "validatedCount": 30,
+    "sourceRecordCount": 34,
+    "validatedCount": 31,
     "excludedCount": 3,
     "validation": "partial"
   },
   "observation": {
-    "contentHash": "1f2091794b117a83aaf65b8bd711e5842e34fb1ea059790755af3f1390e2ed58",
-    "unchangedRuns": 1,
-    "contentObservedSince": "2026-11-04T11:10:38.755Z"
+    "contentHash": "0a33dc8690770f82ec4cd5f648c62cb1117908cdf27725f2bf5c25d5598fe413",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-06T11:09:57.633Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "id",
   "source": "https://www.idaholottery.com/games/scratch?view=remaining_prizes",
-  "gameCount": 30,
+  "gameCount": 31,
   "games": [
     {
       "state": "id",
@@ -2131,6 +2131,85 @@
         "roi": 0.669,
         "topPrizesRemaining": 1,
         "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "id",
+      "gameId": "1932",
+      "name": "Naughty and I Gnome It",
+      "price": 2,
+      "url": "https://www.idaholottery.com/games/scratch/naughty-and-i-gnome-it",
+      "tiers": [
+        {
+          "amount": 10000,
+          "odds": 122400,
+          "originalCount": 4,
+          "remaining": 4
+        },
+        {
+          "amount": 1000,
+          "odds": 163200,
+          "originalCount": 3,
+          "remaining": 3
+        },
+        {
+          "amount": 100,
+          "odds": 3654,
+          "originalCount": 134,
+          "remaining": 134
+        },
+        {
+          "amount": 50,
+          "odds": 732,
+          "originalCount": 669,
+          "remaining": 669
+        },
+        {
+          "amount": 30,
+          "odds": 332,
+          "originalCount": 1473,
+          "remaining": 1473
+        },
+        {
+          "amount": 15,
+          "odds": 100,
+          "originalCount": 4896,
+          "remaining": 4896
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 9792,
+          "remaining": 9792
+        },
+        {
+          "amount": 5,
+          "odds": 50,
+          "originalCount": 9792,
+          "remaining": 9792
+        },
+        {
+          "amount": 4,
+          "odds": 17,
+          "originalCount": 29376,
+          "remaining": 29376
+        },
+        {
+          "amount": 2,
+          "odds": 7,
+          "originalCount": 68544,
+          "remaining": 68544
+        }
+      ],
+      "computed": {
+        "originalTickets": 489600,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 489600,
+        "remainingPrizeValue": 608952,
+        "evPerTicket": 1.2438,
+        "roi": 0.6219,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 10000
       }
     },
     {

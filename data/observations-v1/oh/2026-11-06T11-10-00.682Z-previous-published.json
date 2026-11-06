@@ -1,0 +1,4475 @@
+{
+  "generatedAt": "2026-11-05T11:09:55.134Z",
+  "resultsAsOf": "2026-11-04",
+  "dateBasis": "assumed-previous-day",
+  "timeZone": "America/New_York",
+  "excluded": [
+    {
+      "gameId": "1030",
+      "name": "Joker's Wild",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1038",
+      "name": "Bingo Times 25",
+      "reason": "Unclaimed count exceeds original count; reprint/source correction needs review"
+    },
+    {
+      "gameId": "1054",
+      "name": "Cash Explosion Cashword",
+      "reason": "Prize value unavailable or non-cash tier unsupported; Unclaimed count exceeds original count; reprint/source correction needs review"
+    },
+    {
+      "gameId": "1068",
+      "name": "Cash Explosion 10X",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    },
+    {
+      "gameId": "1093",
+      "name": "Cash Explosion 25X",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    },
+    {
+      "gameId": "1107",
+      "name": "Sweet Riches",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "762",
+      "name": "Billion",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "891",
+      "name": "Cash Explosion 25X",
+      "reason": "Prize value unavailable or non-cash tier unsupported"
+    }
+  ],
+  "coverage": {
+    "sourceRecordCount": 73,
+    "validatedCount": 65,
+    "excludedCount": 8,
+    "validation": "partial"
+  },
+  "observation": {
+    "contentHash": "72046b2cf2e223b72ae6de49185bd4d4176af0f5c6eb3c58083db661e13e85ae",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-05T11:09:55.134Z"
+  },
+  "validationVersion": "2026-10-05.1",
+  "state": "oh",
+  "source": "https://api-solutions.ohiolottery.com/1.0/Games/ScratchOffs/ScratchOffGame/GetFullPrizesRemainingList",
+  "gameCount": 65,
+  "games": [
+    {
+      "state": "oh",
+      "gameId": "1017",
+      "name": "Feeling Lucky",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 250,
+          "originalCount": 5434,
+          "remaining": 188
+        },
+        {
+          "amount": 25,
+          "originalCount": 102794,
+          "remaining": 4256
+        },
+        {
+          "amount": 2500,
+          "originalCount": 68,
+          "remaining": 1
+        },
+        {
+          "amount": 1000,
+          "originalCount": 120,
+          "remaining": 5
+        },
+        {
+          "amount": 300000,
+          "originalCount": 10,
+          "remaining": 2
+        },
+        {
+          "amount": 10,
+          "originalCount": 513970,
+          "remaining": 24712
+        },
+        {
+          "amount": 20,
+          "originalCount": 205588,
+          "remaining": 8681
+        },
+        {
+          "amount": 100,
+          "originalCount": 102794,
+          "remaining": 3938
+        },
+        {
+          "amount": 50,
+          "originalCount": 102794,
+          "remaining": 4050
+        },
+        {
+          "amount": 15,
+          "originalCount": 308382,
+          "remaining": 14170
+        },
+        {
+          "amount": 10000,
+          "originalCount": 40,
+          "remaining": 2
+        },
+        {
+          "amount": 500,
+          "originalCount": 1073,
+          "remaining": 35
+        }
+      ],
+      "overallOdds": 3.83,
+      "computed": {
+        "originalTickets": 5143947,
+        "fractionRemaining": 0.0447,
+        "ticketsRemaining": 229953,
+        "remainingPrizeValue": 2027990,
+        "evPerTicket": 8.8192,
+        "roi": 0.8819,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 300000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "827",
+      "name": "50th Anniversary",
+      "price": 50,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 250,
+          "originalCount": 447403,
+          "remaining": 61798
+        },
+        {
+          "amount": 5000,
+          "originalCount": 2016,
+          "remaining": 290
+        },
+        {
+          "amount": 40000,
+          "originalCount": 12,
+          "remaining": 3
+        },
+        {
+          "amount": 1000,
+          "originalCount": 17220,
+          "remaining": 2440
+        },
+        {
+          "amount": 50000,
+          "originalCount": 40,
+          "remaining": 6
+        },
+        {
+          "amount": 600000,
+          "originalCount": 3,
+          "remaining": 1
+        },
+        {
+          "amount": 100,
+          "originalCount": 2044140,
+          "remaining": 287290
+        },
+        {
+          "amount": 10000,
+          "originalCount": 1008,
+          "remaining": 140
+        },
+        {
+          "amount": 500,
+          "originalCount": 65637,
+          "remaining": 9096
+        }
+      ],
+      "overallOdds": 3.97,
+      "computed": {
+        "originalTickets": 10232592,
+        "fractionRemaining": 0.1401,
+        "ticketsRemaining": 1433424,
+        "remainingPrizeValue": 55036500,
+        "evPerTicket": 38.3951,
+        "roi": 0.7679,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 600000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1111",
+      "name": "Merry Money Match",
+      "price": 30,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 282270,
+          "remaining": 227619
+        },
+        {
+          "amount": 500,
+          "originalCount": 26887,
+          "remaining": 21667
+        },
+        {
+          "amount": 50000,
+          "originalCount": 6,
+          "remaining": 6
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 7
+        },
+        {
+          "amount": 100,
+          "originalCount": 56454,
+          "remaining": 45394
+        },
+        {
+          "amount": 80000,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 50,
+          "originalCount": 70625,
+          "remaining": 56846
+        },
+        {
+          "amount": 1000,
+          "originalCount": 350,
+          "remaining": 290
+        }
+      ],
+      "overallOdds": 3.23,
+      "computed": {
+        "originalTickets": 1410224,
+        "fractionRemaining": 0.8058,
+        "ticketsRemaining": 1136414,
+        "remainingPrizeValue": 25863770,
+        "evPerTicket": 22.7591,
+        "roi": 0.7586,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 80000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1101",
+      "name": "Casino Cash",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 85,
+          "remaining": 61
+        },
+        {
+          "amount": 20000,
+          "originalCount": 36,
+          "remaining": 26
+        },
+        {
+          "amount": 250,
+          "originalCount": 8411,
+          "remaining": 5824
+        },
+        {
+          "amount": 10,
+          "originalCount": 438558,
+          "remaining": 304918
+        },
+        {
+          "amount": 25,
+          "originalCount": 56611,
+          "remaining": 39185
+        },
+        {
+          "amount": 2500,
+          "originalCount": 50,
+          "remaining": 34
+        },
+        {
+          "amount": 15,
+          "originalCount": 219279,
+          "remaining": 152220
+        },
+        {
+          "amount": 50,
+          "originalCount": 73093,
+          "remaining": 50525
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 4
+        },
+        {
+          "amount": 500,
+          "originalCount": 3679,
+          "remaining": 2536
+        },
+        {
+          "amount": 100,
+          "originalCount": 36602,
+          "remaining": 25260
+        },
+        {
+          "amount": 20,
+          "originalCount": 146186,
+          "remaining": 101293
+        },
+        {
+          "amount": 10000,
+          "originalCount": 45,
+          "remaining": 32
+        }
+      ],
+      "overallOdds": 3.72,
+      "computed": {
+        "originalTickets": 3655417,
+        "fractionRemaining": 0.694,
+        "ticketsRemaining": 2536735,
+        "remainingPrizeValue": 19100215,
+        "evPerTicket": 7.5294,
+        "roi": 0.7529,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1067",
+      "name": "Ultimate $5,000,000",
+      "price": 50,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5000,
+          "originalCount": 2520,
+          "remaining": 1533
+        },
+        {
+          "amount": 200000,
+          "originalCount": 6,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "originalCount": 500,
+          "remaining": 302
+        },
+        {
+          "amount": 500,
+          "originalCount": 35437,
+          "remaining": 21330
+        },
+        {
+          "amount": 1000,
+          "originalCount": 14700,
+          "remaining": 8877
+        },
+        {
+          "amount": 100,
+          "originalCount": 1375456,
+          "remaining": 827646
+        },
+        {
+          "amount": 50000,
+          "originalCount": 100,
+          "remaining": 61
+        }
+      ],
+      "overallOdds": 3.61,
+      "computed": {
+        "originalTickets": 5157676,
+        "fractionRemaining": 0.6018,
+        "ticketsRemaining": 3103705,
+        "remainingPrizeValue": 116641600,
+        "evPerTicket": 37.5814,
+        "roi": 0.7516,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 200000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1083",
+      "name": "Money, Money, Money",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10000,
+          "originalCount": 24,
+          "remaining": 13
+        },
+        {
+          "amount": 250,
+          "originalCount": 15471,
+          "remaining": 7968
+        },
+        {
+          "amount": 10,
+          "originalCount": 739692,
+          "remaining": 389453
+        },
+        {
+          "amount": 20,
+          "originalCount": 616410,
+          "remaining": 321420
+        },
+        {
+          "amount": 100,
+          "originalCount": 87231,
+          "remaining": 45200
+        },
+        {
+          "amount": 500000,
+          "originalCount": 5,
+          "remaining": 4
+        },
+        {
+          "amount": 2500,
+          "originalCount": 164,
+          "remaining": 84
+        },
+        {
+          "amount": 20000,
+          "originalCount": 22,
+          "remaining": 11
+        },
+        {
+          "amount": 500,
+          "originalCount": 6205,
+          "remaining": 3210
+        },
+        {
+          "amount": 50,
+          "originalCount": 123282,
+          "remaining": 63819
+        }
+      ],
+      "overallOdds": 3.88,
+      "computed": {
+        "originalTickets": 6163403,
+        "fractionRemaining": 0.5232,
+        "ticketsRemaining": 3224986,
+        "remainingPrizeValue": 24190880,
+        "evPerTicket": 7.5011,
+        "roi": 0.7501,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1007",
+      "name": "Cash Plus",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 46,
+          "remaining": 10
+        },
+        {
+          "amount": 300000,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 50,
+          "originalCount": 154115,
+          "remaining": 35976
+        },
+        {
+          "amount": 100,
+          "originalCount": 67853,
+          "remaining": 15798
+        },
+        {
+          "amount": 20,
+          "originalCount": 1109187,
+          "remaining": 261050
+        },
+        {
+          "amount": 10000,
+          "originalCount": 10,
+          "remaining": 0
+        },
+        {
+          "amount": 25,
+          "originalCount": 197113,
+          "remaining": 46179
+        },
+        {
+          "amount": 500,
+          "originalCount": 3066,
+          "remaining": 697
+        },
+        {
+          "amount": 50000,
+          "originalCount": 10,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 4.02,
+      "computed": {
+        "originalTickets": 6156244,
+        "fractionRemaining": 0.2349,
+        "ticketsRemaining": 1446050,
+        "remainingPrizeValue": 10812575,
+        "evPerTicket": 7.4773,
+        "roi": 0.7477,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 300000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1106",
+      "name": "Holiday Cash",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 1389166,
+          "remaining": 1249779
+        },
+        {
+          "amount": 20,
+          "originalCount": 73114,
+          "remaining": 65167
+        },
+        {
+          "amount": 500,
+          "originalCount": 742,
+          "remaining": 661
+        },
+        {
+          "amount": 50,
+          "originalCount": 7314,
+          "remaining": 6519
+        },
+        {
+          "amount": 5,
+          "originalCount": 584912,
+          "remaining": 523799
+        },
+        {
+          "amount": 10,
+          "originalCount": 146228,
+          "remaining": 130545
+        },
+        {
+          "amount": 1,
+          "originalCount": 1462280,
+          "remaining": 1320268
+        },
+        {
+          "amount": 100,
+          "originalCount": 1470,
+          "remaining": 1284
+        }
+      ],
+      "overallOdds": 3.99,
+      "computed": {
+        "originalTickets": 14624252,
+        "fractionRemaining": 0.8998,
+        "ticketsRemaining": 13159108,
+        "remainingPrizeValue": 9832461,
+        "evPerTicket": 0.7472,
+        "roi": 0.7472,
+        "topPrizesRemaining": 661,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1051",
+      "name": "$2,000,000 Cashword",
+      "price": 30,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 493266,
+          "remaining": 93668
+        },
+        {
+          "amount": 100,
+          "originalCount": 90531,
+          "remaining": 15365
+        },
+        {
+          "amount": 5000,
+          "originalCount": 40,
+          "remaining": 10
+        },
+        {
+          "amount": 250,
+          "originalCount": 41096,
+          "remaining": 6879
+        },
+        {
+          "amount": 500,
+          "originalCount": 2097,
+          "remaining": 362
+        },
+        {
+          "amount": 100000,
+          "originalCount": 14,
+          "remaining": 3
+        },
+        {
+          "amount": 150,
+          "originalCount": 82130,
+          "remaining": 13800
+        },
+        {
+          "amount": 50,
+          "originalCount": 287598,
+          "remaining": 49391
+        },
+        {
+          "amount": 300,
+          "originalCount": 14436,
+          "remaining": 2469
+        },
+        {
+          "amount": 750,
+          "originalCount": 827,
+          "remaining": 159
+        },
+        {
+          "amount": 10000,
+          "originalCount": 18,
+          "remaining": 2
+        },
+        {
+          "amount": 80,
+          "originalCount": 156183,
+          "remaining": 26516
+        },
+        {
+          "amount": 80000,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 400,
+          "originalCount": 5128,
+          "remaining": 907
+        },
+        {
+          "amount": 200,
+          "originalCount": 47408,
+          "remaining": 7957
+        },
+        {
+          "amount": 1000,
+          "originalCount": 280,
+          "remaining": 46
+        },
+        {
+          "amount": 50000,
+          "originalCount": 14,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 3.37,
+      "computed": {
+        "originalTickets": 4115006,
+        "fractionRemaining": 0.1782,
+        "ticketsRemaining": 733103,
+        "remainingPrizeValue": 16368270,
+        "evPerTicket": 22.3274,
+        "roi": 0.7442,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1118",
+      "name": "$500,000 Cashword",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 500,
+          "originalCount": 2043,
+          "remaining": 768
+        },
+        {
+          "amount": 50,
+          "originalCount": 81350,
+          "remaining": 31452
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "originalCount": 60,
+          "remaining": 23
+        },
+        {
+          "amount": 10,
+          "originalCount": 488006,
+          "remaining": 192278
+        },
+        {
+          "amount": 30,
+          "originalCount": 81350,
+          "remaining": 31789
+        },
+        {
+          "amount": 200,
+          "originalCount": 10183,
+          "remaining": 3982
+        },
+        {
+          "amount": 100,
+          "originalCount": 30548,
+          "remaining": 11931
+        },
+        {
+          "amount": 20,
+          "originalCount": 406797,
+          "remaining": 162189
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1525,
+          "remaining": 586
+        }
+      ],
+      "overallOdds": 3.69,
+      "computed": {
+        "originalTickets": 4065886,
+        "fractionRemaining": 0.3948,
+        "ticketsRemaining": 1605150,
+        "remainingPrizeValue": 11882330,
+        "evPerTicket": 7.4026,
+        "roi": 0.7403,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1090",
+      "name": "Instant Jackpot",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 680190,
+          "remaining": 376056
+        },
+        {
+          "amount": 5000,
+          "originalCount": 100,
+          "remaining": 52
+        },
+        {
+          "amount": 20,
+          "originalCount": 485850,
+          "remaining": 267128
+        },
+        {
+          "amount": 150,
+          "originalCount": 18290,
+          "remaining": 9948
+        },
+        {
+          "amount": 500000,
+          "originalCount": 5,
+          "remaining": 2
+        },
+        {
+          "amount": 50,
+          "originalCount": 48596,
+          "remaining": 26691
+        },
+        {
+          "amount": 250,
+          "originalCount": 7319,
+          "remaining": 4018
+        },
+        {
+          "amount": 50000,
+          "originalCount": 40,
+          "remaining": 22
+        },
+        {
+          "amount": 500,
+          "originalCount": 15808,
+          "remaining": 8665
+        }
+      ],
+      "overallOdds": 3.87,
+      "computed": {
+        "originalTickets": 4861486,
+        "fractionRemaining": 0.5513,
+        "ticketsRemaining": 2680292,
+        "remainingPrizeValue": 19626870,
+        "evPerTicket": 7.3227,
+        "roi": 0.7323,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1024",
+      "name": "Royal Riches",
+      "price": 30,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10000,
+          "originalCount": 140,
+          "remaining": 59
+        },
+        {
+          "amount": 80000,
+          "originalCount": 8,
+          "remaining": 3
+        },
+        {
+          "amount": 300,
+          "originalCount": 42278,
+          "remaining": 18402
+        },
+        {
+          "amount": 60,
+          "originalCount": 819015,
+          "remaining": 356760
+        },
+        {
+          "amount": 50000,
+          "originalCount": 16,
+          "remaining": 7
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6800,
+          "remaining": 2978
+        },
+        {
+          "amount": 5000,
+          "originalCount": 320,
+          "remaining": 135
+        },
+        {
+          "amount": 100,
+          "originalCount": 167901,
+          "remaining": 73077
+        }
+      ],
+      "overallOdds": 3.95,
+      "computed": {
+        "originalTickets": 4094088,
+        "fractionRemaining": 0.4355,
+        "ticketsRemaining": 1783113,
+        "remainingPrizeValue": 39066900,
+        "evPerTicket": 21.9094,
+        "roi": 0.7303,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 80000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1078",
+      "name": "Cross Match Bingo",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1500,
+          "originalCount": 15,
+          "remaining": 8
+        },
+        {
+          "amount": 20,
+          "originalCount": 148042,
+          "remaining": 69177
+        },
+        {
+          "amount": 50000,
+          "originalCount": 6,
+          "remaining": 3
+        },
+        {
+          "amount": 30,
+          "originalCount": 74021,
+          "remaining": 34098
+        },
+        {
+          "amount": 10,
+          "originalCount": 370105,
+          "remaining": 176738
+        },
+        {
+          "amount": 75,
+          "originalCount": 9331,
+          "remaining": 4340
+        },
+        {
+          "amount": 100,
+          "originalCount": 6509,
+          "remaining": 2952
+        },
+        {
+          "amount": 40,
+          "originalCount": 28671,
+          "remaining": 13201
+        },
+        {
+          "amount": 500000,
+          "originalCount": 6,
+          "remaining": 3
+        },
+        {
+          "amount": 500,
+          "originalCount": 1084,
+          "remaining": 493
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 5000,
+          "originalCount": 14,
+          "remaining": 5
+        },
+        {
+          "amount": 50,
+          "originalCount": 9637,
+          "remaining": 4436
+        },
+        {
+          "amount": 200,
+          "originalCount": 1307,
+          "remaining": 594
+        }
+      ],
+      "overallOdds": 3.42,
+      "computed": {
+        "originalTickets": 2218746,
+        "fractionRemaining": 0.4718,
+        "ticketsRemaining": 1046698,
+        "remainingPrizeValue": 7636700,
+        "evPerTicket": 7.296,
+        "roi": 0.7296,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1055",
+      "name": "$50, $100 or $500",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 162870,
+          "remaining": 52832
+        },
+        {
+          "amount": 500,
+          "originalCount": 4870,
+          "remaining": 1573
+        },
+        {
+          "amount": 50,
+          "originalCount": 814350,
+          "remaining": 265756
+        }
+      ],
+      "overallOdds": 8.29,
+      "computed": {
+        "originalTickets": 8141526,
+        "fractionRemaining": 0.326,
+        "ticketsRemaining": 2654135,
+        "remainingPrizeValue": 19357500,
+        "evPerTicket": 7.2933,
+        "roi": 0.7293,
+        "topPrizesRemaining": 1573,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1087",
+      "name": "$25, $50 or $250",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 250,
+          "originalCount": 3719,
+          "remaining": 392
+        },
+        {
+          "amount": 25,
+          "originalCount": 614575,
+          "remaining": 68150
+        },
+        {
+          "amount": 50,
+          "originalCount": 122915,
+          "remaining": 12756
+        }
+      ],
+      "overallOdds": 8.29,
+      "computed": {
+        "originalTickets": 6144623,
+        "fractionRemaining": 0.1097,
+        "ticketsRemaining": 673960,
+        "remainingPrizeValue": 2439550,
+        "evPerTicket": 3.6197,
+        "roi": 0.7239,
+        "topPrizesRemaining": 392,
+        "topPrizeAmount": 250
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1109",
+      "name": "Holiday 50X the Money",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 50,
+          "originalCount": 113019,
+          "remaining": 90896
+        },
+        {
+          "amount": 20000,
+          "originalCount": 14,
+          "remaining": 11
+        },
+        {
+          "amount": 500,
+          "originalCount": 1340,
+          "remaining": 1084
+        },
+        {
+          "amount": 100,
+          "originalCount": 102748,
+          "remaining": 82481
+        },
+        {
+          "amount": 10,
+          "originalCount": 924636,
+          "remaining": 750424
+        },
+        {
+          "amount": 2500,
+          "originalCount": 74,
+          "remaining": 57
+        },
+        {
+          "amount": 250,
+          "originalCount": 6921,
+          "remaining": 5560
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "originalCount": 24,
+          "remaining": 19
+        },
+        {
+          "amount": 20,
+          "originalCount": 359666,
+          "remaining": 290351
+        }
+      ],
+      "overallOdds": 3.41,
+      "computed": {
+        "originalTickets": 5143801,
+        "fractionRemaining": 0.8094,
+        "ticketsRemaining": 4163221,
+        "remainingPrizeValue": 30088660,
+        "evPerTicket": 7.2273,
+        "roi": 0.7227,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1028",
+      "name": "$300 Million Diamond Dazzler",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10000,
+          "originalCount": 400,
+          "remaining": 217
+        },
+        {
+          "amount": 25,
+          "originalCount": 1637040,
+          "remaining": 905699
+        },
+        {
+          "amount": 100,
+          "originalCount": 818520,
+          "remaining": 446949
+        },
+        {
+          "amount": 80000,
+          "originalCount": 10,
+          "remaining": 5
+        },
+        {
+          "amount": 20,
+          "originalCount": 2455560,
+          "remaining": 1347965
+        },
+        {
+          "amount": 50,
+          "originalCount": 818520,
+          "remaining": 447675
+        },
+        {
+          "amount": 1000,
+          "originalCount": 14000,
+          "remaining": 7684
+        },
+        {
+          "amount": 40,
+          "originalCount": 297064,
+          "remaining": 162615
+        },
+        {
+          "amount": 500,
+          "originalCount": 102325,
+          "remaining": 55948
+        },
+        {
+          "amount": 20000,
+          "originalCount": 80,
+          "remaining": 45
+        }
+      ],
+      "overallOdds": 3.33,
+      "computed": {
+        "originalTickets": 20457918,
+        "fractionRemaining": 0.5493,
+        "ticketsRemaining": 11238091,
+        "remainingPrizeValue": 162313025,
+        "evPerTicket": 14.4431,
+        "roi": 0.7222,
+        "topPrizesRemaining": 5,
+        "topPrizeAmount": 80000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1092",
+      "name": "Bingo X50",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 40,
+          "originalCount": 129200,
+          "remaining": 101936
+        },
+        {
+          "amount": 100,
+          "originalCount": 9860,
+          "remaining": 7751
+        },
+        {
+          "amount": 10,
+          "originalCount": 861378,
+          "remaining": 682294
+        },
+        {
+          "amount": 20,
+          "originalCount": 615117,
+          "remaining": 487111
+        },
+        {
+          "amount": 100000,
+          "originalCount": 14,
+          "remaining": 10
+        },
+        {
+          "amount": 1500,
+          "originalCount": 60,
+          "remaining": 48
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 200,
+          "originalCount": 2846,
+          "remaining": 2241
+        },
+        {
+          "amount": 10000,
+          "originalCount": 32,
+          "remaining": 24
+        },
+        {
+          "amount": 50,
+          "originalCount": 126747,
+          "remaining": 99978
+        },
+        {
+          "amount": 500,
+          "originalCount": 874,
+          "remaining": 685
+        },
+        {
+          "amount": 50000,
+          "originalCount": 18,
+          "remaining": 13
+        },
+        {
+          "amount": 75,
+          "originalCount": 12069,
+          "remaining": 9506
+        },
+        {
+          "amount": 30,
+          "originalCount": 160020,
+          "remaining": 126206
+        }
+      ],
+      "overallOdds": 3.21,
+      "computed": {
+        "originalTickets": 6157547,
+        "fractionRemaining": 0.7912,
+        "ticketsRemaining": 4872157,
+        "remainingPrizeValue": 35168430,
+        "evPerTicket": 7.2182,
+        "roi": 0.7218,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1032",
+      "name": "$1,000,000 Cash Payout",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 161370,
+          "remaining": 45530
+        },
+        {
+          "amount": 20,
+          "originalCount": 645480,
+          "remaining": 185927
+        },
+        {
+          "amount": 1000,
+          "originalCount": 52,
+          "remaining": 16
+        },
+        {
+          "amount": 500,
+          "originalCount": 14330,
+          "remaining": 4030
+        },
+        {
+          "amount": 50,
+          "originalCount": 161370,
+          "remaining": 45819
+        },
+        {
+          "amount": 40000,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "originalCount": 18,
+          "remaining": 4
+        },
+        {
+          "amount": 30,
+          "originalCount": 322740,
+          "remaining": 92389
+        },
+        {
+          "amount": 250,
+          "originalCount": 16187,
+          "remaining": 4582
+        }
+      ],
+      "overallOdds": 3.05,
+      "computed": {
+        "originalTickets": 4030731,
+        "fractionRemaining": 0.2863,
+        "ticketsRemaining": 1153812,
+        "remainingPrizeValue": 16630660,
+        "evPerTicket": 14.4137,
+        "roi": 0.7207,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1031",
+      "name": "$500,000 Bankroll",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 30,
+          "originalCount": 157668,
+          "remaining": 6559
+        },
+        {
+          "amount": 100,
+          "originalCount": 24125,
+          "remaining": 946
+        },
+        {
+          "amount": 10000,
+          "originalCount": 36,
+          "remaining": 0
+        },
+        {
+          "amount": 50000,
+          "originalCount": 22,
+          "remaining": 3
+        },
+        {
+          "amount": 500,
+          "originalCount": 2034,
+          "remaining": 78
+        },
+        {
+          "amount": 50,
+          "originalCount": 101636,
+          "remaining": 4113
+        },
+        {
+          "amount": 1000,
+          "originalCount": 76,
+          "remaining": 1
+        },
+        {
+          "amount": 20,
+          "originalCount": 1016360,
+          "remaining": 44357
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 3.9,
+      "computed": {
+        "originalTickets": 5077648,
+        "fractionRemaining": 0.0431,
+        "ticketsRemaining": 218622,
+        "remainingPrizeValue": 1574160,
+        "evPerTicket": 7.2004,
+        "roi": 0.72,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1110",
+      "name": "$1,000,000 Merry Multiplier",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 250,
+          "originalCount": 15368,
+          "remaining": 12505
+        },
+        {
+          "amount": 1000,
+          "originalCount": 3640,
+          "remaining": 2991
+        },
+        {
+          "amount": 100,
+          "originalCount": 91228,
+          "remaining": 74304
+        },
+        {
+          "amount": 500,
+          "originalCount": 6263,
+          "remaining": 5088
+        },
+        {
+          "amount": 50,
+          "originalCount": 106596,
+          "remaining": 86771
+        },
+        {
+          "amount": 25,
+          "originalCount": 257351,
+          "remaining": 209870
+        },
+        {
+          "amount": 10000,
+          "originalCount": 18,
+          "remaining": 14
+        },
+        {
+          "amount": 20,
+          "originalCount": 319788,
+          "remaining": 260921
+        },
+        {
+          "amount": 40000,
+          "originalCount": 3,
+          "remaining": 3
+        }
+      ],
+      "overallOdds": 3.33,
+      "computed": {
+        "originalTickets": 2664849,
+        "fractionRemaining": 0.8153,
+        "ticketsRemaining": 2172715,
+        "remainingPrizeValue": 31155370,
+        "evPerTicket": 14.3394,
+        "roi": 0.717,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1102",
+      "name": "Ultimate Triple 777",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 85,
+          "remaining": 54
+        },
+        {
+          "amount": 50,
+          "originalCount": 133735,
+          "remaining": 84026
+        },
+        {
+          "amount": 40000,
+          "originalCount": 3,
+          "remaining": 2
+        },
+        {
+          "amount": 500,
+          "originalCount": 5362,
+          "remaining": 3392
+        },
+        {
+          "amount": 30,
+          "originalCount": 534775,
+          "remaining": 336633
+        },
+        {
+          "amount": 10000,
+          "originalCount": 45,
+          "remaining": 30
+        },
+        {
+          "amount": 100,
+          "originalCount": 122977,
+          "remaining": 77230
+        }
+      ],
+      "overallOdds": 3.36,
+      "computed": {
+        "originalTickets": 2677860,
+        "fractionRemaining": 0.6291,
+        "ticketsRemaining": 1684593,
+        "remainingPrizeValue": 24153290,
+        "evPerTicket": 14.3378,
+        "roi": 0.7169,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1108",
+      "name": "Holiday Lucky Times 10",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 15999,
+          "remaining": 13450
+        },
+        {
+          "amount": 20,
+          "originalCount": 301008,
+          "remaining": 254617
+        },
+        {
+          "amount": 1000,
+          "originalCount": 370,
+          "remaining": 311
+        },
+        {
+          "amount": 10000,
+          "originalCount": 28,
+          "remaining": 23
+        },
+        {
+          "amount": 10,
+          "originalCount": 526767,
+          "remaining": 446692
+        },
+        {
+          "amount": 100000,
+          "originalCount": 6,
+          "remaining": 5
+        },
+        {
+          "amount": 50,
+          "originalCount": 54673,
+          "remaining": 46216
+        },
+        {
+          "amount": 500,
+          "originalCount": 1703,
+          "remaining": 1433
+        },
+        {
+          "amount": 25,
+          "originalCount": 150504,
+          "remaining": 127098
+        },
+        {
+          "amount": 5,
+          "originalCount": 1053522,
+          "remaining": 895914
+        }
+      ],
+      "overallOdds": 3.58,
+      "computed": {
+        "originalTickets": 7534396,
+        "fractionRemaining": 0.8485,
+        "ticketsRemaining": 6393017,
+        "remainingPrizeValue": 22629580,
+        "evPerTicket": 3.5397,
+        "roi": 0.7079,
+        "topPrizesRemaining": 5,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "696",
+      "name": "Monopoly 200X",
+      "price": 30,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 50,
+          "originalCount": 2879958,
+          "remaining": 448478
+        },
+        {
+          "amount": 100,
+          "originalCount": 629993,
+          "remaining": 97138
+        },
+        {
+          "amount": 500,
+          "originalCount": 50400,
+          "remaining": 7764
+        },
+        {
+          "amount": 1000,
+          "originalCount": 16800,
+          "remaining": 2545
+        },
+        {
+          "amount": 10000,
+          "originalCount": 168,
+          "remaining": 23
+        },
+        {
+          "amount": 50000,
+          "originalCount": 36,
+          "remaining": 6
+        },
+        {
+          "amount": 200000,
+          "originalCount": 10,
+          "remaining": 2
+        }
+      ],
+      "overallOdds": 3.35,
+      "computed": {
+        "originalTickets": 11984173,
+        "fractionRemaining": 0.1554,
+        "ticketsRemaining": 1862453,
+        "remainingPrizeValue": 39494700,
+        "evPerTicket": 21.2057,
+        "roi": 0.7069,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 200000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1036",
+      "name": "White Diamonds",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 300000,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 2000,
+          "originalCount": 60,
+          "remaining": 6
+        },
+        {
+          "amount": 50000,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "originalCount": 12,
+          "remaining": 1
+        },
+        {
+          "amount": 100,
+          "originalCount": 56688,
+          "remaining": 5627
+        },
+        {
+          "amount": 50,
+          "originalCount": 118814,
+          "remaining": 11936
+        },
+        {
+          "amount": 500,
+          "originalCount": 2572,
+          "remaining": 251
+        },
+        {
+          "amount": 25,
+          "originalCount": 181427,
+          "remaining": 18418
+        },
+        {
+          "amount": 20,
+          "originalCount": 932463,
+          "remaining": 96193
+        }
+      ],
+      "overallOdds": 4.01,
+      "computed": {
+        "originalTickets": 5181112,
+        "fractionRemaining": 0.1025,
+        "ticketsRemaining": 531056,
+        "remainingPrizeValue": 3741310,
+        "evPerTicket": 7.045,
+        "roi": 0.7045,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 300000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1089",
+      "name": "Bonus Cash Wheel",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 617475,
+          "remaining": 380898
+        },
+        {
+          "amount": 150000,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 20,
+          "originalCount": 123495,
+          "remaining": 75363
+        },
+        {
+          "amount": 100,
+          "originalCount": 8980,
+          "remaining": 5421
+        },
+        {
+          "amount": 5000,
+          "originalCount": 14,
+          "remaining": 10
+        },
+        {
+          "amount": 15,
+          "originalCount": 246990,
+          "remaining": 150648
+        },
+        {
+          "amount": 500,
+          "originalCount": 1247,
+          "remaining": 755
+        },
+        {
+          "amount": 50,
+          "originalCount": 129705,
+          "remaining": 78773
+        },
+        {
+          "amount": 1000,
+          "originalCount": 28,
+          "remaining": 18
+        },
+        {
+          "amount": 10,
+          "originalCount": 370485,
+          "remaining": 227351
+        }
+      ],
+      "overallOdds": 4.12,
+      "computed": {
+        "originalTickets": 6173503,
+        "fractionRemaining": 0.6135,
+        "ticketsRemaining": 3787269,
+        "remainingPrizeValue": 13321230,
+        "evPerTicket": 3.5174,
+        "roi": 0.7035,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 150000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1050",
+      "name": "$25, $50 or $250",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 50,
+          "originalCount": 119759,
+          "remaining": 3200
+        },
+        {
+          "amount": 250,
+          "originalCount": 3586,
+          "remaining": 78
+        },
+        {
+          "amount": 25,
+          "originalCount": 598795,
+          "remaining": 20280
+        }
+      ],
+      "overallOdds": 8.29,
+      "computed": {
+        "originalTickets": 5986541,
+        "fractionRemaining": 0.0326,
+        "ticketsRemaining": 195296,
+        "remainingPrizeValue": 686500,
+        "evPerTicket": 3.5152,
+        "roi": 0.703,
+        "topPrizesRemaining": 78,
+        "topPrizeAmount": 250
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1072",
+      "name": "Set For Life",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10000,
+          "originalCount": 14,
+          "remaining": 3
+        },
+        {
+          "amount": 1000,
+          "originalCount": 120,
+          "remaining": 21
+        },
+        {
+          "amount": 50,
+          "originalCount": 61343,
+          "remaining": 10207
+        },
+        {
+          "amount": 50000,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 120000,
+          "originalCount": 2,
+          "remaining": 1
+        },
+        {
+          "amount": 25,
+          "originalCount": 245212,
+          "remaining": 41501
+        },
+        {
+          "amount": 100,
+          "originalCount": 30751,
+          "remaining": 5055
+        },
+        {
+          "amount": 500,
+          "originalCount": 4577,
+          "remaining": 767
+        },
+        {
+          "amount": 20,
+          "originalCount": 1348666,
+          "remaining": 229973
+        }
+      ],
+      "overallOdds": 3.63,
+      "computed": {
+        "originalTickets": 6137216,
+        "fractionRemaining": 0.1701,
+        "ticketsRemaining": 1043734,
+        "remainingPrizeValue": 7307335,
+        "evPerTicket": 7.0011,
+        "roi": 0.7001,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 120000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1008",
+      "name": "VIP Millions",
+      "price": 50,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 12600,
+          "remaining": 1121
+        },
+        {
+          "amount": 20000,
+          "originalCount": 504,
+          "remaining": 34
+        },
+        {
+          "amount": 500,
+          "originalCount": 64671,
+          "remaining": 5360
+        },
+        {
+          "amount": 40000,
+          "originalCount": 50,
+          "remaining": 4
+        },
+        {
+          "amount": 100,
+          "originalCount": 1198680,
+          "remaining": 101199
+        },
+        {
+          "amount": 5000,
+          "originalCount": 1008,
+          "remaining": 78
+        },
+        {
+          "amount": 50000,
+          "originalCount": 30,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 4.02,
+      "computed": {
+        "originalTickets": 5135723,
+        "fractionRemaining": 0.0844,
+        "ticketsRemaining": 433340,
+        "remainingPrizeValue": 15150900,
+        "evPerTicket": 34.9631,
+        "roi": 0.6993,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1056",
+      "name": "$1,000,000 Cashword",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 40,
+          "originalCount": 80095,
+          "remaining": 13999
+        },
+        {
+          "amount": 400,
+          "originalCount": 11079,
+          "remaining": 1898
+        },
+        {
+          "amount": 20,
+          "originalCount": 480519,
+          "remaining": 92601
+        },
+        {
+          "amount": 50,
+          "originalCount": 88148,
+          "remaining": 15867
+        },
+        {
+          "amount": 5000,
+          "originalCount": 20,
+          "remaining": 4
+        },
+        {
+          "amount": 250,
+          "originalCount": 20109,
+          "remaining": 3444
+        },
+        {
+          "amount": 500,
+          "originalCount": 6471,
+          "remaining": 1084
+        },
+        {
+          "amount": 40000,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 25,
+          "originalCount": 480519,
+          "remaining": 84385
+        },
+        {
+          "amount": 300,
+          "originalCount": 18998,
+          "remaining": 3278
+        },
+        {
+          "amount": 750,
+          "originalCount": 1007,
+          "remaining": 179
+        },
+        {
+          "amount": 100,
+          "originalCount": 40523,
+          "remaining": 6982
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 150,
+          "originalCount": 30005,
+          "remaining": 5169
+        },
+        {
+          "amount": 1000,
+          "originalCount": 120,
+          "remaining": 22
+        },
+        {
+          "amount": 50000,
+          "originalCount": 6,
+          "remaining": 0
+        }
+      ],
+      "overallOdds": 3.18,
+      "computed": {
+        "originalTickets": 3999267,
+        "fractionRemaining": 0.182,
+        "ticketsRemaining": 727947,
+        "remainingPrizeValue": 10160355,
+        "evPerTicket": 13.9575,
+        "roi": 0.6979,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "847",
+      "name": "Bingo 50X",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 200,
+          "originalCount": 2822,
+          "remaining": 223
+        },
+        {
+          "amount": 20,
+          "originalCount": 615345,
+          "remaining": 54693
+        },
+        {
+          "amount": 50,
+          "originalCount": 126774,
+          "remaining": 9810
+        },
+        {
+          "amount": 30,
+          "originalCount": 160079,
+          "remaining": 12190
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "originalCount": 32,
+          "remaining": 4
+        },
+        {
+          "amount": 50000,
+          "originalCount": 18,
+          "remaining": 2
+        },
+        {
+          "amount": 75,
+          "originalCount": 12126,
+          "remaining": 924
+        },
+        {
+          "amount": 500,
+          "originalCount": 869,
+          "remaining": 60
+        },
+        {
+          "amount": 1500,
+          "originalCount": 60,
+          "remaining": 9
+        },
+        {
+          "amount": 100,
+          "originalCount": 9833,
+          "remaining": 798
+        },
+        {
+          "amount": 100000,
+          "originalCount": 14,
+          "remaining": 2
+        },
+        {
+          "amount": 40,
+          "originalCount": 129243,
+          "remaining": 9878
+        },
+        {
+          "amount": 10,
+          "originalCount": 861636,
+          "remaining": 76589
+        }
+      ],
+      "overallOdds": 3.21,
+      "computed": {
+        "originalTickets": 6159525,
+        "fractionRemaining": 0.0861,
+        "ticketsRemaining": 530234,
+        "remainingPrizeValue": 3688270,
+        "evPerTicket": 6.9559,
+        "roi": 0.6956,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1096",
+      "name": "5 Times Lucky",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 250000,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 500,
+          "originalCount": 171,
+          "remaining": 79
+        },
+        {
+          "amount": 100,
+          "originalCount": 2527,
+          "remaining": 1149
+        },
+        {
+          "amount": 5000,
+          "originalCount": 16,
+          "remaining": 7
+        },
+        {
+          "amount": 5,
+          "originalCount": 609558,
+          "remaining": 286632
+        },
+        {
+          "amount": 10000,
+          "originalCount": 5,
+          "remaining": 2
+        },
+        {
+          "amount": 25,
+          "originalCount": 203186,
+          "remaining": 93145
+        },
+        {
+          "amount": 50,
+          "originalCount": 101593,
+          "remaining": 46358
+        },
+        {
+          "amount": 1000,
+          "originalCount": 30,
+          "remaining": 14
+        },
+        {
+          "amount": 10,
+          "originalCount": 304779,
+          "remaining": 141479
+        }
+      ],
+      "overallOdds": 4.16,
+      "computed": {
+        "originalTickets": 5082975,
+        "fractionRemaining": 0.4656,
+        "ticketsRemaining": 2366487,
+        "remainingPrizeValue": 8217875,
+        "evPerTicket": 3.4726,
+        "roi": 0.6945,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1023",
+      "name": "Casino Nights",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 400324,
+          "remaining": 62037
+        },
+        {
+          "amount": 100,
+          "originalCount": 61012,
+          "remaining": 9088
+        },
+        {
+          "amount": 5000,
+          "originalCount": 225,
+          "remaining": 33
+        },
+        {
+          "amount": 50,
+          "originalCount": 172610,
+          "remaining": 26126
+        },
+        {
+          "amount": 40000,
+          "originalCount": 3,
+          "remaining": 1
+        },
+        {
+          "amount": 20000,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "originalCount": 300,
+          "remaining": 48
+        },
+        {
+          "amount": 10000,
+          "originalCount": 27,
+          "remaining": 6
+        },
+        {
+          "amount": 10,
+          "originalCount": 500405,
+          "remaining": 79755
+        },
+        {
+          "amount": 500,
+          "originalCount": 2009,
+          "remaining": 308
+        },
+        {
+          "amount": 25,
+          "originalCount": 164948,
+          "remaining": 25487
+        }
+      ],
+      "overallOdds": 3.84,
+      "computed": {
+        "originalTickets": 4999185,
+        "fractionRemaining": 0.1558,
+        "ticketsRemaining": 779101,
+        "remainingPrizeValue": 5397565,
+        "evPerTicket": 6.9279,
+        "roi": 0.6928,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1091",
+      "name": "Millionaire Blowout",
+      "price": 50,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 200,
+          "originalCount": 57983,
+          "remaining": 48283
+        },
+        {
+          "amount": 5000,
+          "originalCount": 126,
+          "remaining": 105
+        },
+        {
+          "amount": 100,
+          "originalCount": 431933,
+          "remaining": 359237
+        },
+        {
+          "amount": 500,
+          "originalCount": 17314,
+          "remaining": 14369
+        },
+        {
+          "amount": 75,
+          "originalCount": 1381632,
+          "remaining": 1149110
+        },
+        {
+          "amount": 25000,
+          "originalCount": 50,
+          "remaining": 42
+        },
+        {
+          "amount": 40000,
+          "originalCount": 60,
+          "remaining": 50
+        },
+        {
+          "amount": 1000,
+          "originalCount": 6300,
+          "remaining": 5248
+        }
+      ],
+      "overallOdds": 2.73,
+      "computed": {
+        "originalTickets": 5174437,
+        "fractionRemaining": 0.8317,
+        "ticketsRemaining": 4303693,
+        "remainingPrizeValue": 147771050,
+        "evPerTicket": 34.3359,
+        "roi": 0.6867,
+        "topPrizesRemaining": 50,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1086",
+      "name": "Special Edition Cashword",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5000,
+          "originalCount": 10,
+          "remaining": 8
+        },
+        {
+          "amount": 100,
+          "originalCount": 14184,
+          "remaining": 13329
+        },
+        {
+          "amount": 10,
+          "originalCount": 813979,
+          "remaining": 774777
+        },
+        {
+          "amount": 30,
+          "originalCount": 71292,
+          "remaining": 66599
+        },
+        {
+          "amount": 5,
+          "originalCount": 1017216,
+          "remaining": 1001063
+        },
+        {
+          "amount": 25,
+          "originalCount": 203457,
+          "remaining": 190826
+        },
+        {
+          "amount": 1000,
+          "originalCount": 50,
+          "remaining": 45
+        },
+        {
+          "amount": 50,
+          "originalCount": 45753,
+          "remaining": 42586
+        },
+        {
+          "amount": 40,
+          "originalCount": 50908,
+          "remaining": 47326
+        },
+        {
+          "amount": 20,
+          "originalCount": 254263,
+          "remaining": 237898
+        },
+        {
+          "amount": 300000,
+          "originalCount": 6,
+          "remaining": 6
+        },
+        {
+          "amount": 500,
+          "originalCount": 4087,
+          "remaining": 3811
+        }
+      ],
+      "overallOdds": 4.11,
+      "computed": {
+        "originalTickets": 10173093,
+        "fractionRemaining": 0.9608,
+        "ticketsRemaining": 9774707,
+        "remainingPrizeValue": 33425405,
+        "evPerTicket": 3.4196,
+        "roi": 0.6839,
+        "topPrizesRemaining": 6,
+        "topPrizeAmount": 300000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1043",
+      "name": "Ohio Millionaire's Club",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 40000,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 40,
+          "originalCount": 640992,
+          "remaining": 110765
+        },
+        {
+          "amount": 50,
+          "originalCount": 106832,
+          "remaining": 18276
+        },
+        {
+          "amount": 10000,
+          "originalCount": 10,
+          "remaining": 1
+        },
+        {
+          "amount": 100,
+          "originalCount": 45382,
+          "remaining": 7678
+        },
+        {
+          "amount": 1000,
+          "originalCount": 14,
+          "remaining": 5
+        },
+        {
+          "amount": 500,
+          "originalCount": 1348,
+          "remaining": 235
+        }
+      ],
+      "overallOdds": 3.36,
+      "computed": {
+        "originalTickets": 2669802,
+        "fractionRemaining": 0.1724,
+        "ticketsRemaining": 460186,
+        "remainingPrizeValue": 6244700,
+        "evPerTicket": 13.5699,
+        "roi": 0.6785,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1124",
+      "name": "Spectacular Riches",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 500,
+          "originalCount": 1059,
+          "remaining": 419
+        },
+        {
+          "amount": 80000,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 250,
+          "originalCount": 3516,
+          "remaining": 1367
+        },
+        {
+          "amount": 100,
+          "originalCount": 56977,
+          "remaining": 22441
+        },
+        {
+          "amount": 10000,
+          "originalCount": 6,
+          "remaining": 2
+        },
+        {
+          "amount": 30,
+          "originalCount": 284885,
+          "remaining": 113169
+        },
+        {
+          "amount": 1000,
+          "originalCount": 16,
+          "remaining": 7
+        },
+        {
+          "amount": 50,
+          "originalCount": 63373,
+          "remaining": 25059
+        }
+      ],
+      "overallOdds": 3.48,
+      "computed": {
+        "originalTickets": 1426222,
+        "fractionRemaining": 0.3964,
+        "ticketsRemaining": 565382,
+        "remainingPrizeValue": 7630370,
+        "evPerTicket": 13.496,
+        "roi": 0.6748,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 80000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1077",
+      "name": "Aces And 8s",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 241650,
+          "remaining": 23711
+        },
+        {
+          "amount": 25,
+          "originalCount": 120825,
+          "remaining": 11691
+        },
+        {
+          "amount": 500,
+          "originalCount": 1753,
+          "remaining": 167
+        },
+        {
+          "amount": 150000,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "originalCount": 20,
+          "remaining": 2
+        },
+        {
+          "amount": 100,
+          "originalCount": 6035,
+          "remaining": 540
+        },
+        {
+          "amount": 1000,
+          "originalCount": 160,
+          "remaining": 10
+        },
+        {
+          "amount": 10,
+          "originalCount": 362475,
+          "remaining": 37628
+        },
+        {
+          "amount": 50,
+          "originalCount": 60494,
+          "remaining": 5675
+        },
+        {
+          "amount": 5,
+          "originalCount": 724950,
+          "remaining": 81646
+        }
+      ],
+      "overallOdds": 3.98,
+      "computed": {
+        "originalTickets": 6043113,
+        "fractionRemaining": 0.1061,
+        "ticketsRemaining": 641063,
+        "remainingPrizeValue": 2152255,
+        "evPerTicket": 3.3573,
+        "roi": 0.6715,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 150000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1066",
+      "name": "Lucky No. 7",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 21030,
+          "remaining": 1049
+        },
+        {
+          "amount": 1000,
+          "originalCount": 325,
+          "remaining": 17
+        },
+        {
+          "amount": 200,
+          "originalCount": 4947,
+          "remaining": 234
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 20,
+          "originalCount": 394700,
+          "remaining": 20621
+        },
+        {
+          "amount": 40,
+          "originalCount": 197350,
+          "remaining": 9820
+        },
+        {
+          "amount": 700,
+          "originalCount": 1237,
+          "remaining": 62
+        },
+        {
+          "amount": 30,
+          "originalCount": 281805,
+          "remaining": 14116
+        },
+        {
+          "amount": 10,
+          "originalCount": 493375,
+          "remaining": 27766
+        },
+        {
+          "amount": 2000,
+          "originalCount": 250,
+          "remaining": 15
+        }
+      ],
+      "overallOdds": 3.54,
+      "computed": {
+        "originalTickets": 4938381,
+        "fractionRemaining": 0.0528,
+        "ticketsRemaining": 260898,
+        "remainingPrizeValue": 1748460,
+        "evPerTicket": 6.7017,
+        "roi": 0.6702,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1073",
+      "name": "Set For Life",
+      "price": 20,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 15000,
+          "originalCount": 6,
+          "remaining": 1
+        },
+        {
+          "amount": 40,
+          "originalCount": 182002,
+          "remaining": 33562
+        },
+        {
+          "amount": 500,
+          "originalCount": 3579,
+          "remaining": 630
+        },
+        {
+          "amount": 50,
+          "originalCount": 121258,
+          "remaining": 22328
+        },
+        {
+          "amount": 250000,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 30,
+          "originalCount": 606290,
+          "remaining": 113024
+        },
+        {
+          "amount": 1000,
+          "originalCount": 100,
+          "remaining": 19
+        },
+        {
+          "amount": 100,
+          "originalCount": 30279,
+          "remaining": 5509
+        },
+        {
+          "amount": 250,
+          "originalCount": 6093,
+          "remaining": 1125
+        }
+      ],
+      "overallOdds": 3.19,
+      "computed": {
+        "originalTickets": 3029272,
+        "fractionRemaining": 0.1855,
+        "ticketsRemaining": 562078,
+        "remainingPrizeValue": 7530750,
+        "evPerTicket": 13.3981,
+        "roi": 0.6699,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1103",
+      "name": "$5, $20 or $100",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 5504,
+          "remaining": 4309
+        },
+        {
+          "amount": 5,
+          "originalCount": 1037289,
+          "remaining": 813609
+        },
+        {
+          "amount": 20,
+          "originalCount": 122034,
+          "remaining": 95249
+        }
+      ],
+      "overallOdds": 5.24,
+      "computed": {
+        "originalTickets": 6103693,
+        "fractionRemaining": 0.784,
+        "ticketsRemaining": 4784995,
+        "remainingPrizeValue": 6403925,
+        "evPerTicket": 1.3383,
+        "roi": 0.6692,
+        "topPrizesRemaining": 4309,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1125",
+      "name": "$1,000,000 Black Titanium",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 2500,
+          "originalCount": 24,
+          "remaining": 18
+        },
+        {
+          "amount": 40000,
+          "originalCount": 5,
+          "remaining": 3
+        },
+        {
+          "amount": 500,
+          "originalCount": 1946,
+          "remaining": 1303
+        },
+        {
+          "amount": 50,
+          "originalCount": 122494,
+          "remaining": 83856
+        },
+        {
+          "amount": 10000,
+          "originalCount": 22,
+          "remaining": 12
+        },
+        {
+          "amount": 250,
+          "originalCount": 13829,
+          "remaining": 9471
+        },
+        {
+          "amount": 100,
+          "originalCount": 61348,
+          "remaining": 41986
+        },
+        {
+          "amount": 15,
+          "originalCount": 490050,
+          "remaining": 337680
+        },
+        {
+          "amount": 10,
+          "originalCount": 612367,
+          "remaining": 423421
+        },
+        {
+          "amount": 25,
+          "originalCount": 122494,
+          "remaining": 84177
+        },
+        {
+          "amount": 20,
+          "originalCount": 306231,
+          "remaining": 210618
+        },
+        {
+          "amount": 1000,
+          "originalCount": 600,
+          "remaining": 406
+        },
+        {
+          "amount": 20000,
+          "originalCount": 38,
+          "remaining": 27
+        }
+      ],
+      "overallOdds": 3.54,
+      "computed": {
+        "originalTickets": 6129326,
+        "fractionRemaining": 0.689,
+        "ticketsRemaining": 4223142,
+        "remainingPrizeValue": 28257845,
+        "evPerTicket": 6.6912,
+        "roi": 0.6691,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 40000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1099",
+      "name": "Lucky Streak",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 130,
+          "remaining": 83
+        },
+        {
+          "amount": 20,
+          "originalCount": 119829,
+          "remaining": 74471
+        },
+        {
+          "amount": 100,
+          "originalCount": 14069,
+          "remaining": 8568
+        },
+        {
+          "amount": 250,
+          "originalCount": 1458,
+          "remaining": 904
+        },
+        {
+          "amount": 25,
+          "originalCount": 119961,
+          "remaining": 74029
+        },
+        {
+          "amount": 10000,
+          "originalCount": 30,
+          "remaining": 18
+        },
+        {
+          "amount": 10,
+          "originalCount": 300212,
+          "remaining": 187405
+        },
+        {
+          "amount": 15,
+          "originalCount": 119961,
+          "remaining": 74385
+        },
+        {
+          "amount": 50,
+          "originalCount": 62539,
+          "remaining": 38345
+        },
+        {
+          "amount": 100000,
+          "originalCount": 6,
+          "remaining": 4
+        },
+        {
+          "amount": 500,
+          "originalCount": 1521,
+          "remaining": 960
+        },
+        {
+          "amount": 5,
+          "originalCount": 839636,
+          "remaining": 527347
+        }
+      ],
+      "overallOdds": 3.99,
+      "computed": {
+        "originalTickets": 6301614,
+        "fractionRemaining": 0.6246,
+        "ticketsRemaining": 3936211,
+        "remainingPrizeValue": 13109755,
+        "evPerTicket": 3.3306,
+        "roi": 0.6661,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1097",
+      "name": "Gold Rush",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 20000,
+          "originalCount": 20,
+          "remaining": 2
+        },
+        {
+          "amount": 15,
+          "originalCount": 246688,
+          "remaining": 37419
+        },
+        {
+          "amount": 25,
+          "originalCount": 100130,
+          "remaining": 14694
+        },
+        {
+          "amount": 500,
+          "originalCount": 5110,
+          "remaining": 726
+        },
+        {
+          "amount": 10,
+          "originalCount": 246688,
+          "remaining": 38126
+        },
+        {
+          "amount": 20,
+          "originalCount": 123344,
+          "remaining": 18447
+        },
+        {
+          "amount": 10000,
+          "originalCount": 54,
+          "remaining": 7
+        },
+        {
+          "amount": 500000,
+          "originalCount": 3,
+          "remaining": 0
+        },
+        {
+          "amount": 50,
+          "originalCount": 61672,
+          "remaining": 8861
+        },
+        {
+          "amount": 100,
+          "originalCount": 30888,
+          "remaining": 4422
+        },
+        {
+          "amount": 1000,
+          "originalCount": 225,
+          "remaining": 36
+        }
+      ],
+      "overallOdds": 3.78,
+      "computed": {
+        "originalTickets": 3080027,
+        "fractionRemaining": 0.1506,
+        "ticketsRemaining": 463957,
+        "remainingPrizeValue": 3073085,
+        "evPerTicket": 6.6236,
+        "roi": 0.6624,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1065",
+      "name": "Jackpot Party",
+      "price": 5,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 336163,
+          "remaining": 70042
+        },
+        {
+          "amount": 500,
+          "originalCount": 1354,
+          "remaining": 268
+        },
+        {
+          "amount": 5,
+          "originalCount": 672150,
+          "remaining": 147434
+        },
+        {
+          "amount": 5000,
+          "originalCount": 40,
+          "remaining": 7
+        },
+        {
+          "amount": 15000,
+          "originalCount": 18,
+          "remaining": 4
+        },
+        {
+          "amount": 50,
+          "originalCount": 33601,
+          "remaining": 6624
+        },
+        {
+          "amount": 1000,
+          "originalCount": 370,
+          "remaining": 71
+        },
+        {
+          "amount": 100,
+          "originalCount": 26887,
+          "remaining": 5376
+        },
+        {
+          "amount": 2000,
+          "originalCount": 110,
+          "remaining": 20
+        },
+        {
+          "amount": 250000,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 10,
+          "originalCount": 537544,
+          "remaining": 111574
+        }
+      ],
+      "overallOdds": 4.18,
+      "computed": {
+        "originalTickets": 6722464,
+        "fractionRemaining": 0.2123,
+        "ticketsRemaining": 1427140,
+        "remainingPrizeValue": 4712550,
+        "evPerTicket": 3.3021,
+        "roi": 0.6604,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1042",
+      "name": "Mystery Multiplier",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 30000,
+          "originalCount": 20,
+          "remaining": 4
+        },
+        {
+          "amount": 3000,
+          "originalCount": 66,
+          "remaining": 7
+        },
+        {
+          "amount": 300000,
+          "originalCount": 12,
+          "remaining": 0
+        },
+        {
+          "amount": 100,
+          "originalCount": 7493,
+          "remaining": 853
+        },
+        {
+          "amount": 20,
+          "originalCount": 299700,
+          "remaining": 36452
+        },
+        {
+          "amount": 1000,
+          "originalCount": 100,
+          "remaining": 10
+        },
+        {
+          "amount": 10,
+          "originalCount": 999000,
+          "remaining": 123675
+        },
+        {
+          "amount": 50,
+          "originalCount": 199800,
+          "remaining": 23228
+        },
+        {
+          "amount": 500,
+          "originalCount": 3728,
+          "remaining": 440
+        },
+        {
+          "amount": 25,
+          "originalCount": 124937,
+          "remaining": 14823
+        },
+        {
+          "amount": 15000,
+          "originalCount": 30,
+          "remaining": 5
+        }
+      ],
+      "overallOdds": 3.06,
+      "computed": {
+        "originalTickets": 5002751,
+        "fractionRemaining": 0.122,
+        "ticketsRemaining": 610461,
+        "remainingPrizeValue": 4029065,
+        "evPerTicket": 6.6,
+        "roi": 0.66,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 300000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1012",
+      "name": "Monopoly Bonus Spectacular 50X",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 1000,
+          "remaining": 58
+        },
+        {
+          "amount": 50,
+          "originalCount": 107910,
+          "remaining": 6853
+        },
+        {
+          "amount": 20,
+          "originalCount": 410972,
+          "remaining": 27924
+        },
+        {
+          "amount": 500,
+          "originalCount": 5179,
+          "remaining": 283
+        },
+        {
+          "amount": 150000,
+          "originalCount": 20,
+          "remaining": 2
+        },
+        {
+          "amount": 100,
+          "originalCount": 56615,
+          "remaining": 3517
+        },
+        {
+          "amount": 10000,
+          "originalCount": 28,
+          "remaining": 2
+        },
+        {
+          "amount": 500000,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 10,
+          "originalCount": 821944,
+          "remaining": 60669
+        }
+      ],
+      "overallOdds": 3.66,
+      "computed": {
+        "originalTickets": 5137447,
+        "fractionRemaining": 0.0707,
+        "ticketsRemaining": 363467,
+        "remainingPrizeValue": 2379020,
+        "evPerTicket": 6.5454,
+        "roi": 0.6545,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1100",
+      "name": "$100 In A Flash",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 20,
+          "originalCount": 49616,
+          "remaining": 32977
+        },
+        {
+          "amount": 500,
+          "originalCount": 490,
+          "remaining": 313
+        },
+        {
+          "amount": 10000,
+          "originalCount": 10,
+          "remaining": 7
+        },
+        {
+          "amount": 2,
+          "originalCount": 645008,
+          "remaining": 441212
+        },
+        {
+          "amount": 3,
+          "originalCount": 198464,
+          "remaining": 134869
+        },
+        {
+          "amount": 100,
+          "originalCount": 19852,
+          "remaining": 13131
+        },
+        {
+          "amount": 10,
+          "originalCount": 49616,
+          "remaining": 33156
+        },
+        {
+          "amount": 50,
+          "originalCount": 6452,
+          "remaining": 4261
+        },
+        {
+          "amount": 1000,
+          "originalCount": 40,
+          "remaining": 23
+        },
+        {
+          "amount": 5,
+          "originalCount": 99232,
+          "remaining": 66844
+        }
+      ],
+      "overallOdds": 4.64,
+      "computed": {
+        "originalTickets": 4959139,
+        "fractionRemaining": 0.68,
+        "ticketsRemaining": 3372319,
+        "remainingPrizeValue": 4388001,
+        "evPerTicket": 1.3012,
+        "roi": 0.6506,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1029",
+      "name": "Lucky Gems Multiplier",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 20,
+          "remaining": 10
+        },
+        {
+          "amount": 150,
+          "originalCount": 1029,
+          "remaining": 591
+        },
+        {
+          "amount": 4,
+          "originalCount": 365535,
+          "remaining": 222187
+        },
+        {
+          "amount": 2,
+          "originalCount": 731226,
+          "remaining": 447031
+        },
+        {
+          "amount": 10,
+          "originalCount": 60929,
+          "remaining": 36336
+        },
+        {
+          "amount": 50,
+          "originalCount": 9666,
+          "remaining": 5741
+        },
+        {
+          "amount": 5,
+          "originalCount": 121858,
+          "remaining": 73194
+        },
+        {
+          "amount": 30,
+          "originalCount": 25412,
+          "remaining": 14773
+        },
+        {
+          "amount": 500,
+          "originalCount": 616,
+          "remaining": 358
+        },
+        {
+          "amount": 100,
+          "originalCount": 6069,
+          "remaining": 3592
+        },
+        {
+          "amount": 300,
+          "originalCount": 811,
+          "remaining": 478
+        },
+        {
+          "amount": 75,
+          "originalCount": 759,
+          "remaining": 454
+        },
+        {
+          "amount": 20,
+          "originalCount": 60929,
+          "remaining": 36292
+        },
+        {
+          "amount": 5000,
+          "originalCount": 10,
+          "remaining": 6
+        }
+      ],
+      "overallOdds": 4.4,
+      "computed": {
+        "originalTickets": 6093424,
+        "fractionRemaining": 0.6073,
+        "ticketsRemaining": 3700589,
+        "remainingPrizeValue": 4812520,
+        "evPerTicket": 1.3005,
+        "roi": 0.6502,
+        "topPrizesRemaining": 6,
+        "topPrizeAmount": 5000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1095",
+      "name": "Magic 8 Ball",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1000,
+          "originalCount": 12,
+          "remaining": 7
+        },
+        {
+          "amount": 50,
+          "originalCount": 5443,
+          "remaining": 2869
+        },
+        {
+          "amount": 5,
+          "originalCount": 145452,
+          "remaining": 78168
+        },
+        {
+          "amount": 500,
+          "originalCount": 316,
+          "remaining": 163
+        },
+        {
+          "amount": 4,
+          "originalCount": 291042,
+          "remaining": 156261
+        },
+        {
+          "amount": 20,
+          "originalCount": 97014,
+          "remaining": 51274
+        },
+        {
+          "amount": 100,
+          "originalCount": 640,
+          "remaining": 344
+        },
+        {
+          "amount": 2,
+          "originalCount": 388056,
+          "remaining": 215658
+        },
+        {
+          "amount": 10000,
+          "originalCount": 8,
+          "remaining": 3
+        },
+        {
+          "amount": 10,
+          "originalCount": 121302,
+          "remaining": 64702
+        }
+      ],
+      "overallOdds": 4.62,
+      "computed": {
+        "originalTickets": 4847697,
+        "fractionRemaining": 0.5427,
+        "ticketsRemaining": 2630855,
+        "remainingPrizeValue": 3416050,
+        "evPerTicket": 1.2985,
+        "roi": 0.6492,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1053",
+      "name": "$500,000 Cashword",
+      "price": 10,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 30783,
+          "remaining": 1872
+        },
+        {
+          "amount": 1000,
+          "originalCount": 1535,
+          "remaining": 83
+        },
+        {
+          "amount": 30,
+          "originalCount": 81876,
+          "remaining": 5242
+        },
+        {
+          "amount": 200,
+          "originalCount": 10260,
+          "remaining": 611
+        },
+        {
+          "amount": 10000,
+          "originalCount": 60,
+          "remaining": 6
+        },
+        {
+          "amount": 50,
+          "originalCount": 81876,
+          "remaining": 4694
+        },
+        {
+          "amount": 500,
+          "originalCount": 2045,
+          "remaining": 107
+        },
+        {
+          "amount": 10,
+          "originalCount": 491232,
+          "remaining": 33797
+        },
+        {
+          "amount": 500000,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 20,
+          "originalCount": 409392,
+          "remaining": 31581
+        }
+      ],
+      "overallOdds": 3.69,
+      "computed": {
+        "originalTickets": 4092442,
+        "fractionRemaining": 0.0703,
+        "ticketsRemaining": 287794,
+        "remainingPrizeValue": 1867450,
+        "evPerTicket": 6.4888,
+        "roi": 0.6489,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1080",
+      "name": "Bingo Multiplier",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10,
+          "originalCount": 60251,
+          "remaining": 14315
+        },
+        {
+          "amount": 10000,
+          "originalCount": 20,
+          "remaining": 6
+        },
+        {
+          "amount": 5,
+          "originalCount": 120582,
+          "remaining": 29201
+        },
+        {
+          "amount": 100,
+          "originalCount": 6657,
+          "remaining": 1514
+        },
+        {
+          "amount": 4,
+          "originalCount": 241207,
+          "remaining": 61953
+        },
+        {
+          "amount": 50,
+          "originalCount": 12094,
+          "remaining": 3084
+        },
+        {
+          "amount": 3,
+          "originalCount": 301541,
+          "remaining": 81556
+        },
+        {
+          "amount": 2,
+          "originalCount": 542619,
+          "remaining": 144911
+        },
+        {
+          "amount": 1000,
+          "originalCount": 72,
+          "remaining": 24
+        },
+        {
+          "amount": 9,
+          "originalCount": 60291,
+          "remaining": 14633
+        },
+        {
+          "amount": 5000,
+          "originalCount": 24,
+          "remaining": 6
+        },
+        {
+          "amount": 25,
+          "originalCount": 30170,
+          "remaining": 7825
+        },
+        {
+          "amount": 200,
+          "originalCount": 1018,
+          "remaining": 221
+        },
+        {
+          "amount": 500,
+          "originalCount": 334,
+          "remaining": 80
+        },
+        {
+          "amount": 20,
+          "originalCount": 30144,
+          "remaining": 6525
+        }
+      ],
+      "overallOdds": 4.29,
+      "computed": {
+        "originalTickets": 6036133,
+        "fractionRemaining": 0.26,
+        "ticketsRemaining": 1569514,
+        "remainingPrizeValue": 2033079,
+        "evPerTicket": 1.2954,
+        "roi": 0.6477,
+        "topPrizesRemaining": 6,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1064",
+      "name": "Gnomebody is Luckier",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 10000,
+          "originalCount": 5,
+          "remaining": 1
+        },
+        {
+          "amount": 5,
+          "originalCount": 183435,
+          "remaining": 48482
+        },
+        {
+          "amount": 500,
+          "originalCount": 203,
+          "remaining": 50
+        },
+        {
+          "amount": 4,
+          "originalCount": 305725,
+          "remaining": 82918
+        },
+        {
+          "amount": 20,
+          "originalCount": 61145,
+          "remaining": 15505
+        },
+        {
+          "amount": 5000,
+          "originalCount": 5,
+          "remaining": 3
+        },
+        {
+          "amount": 10,
+          "originalCount": 183435,
+          "remaining": 47398
+        },
+        {
+          "amount": 2,
+          "originalCount": 733740,
+          "remaining": 209558
+        },
+        {
+          "amount": 100,
+          "originalCount": 4089,
+          "remaining": 950
+        },
+        {
+          "amount": 1000,
+          "originalCount": 40,
+          "remaining": 12
+        },
+        {
+          "amount": 50,
+          "originalCount": 16528,
+          "remaining": 3950
+        }
+      ],
+      "overallOdds": 4.11,
+      "computed": {
+        "originalTickets": 6117119,
+        "fractionRemaining": 0.2747,
+        "ticketsRemaining": 1680279,
+        "remainingPrizeValue": 2131778,
+        "evPerTicket": 1.2687,
+        "roi": 0.6344,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1040",
+      "name": "$5, $20 or $100",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 5485,
+          "remaining": 318
+        },
+        {
+          "amount": 5,
+          "originalCount": 1029996,
+          "remaining": 88681
+        },
+        {
+          "amount": 20,
+          "originalCount": 121176,
+          "remaining": 8599
+        }
+      ],
+      "overallOdds": 5.24,
+      "computed": {
+        "originalTickets": 6060883,
+        "fractionRemaining": 0.0844,
+        "ticketsRemaining": 511414,
+        "remainingPrizeValue": 647185,
+        "evPerTicket": 1.2655,
+        "roi": 0.6327,
+        "topPrizesRemaining": 318,
+        "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1134",
+      "name": "Crazy Cash",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 92664,
+          "remaining": 90037
+        },
+        {
+          "amount": 2,
+          "originalCount": 401527,
+          "remaining": 390276
+        },
+        {
+          "amount": 20,
+          "originalCount": 30888,
+          "remaining": 29955
+        },
+        {
+          "amount": 1000,
+          "originalCount": 40,
+          "remaining": 39
+        },
+        {
+          "amount": 10,
+          "originalCount": 92664,
+          "remaining": 89925
+        },
+        {
+          "amount": 1,
+          "originalCount": 679570,
+          "remaining": 661116
+        },
+        {
+          "amount": 100,
+          "originalCount": 1542,
+          "remaining": 1497
+        },
+        {
+          "amount": 50,
+          "originalCount": 3116,
+          "remaining": 3010
+        }
+      ],
+      "overallOdds": 4.74,
+      "computed": {
+        "originalTickets": 6171532,
+        "fractionRemaining": 0.9722,
+        "ticketsRemaining": 6000153,
+        "remainingPrizeValue": 3729403,
+        "evPerTicket": 0.6216,
+        "roi": 0.6216,
+        "topPrizesRemaining": 39,
+        "topPrizeAmount": 1000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1034",
+      "name": "Pink Diamond",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 241980,
+          "remaining": 61743
+        },
+        {
+          "amount": 2,
+          "originalCount": 846930,
+          "remaining": 247311
+        },
+        {
+          "amount": 20,
+          "originalCount": 120990,
+          "remaining": 29591
+        },
+        {
+          "amount": 500,
+          "originalCount": 187,
+          "remaining": 41
+        },
+        {
+          "amount": 50,
+          "originalCount": 12135,
+          "remaining": 2826
+        },
+        {
+          "amount": 10,
+          "originalCount": 181485,
+          "remaining": 46087
+        },
+        {
+          "amount": 1000,
+          "originalCount": 16,
+          "remaining": 4
+        },
+        {
+          "amount": 10000,
+          "originalCount": 10,
+          "remaining": 0
+        },
+        {
+          "amount": 100,
+          "originalCount": 481,
+          "remaining": 100
+        }
+      ],
+      "overallOdds": 4.31,
+      "computed": {
+        "originalTickets": 6052162,
+        "fractionRemaining": 0.2761,
+        "ticketsRemaining": 1671000,
+        "remainingPrizeValue": 2031827,
+        "evPerTicket": 1.2159,
+        "roi": 0.608,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1076",
+      "name": "Electric 8s",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1,
+          "originalCount": 752682,
+          "remaining": 213057
+        },
+        {
+          "amount": 10,
+          "originalCount": 53732,
+          "remaining": 12215
+        },
+        {
+          "amount": 100,
+          "originalCount": 1447,
+          "remaining": 310
+        },
+        {
+          "amount": 50,
+          "originalCount": 17042,
+          "remaining": 3653
+        },
+        {
+          "amount": 5,
+          "originalCount": 143430,
+          "remaining": 35091
+        },
+        {
+          "amount": 20,
+          "originalCount": 35842,
+          "remaining": 7846
+        },
+        {
+          "amount": 2,
+          "originalCount": 501788,
+          "remaining": 130730
+        },
+        {
+          "amount": 500,
+          "originalCount": 31,
+          "remaining": 6
+        }
+      ],
+      "overallOdds": 4.76,
+      "computed": {
+        "originalTickets": 7168531,
+        "fractionRemaining": 0.2675,
+        "ticketsRemaining": 1917842,
+        "remainingPrizeValue": 1145692,
+        "evPerTicket": 0.5974,
+        "roi": 0.5974,
+        "topPrizesRemaining": 6,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1088",
+      "name": "Sapphire Blue 7",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 92550,
+          "remaining": 27021
+        },
+        {
+          "amount": 40,
+          "originalCount": 9547,
+          "remaining": 2514
+        },
+        {
+          "amount": 2,
+          "originalCount": 431728,
+          "remaining": 126044
+        },
+        {
+          "amount": 20,
+          "originalCount": 54006,
+          "remaining": 13063
+        },
+        {
+          "amount": 777,
+          "originalCount": 62,
+          "remaining": 16
+        },
+        {
+          "amount": 100,
+          "originalCount": 468,
+          "remaining": 121
+        },
+        {
+          "amount": 10,
+          "originalCount": 30856,
+          "remaining": 9116
+        },
+        {
+          "amount": 1,
+          "originalCount": 678614,
+          "remaining": 215769
+        }
+      ],
+      "overallOdds": 4.75,
+      "computed": {
+        "originalTickets": 6164697,
+        "fractionRemaining": 0.3033,
+        "ticketsRemaining": 1869904,
+        "remainingPrizeValue": 1080474,
+        "evPerTicket": 0.5778,
+        "roi": 0.5778,
+        "topPrizesRemaining": 16,
+        "topPrizeAmount": 777
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1094",
+      "name": "Crazy Cash",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 1545,
+          "remaining": 379
+        },
+        {
+          "amount": 1000,
+          "originalCount": 40,
+          "remaining": 8
+        },
+        {
+          "amount": 20,
+          "originalCount": 30859,
+          "remaining": 7034
+        },
+        {
+          "amount": 2,
+          "originalCount": 401179,
+          "remaining": 109520
+        },
+        {
+          "amount": 5,
+          "originalCount": 92577,
+          "remaining": 22962
+        },
+        {
+          "amount": 50,
+          "originalCount": 3099,
+          "remaining": 701
+        },
+        {
+          "amount": 1,
+          "originalCount": 678886,
+          "remaining": 192891
+        },
+        {
+          "amount": 10,
+          "originalCount": 92577,
+          "remaining": 21748
+        }
+      ],
+      "overallOdds": 4.74,
+      "computed": {
+        "originalTickets": 6165612,
+        "fractionRemaining": 0.2731,
+        "ticketsRemaining": 1683852,
+        "remainingPrizeValue": 965851,
+        "evPerTicket": 0.5736,
+        "roi": 0.5736,
+        "topPrizesRemaining": 8,
+        "topPrizeAmount": 1000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1063",
+      "name": "Luck of the Irish Tripler",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 5,
+          "originalCount": 61105,
+          "remaining": 8383
+        },
+        {
+          "amount": 1,
+          "originalCount": 550224,
+          "remaining": 93230
+        },
+        {
+          "amount": 25,
+          "originalCount": 15291,
+          "remaining": 1914
+        },
+        {
+          "amount": 150,
+          "originalCount": 305,
+          "remaining": 54
+        },
+        {
+          "amount": 2,
+          "originalCount": 244575,
+          "remaining": 37092
+        },
+        {
+          "amount": 9,
+          "originalCount": 30568,
+          "remaining": 4104
+        },
+        {
+          "amount": 1000,
+          "originalCount": 25,
+          "remaining": 3
+        },
+        {
+          "amount": 50,
+          "originalCount": 1524,
+          "remaining": 193
+        },
+        {
+          "amount": 75,
+          "originalCount": 2448,
+          "remaining": 300
+        },
+        {
+          "amount": 3,
+          "originalCount": 336279,
+          "remaining": 49803
+        },
+        {
+          "amount": 15,
+          "originalCount": 30568,
+          "remaining": 3862
+        }
+      ],
+      "overallOdds": 4.8,
+      "computed": {
+        "originalTickets": 6109978,
+        "fractionRemaining": 0.1563,
+        "ticketsRemaining": 954902,
+        "remainingPrizeValue": 544704,
+        "evPerTicket": 0.5704,
+        "roi": 0.5704,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 1000
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1052",
+      "name": "Triple Tripler",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 1800,
+          "originalCount": 40,
+          "remaining": 16
+        },
+        {
+          "amount": 30,
+          "originalCount": 12178,
+          "remaining": 3626
+        },
+        {
+          "amount": 180,
+          "originalCount": 202,
+          "remaining": 48
+        },
+        {
+          "amount": 9,
+          "originalCount": 80929,
+          "remaining": 26325
+        },
+        {
+          "amount": 2,
+          "originalCount": 566811,
+          "remaining": 203326
+        },
+        {
+          "amount": 60,
+          "originalCount": 9721,
+          "remaining": 2864
+        },
+        {
+          "amount": 300,
+          "originalCount": 98,
+          "remaining": 31
+        },
+        {
+          "amount": 3,
+          "originalCount": 80991,
+          "remaining": 28247
+        },
+        {
+          "amount": 90,
+          "originalCount": 1627,
+          "remaining": 493
+        },
+        {
+          "amount": 18,
+          "originalCount": 20234,
+          "remaining": 6068
+        },
+        {
+          "amount": 900,
+          "originalCount": 69,
+          "remaining": 22
+        },
+        {
+          "amount": 1,
+          "originalCount": 850013,
+          "remaining": 330819
+        },
+        {
+          "amount": 6,
+          "originalCount": 60765,
+          "remaining": 19609
+        }
+      ],
+      "overallOdds": 4.81,
+      "computed": {
+        "originalTickets": 8098491,
+        "fractionRemaining": 0.3691,
+        "ticketsRemaining": 2989386,
+        "remainingPrizeValue": 1677545,
+        "evPerTicket": 0.5612,
+        "roi": 0.5612,
+        "topPrizesRemaining": 16,
+        "topPrizeAmount": 1800
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1070",
+      "name": "Set For Life",
+      "price": 2,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 2,
+          "originalCount": 740520,
+          "remaining": 256870
+        },
+        {
+          "amount": 20,
+          "originalCount": 61710,
+          "remaining": 19130
+        },
+        {
+          "amount": 10,
+          "originalCount": 123420,
+          "remaining": 39171
+        },
+        {
+          "amount": 1000,
+          "originalCount": 80,
+          "remaining": 24
+        },
+        {
+          "amount": 4,
+          "originalCount": 185130,
+          "remaining": 61219
+        },
+        {
+          "amount": 5,
+          "originalCount": 185130,
+          "remaining": 61169
+        },
+        {
+          "amount": 50,
+          "originalCount": 20379,
+          "remaining": 6201
+        },
+        {
+          "amount": 36500,
+          "originalCount": 2,
+          "remaining": 1
+        },
+        {
+          "amount": 100,
+          "originalCount": 3105,
+          "remaining": 923
+        }
+      ],
+      "overallOdds": 4.68,
+      "computed": {
+        "originalTickets": 6175148,
+        "fractionRemaining": 0.337,
+        "ticketsRemaining": 2081234,
+        "remainingPrizeValue": 2301621,
+        "evPerTicket": 1.1059,
+        "roi": 0.5529,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 36500
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1033",
+      "name": "Winner Winner Chicken Dinner",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 2436,
+          "remaining": 324
+        },
+        {
+          "amount": 50,
+          "originalCount": 3271,
+          "remaining": 485
+        },
+        {
+          "amount": 3,
+          "originalCount": 81414,
+          "remaining": 15019
+        },
+        {
+          "amount": 500,
+          "originalCount": 491,
+          "remaining": 65
+        },
+        {
+          "amount": 20,
+          "originalCount": 40707,
+          "remaining": 6342
+        },
+        {
+          "amount": 2,
+          "originalCount": 732730,
+          "remaining": 150348
+        },
+        {
+          "amount": 1,
+          "originalCount": 651304,
+          "remaining": 149811
+        },
+        {
+          "amount": 5,
+          "originalCount": 162828,
+          "remaining": 27065
+        },
+        {
+          "amount": 10,
+          "originalCount": 40707,
+          "remaining": 6693
+        }
+      ],
+      "overallOdds": 4.74,
+      "computed": {
+        "originalTickets": 8133309,
+        "fractionRemaining": 0.2076,
+        "ticketsRemaining": 1688160,
+        "remainingPrizeValue": 913809,
+        "evPerTicket": 0.5413,
+        "roi": 0.5413,
+        "topPrizesRemaining": 65,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1020",
+      "name": "Hot 7s",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 100,
+          "originalCount": 196,
+          "remaining": 9
+        },
+        {
+          "amount": 1,
+          "originalCount": 1027095,
+          "remaining": 168838
+        },
+        {
+          "amount": 10,
+          "originalCount": 97914,
+          "remaining": 9159
+        },
+        {
+          "amount": 50,
+          "originalCount": 2697,
+          "remaining": 196
+        },
+        {
+          "amount": 5,
+          "originalCount": 342149,
+          "remaining": 36457
+        },
+        {
+          "amount": 2,
+          "originalCount": 586860,
+          "remaining": 76216
+        },
+        {
+          "amount": 20,
+          "originalCount": 48907,
+          "remaining": 4099
+        },
+        {
+          "amount": 500,
+          "originalCount": 98,
+          "remaining": 4
+        }
+      ],
+      "overallOdds": 4.64,
+      "computed": {
+        "originalTickets": 9771450,
+        "fractionRemaining": 0.1401,
+        "ticketsRemaining": 1368698,
+        "remainingPrizeValue": 689825,
+        "evPerTicket": 0.504,
+        "roi": 0.504,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "oh",
+      "gameId": "1069",
+      "name": "Set For Life",
+      "price": 1,
+      "url": "https://www.ohiolottery.com/games/scratch-offs/prizes-remaining",
+      "tiers": [
+        {
+          "amount": 3,
+          "originalCount": 106860,
+          "remaining": 17976
+        },
+        {
+          "amount": 20,
+          "originalCount": 35628,
+          "remaining": 4649
+        },
+        {
+          "amount": 18250,
+          "originalCount": 2,
+          "remaining": 0
+        },
+        {
+          "amount": 50,
+          "originalCount": 4163,
+          "remaining": 602
+        },
+        {
+          "amount": 5,
+          "originalCount": 71280,
+          "remaining": 13258
+        },
+        {
+          "amount": 1,
+          "originalCount": 783888,
+          "remaining": 156096
+        },
+        {
+          "amount": 10,
+          "originalCount": 35628,
+          "remaining": 5732
+        },
+        {
+          "amount": 2,
+          "originalCount": 463104,
+          "remaining": 83140
+        },
+        {
+          "amount": 100,
+          "originalCount": 1840,
+          "remaining": 237
+        }
+      ],
+      "overallOdds": 4.74,
+      "computed": {
+        "originalTickets": 7121343,
+        "fractionRemaining": 0.1875,
+        "ticketsRemaining": 1335211,
+        "remainingPrizeValue": 646694,
+        "evPerTicket": 0.4843,
+        "roi": 0.4843,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 18250
+      }
+    }
+  ]
+}
