@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-11-09T11:11:46.985Z",
-  "resultsAsOf": "2026-11-08",
+  "generatedAt": "2026-11-10T11:10:42.719Z",
+  "resultsAsOf": "2026-11-09",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Los_Angeles",
   "validationVersion": "2026-10-05.1",
   "state": "or",
   "limited": true,
   "coverage": {
-    "sourceRecordCount": 47,
-    "validatedCount": 47,
+    "sourceRecordCount": 48,
+    "validatedCount": 48,
     "excludedCount": 0,
     "validation": "usable"
   },
   "observation": {
-    "contentHash": "de50cd8333ea4df3c48551574f9efc80bd46739baa684791d5d921e8d3142946",
-    "unchangedRuns": 6,
-    "contentObservedSince": "2026-11-03T11:11:58.784Z"
+    "contentHash": "7fd72a4e5c2d5d74243185f40bec9c7760e89c8d7a1504f74f3e512e9170725c",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-10T11:10:42.719Z"
   },
   "source": "https://api.oregonlottery.org/gameinfo/v1/instant/games",
-  "gameCount": 47,
+  "gameCount": 48,
   "games": [
     {
       "gameId": "1576",
@@ -250,6 +250,14 @@
       "price": 10,
       "topPrize": "$75,000",
       "topPrizeValue": 75000,
+      "closingSoon": false
+    },
+    {
+      "gameId": "1661",
+      "name": "$100 Or $200 Diamond",
+      "price": 20,
+      "topPrize": "$200",
+      "topPrizeValue": 200,
       "closingSoon": false
     },
     {
