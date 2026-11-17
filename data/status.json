@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T11:13:00.203Z",
+  "generatedAt": "2026-11-17T11:10:02.050Z",
   "okCount": 34,
   "collectedCount": 34,
   "usableCount": 31,
@@ -10,14 +10,8 @@
     "ct",
     "ok"
   ],
-  "stale": [
-    "md",
-    "id"
-  ],
-  "staleRuns": {
-    "md": 1,
-    "id": 10
-  },
+  "stale": [],
+  "staleRuns": {},
   "states": [
     {
       "state": "ar",
@@ -31,19 +25,19 @@
       "kind": "full",
       "ok": true,
       "coverage": {
-        "sourceRecordCount": 55,
+        "sourceRecordCount": 60,
         "validatedCount": 11,
-        "excludedCount": 44,
+        "excludedCount": 49,
         "validation": "partial"
       },
       "observation": {
-        "contentHash": "d971a46929197c2ad8233c4e18c58f3fbd50619863f3b2ba923925b67b0b6769",
+        "contentHash": "e17c52a4a7cb3a2a8bc1f75aad846ce59fa660a00139e0200f98161a2956fcfa",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:08:53.895Z"
+        "contentObservedSince": "2026-11-17T11:07:54.843Z"
       },
       "gameCount": 11,
       "changed": 11,
-      "generatedAt": "2026-11-16T11:08:53.895Z"
+      "generatedAt": "2026-11-17T11:07:54.843Z"
     },
     {
       "state": "co",
@@ -57,11 +51,11 @@
       },
       "observation": {
         "contentHash": "5b67e98c41ae5ccfc05eabd0344ea632aa7459599af522e1cb887d31fe6c05eb",
-        "unchangedRuns": 13,
+        "unchangedRuns": 14,
         "contentObservedSince": "2026-11-03T11:11:47.828Z"
       },
       "gameCount": 89,
-      "generatedAt": "2026-11-16T11:12:46.568Z"
+      "generatedAt": "2026-11-17T11:09:40.728Z"
     },
     {
       "state": "ct",
@@ -82,11 +76,11 @@
       },
       "observation": {
         "contentHash": "12cb62db8b8173eca1b2d3fba5080ded77f5307070bd2dc99887b78af988bd0c",
-        "unchangedRuns": 12,
+        "unchangedRuns": 13,
         "contentObservedSince": "2026-11-04T11:11:53.312Z"
       },
       "gameCount": 20,
-      "generatedAt": "2026-11-16T11:12:46.812Z"
+      "generatedAt": "2026-11-17T11:09:41.179Z"
     },
     {
       "state": "de",
@@ -100,11 +94,11 @@
       },
       "observation": {
         "contentHash": "0270fec2b1fbc1e04a312d8c33058f9c5eb83c2f4dce1b3bec1d78a50e4478de",
-        "unchangedRuns": 6,
+        "unchangedRuns": 7,
         "contentObservedSince": "2026-11-10T11:10:40.760Z"
       },
       "gameCount": 43,
-      "generatedAt": "2026-11-16T11:12:49.834Z"
+      "generatedAt": "2026-11-17T11:09:46.126Z"
     },
     {
       "state": "fl",
@@ -117,13 +111,13 @@
         "validation": "partial"
       },
       "observation": {
-        "contentHash": "d09540fa56d443a4a0e35e038790cc593ebdf1b5ebfd320adef349d4222bf2b2",
+        "contentHash": "0b19c6edf5d1344e1fc0a5faf9e4ec13a55731cbbe7223549ff4c38700582957",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:12:31.990Z"
+        "contentObservedSince": "2026-11-17T11:09:27.484Z"
       },
       "gameCount": 70,
       "changed": 70,
-      "generatedAt": "2026-11-16T11:12:31.990Z"
+      "generatedAt": "2026-11-17T11:09:27.484Z"
     },
     {
       "state": "ga",
@@ -137,11 +131,11 @@
       },
       "observation": {
         "contentHash": "5ad062bfbc30bb158a3661ffb245f12b6cfd3854bfd56bc917638867b5bb952a",
-        "unchangedRuns": 25,
+        "unchangedRuns": 26,
         "contentObservedSince": "2026-10-21T11:15:30.320Z"
       },
       "gameCount": 112,
-      "generatedAt": "2026-11-16T11:12:50.105Z"
+      "generatedAt": "2026-11-17T11:09:46.590Z"
     },
     {
       "state": "ia",
@@ -154,32 +148,32 @@
         "validation": "all-excluded"
       },
       "observation": {
-        "contentHash": "6127ec27a7377aea4b318f411a3f352442ef0800b960a715b111c1d20e6b2a35",
+        "contentHash": "8c75ec3b294d06f38af7eca72631c280a94564cf3483a59ca18ff11c1114b0a1",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:11:39.763Z"
+        "contentObservedSince": "2026-11-17T11:08:31.473Z"
       },
       "gameCount": 0,
       "changed": 0,
-      "generatedAt": "2026-11-16T11:11:39.763Z"
+      "generatedAt": "2026-11-17T11:08:31.473Z"
     },
     {
       "state": "id",
       "kind": "full",
       "ok": true,
       "coverage": {
-        "sourceRecordCount": 32,
-        "validatedCount": 29,
+        "sourceRecordCount": 34,
+        "validatedCount": 31,
         "excludedCount": 3,
         "validation": "partial"
       },
       "observation": {
-        "contentHash": "028c53e86001b7a10af8814ed4beb9c6848720b2f2a6237b3770f2877ebedfbb",
-        "unchangedRuns": 5,
-        "contentObservedSince": "2026-11-11T11:10:03.082Z"
+        "contentHash": "049219465e7a85d6082ef8fdb451ab154a9588e8c60cfa881fdae150b20a85b5",
+        "unchangedRuns": 0,
+        "contentObservedSince": "2026-11-17T11:08:34.413Z"
       },
-      "gameCount": 29,
-      "changed": 0,
-      "generatedAt": "2026-11-16T11:11:43.152Z"
+      "gameCount": 31,
+      "changed": 2,
+      "generatedAt": "2026-11-17T11:08:34.413Z"
     },
     {
       "state": "ks",
@@ -193,11 +187,11 @@
       },
       "observation": {
         "contentHash": "0f658000d0c729ca56825c9b0b7cd0f464b16cbd53212cd957cf733af819f9ee",
-        "unchangedRuns": 0,
+        "unchangedRuns": 1,
         "contentObservedSince": "2026-11-16T11:12:47.564Z"
       },
       "gameCount": 108,
-      "generatedAt": "2026-11-16T11:12:47.564Z"
+      "generatedAt": "2026-11-17T11:09:41.936Z"
     },
     {
       "state": "ky",
@@ -210,13 +204,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "d77237d78a0990b1bbf67abb3796224e5dc6a7938f514915985ecff121980565",
+        "contentHash": "076702d57790139bb5e4ff22d843594df593f1c9bd6f88455ab5e0804645954e",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:12:31.301Z"
+        "contentObservedSince": "2026-11-17T11:09:26.581Z"
       },
       "gameCount": 103,
-      "changed": 99,
-      "generatedAt": "2026-11-16T11:12:31.301Z"
+      "changed": 95,
+      "generatedAt": "2026-11-17T11:09:26.581Z"
     },
     {
       "state": "la",
@@ -229,13 +223,13 @@
         "validation": "partial"
       },
       "observation": {
-        "contentHash": "35e325d7e511cb2dff310a8b2f3e3d371d4d069d0f6f0ea2c4b1bdf9bdd0fc17",
+        "contentHash": "4cc9583f07fe0f3838ac84af67281f6c901de226e1aca4b4a3cebf22df1a7756",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:11:26.510Z"
+        "contentObservedSince": "2026-11-17T11:08:17.003Z"
       },
       "gameCount": 4,
       "changed": 4,
-      "generatedAt": "2026-11-16T11:11:26.510Z"
+      "generatedAt": "2026-11-17T11:08:17.003Z"
     },
     {
       "state": "ma",
@@ -248,32 +242,32 @@
         "validation": "partial"
       },
       "observation": {
-        "contentHash": "abec4d75ff32d115c7e51d92644ec234a48b631434890dc1dd53dd68d9524c6a",
+        "contentHash": "ad610720c00eeb9bba619d6bc8585d3818af1cc7576e5e10fce31b9804223c25",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:11:47.561Z"
+        "contentObservedSince": "2026-11-17T11:08:39.284Z"
       },
       "gameCount": 103,
       "changed": 103,
-      "generatedAt": "2026-11-16T11:11:47.561Z"
+      "generatedAt": "2026-11-17T11:08:39.284Z"
     },
     {
       "state": "md",
       "kind": "full",
       "ok": true,
       "coverage": {
-        "sourceRecordCount": 93,
-        "validatedCount": 93,
+        "sourceRecordCount": 94,
+        "validatedCount": 94,
         "excludedCount": 0,
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "3fd71b559f73720849142aaaed419b449632859ac15704fa2d0f77c90dc9e8a2",
-        "unchangedRuns": 1,
-        "contentObservedSince": "2026-11-15T11:07:26.015Z"
+        "contentHash": "9321f6750267c61fb0f5dbb4547d66773c0fa885bad7db907e021a04e451fb59",
+        "unchangedRuns": 0,
+        "contentObservedSince": "2026-11-17T11:08:09.036Z"
       },
-      "gameCount": 93,
-      "changed": 0,
-      "generatedAt": "2026-11-16T11:10:07.618Z"
+      "gameCount": 94,
+      "changed": 93,
+      "generatedAt": "2026-11-17T11:08:09.036Z"
     },
     {
       "state": "me",
@@ -287,11 +281,11 @@
       },
       "observation": {
         "contentHash": "1daeb12c4b091fd938bf24094cb02f9bb69605560ce1fca3bc05ad69d863e269",
-        "unchangedRuns": 5,
+        "unchangedRuns": 6,
         "contentObservedSince": "2026-11-11T11:11:14.681Z"
       },
       "gameCount": 68,
-      "generatedAt": "2026-11-16T11:12:53.513Z"
+      "generatedAt": "2026-11-17T11:09:51.475Z"
     },
     {
       "state": "mi",
@@ -304,13 +298,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "76111152ab435bef426533babc98802ba1b682fe123aad10a0e2cd9b8754c9c5",
+        "contentHash": "e8e3aa8d359948f39fd914d8ddefba619d04ceb5abfa465fe1f18f36bdddd752",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:12:31.725Z"
+        "contentObservedSince": "2026-11-17T11:09:27.056Z"
       },
       "gameCount": 108,
-      "changed": 103,
-      "generatedAt": "2026-11-16T11:12:31.725Z"
+      "changed": 106,
+      "generatedAt": "2026-11-17T11:09:27.056Z"
     },
     {
       "state": "mn",
@@ -324,11 +318,11 @@
       },
       "observation": {
         "contentHash": "9d986ba564d386cbb3501a45c4b6ee85ef46c2a454bdff637523566abbcae93a",
-        "unchangedRuns": 13,
+        "unchangedRuns": 14,
         "contentObservedSince": "2026-11-03T11:11:59.979Z"
       },
       "gameCount": 40,
-      "generatedAt": "2026-11-16T11:12:52.484Z"
+      "generatedAt": "2026-11-17T11:09:49.467Z"
     },
     {
       "state": "mo",
@@ -341,13 +335,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "56cb34d5c1d1c98615882ad334c00351985133b4515f9257c8543cb6064d05a7",
+        "contentHash": "bb5c105475fa29f8189f27bdaec48b7821434e7560796f6de3331d3a9ed4c597",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:10:06.850Z"
+        "contentObservedSince": "2026-11-17T11:08:08.245Z"
       },
       "gameCount": 72,
-      "changed": 70,
-      "generatedAt": "2026-11-16T11:10:06.850Z"
+      "changed": 71,
+      "generatedAt": "2026-11-17T11:08:08.245Z"
     },
     {
       "state": "ms",
@@ -361,12 +355,12 @@
       },
       "observation": {
         "contentHash": "28da743fea011a2153ffddf60fad9deb4cb07e5e1e8d8001072fad2f155e7f7b",
-        "unchangedRuns": 17,
+        "unchangedRuns": 18,
         "contentObservedSince": "2026-10-30T11:08:25.423Z"
       },
       "gameCount": 0,
       "changed": 0,
-      "generatedAt": "2026-11-16T11:10:05.729Z"
+      "generatedAt": "2026-11-17T11:08:06.774Z"
     },
     {
       "state": "nc",
@@ -379,13 +373,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "d72880309927fd0bc7d362ad223432b0e5a1fa3069b8b1b72b7d5aa4151e3aab",
+        "contentHash": "9bb27e724f548699b5ec46d1099b53012352c474cd3d1bcc9fe439b8a01a1734",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:08:48.619Z"
+        "contentObservedSince": "2026-11-17T11:07:49.909Z"
       },
       "gameCount": 89,
-      "changed": 85,
-      "generatedAt": "2026-11-16T11:08:48.619Z"
+      "changed": 88,
+      "generatedAt": "2026-11-17T11:07:49.909Z"
     },
     {
       "state": "ne",
@@ -399,11 +393,11 @@
       },
       "observation": {
         "contentHash": "f3f95db25d2bdc736e2c5c8b23ec80f190f226917199fab137b533b2335d878e",
-        "unchangedRuns": 6,
+        "unchangedRuns": 7,
         "contentObservedSince": "2026-11-10T11:10:39.822Z"
       },
       "gameCount": 26,
-      "generatedAt": "2026-11-16T11:12:48.785Z"
+      "generatedAt": "2026-11-17T11:09:44.879Z"
     },
     {
       "state": "nh",
@@ -416,13 +410,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "eeebf5fccf2f0023d484610a6a5c445945e52b7c5dff827916e5983022b73eb6",
+        "contentHash": "f0394e4593345c3089ad2545bd6d903076ee600ae4e9bd6f96a80121e0699337",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:12:32.435Z"
+        "contentObservedSince": "2026-11-17T11:09:28.251Z"
       },
       "gameCount": 61,
       "changed": 60,
-      "generatedAt": "2026-11-16T11:12:32.435Z"
+      "generatedAt": "2026-11-17T11:09:28.251Z"
     },
     {
       "state": "nj",
@@ -436,11 +430,11 @@
       },
       "observation": {
         "contentHash": "797581590782b2df7cc47125885f1cfaacccc2e2d08c3533cfad7eb67fc38b7d",
-        "unchangedRuns": 3,
+        "unchangedRuns": 4,
         "contentObservedSince": "2026-11-13T11:10:42.493Z"
       },
       "gameCount": 65,
-      "generatedAt": "2026-11-16T11:12:50.390Z"
+      "generatedAt": "2026-11-17T11:09:47.237Z"
     },
     {
       "state": "nm",
@@ -454,11 +448,11 @@
       },
       "observation": {
         "contentHash": "41ec8eeac7a6f762dbb65b68ed3ff857b5c947350c58d9d842ca1d42711b29a1",
-        "unchangedRuns": 6,
+        "unchangedRuns": 7,
         "contentObservedSince": "2026-11-10T11:10:42.950Z"
       },
       "gameCount": 69,
-      "generatedAt": "2026-11-16T11:12:52.183Z"
+      "generatedAt": "2026-11-17T11:09:48.908Z"
     },
     {
       "state": "oh",
@@ -471,13 +465,13 @@
         "validation": "partial"
       },
       "observation": {
-        "contentHash": "c2739b99937aecf16372daf2bab2504bbf0ad5811089df94f0026382a828c26a",
+        "contentHash": "8eb531e5026bd949519ac6906a31fab93eee9c06cb425a070e71b61fb5a1382c",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:11:45.310Z"
+        "contentObservedSince": "2026-11-17T11:08:38.519Z"
       },
       "gameCount": 67,
       "changed": 58,
-      "generatedAt": "2026-11-16T11:11:45.310Z"
+      "generatedAt": "2026-11-17T11:08:38.519Z"
     },
     {
       "state": "ok",
@@ -498,11 +492,11 @@
       },
       "observation": {
         "contentHash": "ebc17623f41b66888497609a95b1620e5b3f1647309c07d526c2a1ff6e956bfe",
-        "unchangedRuns": 2,
+        "unchangedRuns": 3,
         "contentObservedSince": "2026-11-14T11:09:47.105Z"
       },
       "gameCount": 48,
-      "generatedAt": "2026-11-16T11:12:51.827Z"
+      "generatedAt": "2026-11-17T11:09:48.048Z"
     },
     {
       "state": "pa",
@@ -516,11 +510,11 @@
       },
       "observation": {
         "contentHash": "985231edd6bca84f53bdeb8663fda4b21a4b4cf0c33798a2947b632f5bcd2edc",
-        "unchangedRuns": 12,
+        "unchangedRuns": 13,
         "contentObservedSince": "2026-11-04T11:11:56.268Z"
       },
       "gameCount": 213,
-      "generatedAt": "2026-11-16T11:12:49.347Z"
+      "generatedAt": "2026-11-17T11:09:45.618Z"
     },
     {
       "state": "ri",
@@ -533,13 +527,13 @@
         "validation": "all-excluded"
       },
       "observation": {
-        "contentHash": "6b86e43c8cd608482290d89b9a36d959375af0369a909896ec9c9afc00737031",
+        "contentHash": "1f90d5ee2c2f6b8637acc763d9cc9f27e7da2e4a1e96d8060833509a53e3e18e",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:12:45.201Z"
+        "contentObservedSince": "2026-11-17T11:09:39.039Z"
       },
       "gameCount": 0,
       "changed": 0,
-      "generatedAt": "2026-11-16T11:12:45.201Z"
+      "generatedAt": "2026-11-17T11:09:39.039Z"
     },
     {
       "state": "sc",
@@ -552,13 +546,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "0b9d3c8b69d0c6023bf680cb5d574c37f38a134701b2b1d1533e2ea748714b2b",
+        "contentHash": "70f9b54fa2168cf5c12d524fa0ad1c8b3499889e9a7e449e7610f4be4101bbdd",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:08:49.980Z"
+        "contentObservedSince": "2026-11-17T11:07:51.471Z"
       },
       "gameCount": 37,
       "changed": 37,
-      "generatedAt": "2026-11-16T11:08:49.980Z"
+      "generatedAt": "2026-11-17T11:07:51.471Z"
     },
     {
       "state": "sd",
@@ -572,30 +566,30 @@
       },
       "observation": {
         "contentHash": "f5d94828adeb103ddd8aed742261aa6d0cb2712a4f7c7700e183c41d3cc5a8f1",
-        "unchangedRuns": 28,
+        "unchangedRuns": 29,
         "contentObservedSince": "2026-10-19T11:13:51.423Z"
       },
       "gameCount": 36,
-      "generatedAt": "2026-11-16T11:12:52.773Z"
+      "generatedAt": "2026-11-17T11:09:49.855Z"
     },
     {
       "state": "tx",
       "kind": "full",
       "ok": true,
       "coverage": {
-        "sourceRecordCount": 81,
-        "validatedCount": 81,
+        "sourceRecordCount": 85,
+        "validatedCount": 85,
         "excludedCount": 0,
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "8c612b0999f73e588f473af54a8479bc3a46a74ab699ef7e1b490f4f88561616",
+        "contentHash": "e14d22651acd6b0a00abee3867b10beef11517563f299d2a08c8d9ba687bc422",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:11:44.491Z"
+        "contentObservedSince": "2026-11-17T11:08:37.406Z"
       },
-      "gameCount": 81,
-      "changed": 81,
-      "generatedAt": "2026-11-16T11:11:44.491Z"
+      "gameCount": 85,
+      "changed": 85,
+      "generatedAt": "2026-11-17T11:08:37.406Z"
     },
     {
       "state": "vt",
@@ -609,11 +603,11 @@
       },
       "observation": {
         "contentHash": "31aeb12818a0b9c59d0a26a39597c69cf0c3398e5aa0d6e39bdf804c0048c7e4",
-        "unchangedRuns": 3,
+        "unchangedRuns": 4,
         "contentObservedSince": "2026-11-13T11:10:39.314Z"
       },
       "gameCount": 92,
-      "generatedAt": "2026-11-16T11:12:45.916Z"
+      "generatedAt": "2026-11-17T11:09:39.995Z"
     },
     {
       "state": "wa",
@@ -626,13 +620,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "198ace84a05ba4420dfdfc352fc7f91ceb715fc59916e502acca0bc73d2a5cd5",
+        "contentHash": "52b548f2a6ba9ebe0808d3235d04ca08b26e7ae4168c9860e6ee8a3a5858a6bc",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:10:08.010Z"
+        "contentObservedSince": "2026-11-17T11:08:09.460Z"
       },
       "gameCount": 62,
       "changed": 62,
-      "generatedAt": "2026-11-16T11:10:08.010Z"
+      "generatedAt": "2026-11-17T11:08:09.460Z"
     },
     {
       "state": "wi",
@@ -646,11 +640,11 @@
       },
       "observation": {
         "contentHash": "3be5e7916c9da519c7f5441c8b7bc9c97356135ef84b68280dc07cc638cd76e5",
-        "unchangedRuns": 2,
+        "unchangedRuns": 3,
         "contentObservedSince": "2026-11-14T11:09:48.154Z"
       },
       "gameCount": 93,
-      "generatedAt": "2026-11-16T11:12:53.249Z"
+      "generatedAt": "2026-11-17T11:09:51.079Z"
     },
     {
       "state": "wv",
@@ -663,13 +657,13 @@
         "validation": "usable"
       },
       "observation": {
-        "contentHash": "3b422b56dc5cf53ee99cf7448ca18656691ea6e435a5fb88c1c8bb9bff1a41e1",
+        "contentHash": "689e0dc2eb8e12883de1b85c83db95ed4624f7a89c8a404a4c19e84cbab82ffc",
         "unchangedRuns": 0,
-        "contentObservedSince": "2026-11-16T11:12:43.320Z"
+        "contentObservedSince": "2026-11-17T11:09:36.452Z"
       },
       "gameCount": 132,
       "changed": 51,
-      "generatedAt": "2026-11-16T11:12:43.320Z"
+      "generatedAt": "2026-11-17T11:09:36.452Z"
     }
   ]
 }

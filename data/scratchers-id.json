@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-16T11:11:43.152Z",
-  "resultsAsOf": "2026-11-15",
+  "generatedAt": "2026-11-17T11:08:34.413Z",
+  "resultsAsOf": "2026-11-16",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Denver",
   "excluded": [
@@ -21,20 +21,20 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 32,
-    "validatedCount": 29,
+    "sourceRecordCount": 34,
+    "validatedCount": 31,
     "excludedCount": 3,
     "validation": "partial"
   },
   "observation": {
-    "contentHash": "028c53e86001b7a10af8814ed4beb9c6848720b2f2a6237b3770f2877ebedfbb",
-    "unchangedRuns": 5,
-    "contentObservedSince": "2026-11-11T11:10:03.082Z"
+    "contentHash": "049219465e7a85d6082ef8fdb451ab154a9588e8c60cfa881fdae150b20a85b5",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-17T11:08:34.413Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "id",
   "source": "https://www.idaholottery.com/games/scratch?view=remaining_prizes",
-  "gameCount": 29,
+  "gameCount": 31,
   "games": [
     {
       "state": "id",
@@ -1062,6 +1062,176 @@
         "roi": 0.711,
         "topPrizesRemaining": 10454,
         "topPrizeAmount": 100
+      }
+    },
+    {
+      "state": "id",
+      "gameId": "1926",
+      "name": "Cashline Cashword",
+      "price": 20,
+      "url": "https://www.idaholottery.com/games/scratch/cashline-cashword",
+      "tiers": [
+        {
+          "amount": 250000,
+          "odds": 203940,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "odds": 135960,
+          "originalCount": 3,
+          "remaining": 3
+        },
+        {
+          "amount": 5000,
+          "odds": 58269,
+          "originalCount": 7,
+          "remaining": 7
+        },
+        {
+          "amount": 1000,
+          "odds": 13596,
+          "originalCount": 30,
+          "remaining": 30
+        },
+        {
+          "amount": 250,
+          "odds": 132,
+          "originalCount": 3090,
+          "remaining": 3090
+        },
+        {
+          "amount": 150,
+          "odds": 200,
+          "originalCount": 2039,
+          "remaining": 2039
+        },
+        {
+          "amount": 100,
+          "odds": 58,
+          "originalCount": 7071,
+          "remaining": 7071
+        },
+        {
+          "amount": 75,
+          "odds": 59,
+          "originalCount": 6871,
+          "remaining": 6871
+        },
+        {
+          "amount": 50,
+          "odds": 34,
+          "originalCount": 11952,
+          "remaining": 11952
+        },
+        {
+          "amount": 30,
+          "odds": 30,
+          "originalCount": 13388,
+          "remaining": 13388
+        },
+        {
+          "amount": 25,
+          "odds": 18,
+          "originalCount": 22248,
+          "remaining": 22248
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 66744,
+          "remaining": 66744
+        }
+      ],
+      "computed": {
+        "originalTickets": 407840,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 407840,
+        "remainingPrizeValue": 5786095,
+        "evPerTicket": 14.1872,
+        "roi": 0.7094,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "id",
+      "gameId": "1925",
+      "name": "Money Hungry",
+      "price": 10,
+      "url": "https://www.idaholottery.com/games/scratch/money-hungry",
+      "tiers": [
+        {
+          "amount": 100000,
+          "odds": 186945,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 5000,
+          "odds": 62315,
+          "originalCount": 6,
+          "remaining": 6
+        },
+        {
+          "amount": 1000,
+          "odds": 37389,
+          "originalCount": 10,
+          "remaining": 10
+        },
+        {
+          "amount": 500,
+          "odds": 2991,
+          "originalCount": 125,
+          "remaining": 125
+        },
+        {
+          "amount": 200,
+          "odds": 664,
+          "originalCount": 563,
+          "remaining": 563
+        },
+        {
+          "amount": 100,
+          "odds": 46,
+          "originalCount": 8155,
+          "remaining": 8155
+        },
+        {
+          "amount": 50,
+          "odds": 96,
+          "originalCount": 3906,
+          "remaining": 3906
+        },
+        {
+          "amount": 25,
+          "odds": 26,
+          "originalCount": 13596,
+          "remaining": 13596
+        },
+        {
+          "amount": 15,
+          "odds": 18,
+          "originalCount": 20394,
+          "remaining": 20394
+        },
+        {
+          "amount": 10,
+          "odds": 6,
+          "originalCount": 57783,
+          "remaining": 57783
+        }
+      ],
+      "computed": {
+        "originalTickets": 373883,
+        "fractionRemaining": 1,
+        "ticketsRemaining": 373883,
+        "remainingPrizeValue": 2649540,
+        "evPerTicket": 7.0865,
+        "roi": 0.7087,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 100000
       }
     },
     {
