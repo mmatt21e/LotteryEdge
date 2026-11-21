@@ -17,6 +17,8 @@ jobs:
           cache-dependency-path: |
             package-lock.json
             web/package-lock.json
+      - name: Guard against captured API keys
+        run: npm run test:secrets && npm run check:secrets
       - run: npm ci
       - name: EV math + parser fixture tests
         run: npm test
