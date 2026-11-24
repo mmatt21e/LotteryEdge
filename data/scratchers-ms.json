@@ -1,9 +1,29 @@
 {
-  "generatedAt": "2026-11-23T11:07:45.393Z",
-  "resultsAsOf": "2026-11-22",
+  "generatedAt": "2026-11-24T11:08:24.612Z",
+  "resultsAsOf": "2026-11-23",
   "dateBasis": "assumed-previous-day",
   "timeZone": "America/Chicago",
   "excluded": [
+    {
+      "gameId": "275",
+      "name": "Massive Money Blowout",
+      "reason": "Invalid prize counts; Unclaimed count exceeds original count; reprint/source correction needs review"
+    },
+    {
+      "gameId": "274",
+      "name": "Bonus Ball Bingo",
+      "reason": "Invalid prize counts; Unclaimed count exceeds original count; reprint/source correction needs review"
+    },
+    {
+      "gameId": "273",
+      "name": "Neon 9s",
+      "reason": "Invalid prize counts; Unclaimed count exceeds original count; reprint/source correction needs review"
+    },
+    {
+      "gameId": "276",
+      "name": "2027",
+      "reason": "Invalid prize counts; Unclaimed count exceeds original count; reprint/source correction needs review"
+    },
     {
       "gameId": "271",
       "name": "$200,000 Payout Party",
@@ -361,15 +381,15 @@
     }
   ],
   "coverage": {
-    "sourceRecordCount": 71,
+    "sourceRecordCount": 75,
     "validatedCount": 0,
-    "excludedCount": 71,
+    "excludedCount": 75,
     "validation": "all-excluded"
   },
   "observation": {
-    "contentHash": "28da743fea011a2153ffddf60fad9deb4cb07e5e1e8d8001072fad2f155e7f7b",
-    "unchangedRuns": 24,
-    "contentObservedSince": "2026-10-30T11:08:25.423Z"
+    "contentHash": "6e7de8ddcf68c368b406e0fa71408cd422667aad008ce656eb96c06f3d1d54a5",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-24T11:08:24.612Z"
   },
   "validationVersion": "2026-10-05.1",
   "state": "ms",
