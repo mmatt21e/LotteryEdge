@@ -1,0 +1,6478 @@
+{
+  "generatedAt": "2026-11-27T11:10:33.485Z",
+  "resultsAsOf": "2026-11-26",
+  "dateBasis": "assumed-previous-day",
+  "timeZone": "America/New_York",
+  "excluded": [
+    {
+      "gameId": "1627",
+      "name": "500X THE CASH",
+      "reason": "Conflicting ticket-count anchors require source review"
+    },
+    {
+      "gameId": "1602",
+      "name": "$10,000 A WEEK FOR LIFE",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1601",
+      "name": "$5,000 A WEEK FOR LIFE",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1599",
+      "name": "$1,000 A WEEK FOR LIFE",
+      "reason": "Duplicate prize tiers need reconciliation"
+    },
+    {
+      "gameId": "1590",
+      "name": "$25MM GOLD RUSH MULTIPLIER",
+      "reason": "Conflicting ticket-count anchors require source review"
+    }
+  ],
+  "coverage": {
+    "sourceRecordCount": 75,
+    "validatedCount": 70,
+    "excludedCount": 5,
+    "validation": "partial"
+  },
+  "observation": {
+    "contentHash": "6638d5d471cd395e2dc084eae9950c86d5de3c5d06fd2e81f8b887e2685d840f",
+    "unchangedRuns": 0,
+    "contentObservedSince": "2026-11-27T11:10:33.485Z"
+  },
+  "validationVersion": "2026-10-05.1",
+  "state": "fl",
+  "source": "https://apim-website-prod-eastus.azure-api.net/scratchgamesapp/getscratchinfo",
+  "gameCount": 70,
+  "games": [
+    {
+      "state": "fl",
+      "gameId": "5048",
+      "name": "FLORIDA 300X THE CASH",
+      "price": 30,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5048",
+      "tiers": [
+        {
+          "amount": 15000000,
+          "odds": 11701050,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 1000000,
+          "odds": 1950175,
+          "originalCount": 24,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 468042,
+          "originalCount": 100,
+          "remaining": 4
+        },
+        {
+          "amount": 20000,
+          "odds": 354577,
+          "originalCount": 132,
+          "remaining": 13
+        },
+        {
+          "amount": 10000,
+          "odds": 156014,
+          "originalCount": 300,
+          "remaining": 20
+        },
+        {
+          "amount": 5000,
+          "odds": 12069,
+          "originalCount": 3878,
+          "remaining": 213
+        },
+        {
+          "amount": 1000,
+          "odds": 500,
+          "originalCount": 93670,
+          "remaining": 5261
+        },
+        {
+          "amount": 500,
+          "odds": 240,
+          "originalCount": 195140,
+          "remaining": 11086
+        },
+        {
+          "amount": 200,
+          "odds": 120,
+          "originalCount": 389787,
+          "remaining": 23130
+        },
+        {
+          "amount": 100,
+          "odds": 30,
+          "originalCount": 1560140,
+          "remaining": 90616
+        },
+        {
+          "amount": 50,
+          "odds": 6,
+          "originalCount": 7488631,
+          "remaining": 410169
+        },
+        {
+          "amount": 30,
+          "odds": 8,
+          "originalCount": 6240221,
+          "remaining": 376963
+        }
+      ],
+      "overallOdds": 2.93,
+      "computed": {
+        "originalTickets": 46804200,
+        "fractionRemaining": 0.0574,
+        "ticketsRemaining": 2688564,
+        "remainingPrizeValue": 75233940,
+        "evPerTicket": 27.9829,
+        "roi": 0.9328,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1555",
+      "name": "500X THE CASH",
+      "price": 50,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1555",
+      "tiers": [
+        {
+          "amount": 25000000,
+          "odds": 21920355,
+          "originalCount": 2,
+          "remaining": 1
+        },
+        {
+          "amount": 1000000,
+          "odds": 274004,
+          "originalCount": 160,
+          "remaining": 27
+        },
+        {
+          "amount": 50000,
+          "odds": 117851,
+          "originalCount": 372,
+          "remaining": 49
+        },
+        {
+          "amount": 20000,
+          "odds": 20166,
+          "originalCount": 2174,
+          "remaining": 303
+        },
+        {
+          "amount": 10000,
+          "odds": 20101,
+          "originalCount": 2181,
+          "remaining": 304
+        },
+        {
+          "amount": 5000,
+          "odds": 6008,
+          "originalCount": 7297,
+          "remaining": 1019
+        },
+        {
+          "amount": 1000,
+          "odds": 1001,
+          "originalCount": 43813,
+          "remaining": 6324
+        },
+        {
+          "amount": 500,
+          "odds": 46,
+          "originalCount": 950241,
+          "remaining": 129230
+        },
+        {
+          "amount": 100,
+          "odds": 5,
+          "originalCount": 9351500,
+          "remaining": 1275208
+        }
+      ],
+      "overallOdds": 4.23,
+      "computed": {
+        "originalTickets": 43840606,
+        "fractionRemaining": 0.1364,
+        "ticketsRemaining": 5978459,
+        "remainingPrizeValue": 267104800,
+        "evPerTicket": 44.6779,
+        "roi": 0.8936,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 25000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1647",
+      "name": "$15,000,000 PLATINUM PAYOUT",
+      "price": 30,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1647",
+      "tiers": [
+        {
+          "amount": 15000000,
+          "odds": 7953060,
+          "originalCount": 2,
+          "remaining": 2
+        },
+        {
+          "amount": 1000000,
+          "odds": 3976530,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 100000,
+          "odds": 1988265,
+          "originalCount": 8,
+          "remaining": 6
+        },
+        {
+          "amount": 20000,
+          "odds": 397653,
+          "originalCount": 40,
+          "remaining": 34
+        },
+        {
+          "amount": 10000,
+          "odds": 40577,
+          "originalCount": 392,
+          "remaining": 327
+        },
+        {
+          "amount": 5000,
+          "odds": 29565,
+          "originalCount": 538,
+          "remaining": 450
+        },
+        {
+          "amount": 1000,
+          "odds": 1200,
+          "originalCount": 13252,
+          "remaining": 11107
+        },
+        {
+          "amount": 500,
+          "odds": 120,
+          "originalCount": 132528,
+          "remaining": 107114
+        },
+        {
+          "amount": 200,
+          "odds": 120,
+          "originalCount": 132580,
+          "remaining": 107065
+        },
+        {
+          "amount": 100,
+          "odds": 30,
+          "originalCount": 530123,
+          "remaining": 428433
+        },
+        {
+          "amount": 50,
+          "odds": 15,
+          "originalCount": 1060408,
+          "remaining": 856134
+        },
+        {
+          "amount": 40,
+          "odds": 10,
+          "originalCount": 1590578,
+          "remaining": 1284227
+        },
+        {
+          "amount": 30,
+          "odds": 8,
+          "originalCount": 2120867,
+          "remaining": 1713738
+        }
+      ],
+      "overallOdds": 2.85,
+      "computed": {
+        "originalTickets": 15906120,
+        "fractionRemaining": 0.8078,
+        "ticketsRemaining": 12849105,
+        "remainingPrizeValue": 314308220,
+        "evPerTicket": 24.4615,
+        "roi": 0.8154,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1554",
+      "name": "100X THE CASH",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1554",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 3313314,
+          "originalCount": 10,
+          "remaining": 1
+        },
+        {
+          "amount": 100000,
+          "odds": 1104438,
+          "originalCount": 30,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 59485,
+          "originalCount": 557,
+          "remaining": 39
+        },
+        {
+          "amount": 5000,
+          "odds": 39491,
+          "originalCount": 839,
+          "remaining": 39
+        },
+        {
+          "amount": 1000,
+          "odds": 2778,
+          "originalCount": 11926,
+          "remaining": 480
+        },
+        {
+          "amount": 500,
+          "odds": 3075,
+          "originalCount": 10774,
+          "remaining": 344
+        },
+        {
+          "amount": 250,
+          "odds": 3422,
+          "originalCount": 9681,
+          "remaining": 335
+        },
+        {
+          "amount": 150,
+          "odds": 1991,
+          "originalCount": 16641,
+          "remaining": 549
+        },
+        {
+          "amount": 100,
+          "odds": 71,
+          "originalCount": 465662,
+          "remaining": 16429
+        },
+        {
+          "amount": 50,
+          "odds": 160,
+          "originalCount": 207202,
+          "remaining": 7707
+        },
+        {
+          "amount": 40,
+          "odds": 171,
+          "originalCount": 193444,
+          "remaining": 7059
+        },
+        {
+          "amount": 30,
+          "odds": 78,
+          "originalCount": 422524,
+          "remaining": 16138
+        },
+        {
+          "amount": 25,
+          "odds": 80,
+          "originalCount": 413997,
+          "remaining": 16166
+        },
+        {
+          "amount": 20,
+          "odds": 15,
+          "originalCount": 2208876,
+          "remaining": 92445
+        },
+        {
+          "amount": 15,
+          "odds": 12,
+          "originalCount": 2760994,
+          "remaining": 115145
+        },
+        {
+          "amount": 10,
+          "odds": 12,
+          "originalCount": 2761046,
+          "remaining": 144037
+        }
+      ],
+      "overallOdds": 3.49,
+      "computed": {
+        "originalTickets": 33131928,
+        "fractionRemaining": 0.044,
+        "ticketsRemaining": 1456439,
+        "remainingPrizeValue": 11718445,
+        "evPerTicket": 8.046,
+        "roi": 0.8046,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1634",
+      "name": "MEGA 7’s",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1634",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 4477455,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 2238728,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 25000,
+          "odds": 373121,
+          "originalCount": 48,
+          "remaining": 21
+        },
+        {
+          "amount": 10000,
+          "odds": 255855,
+          "originalCount": 70,
+          "remaining": 33
+        },
+        {
+          "amount": 1000,
+          "odds": 13326,
+          "originalCount": 1344,
+          "remaining": 628
+        },
+        {
+          "amount": 500,
+          "odds": 200,
+          "originalCount": 89576,
+          "remaining": 38514
+        },
+        {
+          "amount": 200,
+          "odds": 120,
+          "originalCount": 149221,
+          "remaining": 63984
+        },
+        {
+          "amount": 100,
+          "odds": 30,
+          "originalCount": 596994,
+          "remaining": 257331
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 596994,
+          "remaining": 257988
+        },
+        {
+          "amount": 30,
+          "odds": 14,
+          "originalCount": 1313364,
+          "remaining": 565494
+        },
+        {
+          "amount": 20,
+          "odds": 7,
+          "originalCount": 2626864,
+          "remaining": 1133704
+        }
+      ],
+      "overallOdds": 3.33,
+      "computed": {
+        "originalTickets": 17909822,
+        "fractionRemaining": 0.4312,
+        "ticketsRemaining": 7723462,
+        "remainingPrizeValue": 122208200,
+        "evPerTicket": 15.823,
+        "roi": 0.7911,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1646",
+      "name": "$2,000,000 SPECTACULAR",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1646",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 2233700,
+          "originalCount": 6,
+          "remaining": 4
+        },
+        {
+          "amount": 20000,
+          "odds": 418819,
+          "originalCount": 32,
+          "remaining": 22
+        },
+        {
+          "amount": 5000,
+          "odds": 134022,
+          "originalCount": 100,
+          "remaining": 64
+        },
+        {
+          "amount": 1000,
+          "odds": 10994,
+          "originalCount": 1219,
+          "remaining": 813
+        },
+        {
+          "amount": 500,
+          "odds": 1263,
+          "originalCount": 10610,
+          "remaining": 6591
+        },
+        {
+          "amount": 200,
+          "odds": 481,
+          "originalCount": 27843,
+          "remaining": 17250
+        },
+        {
+          "amount": 100,
+          "odds": 126,
+          "originalCount": 106058,
+          "remaining": 65759
+        },
+        {
+          "amount": 50,
+          "odds": 133,
+          "originalCount": 100491,
+          "remaining": 62446
+        },
+        {
+          "amount": 40,
+          "odds": 71,
+          "originalCount": 189621,
+          "remaining": 117904
+        },
+        {
+          "amount": 30,
+          "odds": 75,
+          "originalCount": 178855,
+          "remaining": 111359
+        },
+        {
+          "amount": 25,
+          "odds": 60,
+          "originalCount": 223358,
+          "remaining": 139093
+        },
+        {
+          "amount": 20,
+          "odds": 15,
+          "originalCount": 893664,
+          "remaining": 557747
+        },
+        {
+          "amount": 15,
+          "odds": 12,
+          "originalCount": 1116666,
+          "remaining": 698447
+        },
+        {
+          "amount": 10,
+          "odds": 12,
+          "originalCount": 1116763,
+          "remaining": 701800
+        }
+      ],
+      "overallOdds": 3.38,
+      "computed": {
+        "originalTickets": 13401686,
+        "fractionRemaining": 0.6253,
+        "ticketsRemaining": 8379417,
+        "remainingPrizeValue": 66200600,
+        "evPerTicket": 7.9004,
+        "roi": 0.79,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1642",
+      "name": "$500,000 CASH BLITZ",
+      "price": 50,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1642",
+      "tiers": [
+        {
+          "amount": 500000,
+          "odds": 321584,
+          "originalCount": 60,
+          "remaining": 51
+        },
+        {
+          "amount": 5000,
+          "odds": 2983,
+          "originalCount": 6468,
+          "remaining": 5281
+        },
+        {
+          "amount": 1000,
+          "odds": 600,
+          "originalCount": 32171,
+          "remaining": 26467
+        },
+        {
+          "amount": 500,
+          "odds": 60,
+          "originalCount": 321311,
+          "remaining": 256806
+        },
+        {
+          "amount": 200,
+          "odds": 30,
+          "originalCount": 643137,
+          "remaining": 514105
+        },
+        {
+          "amount": 100,
+          "odds": 5,
+          "originalCount": 3730283,
+          "remaining": 2979679
+        }
+      ],
+      "overallOdds": 4.08,
+      "computed": {
+        "originalTickets": 19294110,
+        "fractionRemaining": 0.7991,
+        "ticketsRemaining": 15417536,
+        "remainingPrizeValue": 607563900,
+        "evPerTicket": 39.4073,
+        "roi": 0.7881,
+        "topPrizesRemaining": 51,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1604",
+      "name": "$500,000 CASH BLOWOUT!",
+      "price": 50,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1604",
+      "tiers": [
+        {
+          "amount": 500000,
+          "odds": 264853,
+          "originalCount": 100,
+          "remaining": 40
+        },
+        {
+          "amount": 5000,
+          "odds": 3751,
+          "originalCount": 7061,
+          "remaining": 2819
+        },
+        {
+          "amount": 1000,
+          "odds": 600,
+          "originalCount": 44143,
+          "remaining": 18047
+        },
+        {
+          "amount": 500,
+          "odds": 60,
+          "originalCount": 441817,
+          "remaining": 172849
+        },
+        {
+          "amount": 200,
+          "odds": 30,
+          "originalCount": 882698,
+          "remaining": 344933
+        },
+        {
+          "amount": 100,
+          "odds": 5,
+          "originalCount": 5120278,
+          "remaining": 2001557
+        }
+      ],
+      "overallOdds": 4.08,
+      "computed": {
+        "originalTickets": 26485800,
+        "fractionRemaining": 0.391,
+        "ticketsRemaining": 10357053,
+        "remainingPrizeValue": 407708800,
+        "evPerTicket": 39.3653,
+        "roi": 0.7873,
+        "topPrizesRemaining": 40,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1553",
+      "name": "50X THE CASH",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1553",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 3023910,
+          "originalCount": 14,
+          "remaining": 4
+        },
+        {
+          "amount": 10000,
+          "odds": 119928,
+          "originalCount": 353,
+          "remaining": 32
+        },
+        {
+          "amount": 2000,
+          "odds": 23918,
+          "originalCount": 1770,
+          "remaining": 126
+        },
+        {
+          "amount": 1000,
+          "odds": 10956,
+          "originalCount": 3864,
+          "remaining": 280
+        },
+        {
+          "amount": 400,
+          "odds": 4783,
+          "originalCount": 8852,
+          "remaining": 625
+        },
+        {
+          "amount": 150,
+          "odds": 2999,
+          "originalCount": 14115,
+          "remaining": 971
+        },
+        {
+          "amount": 100,
+          "odds": 235,
+          "originalCount": 179966,
+          "remaining": 12934
+        },
+        {
+          "amount": 50,
+          "odds": 240,
+          "originalCount": 176483,
+          "remaining": 12589
+        },
+        {
+          "amount": 40,
+          "odds": 209,
+          "originalCount": 203036,
+          "remaining": 14277
+        },
+        {
+          "amount": 25,
+          "odds": 119,
+          "originalCount": 356227,
+          "remaining": 26080
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 705579,
+          "remaining": 52173
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 4092265,
+          "remaining": 341740
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 4939160,
+          "remaining": 534712
+        }
+      ],
+      "overallOdds": 3.96,
+      "computed": {
+        "originalTickets": 42334740,
+        "fractionRemaining": 0.0933,
+        "ticketsRemaining": 3949601,
+        "remainingPrizeValue": 15528000,
+        "evPerTicket": 3.9315,
+        "roi": 0.7863,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1594",
+      "name": "$5,000,000 CA$H MONEY",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1594",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 5605508,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 100000,
+          "odds": 2242203,
+          "originalCount": 10,
+          "remaining": 2
+        },
+        {
+          "amount": 25000,
+          "odds": 373701,
+          "originalCount": 60,
+          "remaining": 12
+        },
+        {
+          "amount": 10000,
+          "odds": 249134,
+          "originalCount": 90,
+          "remaining": 20
+        },
+        {
+          "amount": 1000,
+          "odds": 30465,
+          "originalCount": 736,
+          "remaining": 162
+        },
+        {
+          "amount": 500,
+          "odds": 200,
+          "originalCount": 112232,
+          "remaining": 24160
+        },
+        {
+          "amount": 200,
+          "odds": 197,
+          "originalCount": 113959,
+          "remaining": 24605
+        },
+        {
+          "amount": 100,
+          "odds": 40,
+          "originalCount": 555797,
+          "remaining": 120770
+        },
+        {
+          "amount": 50,
+          "odds": 19,
+          "originalCount": 1195900,
+          "remaining": 259691
+        },
+        {
+          "amount": 30,
+          "odds": 14,
+          "originalCount": 1644343,
+          "remaining": 356549
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 4035867,
+          "remaining": 881578
+        }
+      ],
+      "overallOdds": 2.93,
+      "computed": {
+        "originalTickets": 22431552,
+        "fractionRemaining": 0.2177,
+        "ticketsRemaining": 4883894,
+        "remainingPrizeValue": 76252580,
+        "evPerTicket": 15.6131,
+        "roi": 0.7807,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1623",
+      "name": "200X THE CASH",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1623",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 5276993,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 100000,
+          "odds": 2110797,
+          "originalCount": 20,
+          "remaining": 11
+        },
+        {
+          "amount": 20000,
+          "odds": 527699,
+          "originalCount": 80,
+          "remaining": 42
+        },
+        {
+          "amount": 10000,
+          "odds": 59627,
+          "originalCount": 706,
+          "remaining": 375
+        },
+        {
+          "amount": 5000,
+          "odds": 30328,
+          "originalCount": 1393,
+          "remaining": 727
+        },
+        {
+          "amount": 1000,
+          "odds": 7986,
+          "originalCount": 5321,
+          "remaining": 2821
+        },
+        {
+          "amount": 500,
+          "odds": 300,
+          "originalCount": 141374,
+          "remaining": 73093
+        },
+        {
+          "amount": 300,
+          "odds": 240,
+          "originalCount": 176691,
+          "remaining": 91616
+        },
+        {
+          "amount": 200,
+          "odds": 120,
+          "originalCount": 352943,
+          "remaining": 182253
+        },
+        {
+          "amount": 100,
+          "odds": 120,
+          "originalCount": 353222,
+          "remaining": 183441
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 1412523,
+          "remaining": 730780
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 1413019,
+          "remaining": 731370
+        },
+        {
+          "amount": 30,
+          "odds": 13,
+          "originalCount": 3390259,
+          "remaining": 1751592
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 7061220,
+          "remaining": 3665948
+        }
+      ],
+      "overallOdds": 2.96,
+      "computed": {
+        "originalTickets": 42367320,
+        "fractionRemaining": 0.5181,
+        "ticketsRemaining": 21952565,
+        "remainingPrizeValue": 342632520,
+        "evPerTicket": 15.6079,
+        "roi": 0.7804,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1640",
+      "name": "MEGA BUCKS",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1640",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 3808590,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 1904295,
+          "originalCount": 8,
+          "remaining": 5
+        },
+        {
+          "amount": 20000,
+          "odds": 380859,
+          "originalCount": 40,
+          "remaining": 25
+        },
+        {
+          "amount": 10000,
+          "odds": 58594,
+          "originalCount": 260,
+          "remaining": 151
+        },
+        {
+          "amount": 5000,
+          "odds": 24067,
+          "originalCount": 633,
+          "remaining": 361
+        },
+        {
+          "amount": 1000,
+          "odds": 6014,
+          "originalCount": 2533,
+          "remaining": 1504
+        },
+        {
+          "amount": 500,
+          "odds": 375,
+          "originalCount": 40615,
+          "remaining": 22964
+        },
+        {
+          "amount": 300,
+          "odds": 240,
+          "originalCount": 63430,
+          "remaining": 35891
+        },
+        {
+          "amount": 200,
+          "odds": 150,
+          "originalCount": 101562,
+          "remaining": 57386
+        },
+        {
+          "amount": 100,
+          "odds": 120,
+          "originalCount": 127015,
+          "remaining": 71777
+        },
+        {
+          "amount": 50,
+          "odds": 21,
+          "originalCount": 710926,
+          "remaining": 403166
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 507946,
+          "remaining": 288016
+        },
+        {
+          "amount": 30,
+          "odds": 15,
+          "originalCount": 1015538,
+          "remaining": 575379
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 2539036,
+          "remaining": 1444119
+        }
+      ],
+      "overallOdds": 2.98,
+      "computed": {
+        "originalTickets": 15234300,
+        "fractionRemaining": 0.5677,
+        "ticketsRemaining": 8648681,
+        "remainingPrizeValue": 134545890,
+        "evPerTicket": 15.5568,
+        "roi": 0.7778,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1652",
+      "name": "HOLIDAY BONUS 200X",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1652",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 2010000,
+          "originalCount": 3,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 753750,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 20000,
+          "odds": 201000,
+          "originalCount": 30,
+          "remaining": 17
+        },
+        {
+          "amount": 10000,
+          "odds": 60300,
+          "originalCount": 100,
+          "remaining": 65
+        },
+        {
+          "amount": 5000,
+          "odds": 40200,
+          "originalCount": 150,
+          "remaining": 94
+        },
+        {
+          "amount": 1000,
+          "odds": 4910,
+          "originalCount": 1228,
+          "remaining": 800
+        },
+        {
+          "amount": 500,
+          "odds": 299,
+          "originalCount": 20144,
+          "remaining": 10916
+        },
+        {
+          "amount": 300,
+          "odds": 240,
+          "originalCount": 25108,
+          "remaining": 13522
+        },
+        {
+          "amount": 200,
+          "odds": 120,
+          "originalCount": 50163,
+          "remaining": 27101
+        },
+        {
+          "amount": 100,
+          "odds": 120,
+          "originalCount": 50391,
+          "remaining": 27190
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 201000,
+          "remaining": 108757
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 201095,
+          "remaining": 108784
+        },
+        {
+          "amount": 30,
+          "odds": 13,
+          "originalCount": 482075,
+          "remaining": 261781
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 1005321,
+          "remaining": 546768
+        }
+      ],
+      "overallOdds": 2.96,
+      "computed": {
+        "originalTickets": 6030000,
+        "fractionRemaining": 0.5429,
+        "ticketsRemaining": 3273727,
+        "remainingPrizeValue": 50891800,
+        "evPerTicket": 15.5455,
+        "roi": 0.7773,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1630",
+      "name": "$2,000,000 FORTUNE",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1630",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 4070400,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 118844,
+          "originalCount": 137,
+          "remaining": 30
+        },
+        {
+          "amount": 5000,
+          "odds": 30095,
+          "originalCount": 541,
+          "remaining": 123
+        },
+        {
+          "amount": 1000,
+          "odds": 4602,
+          "originalCount": 3538,
+          "remaining": 761
+        },
+        {
+          "amount": 500,
+          "odds": 1200,
+          "originalCount": 13565,
+          "remaining": 2674
+        },
+        {
+          "amount": 200,
+          "odds": 1202,
+          "originalCount": 13547,
+          "remaining": 2627
+        },
+        {
+          "amount": 100,
+          "odds": 57,
+          "originalCount": 287493,
+          "remaining": 56951
+        },
+        {
+          "amount": 50,
+          "odds": 231,
+          "originalCount": 70536,
+          "remaining": 14219
+        },
+        {
+          "amount": 30,
+          "odds": 60,
+          "originalCount": 271334,
+          "remaining": 54239
+        },
+        {
+          "amount": 25,
+          "odds": 60,
+          "originalCount": 271352,
+          "remaining": 54537
+        },
+        {
+          "amount": 20,
+          "odds": 15,
+          "originalCount": 1085437,
+          "remaining": 220228
+        },
+        {
+          "amount": 15,
+          "odds": 20,
+          "originalCount": 814080,
+          "remaining": 168020
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 1899514,
+          "remaining": 398525
+        }
+      ],
+      "overallOdds": 3.44,
+      "computed": {
+        "originalTickets": 16281600,
+        "fractionRemaining": 0.2056,
+        "ticketsRemaining": 3348273,
+        "remainingPrizeValue": 25845155,
+        "evPerTicket": 7.719,
+        "roi": 0.7719,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1639",
+      "name": "JUMBO BUCKS",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1639",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 5462190,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 100000,
+          "odds": 2731095,
+          "originalCount": 8,
+          "remaining": 5
+        },
+        {
+          "amount": 10000,
+          "odds": 303455,
+          "originalCount": 72,
+          "remaining": 45
+        },
+        {
+          "amount": 5000,
+          "odds": 39226,
+          "originalCount": 557,
+          "remaining": 352
+        },
+        {
+          "amount": 1000,
+          "odds": 6645,
+          "originalCount": 3288,
+          "remaining": 2101
+        },
+        {
+          "amount": 500,
+          "odds": 500,
+          "originalCount": 43717,
+          "remaining": 27004
+        },
+        {
+          "amount": 250,
+          "odds": 480,
+          "originalCount": 45511,
+          "remaining": 28155
+        },
+        {
+          "amount": 100,
+          "odds": 150,
+          "originalCount": 145710,
+          "remaining": 90251
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 182258,
+          "remaining": 113236
+        },
+        {
+          "amount": 25,
+          "odds": 12,
+          "originalCount": 1820730,
+          "remaining": 1134868
+        },
+        {
+          "amount": 15,
+          "odds": 12,
+          "originalCount": 1820991,
+          "remaining": 1135327
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 2184498,
+          "remaining": 1364946
+        }
+      ],
+      "overallOdds": 3.5,
+      "computed": {
+        "originalTickets": 21848760,
+        "fractionRemaining": 0.6237,
+        "ticketsRemaining": 13626458,
+        "remainingPrizeValue": 105089715,
+        "evPerTicket": 7.7122,
+        "roi": 0.7712,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1613",
+      "name": "$1,000,000 HOLIDAY CA$H",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1613",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 2130188,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 100000,
+          "odds": 532547,
+          "originalCount": 16,
+          "remaining": 5
+        },
+        {
+          "amount": 20000,
+          "odds": 236688,
+          "originalCount": 36,
+          "remaining": 8
+        },
+        {
+          "amount": 10000,
+          "odds": 152156,
+          "originalCount": 56,
+          "remaining": 11
+        },
+        {
+          "amount": 5000,
+          "odds": 60863,
+          "originalCount": 140,
+          "remaining": 33
+        },
+        {
+          "amount": 1000,
+          "odds": 15108,
+          "originalCount": 564,
+          "remaining": 121
+        },
+        {
+          "amount": 500,
+          "odds": 315,
+          "originalCount": 27031,
+          "remaining": 5596
+        },
+        {
+          "amount": 200,
+          "odds": 300,
+          "originalCount": 28392,
+          "remaining": 5927
+        },
+        {
+          "amount": 100,
+          "odds": 30,
+          "originalCount": 284157,
+          "remaining": 58936
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 284087,
+          "remaining": 61061
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 283982,
+          "remaining": 61524
+        },
+        {
+          "amount": 30,
+          "odds": 30,
+          "originalCount": 283845,
+          "remaining": 61818
+        },
+        {
+          "amount": 25,
+          "odds": 30,
+          "originalCount": 284186,
+          "remaining": 61646
+        },
+        {
+          "amount": 20,
+          "odds": 5,
+          "originalCount": 1704131,
+          "remaining": 375234
+        }
+      ],
+      "overallOdds": 2.68,
+      "computed": {
+        "originalTickets": 8520752,
+        "fractionRemaining": 0.2175,
+        "ticketsRemaining": 1853624,
+        "remainingPrizeValue": 28347380,
+        "evPerTicket": 15.293,
+        "roi": 0.7646,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1622",
+      "name": "100X THE CASH",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1622",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 5931540,
+          "originalCount": 7,
+          "remaining": 3
+        },
+        {
+          "amount": 100000,
+          "odds": 1977180,
+          "originalCount": 21,
+          "remaining": 10
+        },
+        {
+          "amount": 10000,
+          "odds": 847363,
+          "originalCount": 49,
+          "remaining": 21
+        },
+        {
+          "amount": 5000,
+          "odds": 29769,
+          "originalCount": 1397,
+          "remaining": 615
+        },
+        {
+          "amount": 1000,
+          "odds": 2990,
+          "originalCount": 13906,
+          "remaining": 6246
+        },
+        {
+          "amount": 500,
+          "odds": 462,
+          "originalCount": 90153,
+          "remaining": 40042
+        },
+        {
+          "amount": 200,
+          "odds": 600,
+          "originalCount": 69416,
+          "remaining": 30988
+        },
+        {
+          "amount": 100,
+          "odds": 150,
+          "originalCount": 277752,
+          "remaining": 124814
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 347106,
+          "remaining": 158705
+        },
+        {
+          "amount": 40,
+          "odds": 120,
+          "originalCount": 346900,
+          "remaining": 153287
+        },
+        {
+          "amount": 20,
+          "odds": 12,
+          "originalCount": 3470703,
+          "remaining": 1550148
+        },
+        {
+          "amount": 15,
+          "odds": 12,
+          "originalCount": 3471065,
+          "remaining": 1554462
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 4164959,
+          "remaining": 1874465
+        }
+      ],
+      "overallOdds": 3.4,
+      "computed": {
+        "originalTickets": 41649013,
+        "fractionRemaining": 0.4483,
+        "ticketsRemaining": 18673263,
+        "remainingPrizeValue": 142362270,
+        "evPerTicket": 7.6239,
+        "roi": 0.7624,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "5063",
+      "name": "CA$H IN HAND",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5063",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 3578445,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 2044826,
+          "originalCount": 7,
+          "remaining": 6
+        },
+        {
+          "amount": 10000,
+          "odds": 408965,
+          "originalCount": 35,
+          "remaining": 24
+        },
+        {
+          "amount": 5000,
+          "odds": 140331,
+          "originalCount": 102,
+          "remaining": 60
+        },
+        {
+          "amount": 1000,
+          "odds": 3896,
+          "originalCount": 3674,
+          "remaining": 2383
+        },
+        {
+          "amount": 500,
+          "odds": 930,
+          "originalCount": 15392,
+          "remaining": 9519
+        },
+        {
+          "amount": 200,
+          "odds": 452,
+          "originalCount": 31653,
+          "remaining": 19202
+        },
+        {
+          "amount": 100,
+          "odds": 120,
+          "originalCount": 119379,
+          "remaining": 73383
+        },
+        {
+          "amount": 50,
+          "odds": 60,
+          "originalCount": 238567,
+          "remaining": 147535
+        },
+        {
+          "amount": 30,
+          "odds": 60,
+          "originalCount": 238567,
+          "remaining": 145930
+        },
+        {
+          "amount": 25,
+          "odds": 60,
+          "originalCount": 238567,
+          "remaining": 145978
+        },
+        {
+          "amount": 20,
+          "odds": 15,
+          "originalCount": 954268,
+          "remaining": 586250
+        },
+        {
+          "amount": 15,
+          "odds": 20,
+          "originalCount": 715701,
+          "remaining": 443304
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 1574557,
+          "remaining": 977142
+        }
+      ],
+      "overallOdds": 3.47,
+      "computed": {
+        "originalTickets": 14314020,
+        "fractionRemaining": 0.6175,
+        "ticketsRemaining": 8839430,
+        "remainingPrizeValue": 67011280,
+        "evPerTicket": 7.581,
+        "roi": 0.7581,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1651",
+      "name": "HOLIDAY BONUS 100X",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1651",
+      "tiers": [
+        {
+          "amount": 500000,
+          "odds": 2437050,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 50000,
+          "odds": 1624700,
+          "originalCount": 6,
+          "remaining": 5
+        },
+        {
+          "amount": 10000,
+          "odds": 348150,
+          "originalCount": 28,
+          "remaining": 19
+        },
+        {
+          "amount": 5000,
+          "odds": 30087,
+          "originalCount": 324,
+          "remaining": 223
+        },
+        {
+          "amount": 1000,
+          "odds": 2503,
+          "originalCount": 3895,
+          "remaining": 2816
+        },
+        {
+          "amount": 500,
+          "odds": 571,
+          "originalCount": 17079,
+          "remaining": 10824
+        },
+        {
+          "amount": 300,
+          "odds": 749,
+          "originalCount": 13012,
+          "remaining": 8206
+        },
+        {
+          "amount": 200,
+          "odds": 602,
+          "originalCount": 16193,
+          "remaining": 10287
+        },
+        {
+          "amount": 100,
+          "odds": 150,
+          "originalCount": 65073,
+          "remaining": 41484
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 81208,
+          "remaining": 52086
+        },
+        {
+          "amount": 40,
+          "odds": 120,
+          "originalCount": 81187,
+          "remaining": 51600
+        },
+        {
+          "amount": 20,
+          "odds": 14,
+          "originalCount": 682436,
+          "remaining": 436458
+        },
+        {
+          "amount": 15,
+          "odds": 12,
+          "originalCount": 812172,
+          "remaining": 523193
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 974864,
+          "remaining": 630605
+        }
+      ],
+      "overallOdds": 3.55,
+      "computed": {
+        "originalTickets": 9748200,
+        "fractionRemaining": 0.6434,
+        "ticketsRemaining": 6272275,
+        "remainingPrizeValue": 47502005,
+        "evPerTicket": 7.5733,
+        "roi": 0.7573,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1562",
+      "name": "GOLD RUSH LEGACY",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1562",
+      "tiers": [
+        {
+          "amount": 10000000,
+          "odds": 15042825,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 1000000,
+          "odds": 3008565,
+          "originalCount": 20,
+          "remaining": 3
+        },
+        {
+          "amount": 25000,
+          "odds": 376071,
+          "originalCount": 160,
+          "remaining": 14
+        },
+        {
+          "amount": 10000,
+          "odds": 401142,
+          "originalCount": 150,
+          "remaining": 8
+        },
+        {
+          "amount": 1000,
+          "odds": 20017,
+          "originalCount": 3006,
+          "remaining": 204
+        },
+        {
+          "amount": 500,
+          "odds": 198,
+          "originalCount": 303164,
+          "remaining": 18710
+        },
+        {
+          "amount": 200,
+          "odds": 160,
+          "originalCount": 375789,
+          "remaining": 25058
+        },
+        {
+          "amount": 100,
+          "odds": 40,
+          "originalCount": 1492002,
+          "remaining": 100684
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 2005710,
+          "remaining": 137770
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 2005432,
+          "remaining": 137358
+        },
+        {
+          "amount": 30,
+          "odds": 19,
+          "originalCount": 3208771,
+          "remaining": 226732
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 10832023,
+          "remaining": 746916
+        }
+      ],
+      "overallOdds": 2.97,
+      "computed": {
+        "originalTickets": 60171300,
+        "fractionRemaining": 0.0689,
+        "ticketsRemaining": 4145415,
+        "remainingPrizeValue": 62192100,
+        "evPerTicket": 15.0026,
+        "roi": 0.7501,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 10000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1607",
+      "name": "$50, $100 & $500 BLOWOUT",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1607",
+      "tiers": [
+        {
+          "amount": 500,
+          "odds": 958,
+          "originalCount": 33725,
+          "remaining": 2375
+        },
+        {
+          "amount": 100,
+          "odds": 36,
+          "originalCount": 909920,
+          "remaining": 62010
+        },
+        {
+          "amount": 50,
+          "odds": 12,
+          "originalCount": 2696214,
+          "remaining": 186047
+        }
+      ],
+      "overallOdds": 8.89,
+      "computed": {
+        "originalTickets": 32356457,
+        "fractionRemaining": 0.0688,
+        "ticketsRemaining": 2226210,
+        "remainingPrizeValue": 16690850,
+        "evPerTicket": 7.4974,
+        "roi": 0.7497,
+        "topPrizesRemaining": 2375,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1518",
+      "name": "THE PRICE IS RIGHT",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1518",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 2864910,
+          "originalCount": 8,
+          "remaining": 4
+        },
+        {
+          "amount": 50000,
+          "odds": 572982,
+          "originalCount": 40,
+          "remaining": 17
+        },
+        {
+          "amount": 10000,
+          "odds": 254659,
+          "originalCount": 90,
+          "remaining": 37
+        },
+        {
+          "amount": 5000,
+          "odds": 40637,
+          "originalCount": 564,
+          "remaining": 207
+        },
+        {
+          "amount": 1000,
+          "odds": 13240,
+          "originalCount": 1731,
+          "remaining": 674
+        },
+        {
+          "amount": 500,
+          "odds": 2493,
+          "originalCount": 9192,
+          "remaining": 3503
+        },
+        {
+          "amount": 200,
+          "odds": 2005,
+          "originalCount": 11432,
+          "remaining": 4353
+        },
+        {
+          "amount": 100,
+          "odds": 324,
+          "originalCount": 70719,
+          "remaining": 27031
+        },
+        {
+          "amount": 50,
+          "odds": 280,
+          "originalCount": 81712,
+          "remaining": 31323
+        },
+        {
+          "amount": 30,
+          "odds": 333,
+          "originalCount": 68725,
+          "remaining": 26362
+        },
+        {
+          "amount": 25,
+          "odds": 173,
+          "originalCount": 132462,
+          "remaining": 50693
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 382043,
+          "remaining": 147144
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 2673799,
+          "remaining": 1049510
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 2292135,
+          "remaining": 934344
+        }
+      ],
+      "overallOdds": 4,
+      "computed": {
+        "originalTickets": 22919268,
+        "fractionRemaining": 0.3974,
+        "ticketsRemaining": 9109019,
+        "remainingPrizeValue": 33988235,
+        "evPerTicket": 3.7313,
+        "roi": 0.7463,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1608",
+      "name": "$15MM DIAMOND SPECTACULAR",
+      "price": 30,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1608",
+      "tiers": [
+        {
+          "amount": 15000000,
+          "odds": 9731025,
+          "originalCount": 2,
+          "remaining": 0
+        },
+        {
+          "amount": 1000000,
+          "odds": 4865513,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 1621838,
+          "originalCount": 12,
+          "remaining": 4
+        },
+        {
+          "amount": 20000,
+          "odds": 324368,
+          "originalCount": 60,
+          "remaining": 18
+        },
+        {
+          "amount": 10000,
+          "odds": 60629,
+          "originalCount": 321,
+          "remaining": 106
+        },
+        {
+          "amount": 5000,
+          "odds": 20189,
+          "originalCount": 964,
+          "remaining": 317
+        },
+        {
+          "amount": 1000,
+          "odds": 1201,
+          "originalCount": 16205,
+          "remaining": 5378
+        },
+        {
+          "amount": 500,
+          "odds": 150,
+          "originalCount": 129706,
+          "remaining": 40801
+        },
+        {
+          "amount": 200,
+          "odds": 120,
+          "originalCount": 162087,
+          "remaining": 51005
+        },
+        {
+          "amount": 100,
+          "odds": 30,
+          "originalCount": 648935,
+          "remaining": 203946
+        },
+        {
+          "amount": 50,
+          "odds": 15,
+          "originalCount": 1297657,
+          "remaining": 409551
+        },
+        {
+          "amount": 40,
+          "odds": 10,
+          "originalCount": 1946205,
+          "remaining": 614506
+        },
+        {
+          "amount": 30,
+          "odds": 6,
+          "originalCount": 3243356,
+          "remaining": 1029206
+        }
+      ],
+      "overallOdds": 2.61,
+      "computed": {
+        "originalTickets": 19462051,
+        "fractionRemaining": 0.3163,
+        "ticketsRemaining": 6155386,
+        "remainingPrizeValue": 137713070,
+        "evPerTicket": 22.3728,
+        "roi": 0.7458,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 15000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1618",
+      "name": "DOUBLE DIAMOND CASHWORD",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1618",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 6070785,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 100000,
+          "odds": 1517696,
+          "originalCount": 16,
+          "remaining": 6
+        },
+        {
+          "amount": 10000,
+          "odds": 119035,
+          "originalCount": 204,
+          "remaining": 72
+        },
+        {
+          "amount": 1000,
+          "odds": 3340,
+          "originalCount": 7270,
+          "remaining": 2656
+        },
+        {
+          "amount": 500,
+          "odds": 930,
+          "originalCount": 26116,
+          "remaining": 9257
+        },
+        {
+          "amount": 200,
+          "odds": 480,
+          "originalCount": 50566,
+          "remaining": 17614
+        },
+        {
+          "amount": 100,
+          "odds": 120,
+          "originalCount": 202298,
+          "remaining": 70711
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 202417,
+          "remaining": 70843
+        },
+        {
+          "amount": 40,
+          "odds": 120,
+          "originalCount": 202522,
+          "remaining": 71269
+        },
+        {
+          "amount": 30,
+          "odds": 75,
+          "originalCount": 323694,
+          "remaining": 113953
+        },
+        {
+          "amount": 20,
+          "odds": 10,
+          "originalCount": 2428304,
+          "remaining": 876515
+        },
+        {
+          "amount": 10,
+          "odds": 6,
+          "originalCount": 4047198,
+          "remaining": 1489815
+        }
+      ],
+      "overallOdds": 3.24,
+      "computed": {
+        "originalTickets": 24283136,
+        "fractionRemaining": 0.3635,
+        "ticketsRemaining": 8826520,
+        "remainingPrizeValue": 65438350,
+        "evPerTicket": 7.4138,
+        "roi": 0.7414,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "5059",
+      "name": "THE CASH WHEEL",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5059",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 2963170,
+          "originalCount": 6,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "odds": 216817,
+          "originalCount": 82,
+          "remaining": 30
+        },
+        {
+          "amount": 5000,
+          "odds": 59263,
+          "originalCount": 300,
+          "remaining": 112
+        },
+        {
+          "amount": 1000,
+          "odds": 9260,
+          "originalCount": 1920,
+          "remaining": 606
+        },
+        {
+          "amount": 500,
+          "odds": 8081,
+          "originalCount": 2200,
+          "remaining": 665
+        },
+        {
+          "amount": 200,
+          "odds": 690,
+          "originalCount": 25752,
+          "remaining": 7818
+        },
+        {
+          "amount": 100,
+          "odds": 339,
+          "originalCount": 52380,
+          "remaining": 15990
+        },
+        {
+          "amount": 50,
+          "odds": 375,
+          "originalCount": 47376,
+          "remaining": 14447
+        },
+        {
+          "amount": 40,
+          "odds": 360,
+          "originalCount": 49390,
+          "remaining": 15155
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 59241,
+          "remaining": 18305
+        },
+        {
+          "amount": 20,
+          "odds": 50,
+          "originalCount": 355546,
+          "remaining": 110103
+        },
+        {
+          "amount": 15,
+          "odds": 50,
+          "originalCount": 355471,
+          "remaining": 111222
+        },
+        {
+          "amount": 10,
+          "odds": 17,
+          "originalCount": 1067207,
+          "remaining": 336954
+        },
+        {
+          "amount": 6,
+          "odds": 8,
+          "originalCount": 2370223,
+          "remaining": 760663
+        }
+      ],
+      "overallOdds": 4.05,
+      "computed": {
+        "originalTickets": 17778200,
+        "fractionRemaining": 0.3173,
+        "ticketsRemaining": 5641214,
+        "remainingPrizeValue": 20642708,
+        "evPerTicket": 3.6593,
+        "roi": 0.7319,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1645",
+      "name": "BLACK PEARLS",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1645",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 3501465,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "odds": 1750733,
+          "originalCount": 8,
+          "remaining": 5
+        },
+        {
+          "amount": 5000,
+          "odds": 700293,
+          "originalCount": 20,
+          "remaining": 11
+        },
+        {
+          "amount": 1000,
+          "odds": 23659,
+          "originalCount": 592,
+          "remaining": 363
+        },
+        {
+          "amount": 500,
+          "odds": 1207,
+          "originalCount": 11608,
+          "remaining": 6637
+        },
+        {
+          "amount": 100,
+          "odds": 601,
+          "originalCount": 23296,
+          "remaining": 13154
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 116621,
+          "remaining": 66571
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 46641,
+          "remaining": 26613
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 46740,
+          "remaining": 26699
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 233392,
+          "remaining": 133386
+        },
+        {
+          "amount": 15,
+          "odds": 50,
+          "originalCount": 280133,
+          "remaining": 160680
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1400618,
+          "remaining": 807722
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 1400619,
+          "remaining": 826169
+        }
+      ],
+      "overallOdds": 3.93,
+      "computed": {
+        "originalTickets": 14005862,
+        "fractionRemaining": 0.5809,
+        "ticketsRemaining": 8135369,
+        "remainingPrizeValue": 29182300,
+        "evPerTicket": 3.5871,
+        "roi": 0.7174,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1621",
+      "name": "50X THE CASH",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1621",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 5178080,
+          "originalCount": 12,
+          "remaining": 7
+        },
+        {
+          "amount": 10000,
+          "odds": 970890,
+          "originalCount": 64,
+          "remaining": 33
+        },
+        {
+          "amount": 2000,
+          "odds": 24065,
+          "originalCount": 2609,
+          "remaining": 1419
+        },
+        {
+          "amount": 1000,
+          "odds": 11854,
+          "originalCount": 5250,
+          "remaining": 2840
+        },
+        {
+          "amount": 500,
+          "odds": 3753,
+          "originalCount": 16666,
+          "remaining": 8854
+        },
+        {
+          "amount": 200,
+          "odds": 5992,
+          "originalCount": 10422,
+          "remaining": 5542
+        },
+        {
+          "amount": 100,
+          "odds": 200,
+          "originalCount": 313207,
+          "remaining": 167822
+        },
+        {
+          "amount": 50,
+          "odds": 200,
+          "originalCount": 313084,
+          "remaining": 169081
+        },
+        {
+          "amount": 40,
+          "odds": 200,
+          "originalCount": 313035,
+          "remaining": 166912
+        },
+        {
+          "amount": 25,
+          "odds": 96,
+          "originalCount": 652166,
+          "remaining": 356447
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 1043645,
+          "remaining": 563023
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 6470579,
+          "remaining": 3514385
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 7305248,
+          "remaining": 4090522
+        }
+      ],
+      "overallOdds": 3.81,
+      "computed": {
+        "originalTickets": 62612368,
+        "fractionRemaining": 0.5501,
+        "ticketsRemaining": 34442872,
+        "remainingPrizeValue": 123409110,
+        "evPerTicket": 3.583,
+        "roi": 0.7166,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "5055",
+      "name": "EMERALD MINE 9X",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5055",
+      "tiers": [
+        {
+          "amount": 500000,
+          "odds": 2263026,
+          "originalCount": 10,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 411459,
+          "originalCount": 55,
+          "remaining": 8
+        },
+        {
+          "amount": 2000,
+          "odds": 224062,
+          "originalCount": 101,
+          "remaining": 5
+        },
+        {
+          "amount": 1000,
+          "odds": 11930,
+          "originalCount": 1897,
+          "remaining": 139
+        },
+        {
+          "amount": 500,
+          "odds": 3021,
+          "originalCount": 7490,
+          "remaining": 428
+        },
+        {
+          "amount": 250,
+          "odds": 2006,
+          "originalCount": 11282,
+          "remaining": 664
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 94384,
+          "remaining": 5962
+        },
+        {
+          "amount": 50,
+          "odds": 238,
+          "originalCount": 95162,
+          "remaining": 7027
+        },
+        {
+          "amount": 40,
+          "odds": 238,
+          "originalCount": 95214,
+          "remaining": 5181
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 75376,
+          "remaining": 4141
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 377171,
+          "remaining": 30655
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 2640197,
+          "remaining": 160692
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 2263092,
+          "remaining": 164293
+        }
+      ],
+      "overallOdds": 4,
+      "computed": {
+        "originalTickets": 22631065,
+        "fractionRemaining": 0.067,
+        "ticketsRemaining": 1515802,
+        "remainingPrizeValue": 5429505,
+        "evPerTicket": 3.5819,
+        "roi": 0.7164,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1638",
+      "name": "GIANT BUCKS",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1638",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 7727775,
+          "originalCount": 4,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "odds": 1287963,
+          "originalCount": 24,
+          "remaining": 16
+        },
+        {
+          "amount": 2000,
+          "odds": 24206,
+          "originalCount": 1277,
+          "remaining": 817
+        },
+        {
+          "amount": 1000,
+          "odds": 15035,
+          "originalCount": 2056,
+          "remaining": 1323
+        },
+        {
+          "amount": 500,
+          "odds": 3080,
+          "originalCount": 10036,
+          "remaining": 6283
+        },
+        {
+          "amount": 250,
+          "odds": 4806,
+          "originalCount": 6432,
+          "remaining": 4068
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 128794,
+          "remaining": 81054
+        },
+        {
+          "amount": 50,
+          "odds": 240,
+          "originalCount": 128867,
+          "remaining": 81121
+        },
+        {
+          "amount": 40,
+          "odds": 240,
+          "originalCount": 128760,
+          "remaining": 80979
+        },
+        {
+          "amount": 25,
+          "odds": 60,
+          "originalCount": 515227,
+          "remaining": 327331
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 515185,
+          "remaining": 326790
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 3193868,
+          "remaining": 2031839
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 3606661,
+          "remaining": 2339909
+        }
+      ],
+      "overallOdds": 3.75,
+      "computed": {
+        "originalTickets": 30911106,
+        "fractionRemaining": 0.6412,
+        "ticketsRemaining": 19819624,
+        "remainingPrizeValue": 70779170,
+        "evPerTicket": 3.5712,
+        "roi": 0.7142,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1633",
+      "name": "$1,000,000 CASH STACKS",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1633",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 3547020,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 1773510,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 5000,
+          "odds": 506717,
+          "originalCount": 28,
+          "remaining": 3
+        },
+        {
+          "amount": 1000,
+          "odds": 23766,
+          "originalCount": 597,
+          "remaining": 134
+        },
+        {
+          "amount": 500,
+          "odds": 960,
+          "originalCount": 14779,
+          "remaining": 2809
+        },
+        {
+          "amount": 100,
+          "odds": 419,
+          "originalCount": 33831,
+          "remaining": 6355
+        },
+        {
+          "amount": 50,
+          "odds": 300,
+          "originalCount": 47341,
+          "remaining": 9025
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 47248,
+          "remaining": 9002
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 47315,
+          "remaining": 9191
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 236455,
+          "remaining": 46655
+        },
+        {
+          "amount": 15,
+          "odds": 43,
+          "originalCount": 331132,
+          "remaining": 65684
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1418684,
+          "remaining": 286636
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 1418808,
+          "remaining": 309324
+        }
+      ],
+      "overallOdds": 3.95,
+      "computed": {
+        "originalTickets": 14188080,
+        "fractionRemaining": 0.2071,
+        "ticketsRemaining": 2938516,
+        "remainingPrizeValue": 10491425,
+        "evPerTicket": 3.5703,
+        "roi": 0.7141,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1527",
+      "name": "$5 GOLD RUSH DOUBLER",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1527",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 2010516,
+          "originalCount": 28,
+          "remaining": 5
+        },
+        {
+          "amount": 10000,
+          "odds": 120287,
+          "originalCount": 468,
+          "remaining": 83
+        },
+        {
+          "amount": 2000,
+          "odds": 24037,
+          "originalCount": 2342,
+          "remaining": 397
+        },
+        {
+          "amount": 1000,
+          "odds": 14956,
+          "originalCount": 3764,
+          "remaining": 668
+        },
+        {
+          "amount": 400,
+          "odds": 3004,
+          "originalCount": 18742,
+          "remaining": 3113
+        },
+        {
+          "amount": 150,
+          "odds": 1239,
+          "originalCount": 45452,
+          "remaining": 7481
+        },
+        {
+          "amount": 100,
+          "odds": 348,
+          "originalCount": 161963,
+          "remaining": 26091
+        },
+        {
+          "amount": 50,
+          "odds": 705,
+          "originalCount": 79804,
+          "remaining": 13100
+        },
+        {
+          "amount": 40,
+          "odds": 160,
+          "originalCount": 352820,
+          "remaining": 60368
+        },
+        {
+          "amount": 25,
+          "odds": 160,
+          "originalCount": 352062,
+          "remaining": 54281
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 938241,
+          "remaining": 149169
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 5629446,
+          "remaining": 922351
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 6567817,
+          "remaining": 1232008
+        }
+      ],
+      "overallOdds": 3.98,
+      "computed": {
+        "originalTickets": 56297811,
+        "fractionRemaining": 0.1745,
+        "ticketsRemaining": 9821682,
+        "remainingPrizeValue": 35062125,
+        "evPerTicket": 3.5699,
+        "roi": 0.714,
+        "topPrizesRemaining": 5,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1635",
+      "name": "AMERICA 250 FLORIDA",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1635",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 4020000,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "odds": 502500,
+          "originalCount": 32,
+          "remaining": 17
+        },
+        {
+          "amount": 5000,
+          "odds": 60000,
+          "originalCount": 271,
+          "remaining": 142
+        },
+        {
+          "amount": 1000,
+          "odds": 30000,
+          "originalCount": 536,
+          "remaining": 292
+        },
+        {
+          "amount": 500,
+          "odds": 1500,
+          "originalCount": 10828,
+          "remaining": 5660
+        },
+        {
+          "amount": 250,
+          "odds": 1500,
+          "originalCount": 10807,
+          "remaining": 5611
+        },
+        {
+          "amount": 100,
+          "odds": 480,
+          "originalCount": 33754,
+          "remaining": 17553
+        },
+        {
+          "amount": 50,
+          "odds": 240,
+          "originalCount": 67402,
+          "remaining": 35195
+        },
+        {
+          "amount": 30,
+          "odds": 240,
+          "originalCount": 67430,
+          "remaining": 35348
+        },
+        {
+          "amount": 25,
+          "odds": 240,
+          "originalCount": 67374,
+          "remaining": 35302
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 269562,
+          "remaining": 141888
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 269562,
+          "remaining": 142116
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1617327,
+          "remaining": 855943
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 1617447,
+          "remaining": 874267
+        }
+      ],
+      "overallOdds": 4.01,
+      "computed": {
+        "originalTickets": 16173720,
+        "fractionRemaining": 0.533,
+        "ticketsRemaining": 8620998,
+        "remainingPrizeValue": 30763055,
+        "evPerTicket": 3.5684,
+        "roi": 0.7137,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1626",
+      "name": "BONUS BLOWOUT",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1626",
+      "tiers": [
+        {
+          "amount": 500,
+          "odds": 3002,
+          "originalCount": 6116,
+          "remaining": 471
+        },
+        {
+          "amount": 100,
+          "odds": 189,
+          "originalCount": 97116,
+          "remaining": 7363
+        },
+        {
+          "amount": 50,
+          "odds": 60,
+          "originalCount": 306000,
+          "remaining": 23483
+        },
+        {
+          "amount": 25,
+          "odds": 13,
+          "originalCount": 1468665,
+          "remaining": 113628
+        }
+      ],
+      "overallOdds": 9.78,
+      "computed": {
+        "originalTickets": 18360232,
+        "fractionRemaining": 0.0772,
+        "ticketsRemaining": 1417130,
+        "remainingPrizeValue": 4986650,
+        "evPerTicket": 3.5188,
+        "roi": 0.7038,
+        "topPrizesRemaining": 471,
+        "topPrizeAmount": 500
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1641",
+      "name": "POWER 20X",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1641",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 3394035,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 1131345,
+          "originalCount": 12,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 24684,
+          "originalCount": 550,
+          "remaining": 161
+        },
+        {
+          "amount": 500,
+          "odds": 2007,
+          "originalCount": 6765,
+          "remaining": 1684
+        },
+        {
+          "amount": 200,
+          "odds": 748,
+          "originalCount": 18152,
+          "remaining": 4454
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 56491,
+          "remaining": 14040
+        },
+        {
+          "amount": 50,
+          "odds": 239,
+          "originalCount": 56733,
+          "remaining": 14424
+        },
+        {
+          "amount": 40,
+          "odds": 240,
+          "originalCount": 56587,
+          "remaining": 14236
+        },
+        {
+          "amount": 20,
+          "odds": 120,
+          "originalCount": 113173,
+          "remaining": 30776
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 226279,
+          "remaining": 58278
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1357644,
+          "remaining": 375858
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 1583973,
+          "remaining": 442160
+        }
+      ],
+      "overallOdds": 3.91,
+      "computed": {
+        "originalTickets": 13576740,
+        "fractionRemaining": 0.275,
+        "ticketsRemaining": 3733893,
+        "remainingPrizeValue": 13067510,
+        "evPerTicket": 3.4997,
+        "roi": 0.6999,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1650",
+      "name": "HOLIDAY BONUS 50X",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1650",
+      "tiers": [
+        {
+          "amount": 250000,
+          "odds": 2345370,
+          "originalCount": 6,
+          "remaining": 4
+        },
+        {
+          "amount": 10000,
+          "odds": 781790,
+          "originalCount": 18,
+          "remaining": 13
+        },
+        {
+          "amount": 2000,
+          "odds": 23811,
+          "originalCount": 591,
+          "remaining": 418
+        },
+        {
+          "amount": 1000,
+          "odds": 11916,
+          "originalCount": 1181,
+          "remaining": 869
+        },
+        {
+          "amount": 500,
+          "odds": 3763,
+          "originalCount": 3740,
+          "remaining": 2449
+        },
+        {
+          "amount": 200,
+          "odds": 6014,
+          "originalCount": 2340,
+          "remaining": 1546
+        },
+        {
+          "amount": 100,
+          "odds": 204,
+          "originalCount": 69136,
+          "remaining": 45366
+        },
+        {
+          "amount": 50,
+          "odds": 200,
+          "originalCount": 70332,
+          "remaining": 46387
+        },
+        {
+          "amount": 40,
+          "odds": 200,
+          "originalCount": 70446,
+          "remaining": 46250
+        },
+        {
+          "amount": 25,
+          "odds": 96,
+          "originalCount": 146489,
+          "remaining": 97488
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 234537,
+          "remaining": 156119
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1454213,
+          "remaining": 973531
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 1641561,
+          "remaining": 1125757
+        }
+      ],
+      "overallOdds": 3.81,
+      "computed": {
+        "originalTickets": 14072778,
+        "fractionRemaining": 0.6756,
+        "ticketsRemaining": 9508072,
+        "remainingPrizeValue": 33217730,
+        "evPerTicket": 3.4936,
+        "roi": 0.6987,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 250000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "5027",
+      "name": "20X THE CASH",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5027",
+      "tiers": [
+        {
+          "amount": 100000,
+          "odds": 3391245,
+          "originalCount": 20,
+          "remaining": 6
+        },
+        {
+          "amount": 1000,
+          "odds": 25789,
+          "originalCount": 2630,
+          "remaining": 1071
+        },
+        {
+          "amount": 400,
+          "odds": 14890,
+          "originalCount": 4555,
+          "remaining": 1873
+        },
+        {
+          "amount": 100,
+          "odds": 601,
+          "originalCount": 112850,
+          "remaining": 45651
+        },
+        {
+          "amount": 50,
+          "odds": 200,
+          "originalCount": 339230,
+          "remaining": 135631
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 452166,
+          "remaining": 177476
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 1356371,
+          "remaining": 509780
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 904332,
+          "remaining": 342384
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 4974128,
+          "remaining": 1912809
+        },
+        {
+          "amount": 2,
+          "odds": 11,
+          "originalCount": 6330530,
+          "remaining": 2534704
+        }
+      ],
+      "overallOdds": 4.69,
+      "computed": {
+        "originalTickets": 67824900,
+        "fractionRemaining": 0.3911,
+        "ticketsRemaining": 26523994,
+        "remainingPrizeValue": 36846734,
+        "evPerTicket": 1.3892,
+        "roi": 0.6946,
+        "topPrizesRemaining": 6,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1628",
+      "name": "SILVER & GOLD CROSSWORD",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1628",
+      "tiers": [
+        {
+          "amount": 500000,
+          "odds": 3514005,
+          "originalCount": 4,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 13124,
+          "originalCount": 1071,
+          "remaining": 369
+        },
+        {
+          "amount": 500,
+          "odds": 1201,
+          "originalCount": 11701,
+          "remaining": 3749
+        },
+        {
+          "amount": 125,
+          "odds": 1203,
+          "originalCount": 11685,
+          "remaining": 3792
+        },
+        {
+          "amount": 100,
+          "odds": 602,
+          "originalCount": 23367,
+          "remaining": 7601
+        },
+        {
+          "amount": 75,
+          "odds": 480,
+          "originalCount": 29300,
+          "remaining": 9490
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 117173,
+          "remaining": 38456
+        },
+        {
+          "amount": 25,
+          "odds": 60,
+          "originalCount": 234267,
+          "remaining": 78229
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1405488,
+          "remaining": 493356
+        },
+        {
+          "amount": 5,
+          "odds": 8,
+          "originalCount": 1780668,
+          "remaining": 650745
+        }
+      ],
+      "overallOdds": 3.89,
+      "computed": {
+        "originalTickets": 14057055,
+        "fractionRemaining": 0.3557,
+        "ticketsRemaining": 5000218,
+        "remainingPrizeValue": 17255160,
+        "evPerTicket": 3.4509,
+        "roi": 0.6902,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1649",
+      "name": "HOLIDAY BONUS 20X",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1649",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 1284900,
+          "originalCount": 10,
+          "remaining": 8
+        },
+        {
+          "amount": 1000,
+          "odds": 55384,
+          "originalCount": 232,
+          "remaining": 176
+        },
+        {
+          "amount": 400,
+          "odds": 16452,
+          "originalCount": 781,
+          "remaining": 538
+        },
+        {
+          "amount": 100,
+          "odds": 748,
+          "originalCount": 17183,
+          "remaining": 11840
+        },
+        {
+          "amount": 50,
+          "odds": 191,
+          "originalCount": 67375,
+          "remaining": 46614
+        },
+        {
+          "amount": 25,
+          "odds": 150,
+          "originalCount": 85538,
+          "remaining": 59765
+        },
+        {
+          "amount": 10,
+          "odds": 54,
+          "originalCount": 240115,
+          "remaining": 168985
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 171535,
+          "remaining": 121761
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 941987,
+          "remaining": 672104
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 1284930,
+          "remaining": 934917
+        }
+      ],
+      "overallOdds": 4.57,
+      "computed": {
+        "originalTickets": 12849300,
+        "fractionRemaining": 0.7178,
+        "ticketsRemaining": 9222841,
+        "remainingPrizeValue": 12656930,
+        "evPerTicket": 1.3723,
+        "roi": 0.6862,
+        "topPrizesRemaining": 8,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1617",
+      "name": "BONUS BOX BINGO",
+      "price": 3,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1617",
+      "tiers": [
+        {
+          "amount": 150000,
+          "odds": 5034675,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 25000,
+          "odds": 2517338,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "odds": 1258669,
+          "originalCount": 16,
+          "remaining": 7
+        },
+        {
+          "amount": 5000,
+          "odds": 402774,
+          "originalCount": 50,
+          "remaining": 22
+        },
+        {
+          "amount": 1000,
+          "odds": 59231,
+          "originalCount": 340,
+          "remaining": 130
+        },
+        {
+          "amount": 500,
+          "odds": 30421,
+          "originalCount": 662,
+          "remaining": 236
+        },
+        {
+          "amount": 300,
+          "odds": 30058,
+          "originalCount": 670,
+          "remaining": 242
+        },
+        {
+          "amount": 225,
+          "odds": 36091,
+          "originalCount": 558,
+          "remaining": 228
+        },
+        {
+          "amount": 200,
+          "odds": 17901,
+          "originalCount": 1125,
+          "remaining": 404
+        },
+        {
+          "amount": 150,
+          "odds": 9011,
+          "originalCount": 2235,
+          "remaining": 988
+        },
+        {
+          "amount": 100,
+          "odds": 900,
+          "originalCount": 22378,
+          "remaining": 7890
+        },
+        {
+          "amount": 75,
+          "odds": 898,
+          "originalCount": 22420,
+          "remaining": 8412
+        },
+        {
+          "amount": 50,
+          "odds": 899,
+          "originalCount": 22406,
+          "remaining": 8010
+        },
+        {
+          "amount": 40,
+          "odds": 450,
+          "originalCount": 44776,
+          "remaining": 16217
+        },
+        {
+          "amount": 30,
+          "odds": 125,
+          "originalCount": 161085,
+          "remaining": 63544
+        },
+        {
+          "amount": 25,
+          "odds": 100,
+          "originalCount": 201333,
+          "remaining": 72923
+        },
+        {
+          "amount": 20,
+          "odds": 500,
+          "originalCount": 40302,
+          "remaining": 14137
+        },
+        {
+          "amount": 15,
+          "odds": 100,
+          "originalCount": 201398,
+          "remaining": 81481
+        },
+        {
+          "amount": 10,
+          "odds": 250,
+          "originalCount": 80604,
+          "remaining": 30698
+        },
+        {
+          "amount": 9,
+          "odds": 100,
+          "originalCount": 201430,
+          "remaining": 88204
+        },
+        {
+          "amount": 8,
+          "odds": 33,
+          "originalCount": 604199,
+          "remaining": 218425
+        },
+        {
+          "amount": 5,
+          "odds": 25,
+          "originalCount": 805527,
+          "remaining": 307211
+        },
+        {
+          "amount": 3,
+          "odds": 8,
+          "originalCount": 2416647,
+          "remaining": 930235
+        }
+      ],
+      "overallOdds": 4.17,
+      "computed": {
+        "originalTickets": 20138704,
+        "fractionRemaining": 0.3829,
+        "ticketsRemaining": 7711834,
+        "remainingPrizeValue": 15859306,
+        "evPerTicket": 2.0565,
+        "roi": 0.6855,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 150000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1644",
+      "name": "MONEY ROLL",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1644",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 1827975,
+          "originalCount": 6,
+          "remaining": 4
+        },
+        {
+          "amount": 10000,
+          "odds": 685491,
+          "originalCount": 16,
+          "remaining": 10
+        },
+        {
+          "amount": 1000,
+          "odds": 46672,
+          "originalCount": 235,
+          "remaining": 134
+        },
+        {
+          "amount": 400,
+          "odds": 8946,
+          "originalCount": 1226,
+          "remaining": 694
+        },
+        {
+          "amount": 100,
+          "odds": 899,
+          "originalCount": 12196,
+          "remaining": 6929
+        },
+        {
+          "amount": 40,
+          "odds": 598,
+          "originalCount": 18328,
+          "remaining": 10357
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 36614,
+          "remaining": 20795
+        },
+        {
+          "amount": 25,
+          "odds": 301,
+          "originalCount": 36487,
+          "remaining": 20812
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 73119,
+          "remaining": 42122
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 219395,
+          "remaining": 127335
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 146111,
+          "remaining": 85468
+        },
+        {
+          "amount": 4,
+          "odds": 13,
+          "originalCount": 877538,
+          "remaining": 519038
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 1096726,
+          "remaining": 661040
+        }
+      ],
+      "overallOdds": 4.36,
+      "computed": {
+        "originalTickets": 10967853,
+        "fractionRemaining": 0.5936,
+        "ticketsRemaining": 6510757,
+        "remainingPrizeValue": 8904292,
+        "evPerTicket": 1.3676,
+        "roi": 0.6838,
+        "topPrizesRemaining": 4,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1637",
+      "name": "BIG BUCKS",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1637",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 1864300,
+          "originalCount": 12,
+          "remaining": 7
+        },
+        {
+          "amount": 1000,
+          "odds": 186430,
+          "originalCount": 120,
+          "remaining": 67
+        },
+        {
+          "amount": 500,
+          "odds": 9003,
+          "originalCount": 2485,
+          "remaining": 1406
+        },
+        {
+          "amount": 100,
+          "odds": 898,
+          "originalCount": 24920,
+          "remaining": 14068
+        },
+        {
+          "amount": 50,
+          "odds": 150,
+          "originalCount": 149051,
+          "remaining": 83617
+        },
+        {
+          "amount": 25,
+          "odds": 150,
+          "originalCount": 149144,
+          "remaining": 84616
+        },
+        {
+          "amount": 10,
+          "odds": 75,
+          "originalCount": 298289,
+          "remaining": 169577
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 298263,
+          "remaining": 171480
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 1640666,
+          "remaining": 947698
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 2237067,
+          "remaining": 1328124
+        }
+      ],
+      "overallOdds": 4.66,
+      "computed": {
+        "originalTickets": 22371600,
+        "fractionRemaining": 0.5835,
+        "ticketsRemaining": 13053130,
+        "remainingPrizeValue": 17823260,
+        "evPerTicket": 1.3654,
+        "roi": 0.6827,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1587",
+      "name": "QUICK $100S",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1587",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 3468488,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 500,
+          "odds": 29582,
+          "originalCount": 469,
+          "remaining": 52
+        },
+        {
+          "amount": 100,
+          "odds": 333,
+          "originalCount": 41661,
+          "remaining": 4464
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 92493,
+          "remaining": 9841
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 277479,
+          "remaining": 31229
+        },
+        {
+          "amount": 5,
+          "odds": 44,
+          "originalCount": 314497,
+          "remaining": 36496
+        },
+        {
+          "amount": 4,
+          "odds": 7,
+          "originalCount": 2127287,
+          "remaining": 254881
+        }
+      ],
+      "overallOdds": 4.86,
+      "computed": {
+        "originalTickets": 13873950,
+        "fractionRemaining": 0.1181,
+        "ticketsRemaining": 1638123,
+        "remainingPrizeValue": 2233514,
+        "evPerTicket": 1.3635,
+        "roi": 0.6817,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1591",
+      "name": "ADD IT UP",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1591",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 1772794,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 2000,
+          "odds": 236373,
+          "originalCount": 60,
+          "remaining": 16
+        },
+        {
+          "amount": 1000,
+          "odds": 177279,
+          "originalCount": 80,
+          "remaining": 14
+        },
+        {
+          "amount": 500,
+          "odds": 7229,
+          "originalCount": 1962,
+          "remaining": 416
+        },
+        {
+          "amount": 100,
+          "odds": 2406,
+          "originalCount": 5895,
+          "remaining": 1371
+        },
+        {
+          "amount": 50,
+          "odds": 750,
+          "originalCount": 18921,
+          "remaining": 4551
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 47328,
+          "remaining": 13486
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 94549,
+          "remaining": 20848
+        },
+        {
+          "amount": 10,
+          "odds": 38,
+          "originalCount": 378161,
+          "remaining": 85003
+        },
+        {
+          "amount": 5,
+          "odds": 30,
+          "originalCount": 472783,
+          "remaining": 109343
+        },
+        {
+          "amount": 4,
+          "odds": 13,
+          "originalCount": 1134588,
+          "remaining": 267608
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 1418264,
+          "remaining": 357756
+        }
+      ],
+      "overallOdds": 3.97,
+      "computed": {
+        "originalTickets": 14183298,
+        "fractionRemaining": 0.2408,
+        "ticketsRemaining": 3415863,
+        "remainingPrizeValue": 4655449,
+        "evPerTicket": 1.3629,
+        "roi": 0.6814,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1593",
+      "name": "MONEY MATCH",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1593",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 4084335,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 907630,
+          "originalCount": 18,
+          "remaining": 2
+        },
+        {
+          "amount": 2000,
+          "odds": 24132,
+          "originalCount": 677,
+          "remaining": 86
+        },
+        {
+          "amount": 1000,
+          "odds": 10784,
+          "originalCount": 1515,
+          "remaining": 186
+        },
+        {
+          "amount": 500,
+          "odds": 5015,
+          "originalCount": 3258,
+          "remaining": 383
+        },
+        {
+          "amount": 150,
+          "odds": 4117,
+          "originalCount": 3968,
+          "remaining": 482
+        },
+        {
+          "amount": 100,
+          "odds": 207,
+          "originalCount": 79045,
+          "remaining": 9715
+        },
+        {
+          "amount": 50,
+          "odds": 250,
+          "originalCount": 65343,
+          "remaining": 7979
+        },
+        {
+          "amount": 40,
+          "odds": 192,
+          "originalCount": 84984,
+          "remaining": 10826
+        },
+        {
+          "amount": 25,
+          "odds": 123,
+          "originalCount": 132678,
+          "remaining": 16994
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 272289,
+          "remaining": 35410
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1688159,
+          "remaining": 230015
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 1906187,
+          "remaining": 342008
+        }
+      ],
+      "overallOdds": 3.85,
+      "computed": {
+        "originalTickets": 16337340,
+        "fractionRemaining": 0.1543,
+        "ticketsRemaining": 2521408,
+        "remainingPrizeValue": 8588530,
+        "evPerTicket": 3.4062,
+        "roi": 0.6812,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1616",
+      "name": "LOTERIA",
+      "price": 3,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1616",
+      "tiers": [
+        {
+          "amount": 150000,
+          "odds": 4503433,
+          "originalCount": 9,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "odds": 1351030,
+          "originalCount": 30,
+          "remaining": 13
+        },
+        {
+          "amount": 500,
+          "odds": 8251,
+          "originalCount": 4916,
+          "remaining": 2127
+        },
+        {
+          "amount": 250,
+          "odds": 9007,
+          "originalCount": 4512,
+          "remaining": 1914
+        },
+        {
+          "amount": 200,
+          "odds": 6018,
+          "originalCount": 6728,
+          "remaining": 2900
+        },
+        {
+          "amount": 150,
+          "odds": 5172,
+          "originalCount": 7832,
+          "remaining": 3394
+        },
+        {
+          "amount": 100,
+          "odds": 2243,
+          "originalCount": 18046,
+          "remaining": 7716
+        },
+        {
+          "amount": 50,
+          "odds": 1894,
+          "originalCount": 21394,
+          "remaining": 9208
+        },
+        {
+          "amount": 40,
+          "odds": 1289,
+          "originalCount": 31452,
+          "remaining": 13767
+        },
+        {
+          "amount": 30,
+          "odds": 949,
+          "originalCount": 42738,
+          "remaining": 18342
+        },
+        {
+          "amount": 25,
+          "odds": 100,
+          "originalCount": 405253,
+          "remaining": 174822
+        },
+        {
+          "amount": 20,
+          "odds": 83,
+          "originalCount": 486437,
+          "remaining": 212532
+        },
+        {
+          "amount": 15,
+          "odds": 63,
+          "originalCount": 648388,
+          "remaining": 287165
+        },
+        {
+          "amount": 10,
+          "odds": 25,
+          "originalCount": 1620555,
+          "remaining": 717083
+        },
+        {
+          "amount": 5,
+          "odds": 17,
+          "originalCount": 2432311,
+          "remaining": 1113042
+        },
+        {
+          "amount": 3,
+          "odds": 9,
+          "originalCount": 4456947,
+          "remaining": 2080381
+        }
+      ],
+      "overallOdds": 3.98,
+      "computed": {
+        "originalTickets": 40530897,
+        "fractionRemaining": 0.4559,
+        "ticketsRemaining": 18477661,
+        "remainingPrizeValue": 37449888,
+        "evPerTicket": 2.0268,
+        "roi": 0.6756,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 150000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1605",
+      "name": "$150,000 CROSSWORD BONUS",
+      "price": 3,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1605",
+      "tiers": [
+        {
+          "amount": 150000,
+          "odds": 2892150,
+          "originalCount": 8,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 60728,
+          "originalCount": 381,
+          "remaining": 139
+        },
+        {
+          "amount": 200,
+          "odds": 5025,
+          "originalCount": 4604,
+          "remaining": 1611
+        },
+        {
+          "amount": 100,
+          "odds": 601,
+          "originalCount": 38486,
+          "remaining": 13311
+        },
+        {
+          "amount": 60,
+          "odds": 900,
+          "originalCount": 25695,
+          "remaining": 8982
+        },
+        {
+          "amount": 50,
+          "odds": 600,
+          "originalCount": 38556,
+          "remaining": 13391
+        },
+        {
+          "amount": 40,
+          "odds": 600,
+          "originalCount": 38574,
+          "remaining": 13244
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 77179,
+          "remaining": 26814
+        },
+        {
+          "amount": 20,
+          "odds": 100,
+          "originalCount": 231344,
+          "remaining": 80762
+        },
+        {
+          "amount": 15,
+          "odds": 50,
+          "originalCount": 462772,
+          "remaining": 161386
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 462744,
+          "remaining": 163464
+        },
+        {
+          "amount": 6,
+          "odds": 62,
+          "originalCount": 370253,
+          "remaining": 131347
+        },
+        {
+          "amount": 5,
+          "odds": 13,
+          "originalCount": 1850980,
+          "remaining": 667353
+        },
+        {
+          "amount": 3,
+          "odds": 10,
+          "originalCount": 2313590,
+          "remaining": 875579
+        }
+      ],
+      "overallOdds": 3.91,
+      "computed": {
+        "originalTickets": 23135900,
+        "fractionRemaining": 0.3647,
+        "ticketsRemaining": 8438148,
+        "remainingPrizeValue": 17057204,
+        "evPerTicket": 2.0214,
+        "roi": 0.6738,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 150000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1524",
+      "name": "LUCKY NUMBERS",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1524",
+      "tiers": [
+        {
+          "amount": 500000,
+          "odds": 1398529,
+          "originalCount": 16,
+          "remaining": 2
+        },
+        {
+          "amount": 10000,
+          "odds": 123627,
+          "originalCount": 181,
+          "remaining": 20
+        },
+        {
+          "amount": 5000,
+          "odds": 24087,
+          "originalCount": 929,
+          "remaining": 73
+        },
+        {
+          "amount": 1000,
+          "odds": 17346,
+          "originalCount": 1290,
+          "remaining": 108
+        },
+        {
+          "amount": 500,
+          "odds": 8590,
+          "originalCount": 2605,
+          "remaining": 205
+        },
+        {
+          "amount": 100,
+          "odds": 286,
+          "originalCount": 78309,
+          "remaining": 6391
+        },
+        {
+          "amount": 50,
+          "odds": 572,
+          "originalCount": 39152,
+          "remaining": 3180
+        },
+        {
+          "amount": 40,
+          "odds": 160,
+          "originalCount": 139959,
+          "remaining": 11850
+        },
+        {
+          "amount": 25,
+          "odds": 160,
+          "originalCount": 139953,
+          "remaining": 11678
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 372941,
+          "remaining": 31917
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 2237499,
+          "remaining": 202120
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 2610769,
+          "remaining": 287597
+        }
+      ],
+      "overallOdds": 3.98,
+      "computed": {
+        "originalTickets": 22376950,
+        "fractionRemaining": 0.0987,
+        "ticketsRemaining": 2208969,
+        "remainingPrizeValue": 7437075,
+        "evPerTicket": 3.3668,
+        "roi": 0.6734,
+        "topPrizesRemaining": 2,
+        "topPrizeAmount": 500000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1581",
+      "name": "PLATINUM MINE 9X",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1581",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 4851435,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 970287,
+          "originalCount": 20,
+          "remaining": 5
+        },
+        {
+          "amount": 1000,
+          "odds": 48514,
+          "originalCount": 400,
+          "remaining": 88
+        },
+        {
+          "amount": 500,
+          "odds": 2192,
+          "originalCount": 8854,
+          "remaining": 1701
+        },
+        {
+          "amount": 250,
+          "odds": 1198,
+          "originalCount": 16197,
+          "remaining": 3172
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 80911,
+          "remaining": 16263
+        },
+        {
+          "amount": 50,
+          "odds": 240,
+          "originalCount": 80813,
+          "remaining": 16917
+        },
+        {
+          "amount": 40,
+          "odds": 240,
+          "originalCount": 80826,
+          "remaining": 15632
+        },
+        {
+          "amount": 30,
+          "odds": 240,
+          "originalCount": 80771,
+          "remaining": 15521
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 323429,
+          "remaining": 69711
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 2264003,
+          "remaining": 451747
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 2005650,
+          "remaining": 421639
+        }
+      ],
+      "overallOdds": 3.93,
+      "computed": {
+        "originalTickets": 19405740,
+        "fractionRemaining": 0.2049,
+        "ticketsRemaining": 3975471,
+        "remainingPrizeValue": 13364445,
+        "evPerTicket": 3.3617,
+        "roi": 0.6723,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "5057",
+      "name": "EASY MONEY",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5057",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 1869806,
+          "originalCount": 8,
+          "remaining": 3
+        },
+        {
+          "amount": 10000,
+          "odds": 1495845,
+          "originalCount": 10,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 30842,
+          "originalCount": 485,
+          "remaining": 118
+        },
+        {
+          "amount": 500,
+          "odds": 22699,
+          "originalCount": 659,
+          "remaining": 149
+        },
+        {
+          "amount": 100,
+          "odds": 749,
+          "originalCount": 19965,
+          "remaining": 4635
+        },
+        {
+          "amount": 50,
+          "odds": 277,
+          "originalCount": 54059,
+          "remaining": 12725
+        },
+        {
+          "amount": 40,
+          "odds": 579,
+          "originalCount": 25827,
+          "remaining": 6004
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 99723,
+          "remaining": 23703
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 299228,
+          "remaining": 72569
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 199446,
+          "remaining": 49130
+        },
+        {
+          "amount": 4,
+          "odds": 13,
+          "originalCount": 1196499,
+          "remaining": 300227
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 1495904,
+          "remaining": 409742
+        }
+      ],
+      "overallOdds": 4.41,
+      "computed": {
+        "originalTickets": 14958450,
+        "fractionRemaining": 0.2592,
+        "ticketsRemaining": 3876565,
+        "remainingPrizeValue": 5168202,
+        "evPerTicket": 1.3332,
+        "roi": 0.6666,
+        "topPrizesRemaining": 3,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1569",
+      "name": "$20 MONOPOLY&trade; SECRET VAULT",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1569",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 5568045,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 20000,
+          "odds": 121044,
+          "originalCount": 184,
+          "remaining": 7
+        },
+        {
+          "amount": 10000,
+          "odds": 60522,
+          "originalCount": 368,
+          "remaining": 5
+        },
+        {
+          "amount": 5000,
+          "odds": 40130,
+          "originalCount": 555,
+          "remaining": 14
+        },
+        {
+          "amount": 1000,
+          "odds": 7514,
+          "originalCount": 2964,
+          "remaining": 78
+        },
+        {
+          "amount": 500,
+          "odds": 857,
+          "originalCount": 25999,
+          "remaining": 514
+        },
+        {
+          "amount": 200,
+          "odds": 96,
+          "originalCount": 232883,
+          "remaining": 4379
+        },
+        {
+          "amount": 100,
+          "odds": 29,
+          "originalCount": 761094,
+          "remaining": 15838
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 742578,
+          "remaining": 17902
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 742406,
+          "remaining": 16000
+        },
+        {
+          "amount": 30,
+          "odds": 30,
+          "originalCount": 742313,
+          "remaining": 16742
+        },
+        {
+          "amount": 25,
+          "odds": 38,
+          "originalCount": 593836,
+          "remaining": 14712
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 3711766,
+          "remaining": 116002
+        }
+      ],
+      "overallOdds": 2.95,
+      "computed": {
+        "originalTickets": 22272165,
+        "fractionRemaining": 0.0268,
+        "ticketsRemaining": 595912,
+        "remainingPrizeValue": 7779800,
+        "evPerTicket": 13.0553,
+        "roi": 0.6528,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1539",
+      "name": "$5M CROSSWORD CASH",
+      "price": 20,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1539",
+      "tiers": [
+        {
+          "amount": 5000000,
+          "odds": 4018135,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 1000000,
+          "odds": 1339378,
+          "originalCount": 18,
+          "remaining": 0
+        },
+        {
+          "amount": 100000,
+          "odds": 1339378,
+          "originalCount": 18,
+          "remaining": 1
+        },
+        {
+          "amount": 1000,
+          "odds": 2493,
+          "originalCount": 9672,
+          "remaining": 777
+        },
+        {
+          "amount": 500,
+          "odds": 3238,
+          "originalCount": 7445,
+          "remaining": 446
+        },
+        {
+          "amount": 250,
+          "odds": 1494,
+          "originalCount": 16135,
+          "remaining": 986
+        },
+        {
+          "amount": 200,
+          "odds": 414,
+          "originalCount": 58248,
+          "remaining": 3693
+        },
+        {
+          "amount": 150,
+          "odds": 297,
+          "originalCount": 81297,
+          "remaining": 5095
+        },
+        {
+          "amount": 100,
+          "odds": 26,
+          "originalCount": 913942,
+          "remaining": 58403
+        },
+        {
+          "amount": 50,
+          "odds": 30,
+          "originalCount": 803627,
+          "remaining": 53607
+        },
+        {
+          "amount": 40,
+          "odds": 30,
+          "originalCount": 803718,
+          "remaining": 52952
+        },
+        {
+          "amount": 30,
+          "odds": 15,
+          "originalCount": 1607560,
+          "remaining": 113719
+        },
+        {
+          "amount": 20,
+          "odds": 6,
+          "originalCount": 4017771,
+          "remaining": 354604
+        }
+      ],
+      "overallOdds": 2.9,
+      "computed": {
+        "originalTickets": 24108810,
+        "fractionRemaining": 0.0774,
+        "ticketsRemaining": 1867057,
+        "remainingPrizeValue": 23991730,
+        "evPerTicket": 12.85,
+        "roi": 0.6425,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 5000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1526",
+      "name": "$2 GOLD RUSH DOUBLER",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1526",
+      "tiers": [
+        {
+          "amount": 100000,
+          "odds": 1404021,
+          "originalCount": 36,
+          "remaining": 7
+        },
+        {
+          "amount": 1000,
+          "odds": 25814,
+          "originalCount": 1958,
+          "remaining": 240
+        },
+        {
+          "amount": 400,
+          "odds": 29997,
+          "originalCount": 1685,
+          "remaining": 207
+        },
+        {
+          "amount": 100,
+          "odds": 811,
+          "originalCount": 62307,
+          "remaining": 7489
+        },
+        {
+          "amount": 50,
+          "odds": 189,
+          "originalCount": 266839,
+          "remaining": 26241
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 336965,
+          "remaining": 44653
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 1010895,
+          "remaining": 117100
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 673930,
+          "remaining": 79989
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 3706615,
+          "remaining": 498459
+        },
+        {
+          "amount": 2,
+          "odds": 11,
+          "originalCount": 4717362,
+          "remaining": 721229
+        }
+      ],
+      "overallOdds": 4.69,
+      "computed": {
+        "originalTickets": 50544750,
+        "fractionRemaining": 0.1388,
+        "ticketsRemaining": 7013480,
+        "remainingPrizeValue": 8984049,
+        "evPerTicket": 1.281,
+        "roi": 0.6405,
+        "topPrizesRemaining": 7,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1632",
+      "name": "GOLD MINE",
+      "price": 3,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1632",
+      "tiers": [
+        {
+          "amount": 150000,
+          "odds": 3538400,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 1179467,
+          "originalCount": 12,
+          "remaining": 1
+        },
+        {
+          "amount": 3000,
+          "odds": 174736,
+          "originalCount": 81,
+          "remaining": 11
+        },
+        {
+          "amount": 1000,
+          "odds": 35651,
+          "originalCount": 397,
+          "remaining": 54
+        },
+        {
+          "amount": 500,
+          "odds": 7473,
+          "originalCount": 1894,
+          "remaining": 159
+        },
+        {
+          "amount": 200,
+          "odds": 4966,
+          "originalCount": 2850,
+          "remaining": 247
+        },
+        {
+          "amount": 100,
+          "odds": 502,
+          "originalCount": 28210,
+          "remaining": 2454
+        },
+        {
+          "amount": 50,
+          "odds": 400,
+          "originalCount": 35372,
+          "remaining": 2937
+        },
+        {
+          "amount": 30,
+          "odds": 125,
+          "originalCount": 113227,
+          "remaining": 10315
+        },
+        {
+          "amount": 20,
+          "odds": 125,
+          "originalCount": 113256,
+          "remaining": 10599
+        },
+        {
+          "amount": 15,
+          "odds": 100,
+          "originalCount": 141500,
+          "remaining": 13175
+        },
+        {
+          "amount": 10,
+          "odds": 33,
+          "originalCount": 424570,
+          "remaining": 41093
+        },
+        {
+          "amount": 5,
+          "odds": 14,
+          "originalCount": 990842,
+          "remaining": 115857
+        },
+        {
+          "amount": 3,
+          "odds": 8,
+          "originalCount": 1698453,
+          "remaining": 210286
+        }
+      ],
+      "overallOdds": 3.99,
+      "computed": {
+        "originalTickets": 14153447,
+        "fractionRemaining": 0.1147,
+        "ticketsRemaining": 1623111,
+        "remainingPrizeValue": 3108278,
+        "evPerTicket": 1.915,
+        "roi": 0.6383,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 150000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1557",
+      "name": "BONUS LETTER CROSSWORD",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1557",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 2241660,
+          "originalCount": 10,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 400296,
+          "originalCount": 56,
+          "remaining": 1
+        },
+        {
+          "amount": 1000,
+          "odds": 7525,
+          "originalCount": 2979,
+          "remaining": 96
+        },
+        {
+          "amount": 500,
+          "odds": 4990,
+          "originalCount": 4492,
+          "remaining": 124
+        },
+        {
+          "amount": 200,
+          "odds": 1197,
+          "originalCount": 18722,
+          "remaining": 478
+        },
+        {
+          "amount": 100,
+          "odds": 316,
+          "originalCount": 70909,
+          "remaining": 2020
+        },
+        {
+          "amount": 50,
+          "odds": 1001,
+          "originalCount": 22384,
+          "remaining": 610
+        },
+        {
+          "amount": 40,
+          "odds": 650,
+          "originalCount": 34504,
+          "remaining": 840
+        },
+        {
+          "amount": 30,
+          "odds": 100,
+          "originalCount": 224034,
+          "remaining": 6162
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 373567,
+          "remaining": 11278
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 373653,
+          "remaining": 11648
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 2241679,
+          "remaining": 88906
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 2241828,
+          "remaining": 191716
+        }
+      ],
+      "overallOdds": 4,
+      "computed": {
+        "originalTickets": 22416588,
+        "fractionRemaining": 0.056,
+        "ticketsRemaining": 1254475,
+        "remainingPrizeValue": 3962480,
+        "evPerTicket": 3.1587,
+        "roi": 0.6317,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1631",
+      "name": "RED, WHITE & BLUE CASH",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1631",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 2739863,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 730630,
+          "originalCount": 15,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 45475,
+          "originalCount": 241,
+          "remaining": 46
+        },
+        {
+          "amount": 400,
+          "odds": 8976,
+          "originalCount": 1221,
+          "remaining": 221
+        },
+        {
+          "amount": 100,
+          "odds": 748,
+          "originalCount": 14656,
+          "remaining": 2844
+        },
+        {
+          "amount": 40,
+          "odds": 599,
+          "originalCount": 18303,
+          "remaining": 3606
+        },
+        {
+          "amount": 30,
+          "odds": 451,
+          "originalCount": 24293,
+          "remaining": 4739
+        },
+        {
+          "amount": 25,
+          "odds": 240,
+          "originalCount": 45729,
+          "remaining": 8849
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 73063,
+          "remaining": 14833
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 219221,
+          "remaining": 45729
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 146034,
+          "remaining": 31860
+        },
+        {
+          "amount": 4,
+          "odds": 13,
+          "originalCount": 876822,
+          "remaining": 197527
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 1096016,
+          "remaining": 277518
+        }
+      ],
+      "overallOdds": 4.36,
+      "computed": {
+        "originalTickets": 10959928,
+        "fractionRemaining": 0.2336,
+        "ticketsRemaining": 2560787,
+        "remainingPrizeValue": 3204829,
+        "evPerTicket": 1.2515,
+        "roi": 0.6258,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "5060",
+      "name": "FIND THE 7S",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=5060",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 1779563,
+          "originalCount": 8,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 347232,
+          "originalCount": 41,
+          "remaining": 2
+        },
+        {
+          "amount": 500,
+          "odds": 35860,
+          "originalCount": 397,
+          "remaining": 47
+        },
+        {
+          "amount": 100,
+          "odds": 998,
+          "originalCount": 14259,
+          "remaining": 1270
+        },
+        {
+          "amount": 50,
+          "odds": 257,
+          "originalCount": 55354,
+          "remaining": 5005
+        },
+        {
+          "amount": 25,
+          "odds": 212,
+          "originalCount": 67262,
+          "remaining": 10343
+        },
+        {
+          "amount": 20,
+          "odds": 250,
+          "originalCount": 56972,
+          "remaining": 5420
+        },
+        {
+          "amount": 10,
+          "odds": 54,
+          "originalCount": 265642,
+          "remaining": 26265
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 189928,
+          "remaining": 20166
+        },
+        {
+          "amount": 4,
+          "odds": 12,
+          "originalCount": 1233888,
+          "remaining": 138688
+        },
+        {
+          "amount": 2,
+          "odds": 9,
+          "originalCount": 1613354,
+          "remaining": 213063
+        }
+      ],
+      "overallOdds": 4.07,
+      "computed": {
+        "originalTickets": 14239756,
+        "fractionRemaining": 0.1202,
+        "ticketsRemaining": 1711281,
+        "remainingPrizeValue": 2132083,
+        "evPerTicket": 1.2459,
+        "roi": 0.6229,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1600",
+      "name": "$2,500 A WEEK FOR LIFE",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1600",
+      "tiers": [
+        {
+          "amount": 2500,
+          "odds": 7760595,
+          "originalCount": 4,
+          "remaining": 1
+        },
+        {
+          "amount": 10000,
+          "odds": 388030,
+          "originalCount": 80,
+          "remaining": 12
+        },
+        {
+          "amount": 2000,
+          "odds": 59468,
+          "originalCount": 522,
+          "remaining": 71
+        },
+        {
+          "amount": 1000,
+          "odds": 9998,
+          "originalCount": 3105,
+          "remaining": 433
+        },
+        {
+          "amount": 500,
+          "odds": 2397,
+          "originalCount": 12948,
+          "remaining": 1651
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 129282,
+          "remaining": 17456
+        },
+        {
+          "amount": 50,
+          "odds": 240,
+          "originalCount": 129535,
+          "remaining": 17276
+        },
+        {
+          "amount": 30,
+          "odds": 193,
+          "originalCount": 160431,
+          "remaining": 21238
+        },
+        {
+          "amount": 25,
+          "odds": 195,
+          "originalCount": 159145,
+          "remaining": 20905
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 517373,
+          "remaining": 71138
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 3621610,
+          "remaining": 519273
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 3104292,
+          "remaining": 512390
+        }
+      ],
+      "overallOdds": 3.96,
+      "computed": {
+        "originalTickets": 31042380,
+        "fractionRemaining": 0.1508,
+        "ticketsRemaining": 4680495,
+        "remainingPrizeValue": 14469605,
+        "evPerTicket": 3.0915,
+        "roi": 0.6183,
+        "topPrizesRemaining": 12,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1648",
+      "name": "HOLIDAY BONUS 10X",
+      "price": 1,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1648",
+      "tiers": [
+        {
+          "amount": 10000,
+          "odds": 1206625,
+          "originalCount": 12,
+          "remaining": 9
+        },
+        {
+          "amount": 200,
+          "odds": 23933,
+          "originalCount": 605,
+          "remaining": 446
+        },
+        {
+          "amount": 100,
+          "odds": 3991,
+          "originalCount": 3628,
+          "remaining": 2626
+        },
+        {
+          "amount": 50,
+          "odds": 1196,
+          "originalCount": 12106,
+          "remaining": 8872
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 48265,
+          "remaining": 35798
+        },
+        {
+          "amount": 10,
+          "odds": 100,
+          "originalCount": 144815,
+          "remaining": 108181
+        },
+        {
+          "amount": 5,
+          "odds": 150,
+          "originalCount": 96469,
+          "remaining": 72820
+        },
+        {
+          "amount": 4,
+          "odds": 50,
+          "originalCount": 289670,
+          "remaining": 219050
+        },
+        {
+          "amount": 2,
+          "odds": 14,
+          "originalCount": 1061710,
+          "remaining": 814082
+        },
+        {
+          "amount": 1,
+          "odds": 10,
+          "originalCount": 1448061,
+          "remaining": 1120801
+        }
+      ],
+      "overallOdds": 4.66,
+      "computed": {
+        "originalTickets": 14479500,
+        "fractionRemaining": 0.7673,
+        "ticketsRemaining": 11109919,
+        "remainingPrizeValue": 6851425,
+        "evPerTicket": 0.6167,
+        "roi": 0.6167,
+        "topPrizesRemaining": 9,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1619",
+      "name": "10X THE CASH",
+      "price": 1,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1619",
+      "tiers": [
+        {
+          "amount": 10000,
+          "odds": 945141,
+          "originalCount": 56,
+          "remaining": 32
+        },
+        {
+          "amount": 200,
+          "odds": 23909,
+          "originalCount": 2212,
+          "remaining": 1281
+        },
+        {
+          "amount": 100,
+          "odds": 4726,
+          "originalCount": 11255,
+          "remaining": 6432
+        },
+        {
+          "amount": 50,
+          "odds": 1199,
+          "originalCount": 44185,
+          "remaining": 25130
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 176676,
+          "remaining": 101927
+        },
+        {
+          "amount": 10,
+          "odds": 100,
+          "originalCount": 530063,
+          "remaining": 307736
+        },
+        {
+          "amount": 5,
+          "odds": 150,
+          "originalCount": 353284,
+          "remaining": 206805
+        },
+        {
+          "amount": 4,
+          "odds": 50,
+          "originalCount": 1060035,
+          "remaining": 621154
+        },
+        {
+          "amount": 2,
+          "odds": 14,
+          "originalCount": 3886823,
+          "remaining": 2349929
+        },
+        {
+          "amount": 1,
+          "odds": 10,
+          "originalCount": 5300374,
+          "remaining": 3223991
+        }
+      ],
+      "overallOdds": 4.66,
+      "computed": {
+        "originalTickets": 53001750,
+        "fractionRemaining": 0.6022,
+        "ticketsRemaining": 31919688,
+        "remainingPrizeValue": 19543925,
+        "evPerTicket": 0.6123,
+        "roi": 0.6123,
+        "topPrizesRemaining": 32,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1566",
+      "name": "$2 MONOPOLY&trade; SECRET VAULT",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1566",
+      "tiers": [
+        {
+          "amount": 100000,
+          "odds": 3488081,
+          "originalCount": 8,
+          "remaining": 1
+        },
+        {
+          "amount": 2500,
+          "odds": 178876,
+          "originalCount": 156,
+          "remaining": 13
+        },
+        {
+          "amount": 1000,
+          "odds": 35729,
+          "originalCount": 781,
+          "remaining": 79
+        },
+        {
+          "amount": 200,
+          "odds": 2857,
+          "originalCount": 9766,
+          "remaining": 788
+        },
+        {
+          "amount": 100,
+          "odds": 856,
+          "originalCount": 32586,
+          "remaining": 2734
+        },
+        {
+          "amount": 50,
+          "odds": 414,
+          "originalCount": 67480,
+          "remaining": 5753
+        },
+        {
+          "amount": 25,
+          "odds": 238,
+          "originalCount": 117024,
+          "remaining": 10370
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 186031,
+          "remaining": 19927
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 558093,
+          "remaining": 61700
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 372062,
+          "remaining": 38575
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 2046185,
+          "remaining": 235451
+        },
+        {
+          "amount": 2,
+          "odds": 9,
+          "originalCount": 2976157,
+          "remaining": 396695
+        }
+      ],
+      "overallOdds": 4.38,
+      "computed": {
+        "originalTickets": 27904648,
+        "fractionRemaining": 0.1213,
+        "ticketsRemaining": 3384178,
+        "remainingPrizeValue": 4133009,
+        "evPerTicket": 1.2213,
+        "roi": 0.6106,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1643",
+      "name": "WILD 9S",
+      "price": 1,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1643",
+      "tiers": [
+        {
+          "amount": 9000,
+          "odds": 798917,
+          "originalCount": 18,
+          "remaining": 13
+        },
+        {
+          "amount": 200,
+          "odds": 11895,
+          "originalCount": 1209,
+          "remaining": 655
+        },
+        {
+          "amount": 100,
+          "odds": 6052,
+          "originalCount": 2376,
+          "remaining": 1305
+        },
+        {
+          "amount": 50,
+          "odds": 600,
+          "originalCount": 23965,
+          "remaining": 13288
+        },
+        {
+          "amount": 20,
+          "odds": 300,
+          "originalCount": 47935,
+          "remaining": 26747
+        },
+        {
+          "amount": 10,
+          "odds": 125,
+          "originalCount": 115056,
+          "remaining": 64757
+        },
+        {
+          "amount": 5,
+          "odds": 100,
+          "originalCount": 143724,
+          "remaining": 81447
+        },
+        {
+          "amount": 4,
+          "odds": 60,
+          "originalCount": 239729,
+          "remaining": 137442
+        },
+        {
+          "amount": 2,
+          "odds": 15,
+          "originalCount": 958754,
+          "remaining": 557357
+        },
+        {
+          "amount": 1,
+          "odds": 10,
+          "originalCount": 1438032,
+          "remaining": 863961
+        }
+      ],
+      "overallOdds": 4.84,
+      "computed": {
+        "originalTickets": 14380500,
+        "fractionRemaining": 0.588,
+        "ticketsRemaining": 8456425,
+        "remainingPrizeValue": 5161088,
+        "evPerTicket": 0.6103,
+        "roi": 0.6103,
+        "topPrizesRemaining": 13,
+        "topPrizeAmount": 9000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1636",
+      "name": "LUCKY BUCKS",
+      "price": 1,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1636",
+      "tiers": [
+        {
+          "amount": 10000,
+          "odds": 1040025,
+          "originalCount": 24,
+          "remaining": 14
+        },
+        {
+          "amount": 200,
+          "odds": 15018,
+          "originalCount": 1662,
+          "remaining": 990
+        },
+        {
+          "amount": 100,
+          "odds": 3998,
+          "originalCount": 6243,
+          "remaining": 3753
+        },
+        {
+          "amount": 50,
+          "odds": 750,
+          "originalCount": 33302,
+          "remaining": 20422
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 83202,
+          "remaining": 51542
+        },
+        {
+          "amount": 10,
+          "odds": 150,
+          "originalCount": 166468,
+          "remaining": 103690
+        },
+        {
+          "amount": 5,
+          "odds": 150,
+          "originalCount": 166320,
+          "remaining": 104807
+        },
+        {
+          "amount": 4,
+          "odds": 50,
+          "originalCount": 499204,
+          "remaining": 316228
+        },
+        {
+          "amount": 2,
+          "odds": 14,
+          "originalCount": 1830274,
+          "remaining": 1176210
+        },
+        {
+          "amount": 1,
+          "odds": 10,
+          "originalCount": 2496230,
+          "remaining": 1634500
+        }
+      ],
+      "overallOdds": 4.72,
+      "computed": {
+        "originalTickets": 24960600,
+        "fractionRemaining": 0.6459,
+        "ticketsRemaining": 16121637,
+        "remainingPrizeValue": 9835717,
+        "evPerTicket": 0.6101,
+        "roi": 0.6101,
+        "topPrizesRemaining": 14,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1567",
+      "name": "$5 MONOPOLY&trade; SECRET VAULT",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1567",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 6477970,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 5000,
+          "odds": 259119,
+          "originalCount": 150,
+          "remaining": 16
+        },
+        {
+          "amount": 1000,
+          "odds": 13265,
+          "originalCount": 2930,
+          "remaining": 176
+        },
+        {
+          "amount": 500,
+          "odds": 2035,
+          "originalCount": 19102,
+          "remaining": 1039
+        },
+        {
+          "amount": 200,
+          "odds": 959,
+          "originalCount": 40519,
+          "remaining": 2250
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 161903,
+          "remaining": 9874
+        },
+        {
+          "amount": 50,
+          "odds": 267,
+          "originalCount": 145743,
+          "remaining": 10003
+        },
+        {
+          "amount": 30,
+          "odds": 218,
+          "originalCount": 178102,
+          "remaining": 10275
+        },
+        {
+          "amount": 25,
+          "odds": 171,
+          "originalCount": 226702,
+          "remaining": 14081
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 647797,
+          "remaining": 44047
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 4534669,
+          "remaining": 381035
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 3886882,
+          "remaining": 348560
+        }
+      ],
+      "overallOdds": 3.95,
+      "computed": {
+        "originalTickets": 38867820,
+        "fractionRemaining": 0.0834,
+        "ticketsRemaining": 3242857,
+        "remainingPrizeValue": 9807415,
+        "evPerTicket": 3.0243,
+        "roi": 0.6049,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1615",
+      "name": "HAPPY NEW YEAR 2026",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1615",
+      "tiers": [
+        {
+          "amount": 50000,
+          "odds": 2039275,
+          "originalCount": 6,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 1019638,
+          "originalCount": 12,
+          "remaining": 2
+        },
+        {
+          "amount": 1000,
+          "odds": 29698,
+          "originalCount": 412,
+          "remaining": 53
+        },
+        {
+          "amount": 400,
+          "odds": 7511,
+          "originalCount": 1629,
+          "remaining": 228
+        },
+        {
+          "amount": 100,
+          "odds": 901,
+          "originalCount": 13577,
+          "remaining": 1731
+        },
+        {
+          "amount": 40,
+          "odds": 749,
+          "originalCount": 16334,
+          "remaining": 2202
+        },
+        {
+          "amount": 30,
+          "odds": 300,
+          "originalCount": 40763,
+          "remaining": 5626
+        },
+        {
+          "amount": 25,
+          "odds": 300,
+          "originalCount": 40786,
+          "remaining": 6398
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 81571,
+          "remaining": 12465
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 244713,
+          "remaining": 39038
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 163118,
+          "remaining": 27208
+        },
+        {
+          "amount": 4,
+          "odds": 13,
+          "originalCount": 978833,
+          "remaining": 173925
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 1223630,
+          "remaining": 247608
+        }
+      ],
+      "overallOdds": 4.36,
+      "computed": {
+        "originalTickets": 12235613,
+        "fractionRemaining": 0.1841,
+        "ticketsRemaining": 2252632,
+        "remainingPrizeValue": 2720746,
+        "evPerTicket": 1.2078,
+        "roi": 0.6039,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 50000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1552",
+      "name": "20X THE CASH",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1552",
+      "tiers": [
+        {
+          "amount": 100000,
+          "odds": 2309807,
+          "originalCount": 14,
+          "remaining": 1
+        },
+        {
+          "amount": 1000,
+          "odds": 25995,
+          "originalCount": 1244,
+          "remaining": 175
+        },
+        {
+          "amount": 400,
+          "odds": 30137,
+          "originalCount": 1073,
+          "remaining": 138
+        },
+        {
+          "amount": 100,
+          "odds": 683,
+          "originalCount": 47336,
+          "remaining": 6216
+        },
+        {
+          "amount": 50,
+          "odds": 186,
+          "originalCount": 173949,
+          "remaining": 22790
+        },
+        {
+          "amount": 20,
+          "odds": 150,
+          "originalCount": 215582,
+          "remaining": 28478
+        },
+        {
+          "amount": 10,
+          "odds": 50,
+          "originalCount": 646746,
+          "remaining": 92230
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 431151,
+          "remaining": 61408
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 2371530,
+          "remaining": 368004
+        },
+        {
+          "amount": 2,
+          "odds": 11,
+          "originalCount": 3018159,
+          "remaining": 578477
+        }
+      ],
+      "overallOdds": 4.68,
+      "computed": {
+        "originalTickets": 32337300,
+        "fractionRemaining": 0.1676,
+        "ticketsRemaining": 5421323,
+        "remainingPrizeValue": 6519170,
+        "evPerTicket": 1.2025,
+        "roi": 0.6013,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1629",
+      "name": "PRECIOUS METALS GOLD MULTIPLIE",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1629",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 4045845,
+          "originalCount": 4,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 323668,
+          "originalCount": 50,
+          "remaining": 3
+        },
+        {
+          "amount": 2000,
+          "odds": 59280,
+          "originalCount": 273,
+          "remaining": 27
+        },
+        {
+          "amount": 1000,
+          "odds": 20129,
+          "originalCount": 804,
+          "remaining": 63
+        },
+        {
+          "amount": 500,
+          "odds": 1195,
+          "originalCount": 13546,
+          "remaining": 881
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 67496,
+          "remaining": 4585
+        },
+        {
+          "amount": 50,
+          "odds": 120,
+          "originalCount": 134726,
+          "remaining": 10223
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 269723,
+          "remaining": 19753
+        },
+        {
+          "amount": 10,
+          "odds": 9,
+          "originalCount": 1780216,
+          "remaining": 139776
+        },
+        {
+          "amount": 5,
+          "odds": 9,
+          "originalCount": 1887918,
+          "remaining": 209856
+        }
+      ],
+      "overallOdds": 3.9,
+      "computed": {
+        "originalTickets": 16183440,
+        "fractionRemaining": 0.0927,
+        "ticketsRemaining": 1500287,
+        "remainingPrizeValue": 4399250,
+        "evPerTicket": 2.9323,
+        "roi": 0.5865,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1583",
+      "name": "$10K GOLD RUSH MULTIPLIER",
+      "price": 1,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1583",
+      "tiers": [
+        {
+          "amount": 10000,
+          "odds": 865631,
+          "originalCount": 64,
+          "remaining": 21
+        },
+        {
+          "amount": 200,
+          "odds": 23990,
+          "originalCount": 2303,
+          "remaining": 575
+        },
+        {
+          "amount": 100,
+          "odds": 4784,
+          "originalCount": 11544,
+          "remaining": 2948
+        },
+        {
+          "amount": 40,
+          "odds": 1198,
+          "originalCount": 46059,
+          "remaining": 11584
+        },
+        {
+          "amount": 30,
+          "odds": 1200,
+          "originalCount": 45945,
+          "remaining": 12003
+        },
+        {
+          "amount": 20,
+          "odds": 300,
+          "originalCount": 184017,
+          "remaining": 51620
+        },
+        {
+          "amount": 10,
+          "odds": 100,
+          "originalCount": 552158,
+          "remaining": 155143
+        },
+        {
+          "amount": 5,
+          "odds": 150,
+          "originalCount": 368071,
+          "remaining": 104668
+        },
+        {
+          "amount": 4,
+          "odds": 50,
+          "originalCount": 1103709,
+          "remaining": 312356
+        },
+        {
+          "amount": 2,
+          "odds": 14,
+          "originalCount": 4048553,
+          "remaining": 1320926
+        },
+        {
+          "amount": 1,
+          "odds": 10,
+          "originalCount": 5520080,
+          "remaining": 1783348
+        }
+      ],
+      "overallOdds": 4.65,
+      "computed": {
+        "originalTickets": 55213225,
+        "fractionRemaining": 0.316,
+        "ticketsRemaining": 17448871,
+        "remainingPrizeValue": 10225044,
+        "evPerTicket": 0.586,
+        "roi": 0.586,
+        "topPrizesRemaining": 21,
+        "topPrizeAmount": 10000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1596",
+      "name": "GUY HARVEY $1M FLORIDA BIG BILLS",
+      "price": 5,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1596",
+      "tiers": [
+        {
+          "amount": 1000000,
+          "odds": 4742520,
+          "originalCount": 3,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 444611,
+          "originalCount": 32,
+          "remaining": 1
+        },
+        {
+          "amount": 5000,
+          "odds": 142276,
+          "originalCount": 100,
+          "remaining": 5
+        },
+        {
+          "amount": 1000,
+          "odds": 17183,
+          "originalCount": 828,
+          "remaining": 49
+        },
+        {
+          "amount": 500,
+          "odds": 1485,
+          "originalCount": 9578,
+          "remaining": 405
+        },
+        {
+          "amount": 100,
+          "odds": 240,
+          "originalCount": 59292,
+          "remaining": 2615
+        },
+        {
+          "amount": 50,
+          "odds": 231,
+          "originalCount": 61669,
+          "remaining": 2934
+        },
+        {
+          "amount": 30,
+          "odds": 240,
+          "originalCount": 59366,
+          "remaining": 2778
+        },
+        {
+          "amount": 25,
+          "odds": 241,
+          "originalCount": 59153,
+          "remaining": 2829
+        },
+        {
+          "amount": 20,
+          "odds": 60,
+          "originalCount": 237126,
+          "remaining": 12148
+        },
+        {
+          "amount": 15,
+          "odds": 60,
+          "originalCount": 237126,
+          "remaining": 12345
+        },
+        {
+          "amount": 10,
+          "odds": 10,
+          "originalCount": 1422570,
+          "remaining": 78935
+        },
+        {
+          "amount": 5,
+          "odds": 10,
+          "originalCount": 1422904,
+          "remaining": 108860
+        }
+      ],
+      "overallOdds": 3.99,
+      "computed": {
+        "originalTickets": 14227580,
+        "fractionRemaining": 0.0627,
+        "ticketsRemaining": 892392,
+        "remainingPrizeValue": 2610550,
+        "evPerTicket": 2.9253,
+        "roi": 0.5851,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 1000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1582",
+      "name": "ULTIMATE VIP CASHWORD",
+      "price": 10,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1582",
+      "tiers": [
+        {
+          "amount": 2000000,
+          "odds": 3168870,
+          "originalCount": 8,
+          "remaining": 0
+        },
+        {
+          "amount": 100000,
+          "odds": 1056290,
+          "originalCount": 24,
+          "remaining": 0
+        },
+        {
+          "amount": 10000,
+          "odds": 24098,
+          "originalCount": 1052,
+          "remaining": 38
+        },
+        {
+          "amount": 1000,
+          "odds": 4126,
+          "originalCount": 6144,
+          "remaining": 218
+        },
+        {
+          "amount": 500,
+          "odds": 1503,
+          "originalCount": 16871,
+          "remaining": 453
+        },
+        {
+          "amount": 200,
+          "odds": 1200,
+          "originalCount": 21134,
+          "remaining": 645
+        },
+        {
+          "amount": 100,
+          "odds": 71,
+          "originalCount": 354999,
+          "remaining": 10758
+        },
+        {
+          "amount": 50,
+          "odds": 171,
+          "originalCount": 147826,
+          "remaining": 5601
+        },
+        {
+          "amount": 40,
+          "odds": 109,
+          "originalCount": 232232,
+          "remaining": 6818
+        },
+        {
+          "amount": 30,
+          "odds": 63,
+          "originalCount": 401361,
+          "remaining": 12380
+        },
+        {
+          "amount": 20,
+          "odds": 12,
+          "originalCount": 2112405,
+          "remaining": 80080
+        },
+        {
+          "amount": 10,
+          "odds": 6,
+          "originalCount": 4225612,
+          "remaining": 245812
+        }
+      ],
+      "overallOdds": 3.37,
+      "computed": {
+        "originalTickets": 25350144,
+        "fractionRemaining": 0.0482,
+        "ticketsRemaining": 1223074,
+        "remainingPrizeValue": 7013190,
+        "evPerTicket": 5.7341,
+        "roi": 0.5734,
+        "topPrizesRemaining": 0,
+        "topPrizeAmount": 2000000
+      }
+    },
+    {
+      "state": "fl",
+      "gameId": "1620",
+      "name": "20X THE CASH",
+      "price": 2,
+      "url": "https://floridalottery.com/games/scratch-offs/view?id=1620",
+      "tiers": [
+        {
+          "amount": 100000,
+          "odds": 2233275,
+          "originalCount": 10,
+          "remaining": 1
+        },
+        {
+          "amount": 1000,
+          "odds": 78636,
+          "originalCount": 284,
+          "remaining": 19
+        },
+        {
+          "amount": 400,
+          "odds": 16409,
+          "originalCount": 1361,
+          "remaining": 101
+        },
+        {
+          "amount": 100,
+          "odds": 749,
+          "originalCount": 29810,
+          "remaining": 1897
+        },
+        {
+          "amount": 50,
+          "odds": 190,
+          "originalCount": 117377,
+          "remaining": 8421
+        },
+        {
+          "amount": 25,
+          "odds": 150,
+          "originalCount": 148900,
+          "remaining": 12056
+        },
+        {
+          "amount": 10,
+          "odds": 54,
+          "originalCount": 416891,
+          "remaining": 34981
+        },
+        {
+          "amount": 5,
+          "odds": 75,
+          "originalCount": 297834,
+          "remaining": 25825
+        },
+        {
+          "amount": 4,
+          "odds": 14,
+          "originalCount": 1637489,
+          "remaining": 159007
+        },
+        {
+          "amount": 2,
+          "odds": 10,
+          "originalCount": 2233330,
+          "remaining": 293366
+        }
+      ],
+      "overallOdds": 4.57,
+      "computed": {
+        "originalTickets": 22332750,
+        "fractionRemaining": 0.1097,
+        "ticketsRemaining": 2449800,
+        "remainingPrizeValue": 2773245,
+        "evPerTicket": 1.132,
+        "roi": 0.566,
+        "topPrizesRemaining": 1,
+        "topPrizeAmount": 100000
+      }
+    }
+  ]
+}
